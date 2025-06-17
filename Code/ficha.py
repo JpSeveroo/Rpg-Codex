@@ -4,7 +4,7 @@ def criar_ficha():
     nick = input('Nome: ').strip().lower()
 
     print('='*15)
-    print('\t\tEscolha uma raça').upper()
+    print('\t\tEscolha uma raça'.upper())
     print('='*15)
     print("1. Humano      → +1 em todos os atributos | Sem habilidades especiais")
     print("2. Elfo        → +3 Destreza, +2 Inteligência | -2 Constituição")
@@ -25,7 +25,7 @@ def criar_ficha():
 #  mas por enquanto estou fazendo o escopo geral. O mesmo serve pras classes abaixo
 
     print('='*15)
-    print("\nEscolha uma classe:").upper()
+    print("\nEscolha uma classe:".upper())
     print('='*15)
     print("1. Guerreiro  → +5 Constituição, +3 Força | Mana -20")
     print("2. Ladino     → +5 Destreza, +2 Criatividade | -2 Constituição")
@@ -42,7 +42,10 @@ def criar_ficha():
         if classe in classes_validas:
             break
         print("Classe inválida. Tente novamente.")
-    
+
+if __name__ == '__main__':
+    criar_ficha()
+
 #A seguir tem que fazer o esquema de distribuição de pontos por atributos(30 pontos) conforme o gosto do usuário e em seguida 
 # fazer o balanceamento conforme a escolha de classe e raça. Posteriormente vincular as pericias com os atributos. Fazer o return 
 # da ficha completa e exibir que a ficha foi criada com sucesso terminando essa função criada
