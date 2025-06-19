@@ -32,7 +32,13 @@ class Personagem:
         racas_validas = {"humano", "elfo", "draconiano"}
 
         while True:
-            self.raca = input('Raça: ').strip().lower()
+            escolha_raca = input('Escolha uma raça: ').strip().lower()
+            if escolha_raca == '1' or escolha_raca == 'humano':
+                self.raca = 'humano'
+            elif escolha_raca == '2' or escolha_raca == 'elfo':
+                self.raca = 'elfo'
+            elif escolha_raca == '3' or escolha_raca == 'draconiano':
+                self.raca = 'draconiano'
             if self.raca in racas_validas:
                 break
             print("Raça inválida. Tente novamente.")
@@ -49,7 +55,15 @@ class Personagem:
         classes_validas = {"guerreiro", "ladino", "mago", "clérigo"}
 
         while True:
-            self.classe = input('Classe: ').strip().lower()
+            escolha_classe = input('Escolha uma classe: ').strip().lower()
+            if escolha_classe == '1' or escolha_classe == 'guerreiro':
+                self.classe = 'guerreiro'
+            elif escolha_classe == '2' or escolha_classe == 'ladino':
+                self.classe = 'ladino'
+            elif escolha_classe == '3' or escolha_classe == 'mago':
+                self.classe = 'mago'
+            elif escolha_classe == '4' or escolha_classe == 'clérigo':
+                self.classe = 'clérigo'
             if self.classe in classes_validas:
                 break
             print("Classe inválida. Tente novamente.")
@@ -58,7 +72,7 @@ class Personagem:
         print('\tDIVISÃO DE PONTOS POR ATRIBUTOS\n')
         print('• FORÇA\n• DESTREZA\n• CONSTITUIÇÃO\n• CARISMA\n• INTELIGÊNCIA')
         print('\n[DICAS]')
-        print('* Divida seus pontos sabiamente. Lembre que os bônus da raça e classe virão depois.')
+        print('* Você tem 30 pontos, divida-os sabiamente. Lembre que os bônus da raça e classe virão depois.')
         print('=='*10)
 
         pontos_disponiveis = 30
