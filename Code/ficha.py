@@ -21,13 +21,13 @@ class Personagem:
         print('='*5, ' CRIAÇÃO DA FICHA CODEX ', '='*5)
         self.nick = input('Nome: ').strip().capitalize()
 
-        print('='*15)
-        print('\t\tEscolha uma raça')
-        print('='*15)
-        print("1. Humano      → +1 em todos os atributos | Sem habilidades especiais")
-        print("2. Elfo        → +3 Destreza, +2 Inteligência | -2 Constituição")
-        print("3. Draconiano  → +5 Força | -3 Carisma, não usa poções")
-        print('='*15)
+        print('='*85)
+        print('\t\t\tEscolha uma raça')
+        print('='*85)
+        print("1. 👨 Humano      → +1 em todos os atributos     | Sem habilidades especiais")
+        print("2. 🧝 Elfo        → +3 Destreza, +2 Inteligência | -2 Constituição")
+        print("3. 🐲 Draconiano  → +5 Força                     | -3 Carisma, não usa poções")
+        print('='*85)
 
         racas_validas = {"humano", "elfo", "draconiano"}
 
@@ -69,29 +69,38 @@ class Personagem:
                 break
             print("❌ Classe inválida. Tente novamente.")
 
-        print('\n')
-        print('='*50)
-        print("\tDivisão de pontos por atributos:")
-        print('='*50)
-        print('\t💪 • FORÇA\n\t🏹 • DESTREZA\n\t🩸 • CONSTITUIÇÃO\n\t💞 • CARISMA\n\t🧠 • INTELIGÊNCIA')
-        print('\n[ DICAS ]')
-        print('*** Você tem 30 pontos, divida-os sabiamente. \n*** Lembre que os bônus da raça e classe virão depois.')
-        print('='*50)
+        while True:
+            pontos_disponiveis = 30
+            temp_atributos = {attr: 0 for attr in self.atributos}
 
-        pontos_disponiveis = 30
-        for atributo in self.atributos:
-            while True:
-                try:
-                    pontos = int(input(f'{atributo.capitalize()}: '))
-                    if 0 <= pontos <= pontos_disponiveis:
-                        self.atributos[atributo] = pontos
-                        pontos_disponiveis -= pontos
-                        print(f"❗ Pontos restantes: {pontos_disponiveis}")
-                        break
-                    else:
-                        print("❌ Número inválido.")
-                except ValueError:
-                    print("❌ Digite um número válido.")
+            print('\n')
+            print('='*50)
+            print("\tDivisão de pontos por atributos:")
+            print('='*50)
+            print('\t💪 • FORÇA\n\t🏹 • DESTREZA\n\t🩸 • CONSTITUIÇÃO\n\t💞 • CARISMA\n\t🧠 • INTELIGÊNCIA')
+            print('\n[ DICAS ]')
+            print('*** Você tem 30 pontos, divida-os sabiamente. \n*** Lembre que os bônus da raça e classe virão depois.')
+            print('='*50)
+
+            for atributo in temp_atributos:
+                while True:
+                    try:
+                        pontos = int(input(f'{atributo.capitalize()} (pontos restantes: {pontos_disponiveis}):'))
+                        if 0 <= pontos <= pontos_disponiveis:
+                            temp_atributos[atributo] = pontos
+                            pontos_disponiveis -= pontos
+                            break
+                        else:
+                            print(f"❌ Número inválido. Você pode alocar entre 0 e {pontos_disponiveis} pontos.")
+                    except ValueError:
+                        print("❌ Digite um número válido.")
+            if pontos_disponiveis == 0:
+                self.atributos = temp_atributos
+                break
+            else:
+                print(f"\n❗ Você deixou {pontos_disponiveis} pontos sem alocar ou alocou mais do que o permitido.")
+                print("Por favor, redistribua seus pontos.")
+                input("Pressione Enter para tentar novamente...")   
 
         # Bônus de raça
         if self.raca == 'humano':
