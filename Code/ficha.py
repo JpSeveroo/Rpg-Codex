@@ -43,14 +43,15 @@ class Personagem:
                 break
             print("Raça inválida. Tente novamente.")
 
-        print('='*15)
-        print("Escolha uma classe:")
-        print('='*15)
-        print("1. Guerreiro  → +5 Constituição, +3 Força | Mana -20")
-        print("2. Ladino     → +5 Destreza, +2 Criatividade | -2 Constituição")
-        print("3. Mago       → +7 Inteligência, +30 Mana | -3 Força, -3 Constituição")
-        print("4. Clérigo    → +5 Carisma, +3 Inteligência | Só pode usar magias sagradas")
-        print('='*15)
+        print('\n')
+        print('='*85)
+        print("\t\t\tEscolha uma classe:")
+        print('='*85)
+        print("⚔️  1. Guerreiro  →  +5 Constituição | +3 Força        | -20 Mana")
+        print("🥷  2. Ladino     →  +5 Destreza     | +2 Criatividade | -2 Constituição")
+        print("🔮 3. Mago       →  +7 Inteligência | +30 Mana        | -3 Força e -3 Constituição")
+        print("🪷  4. Clérigo    →  +5 Carisma      | +3 Inteligência | Só pode usar magias sagradas")
+        print('='*85)
 
         classes_validas = {"guerreiro", "ladino", "mago", "clérigo"}
 
@@ -66,14 +67,16 @@ class Personagem:
                 self.classe = 'clérigo'
             if self.classe in classes_validas:
                 break
-            print("Classe inválida. Tente novamente.")
+            print("❌ Classe inválida. Tente novamente.")
 
-        print('=='*10)
-        print('\tDIVISÃO DE PONTOS POR ATRIBUTOS\n')
-        print('• FORÇA\n• DESTREZA\n• CONSTITUIÇÃO\n• CARISMA\n• INTELIGÊNCIA')
-        print('\n[DICAS]')
-        print('* Você tem 30 pontos, divida-os sabiamente. Lembre que os bônus da raça e classe virão depois.')
-        print('=='*10)
+        print('\n')
+        print('='*50)
+        print("\tDivisão de pontos por atributos:")
+        print('='*50)
+        print('\t💪 • FORÇA\n\t🏹 • DESTREZA\n\t🩸 • CONSTITUIÇÃO\n\t💞 • CARISMA\n\t🧠 • INTELIGÊNCIA')
+        print('\n[ DICAS ]')
+        print('*** Você tem 30 pontos, divida-os sabiamente. \n*** Lembre que os bônus da raça e classe virão depois.')
+        print('='*50)
 
         pontos_disponiveis = 30
         for atributo in self.atributos:
@@ -83,12 +86,12 @@ class Personagem:
                     if 0 <= pontos <= pontos_disponiveis:
                         self.atributos[atributo] = pontos
                         pontos_disponiveis -= pontos
-                        print(f"Pontos restantes: {pontos_disponiveis}")
+                        print(f"❗ Pontos restantes: {pontos_disponiveis}")
                         break
                     else:
-                        print("Número inválido.")
+                        print("❌ Número inválido.")
                 except ValueError:
-                    print("Digite um número válido.")
+                    print("❌ Digite um número válido.")
 
         # Bônus de raça
         if self.raca == 'humano':
@@ -124,7 +127,7 @@ class Personagem:
 
         # Calcular as perícias
         self.calcular_pericias()
-        print("\nFicha criada com sucesso!")
+        print("\n============= 🎊 Ficha criada com sucesso! =============")
 
     def calcular_pericias(self):
         self.pericias = {
@@ -139,16 +142,16 @@ class Personagem:
         }
 
     def visualizar(self):
-        print(f"\n--- Ficha de {self.nick} ---")
-        print(f"Raça: {self.raca.capitalize()} | Classe: {self.classe.capitalize()}")
-        print(f"Nível: {self.nivel} | XP: {self.xp}")
-        print("\nAtributos:")
+        print(f"\n--------- Ficha de {self.nick} ---------")
+        print(f"🧌  Raça: {self.raca.capitalize()} | 💼 Classe: {self.classe.capitalize()}")
+        print(f"⭐ Nível: {self.nivel}   | 💠 XP: {self.xp}")
+        print("\n✨ Atributos:")
         for k, v in self.atributos.items():
             print(f"  {k.capitalize()}: {v}")
-        print("\nPerícias:")
+        print("\n🦾 Perícias:")
         for k, v in self.pericias.items():
             print(f"  {k.capitalize()}: {v}")
-        print(f"\nHP: {self.status['hp']} | Mana: {self.status['mana']}")
+        print(f"\n💖 HP: {self.status['hp']} | 🫧  Mana: {self.status['mana']}")
         print("------------------------------")
 
 if __name__ == "__main__":
