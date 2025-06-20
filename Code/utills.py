@@ -1,3 +1,4 @@
+import hashlib
 import json
 import os
 
@@ -8,6 +9,9 @@ def salvar_infos(path, data):
             json.dump(data, arquivo, indent=4)
     except json.JSONDecodeError:
         print('Não foi possivel salvar as infos')
+
+def cripto(texto):
+    return hashlib.md5(texto.encode()).hexdigest()
 
 def load_infos(path):
     a = str(path) + '.json'

@@ -3,44 +3,28 @@
 #Interface de interação com o usuário -> depois do login
 #Alteração de usuário no login
 import utills
+import users
+import os
+import InquirerPy
+import InquirerPy.inquirer
 
 usuarios = []
 
-def interface():
-    a = int(input())
-    if a == 1 :
-        user = users()
-        user.criar_user()
-        usuarios.append(user)
-        users.save()
-        interface()
-    if a == 2:
-        users.login_user(usuarios)
-        interface()
-    if a == 3:
-        input()
-
-class users:
-    def __init__(self):
-        self._username = ''
-        self._password = ''
-        self.personagens = []
-    
-    @property
-    def username(self):
-        return self._username
-
-    @username.setter
-    def username(self, dado):
-        self._username = dado
-
-    @property
-    def password(self):
-        return self._password
-    
-    @password.setter
-    def password(self, dado):
-        self._password = dado
+class interface:
+    def interface_principal():
+        opcoes = {
+            'Criar usuário': interface.interface_criacao,
+            'Login' : interface.interface_login
+        }
+        os.system('clear')
+        print('Olá, seja bem vindo!')
+        a = InquirerPy.inquirer.select(
+            message='Escolha uma opção',
+            choices=['Criar usuário', 'Login', 'Finalizar' ]
+        ).execute()
+        opcao = opcoes.get(a)
+        if opcao:
+            opcao()
 
     def save():
         lista = []
@@ -48,41 +32,72 @@ class users:
             lista.append(user.__dict__)
         utills.salvar_infos('usuarios', lista)
 
-    def criar_user(self):
-        print('digite o nome do usuário : ')
-        a = input()
-        print('Digite a senha do usuário: ')
-        b = input()
-        self._username = a
-        self._password = b
-
-    def login_user(users):
-        b = input('Digite o username: ')
+    def interface_criacao():
+        user = users.users()
+        a = InquirerPy.inquirer.text(message='Digite o nome de usuário', validate= lambda x: x != '', invalid_message='O campo não pode estar vazio').execute()
+        b = InquirerPy.inquirer.text(message='Digite a senha do usuário', validate= lambda x: x != '', invalid_message='O campo não pode estar vazio').execute()
+        user.criar_user(str(a), utills.cripto(str(b)))
+        usuarios.append(user)
+        interface.save()
+        input()
+        interface.interface_principal()
+    
+    def interface_login():
         lista_username = []
-        def senha():
-            c = input('Digite a senha do usuário:')
-            if usuarios[a].password == c:
-                print('Acesso liberado')
-            else :
-                print('Senha incorreta')
-                senha()
         for i in usuarios:
             lista_username.append(i.username)
-        try:
-            a = lista_username.index(b)
-            senha()
-        except ValueError:
-            print('Usuário não encontrado')
-            interface()
+        a = InquirerPy.inquirer.text(message='Digite o nome de usuário:', validate= lambda x: x in lista_username, invalid_message='Usuário não encontrado').execute()
+        b = InquirerPy.inquirer.text(message='Digite a senha do usuário:', validate= lambda x: x != '', invalid_message='O campo senha não pode estar vazio').execute()
+        c = lista_username.index(a)
+        if usuarios[c].password == utills.cripto(str(b)):
+            print('Acesso liberado!')
+            input()
+            interface.interface_usuário(usuarios[c].username)
+        else:
+            print('Acesso negado!')
+            input()
+            interface.interface_principal()
+
+    def criar_ficha():
+        return
+
+    def jogar():
+        return
+    
+    def visualizar_ficha():
+        return
+    
+    def logout():
+        return
+
+    def interface_usuário(user):
+        os.system('clear')
+        print(f'Seja bem vindo {user}')
+        print()
+        opcoes = {
+            'Jogar': interface.jogar,
+            'Criar Ficha': interface.criar_ficha,
+            'Visualizar fichas': interface.visualizar_ficha,
+            'Logout': interface.logout
+        }
+        a = InquirerPy.inquirer.select(
+            message='Qual das opções você deseja ?',
+            choices= ['Jogar', 'Criar Ficha', 'Visualizar fichas', 'Logout', 'Finalizar']
+        ).execute()
+        b = opcoes.get(a)
+        if b:
+            b()
 
 def load():
-    a = utills.load_infos('usuarios')
-    for item in a:
-        b = users()
-        b.username = item['_username']
-        b.password = item['_password']
-        usuarios.append(b)
+    try:
+        a = utills.load_infos('usuarios')
+        for item in a:
+            b = users.users()
+            b.criar_user(item['_username'], item['_password'])
+            usuarios.append(b)
+    except TypeError:
+        pass
 
 if __name__ == '__main__':
     load()
-    interface()
+    interface.interface_principal()
