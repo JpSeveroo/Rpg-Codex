@@ -1,3 +1,4 @@
+from time import sleep
 class Personagem:
     def __init__(self):
         self.nick = ''
@@ -6,7 +7,7 @@ class Personagem:
         self.xp = 0
         self.nivel = 1
         self.atributos = {
-            "forca": 0,
+            "força": 0,
             "destreza": 0,
             "constituicao": 0,
             "carisma": 0,
@@ -18,9 +19,11 @@ class Personagem:
         self.status = {"hp": 100, "mana": 50}
 
     def criar_ficha(self):
-        print('='*5, ' CRIAÇÃO DA FICHA CODEX ', '='*5)
+        print()
+        print('='*22,'\t    📋 CRIAÇÃO DA FICHA CODEX\t ','='*22)
         self.nick = input('Nome: ').strip().capitalize()
 
+        sleep(1)
         print('='*85)
         print('\t\t\tEscolha uma raça')
         print('='*85)
@@ -41,9 +44,10 @@ class Personagem:
                 self.raca = 'draconiano'
             if self.raca in racas_validas:
                 break
-            print("Raça inválida. Tente novamente.")
+            print("❌Raça inválida. Tente novamente.")
 
-        print('\n')
+        sleep(1)
+        print()
         print('='*85)
         print("\t\t\tEscolha uma classe:")
         print('='*85)
@@ -73,11 +77,12 @@ class Personagem:
             pontos_disponiveis = 30
             temp_atributos = {attr: 0 for attr in self.atributos}
 
-            print('\n')
+            sleep(1)
+            print()
             print('='*50)
             print("\tDivisão de pontos por atributos:")
             print('='*50)
-            print('\t💪 • FORÇA\n\t🏹 • DESTREZA\n\t🩸 • CONSTITUIÇÃO\n\t💞 • CARISMA\n\t🧠 • INTELIGÊNCIA')
+            print('\t💪 → FORÇA\n\t🏹 → DESTREZA\n\t🩸 → CONSTITUIÇÃO\n\t💞 → CARISMA\n\t🧠 → INTELIGÊNCIA')
             print('\n[ DICAS ]')
             print('*** Você tem 30 pontos, divida-os sabiamente. \n*** Lembre que os bônus da raça e classe virão depois.')
             print('='*50)
@@ -111,7 +116,7 @@ class Personagem:
             self.atributos["inteligencia"] += 2
             self.atributos["constituicao"] -= 2
         elif self.raca == "draconiano":
-            self.atributos["forca"] += 5
+            self.atributos["força"] += 5
             self.atributos["carisma"] -= 3
 
         # Bônus de classe e status
@@ -136,6 +141,7 @@ class Personagem:
 
         # Calcular as perícias
         self.calcular_pericias()
+        sleep(1)
         print("\n============= 🎊 Ficha criada com sucesso! =============")
 
     def calcular_pericias(self):
@@ -147,10 +153,11 @@ class Personagem:
             "diplomacia": self.atributos["inteligencia"],
             "percepcao": self.atributos["inteligencia"],
             "maos_rapidas": self.atributos["destreza"],
-            "sobrevivencia": self.atributos["forca"]
+            "sobrevivencia": self.atributos["força"]
         }
 
     def visualizar(self):
+        sleep(1)
         print(f"\n--------- Ficha de {self.nick} ---------")
         print(f"🧌  Raça: {self.raca.capitalize()} | 💼 Classe: {self.classe.capitalize()}")
         print(f"⭐ Nível: {self.nivel}   | 💠 XP: {self.xp}")
@@ -162,6 +169,7 @@ class Personagem:
             print(f"  {k.capitalize()}: {v}")
         print(f"\n💖 HP: {self.status['hp']} | 🫧  Mana: {self.status['mana']}")
         print("------------------------------")
+        print()
 
 if __name__ == "__main__":
     p = Personagem()
