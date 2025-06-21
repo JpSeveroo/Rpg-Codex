@@ -1,7 +1,7 @@
 #Atribuir os personagens criados aos respectivos usuários
-#Interface de login
-#Interface de interação com o usuário -> depois do login
+#Fazer com que seja possivel visualizar apenas os personagens criados pelos usuários
 #Alteração de usuário no login
+#Não permitir nomes iguais em personagens
 import utills
 import users
 import os
@@ -82,7 +82,11 @@ class interface:
         a = []
         for i in personagens:
             a.append(i.nick)
-        print(a)
+        b = InquirerPy.inquirer.select(message='Qual o personagem desejado', choices= a).execute()
+        c = a.index(b)
+        personagens[c].visualizar()
+        input()
+        interface.interface_usuário(user.username)
     
     def logout():
         return
@@ -130,6 +134,7 @@ def load():
         for item in a:
             b = users.users()
             b.criar_user(item['_username'], item['_password'])
+            b.personagens = item['personagens']
             usuarios.append(b)
     except TypeError:
         pass
