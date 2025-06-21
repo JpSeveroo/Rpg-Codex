@@ -1,0 +1,92 @@
+[
+    {
+        "nick": "Andr\u00e9",
+        "raca": "humano",
+        "classe": "ladino",
+        "xp": 0,
+        "nivel": 1,
+        "atributos": {
+            "for\u00e7a": 8,
+            "destreza": 14,
+            "constituicao": 5,
+            "carisma": 4,
+            "inteligencia": 9
+        },
+        "pericias": {
+            "acrobacia": 14,
+            "blefar": 4,
+            "cura": 9,
+            "criatividade": 14,
+            "diplomacia": 9,
+            "percepcao": 9,
+            "maos_rapidas": 14,
+            "sobrevivencia": 8
+        },
+        "inventario": [],
+        "historico": [],
+        "status": {
+            "hp": 90,
+            "mana": 60
+        }
+    },
+    {
+        "nick": "Andr\u00e9",
+        "raca": "humano",
+        "classe": "ladino",
+        "xp": 0,
+        "nivel": 1,
+        "atributos": {
+            "for\u00e7a": 7,
+            "destreza": 12,
+            "constituicao": 5,
+            "carisma": 7,
+            "inteligencia": 9
+        },
+        "pericias": {
+            "acrobacia": 12,
+            "blefar": 7,
+            "cura": 9,
+            "criatividade": 12,
+            "diplomacia": 9,
+            "percepcao": 9,
+            "maos_rapidas": 12,
+            "sobrevivencia": 7
+        },
+        "inventario": [],
+        "historico": [],
+        "status": {
+            "hp": 90,
+            "mana": 60
+        }
+    },
+    {
+        "nick": "Andr\u00e9",
+        "raca": "humano",
+        "classe": "ladino",
+        "xp": 0,
+        "nivel": 1,
+        "atributos": {
+            "for\u00e7a": 7,
+            "destreza": 12,
+            "constituicao": 5,
+            "carisma": 7,
+            "inteligencia": 9
+        },
+        "pericias": {
+            "acrobacia": 12,
+            "blefar": 7,
+            "cura": 9,
+            "criatividade": 12,
+            "diplomacia": 9,
+            "percepcao": 9,
+            "maos_rapidas": 12,
+            "sobrevivencia": 7
+        },
+        "inventario": [],
+        "historico": [],
+        "status": {
+            "hp": 90,
+            "mana": 60
+        }
+    }
+]

@@ -7,8 +7,12 @@ import users
 import os
 import InquirerPy
 import InquirerPy.inquirer
+import ficha
 
 usuarios = []
+personagens = []
+name_list = []
+user = ''
 
 class interface:
     def interface_principal():
@@ -26,11 +30,11 @@ class interface:
         if opcao:
             opcao()
 
-    def save():
+    def save(info, path):
         lista = []
-        for user in usuarios:
+        for user in info:
             lista.append(user.__dict__)
-        utills.salvar_infos('usuarios', lista)
+        utills.salvar_infos(path, lista)
 
     def interface_criacao():
         user = users.users()
@@ -38,7 +42,7 @@ class interface:
         b = InquirerPy.inquirer.text(message='Digite a senha do usuário', validate= lambda x: x != '', invalid_message='O campo não pode estar vazio').execute()
         user.criar_user(str(a), utills.cripto(str(b)))
         usuarios.append(user)
-        interface.save()
+        interface.save(usuarios, 'usuarios')
         input()
         interface.interface_principal()
     
@@ -51,21 +55,34 @@ class interface:
         c = lista_username.index(a)
         if usuarios[c].password == utills.cripto(str(b)):
             print('Acesso liberado!')
+            global user
+            user = usuarios[c]
+            load_caracter()
             input()
-            interface.interface_usuário(usuarios[c].username)
+            interface.interface_usuário(user.username)
         else:
             print('Acesso negado!')
             input()
             interface.interface_principal()
 
     def criar_ficha():
-        return
+        personagem = ficha.Personagem()
+        personagem.criar_ficha()
+        personagens.append(personagem)
+        name_list.append(utills.cripto(personagem.nick))
+        user.personagens = name_list
+        interface.save(usuarios, 'usuarios')
+        interface.save(personagens, 'personagem')
+        interface.interface_usuário(user.username)
 
     def jogar():
         return
     
     def visualizar_ficha():
-        return
+        a = []
+        for i in personagens:
+            a.append(i.nick)
+        print(a)
     
     def logout():
         return
@@ -87,6 +104,25 @@ class interface:
         b = opcoes.get(a)
         if b:
             b()
+
+def load_caracter():
+    try:
+        a = utills.load_infos('personagem')
+        for item in a:
+            b = ficha.Personagem()
+            b.nick = item['nick']
+            b.raca = item['raca']
+            b.classe = item['classe']
+            b.xp = item['xp']
+            b.nivel = item['nivel']
+            b.atributos = item['atributos']
+            b.pericias = item['pericias']
+            b.inventario = item['inventario']
+            b.historico = item['historico']
+            b.status = item['status']
+            personagens.append(b)
+    except TypeError:
+        pass
 
 def load():
     try:
