@@ -21,6 +21,9 @@ class Personagem:
     def criar_ficha(self):
         print()
         print('='*22,'\t    📋 CRIAÇÃO DA FICHA CODEX\t ','='*22)
+        print("\n⚠️  AVISO: Você poderá revisar e alterar as informações da ficha antes da criação final.")
+        print("✅ Siga os passos normalmente. No final, será perguntado se deseja confirmar ou refazer a ficha.\n")
+
         self.nick = input('Nome: ').strip().capitalize()
 
         sleep(1)
@@ -122,7 +125,7 @@ class Personagem:
         # Bônus de classe e status
         if self.classe == "guerreiro":
             self.atributos["constituicao"] += 5
-            self.atributos["forca"] += 3
+            self.atributos["força"] += 3
             self.status = {"hp": 120, "mana": 30}
         elif self.classe == "ladino":
             self.atributos["destreza"] += 5
@@ -131,7 +134,7 @@ class Personagem:
             self.status = {"hp": 90, "mana": 60}
         elif self.classe == "mago":
             self.atributos["inteligencia"] += 7
-            self.atributos["forca"] -= 3
+            self.atributos["força"] -= 3
             self.atributos["constituicao"] -= 3
             self.status = {"hp": 80, "mana": 80}
         elif self.classe == "clérigo":
@@ -142,7 +145,21 @@ class Personagem:
         # Calcular as perícias
         self.calcular_pericias()
         sleep(1)
-        print("\n============= 🎊 Ficha criada com sucesso! =============")
+
+        while True:
+            print()
+            confirmar = input("📝 Deseja confirmar a criação desta ficha? (s/n): ").strip().lower()
+            if confirmar == "s":
+                print("\n============= 🎊 Ficha criada com sucesso! =============")
+                break
+            elif confirmar == "n":
+                print("\n🔁 Recomeçando a criação da ficha...")
+                sleep(1)
+                self.__init__()  # reseta o personagem
+                self.criar_ficha()
+                return  # sai da função atual para evitar sobreposição
+            else:
+                print("❌ Resposta inválida. Digite apenas 's' para sim ou 'n' para não.")
 
     def calcular_pericias(self):
         self.pericias = {
