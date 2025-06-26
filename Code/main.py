@@ -21,7 +21,7 @@ class interface:
             'Login' : interface.interface_login
         }
         os.system('clear')
-        print('Olá, seja bem vindo!')
+        print(' Olá, seja bem vindo!')
         a = InquirerPy.inquirer.select(
             message='Escolha uma opção',
             choices=['Criar usuário', 'Login', 'Finalizar' ]
