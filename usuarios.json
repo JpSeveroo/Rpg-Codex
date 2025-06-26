@@ -3,12 +3,19 @@
         "_username": "Deco",
         "_password": "827ccb0eea8a706c4c34a16891f84e7b",
         "personagens": [
-            "7aae65570b23ae2663394b29fbcc8b8c"
+            "484c05a60b0e997cc78dea3341356feb"
         ]
     },
     {
         "_username": "Mateus",
         "_password": "827ccb0eea8a706c4c34a16891f84e7b",
         "personagens": []
+    },
+    {
+        "_username": "Felipe Cadena",
+        "_password": "3d3aed687aad51229a9af212e8789b91",
+        "personagens": [
+            "607d3eff0d54441baf396a8d4ebd7b0a"
+        ]
     }
 ]

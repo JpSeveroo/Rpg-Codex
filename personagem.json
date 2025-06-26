@@ -28,5 +28,65 @@
             "hp": 90,
             "mana": 60
         }
+    },
+    {
+        "nick": "Jp",
+        "raca": "humano",
+        "classe": "ladino",
+        "xp": 0,
+        "nivel": 1,
+        "atributos": {
+            "for\u00e7a": 7,
+            "destreza": 12,
+            "constituicao": 5,
+            "carisma": 7,
+            "inteligencia": 9
+        },
+        "pericias": {
+            "acrobacia": 12,
+            "blefar": 7,
+            "cura": 9,
+            "criatividade": 12,
+            "diplomacia": 9,
+            "percepcao": 9,
+            "maos_rapidas": 12,
+            "sobrevivencia": 7
+        },
+        "inventario": [],
+        "historico": [],
+        "status": {
+            "hp": 90,
+            "mana": 60
+        }
+    },
+    {
+        "nick": "Kongol",
+        "raca": "humano",
+        "classe": "ladino",
+        "xp": 0,
+        "nivel": 1,
+        "atributos": {
+            "for\u00e7a": 7,
+            "destreza": 12,
+            "constituicao": 5,
+            "carisma": 7,
+            "inteligencia": 9
+        },
+        "pericias": {
+            "acrobacia": 12,
+            "blefar": 7,
+            "cura": 9,
+            "criatividade": 12,
+            "diplomacia": 9,
+            "percepcao": 9,
+            "maos_rapidas": 12,
+            "sobrevivencia": 7
+        },
+        "inventario": [],
+        "historico": [],
+        "status": {
+            "hp": 90,
+            "mana": 60
+        }
     }
 ]
