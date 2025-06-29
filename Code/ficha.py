@@ -148,12 +148,12 @@ class Personagem:
         self.pericias = {
             "acrobacia": self.atributos["destreza"],
             "blefar": self.atributos["carisma"],
-            "cura": self.atributos["inteligencia"],
-            "criatividade": self.atributos["destreza"],
-            "diplomacia": self.atributos["inteligencia"],
+            "mira": self.atributos["destreza"],
+            "diplomacia": self.atributos["carisma"],
             "percepcao": self.atributos["inteligencia"],
             "maos_rapidas": self.atributos["destreza"],
-            "sobrevivencia": self.atributos["força"]
+            "mano_a_mano": self.atributos["força"],
+            "resistencia": self.atributos["força"]
         }
 
     def visualizar(self):
