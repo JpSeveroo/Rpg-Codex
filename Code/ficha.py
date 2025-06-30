@@ -167,6 +167,7 @@ class Personagem:
             "blefar": self.atributos["carisma"],
             "mira": self.atributos["destreza"],
             "diplomacia": self.atributos["carisma"],
+            "furtividade": self.atributos["inteligencia"],
             "percepcao": self.atributos["inteligencia"],
             "maos_rapidas": self.atributos["destreza"],
             "mano_a_mano": self.atributos["força"],
