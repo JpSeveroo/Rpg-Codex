@@ -202,3 +202,15 @@ if __name__ == "__main__":
     p = Personagem()
     p.criar_ficha()
     p.visualizar()
+
+
+import time
+import sys
+
+def digitar(texto, delay=0.05):
+    for caractere in texto:
+        sys.stdout.write(caractere)
+        sys.stdout.flush()
+        time.sleep(delay)
+    print()
+digitar("A ficha foi criada com sucesso!")
