@@ -27,5 +27,6 @@ def tela_battle(personagem, inimigo):
         attack()
     input()
 
+
 if __name__ == '__main__':
     tabelas()
