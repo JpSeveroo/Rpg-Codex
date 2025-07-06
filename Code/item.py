@@ -8,6 +8,7 @@ class item :
         self.nome = ''
         self.efeitos = []
         self.descricao = ''
+        self.qtd = 0
 
 def add_item():
     system('clear')
@@ -43,6 +44,7 @@ def load_itens():
             a.nome = i['nome']
             a.efeitos = i['efeitos']
             a.descricao = i['descricao']
+            a.qtd = 0
             lista_itens.append(a)
     except:
         pass
