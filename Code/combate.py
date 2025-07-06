@@ -29,6 +29,7 @@ def turno_ataque(atacante, defensor):
             defensor.vida_atual = 0
     digitar(f"\n⚔️  {atacante.nick} ataca {defensor.nick} causando {dano} de dano!")
     digitar(f"❤️  {defensor.nick} agora tem {defensor.vida_atual} HP.")
+    time.sleep(0.5)
 
 def barra(life):
         preenchido = int((life.vida_atual/life.status['hp'])*10)
@@ -63,58 +64,73 @@ def ataque_especial(atacante, defensor, pericia):
         print('Mana insuficiente!')
         time.sleep(0.5)
 
-def acoes(valor, personagem, inimigo):
+def acoes(valor, personagem, inimigo, mana_max):
     if valor == 'Atacar':
         turno_ataque(personagem, inimigo)
     elif valor == 'Ataque Especial':
         ataque_especial(personagem, inimigo, 'mano a mano')
     elif valor == 'Inventário':
-        inv(personagem)
+        inv(personagem, mana_max)
 
-def inv(personagem):
+def inv(personagem, mana_max):
     lista_nome = [item.nome for item in personagem.inventario]
     print('-'*35)
-    a = inquirer.select(message='Itens no inventário', choices=lista_nome, show_cursor='*').execute()
-    b = inquirer.confirm(message='Você deseja usar o item ?').execute()
-    if b == True :
-        num = lista_nome.index(a)
-        personagem.inventario[num].qtd -= 1
-        efeitos = personagem.inventario[num].efeitos
-        for efeito in efeitos:
-            if efeito[0] == 'vida_atual':
-                personagem.vida_atual += efeito[1]
-                if personagem.vida_atual > personagem.status['hp']:
-                    personagem.vida_atual = personagem.status['hp']
-            else :
-                personagem.status[efeito[0]] += efeito[1]
-    else:
-        pass
-    print('-'*35)
-        
+    if len(lista_nome) != 0:
+        a = inquirer.select(message='Itens no inventário', choices=lista_nome).execute()
+        b = inquirer.confirm(message='Você deseja usar o item ?').execute()
+        if b == True :
+            num = lista_nome.index(a)
+            personagem.inventario[num].qtd -= 1
+            efeitos = personagem.inventario[num].efeitos
+            descricao = personagem.inventario[num].descricao
+            for efeito in efeitos:
+                if efeito[0] == 'vida_atual':
+                    personagem.vida_atual += efeito[1]
+                    if personagem.vida_atual > personagem.status['hp']:
+                        personagem.vida_atual = personagem.status['hp']
+                    digitar(descricao)
+                    time.sleep(0.5)
+                else :
+                    personagem.status[efeito[0]] += efeito[1]
+                    digitar(descricao)
+                    time.sleep(0.5)
+                if personagem.status['mana'] > mana_max:
+                    personagem.status['mana'] = mana_max
+        else:
+            pass
+        print('-'*35)
+    else :
+        print('Não há itens no seu inventário!')
+        print('-'*35)
+
 #Interromper a luta quando o personagem ou inimigo morrer
 
-def loop_principal(personagem, inimigo):
+def loop_principal(personagem, inimigo, mana_max):
     system('clear')
     acoes_inimigo = {1:'Atacar', 2:'Ataque Especial'}
     tabelas(personagem, inimigo)
     print()
     a = inquirer.select(message='Qual a sua próxima ação: ', choices=['Atacar', 'Ataque Especial', 'Inventário', 'Fugir']).execute()
-    #turno jogador
-    acoes(a, personagem, inimigo)
-    #turno da IA
-    if inimigo.status['mana'] > 0 :
-        b = random.randint(1, 2)
-        b = acoes_inimigo.get(b)
-        acoes(b, inimigo, personagem)
-    else:
-        acoes('Atacar', inimigo, personagem)
-
+    
+    if personagem.vida_atual > 0:
+        #turno jogador
+        acoes(a, personagem, inimigo, mana_max)
+    
+    if inimigo.vida_atual > 0:
+        #turno da IA
+        if inimigo.status['mana'] > 0 :
+            b = random.randint(1, 2)
+            b = acoes_inimigo.get(b)
+            acoes(b, inimigo, personagem, 0)
+        else:
+            acoes('Atacar', inimigo, personagem, 0)
 
 def combate(p1, p2):
     digitar(f"\n🛡️  Combate iniciado entre {p1.nick} e {p2.nick}!")
+    time.sleep(0.5)
+    mana_max1 = p1.status['mana']
     while p1.vida_atual > 0 and p2.vida_atual > 0:
-        loop_principal(p1, p2)
-        
+        loop_principal(p1, p2, mana_max1)
      
 # Exemplo de execução direta
 
@@ -122,6 +138,7 @@ if __name__ == '__main__':
     from ficha import Personagem
 
     pocao_cura.qtd = 2
+    pocao_mana.qtd = 2
 
     p1 = Personagem()
     p1.nick = "Artemis"
@@ -131,6 +148,7 @@ if __name__ == '__main__':
     p1.pericias['mano a mano'] = 12
     p1.vida_atual = 50
     p1.inventario.append(pocao_cura)
+    p1.inventario.append(pocao_mana)
 
     p2 = Personagem()
     p2.nick = "Gorak"

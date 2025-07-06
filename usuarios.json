@@ -3,6 +3,7 @@
         "_username": "Deco",
         "_password": "827ccb0eea8a706c4c34a16891f84e7b",
         "personagens": [
+            "45f1deffb45a5f6c2380a4cee9b3e452",
             "484c05a60b0e997cc78dea3341356feb"
         ]
     },
@@ -22,5 +23,12 @@
         "_username": "jp",
         "_password": "8685a1dc967d5d49ee2a6407169dac35",
         "personagens": []
+    },
+    {
+        "_username": "Maria",
+        "_password": "dd8fcb2c31ee2c6ebbc63f8cf22e7c16",
+        "personagens": [
+            "a6567816e007283cf9781c35b95dd56f"
+        ]
     }
 ]

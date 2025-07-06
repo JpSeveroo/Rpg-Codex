@@ -1,92 +1,66 @@
 [
     {
-        "nick": "Andr\u00e9 felipe",
+        "nick": "Andr\u00e9",
         "raca": "humano",
-        "classe": "ladino",
+        "classe": "guerreiro",
         "xp": 0,
         "nivel": 1,
         "atributos": {
-            "for\u00e7a": 7,
-            "destreza": 12,
-            "constituicao": 5,
+            "for\u00e7a": 15,
+            "destreza": 9,
+            "constituicao": 7,
             "carisma": 7,
-            "inteligencia": 9
+            "inteligencia": 7
         },
         "pericias": {
-            "acrobacia": 12,
+            "acrobacia": 9,
             "blefar": 7,
-            "cura": 9,
-            "criatividade": 12,
-            "diplomacia": 9,
-            "percepcao": 9,
-            "maos_rapidas": 12,
-            "sobrevivencia": 7
+            "mira": 9,
+            "diplomacia": 7,
+            "furtividade": 7,
+            "percepcao": 7,
+            "maos rapidas": 9,
+            "mano a mano": 15,
+            "resistencia": 15
         },
         "inventario": [],
         "historico": [],
         "status": {
-            "hp": 90,
-            "mana": 60
-        }
+            "hp": 100,
+            "mana": 50
+        },
+        "vida_atual": 100
     },
     {
         "nick": "Jp",
         "raca": "humano",
-        "classe": "ladino",
+        "classe": "guerreiro",
         "xp": 0,
         "nivel": 1,
         "atributos": {
-            "for\u00e7a": 7,
-            "destreza": 12,
-            "constituicao": 5,
+            "for\u00e7a": 15,
+            "destreza": 9,
+            "constituicao": 7,
             "carisma": 7,
-            "inteligencia": 9
+            "inteligencia": 7
         },
         "pericias": {
-            "acrobacia": 12,
+            "acrobacia": 9,
             "blefar": 7,
-            "cura": 9,
-            "criatividade": 12,
-            "diplomacia": 9,
-            "percepcao": 9,
-            "maos_rapidas": 12,
-            "sobrevivencia": 7
+            "mira": 9,
+            "diplomacia": 7,
+            "furtividade": 7,
+            "percepcao": 7,
+            "maos rapidas": 9,
+            "mano a mano": 15,
+            "resistencia": 15
         },
         "inventario": [],
         "historico": [],
         "status": {
-            "hp": 90,
-            "mana": 60
-        }
-    },
-    {
-        "nick": "Kongol",
-        "raca": "humano",
-        "classe": "ladino",
-        "xp": 0,
-        "nivel": 1,
-        "atributos": {
-            "for\u00e7a": 7,
-            "destreza": 12,
-            "constituicao": 5,
-            "carisma": 7,
-            "inteligencia": 9
+            "hp": 100,
+            "mana": 50
         },
-        "pericias": {
-            "acrobacia": 12,
-            "blefar": 7,
-            "cura": 9,
-            "criatividade": 12,
-            "diplomacia": 9,
-            "percepcao": 9,
-            "maos_rapidas": 12,
-            "sobrevivencia": 7
-        },
-        "inventario": [],
-        "historico": [],
-        "status": {
-            "hp": 90,
-            "mana": 60
-        }
+        "vida_atual": 100
     }
 ]

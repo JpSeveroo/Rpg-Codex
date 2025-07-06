@@ -213,4 +213,4 @@ def digitar(texto, delay=0.05):
         sys.stdout.flush()
         time.sleep(delay)
     print()
-digitar("A ficha foi criada com sucesso!")
+#digitar("A ficha foi criada com sucesso!")
