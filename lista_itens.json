@@ -3,7 +3,7 @@
         "nome": "Po\u00e7\u00e3o de Cura",
         "efeitos": [
             [
-                "hp",
+                "vida_atual",
                 25
             ]
         ],
