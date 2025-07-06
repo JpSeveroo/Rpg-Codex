@@ -13,10 +13,21 @@ class Personagem:
             "carisma": 0,
             "inteligencia": 0
         }
-        self.pericias = {}
+        self.pericias = {
+            "acrobacia": 0,
+            "blefar": 0,
+            "mira": 0,
+            "diplomacia": 0,
+            "furtividade": 0,
+            "percepção": 0,
+            "maos rapidas": 0,
+            "mano a mano": 0,
+            "resistencia": 0
+        }
         self.inventario = []
         self.historico = []
         self.status = {"hp": 100, "mana": 50}
+        self.vida_atual = self.status["hp"]
 
     def criar_ficha(self):
         print()
@@ -30,9 +41,9 @@ class Personagem:
         print('='*85)
         print('\t\t\tEscolha uma raça')
         print('='*85)
-        print("1. 👨 Humano      → +1 em todos os atributos     | Sem habilidades especiais")
-        print("2. 🧝 Elfo        → +3 Destreza, +2 Inteligência | -2 Constituição")
-        print("3. 🐲 Draconiano  → +5 Força                     | -3 Carisma, não usa poções")
+        print("1. 👨 Humano      → +1 em todos os atributos     | Sem reduções")
+        print("2. 🧝 Elfo        → +3 Destreza, +2 Inteligência | -2 Resistência")
+        print("3. 🐲 Draconiano  → +5 Força                     | -2 Diplomacia")
         print('='*85)
 
         racas_validas = {"humano", "elfo", "draconiano"}
@@ -54,10 +65,10 @@ class Personagem:
         print('='*85)
         print("\t\t\tEscolha uma classe:")
         print('='*85)
-        print("⚔️  1. Guerreiro  →  +5 Constituição | +3 Força        | -20 Mana")
-        print("🥷  2. Ladino     →  +5 Destreza     | +2 Criatividade | -2 Constituição")
-        print("🔮 3. Mago       →  +7 Inteligência | +30 Mana        | -3 Força e -3 Constituição")
-        print("🪷  4. Clérigo    →  +5 Carisma      | +3 Inteligência | Só pode usar magias sagradas")
+        print("⚔️  1. Guerreiro  →  +8 Força        | +2 Destreza     | -3 Diplomacia")
+        print("🥷  2. Ladino     →  +5 Destreza     | +5 Inteligência | -3 Resistência")
+        print("🔮  3. Mago       →  +7 Inteligência | +3 Carisma      | -3 Mano a mano")
+        print("🪷  4. Clérigo    →  +5 Carisma      | +5 Destreza     | -3 Furtividade")
         print('='*85)
 
         classes_validas = {"guerreiro", "ladino", "mago", "clérigo"}
@@ -124,23 +135,21 @@ class Personagem:
 
         # Bônus de classe e status
         if self.classe == "guerreiro":
-            self.atributos["constituicao"] += 5
-            self.atributos["força"] += 3
-            self.status = {"hp": 120, "mana": 30}
+            self.atributos["força"] += 8
+            self.atributos["destreza"] += 2
+            self.pericias["diplomacia"] -= 3
         elif self.classe == "ladino":
             self.atributos["destreza"] += 5
-            self.atributos["constituicao"] -= 2
-            self.atributos["inteligencia"] += 2
-            self.status = {"hp": 90, "mana": 60}
+            self.atributos["inteligencia"] += 5
+            self.pericias["resistencia"] -= 3
         elif self.classe == "mago":
             self.atributos["inteligencia"] += 7
-            self.atributos["força"] -= 3
-            self.atributos["constituicao"] -= 3
-            self.status = {"hp": 80, "mana": 80}
+            self.atributos["carisma"] += 3
+            self.pericias["mano a mano"] -= 3
         elif self.classe == "clérigo":
             self.atributos["carisma"] += 5
-            self.atributos["inteligencia"] += 3
-            self.status = {"hp": 100, "mana": 70}
+            self.atributos["destreza"] += 5
+            self.pericias["furtividade"] -= 3
 
         # Calcular as perícias
         self.calcular_pericias()
@@ -169,8 +178,8 @@ class Personagem:
             "diplomacia": self.atributos["carisma"],
             "furtividade": self.atributos["inteligencia"],
             "percepcao": self.atributos["inteligencia"],
-            "maos_rapidas": self.atributos["destreza"],
-            "mano_a_mano": self.atributos["força"],
+            "maos rapidas": self.atributos["destreza"],
+            "mano a mano": self.atributos["força"],
             "resistencia": self.atributos["força"]
         }
 
