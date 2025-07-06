@@ -36,6 +36,7 @@ def combate(p1, p2):
         time.sleep(1.5)
 
 # Exemplo de execução direta
+
 if __name__ == '__main__':
     from ficha import Personagem
 
