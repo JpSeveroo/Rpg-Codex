@@ -8,6 +8,7 @@ import os
 import InquirerPy
 import InquirerPy.inquirer
 import ficha
+import combate
 
 usuarios = []
 personagens = []
@@ -76,7 +77,7 @@ class interface:
         interface.interface_usuário(user.username)
 
     def jogar():
-        return
+        combate.tela_battle(personagens[0], personagens[1])
     
     def visualizar_ficha():
         a = []
