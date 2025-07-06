@@ -4,16 +4,16 @@ from time import sleep
 from rich.console import Console
 
 def main_battle(personagem, inimigo):
-    max_life = 20
-    #proporção_inimigo = max_life/inimigo.status['hp']
-    #proporção_pers = max_life/personagem.status['hp']
-    barra = '█'*max_life
-    print(f'{personagem.nick}'.ljust(20) + '|' + f'{personagem.status['hp']} {barra}'.ljust(20) + '|')
-    print(f'{inimigo.nick}'.ljust(20) + '|' + f'{inimigo.status['hp']} {barra}'.ljust(20) + '|')
+    tabelas(personagem, inimigo)
     print()
     a = inquirer.select(message='O que você deseja fazer :', choices=['Atacar', 'Defender', 'Inventário', 'Fugir']).execute()
     return a
 
+def tabelas(personagem, inimigo):
+    print('-'*35 + ' '*35 + '-'*35)
+    print('|' + f'{personagem.nick}'.center(33) + '|')
+    return inimigo
+    
 def attack():
     return
 
@@ -26,3 +26,6 @@ def tela_battle(personagem, inimigo):
     if a == 'Atacar':
         attack()
     input()
+
+if __name__ == '__main__':
+    tabelas()
