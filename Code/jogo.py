@@ -1,6 +1,7 @@
 import time
 from ficha import Personagem
 import sys
+import os
 from rich import print
 from item import lista_itens
 import inventario
