@@ -3,6 +3,8 @@ from InquirerPy import inquirer
 from ficha import Personagem
 import os
 
+#código corrigido
+
 lista_de_nomes_de_itens = [i.nome for i in item.lista_itens]
 
 class Equipamento:
