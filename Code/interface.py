@@ -20,6 +20,7 @@ user = ''
 personagem_escolhido = ''
 
 class interface:
+
     def interface_principal():
         opcoes = {
             'Criar usuário': interface.interface_criacao,
@@ -27,14 +28,20 @@ class interface:
         }
         os.system('cls' if os.name == 'nt' else 'clear')
         print(' Olá, seja bem vindo!')
+
         a = InquirerPy.inquirer.select(
             message='Escolha uma opção',
             choices=['Criar usuário', 'Login', 'Finalizar' ]
         ).execute()
+
+        if a == 'Finalizar':
+            print('Encerrando o programa')
+            return
+        
         opcao = opcoes.get(a)
         if opcao:
             opcao()
-
+ 
     def save(info, path):
         lista = []
         for user in info:

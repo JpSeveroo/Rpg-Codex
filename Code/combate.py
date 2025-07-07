@@ -9,7 +9,8 @@ item.load_itens()
 pocao_cura = item.lista_itens[0]
 pocao_mana = item.lista_itens[1]
 
-#funções utilitarias
+"""=== FUNÇÕES UTILITARIAS ==="""
+
 def limpar_tela():
     os.system('cls' if os.name == 'nt' else 'clear')
 
@@ -202,7 +203,7 @@ def combate(p1, p2):
             digitar(f"\n🏃 {p1.nick} conseguiu fugir do combate!")
             return p1
      
-# Exemplo de execução direta
+"""=== EXEMPLO DE EXECUÇÃO ==="""
 
 if __name__ == '__main__':
     from ficha import Personagem
