@@ -4,6 +4,7 @@ import sys
 import os
 from InquirerPy import inquirer
 import item
+import ficha
 
 item.load_itens()
 pocao_cura = item.lista_itens[0]
@@ -58,13 +59,13 @@ def ataque(atacante, defensor, pericia_principal):
             defensor.vida_atual = 0
     digitar(f"\n⚔️  {atacante.nick} ataca {defensor.nick} causando {dano} de dano!")
     digitar(f"❤️  {defensor.nick} agora tem {defensor.vida_atual} HP.")
-    time.sleep(0.8)
+    time.sleep(2)
 
 def ataque_especial(atacante, defensor, pericia_principal):
     custo_especial = 10
     if atacante.status['mana'] < custo_especial:
         digitar("⚠️ Mana insuficiente para ataque especial! Tente outra ação.")
-        time.sleep(0.8)
+        time.sleep(2)
         return False  # não conseguiu atacar
     
     # garante que a perícia extra não seja a mesma que a principal
@@ -192,14 +193,9 @@ def inv(personagem, mana_max):
         print('-'*35)
 
 #Interromper a luta quando o personagem ou inimigo morrer
-def loop_principal(personagem, inimigo, mana_max, mana_max_inimigo):
+def loop_principal(personagem, inimigo, mana_max):
     limpar_tela()
-    acoes_inimigo = {
-    1: 'Corpo a Corpo',
-    2: 'Longo Alcance',
-    3: 'Ataque Especial Corpo a Corpo',
-    4: 'Ataque Especial Longo Alcance'
-}
+    acoes_inimigo = {1: 'Ataque'}
     tabelas(personagem, inimigo)
     print()
 
@@ -207,13 +203,26 @@ def loop_principal(personagem, inimigo, mana_max, mana_max_inimigo):
         a = inquirer.select(
             message='Qual a sua próxima ação:',
 
-            choices=['Corpo a Corpo', 'Longo Alcance', 'Ataque Especial Corpo a Corpo', 'Ataque Especial Longo Alcance', 'Inventário', 'Esquivar']
+            choices=['Ataque', 'Ataque Especial', 'Inventário', 'Esquivar']
         ).execute()
 
         if personagem.vida_atual <= 0:
+            print('Seu personagem foi reduzido a um amontoado de código.')
             return #personagem morreu
         
-        if a == 'Esquivar':
+        if a == 'Ataque':
+            a2 = inquirer.select(
+                message='Qual a sua próxima ação:',
+
+                choices=['Corpo a corpo (mano a mano)', 'Longo alcance (mira)']
+            ).execute()
+        elif a == 'Ataque Especial':
+            a2 = inquirer.select(
+                message='Qual a sua próxima ação:',
+
+                choices=['Corpo a corpo (mano a mano)', 'Longo alcance (mira)']
+            ).execute()
+        elif a == 'Esquivar':
             sucesso = esquivar(personagem, mana_max)
             if sucesso:
                 digitar("Você pode agir novamente após esquivar!")
@@ -242,7 +251,7 @@ def loop_principal(personagem, inimigo, mana_max, mana_max_inimigo):
             acao_ia = 'Esquivar'
 
         if acao_ia == 'Esquivar':
-            sucesso = esquivar(inimigo, mana_max_inimigo)
+            sucesso = esquivar(inimigo)
             if not sucesso:
                 return
             else:
@@ -253,7 +262,7 @@ def loop_principal(personagem, inimigo, mana_max, mana_max_inimigo):
                     b = random.randint(1, 2)
                     acao_ia = acoes_inimigo.get(b)
 
-        acoes(acao_ia, inimigo, personagem, mana_max_inimigo)
+        acoes(acao_ia, inimigo, personagem)
 
 
 def combate(p1, p2):
