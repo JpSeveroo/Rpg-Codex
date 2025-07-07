@@ -59,6 +59,7 @@ def interface_inv(personagem):
     print(a)
 
 if __name__ == '__main__':
+    item.load_itens()
     p = Personagem()
     p.inventario.append(item.lista_itens[4])
     p.inventario.append(item.lista_itens[5])

@@ -9,6 +9,7 @@ class item :
         self.efeitos = []
         self.descricao = ''
         self.qtd = 0
+        self.categoria = ''
 
 def add_item():
     system('clear')
@@ -27,7 +28,9 @@ def add_item():
     objeto.nome = a
     objeto.efeitos = lista_de_efeitos
     objeto.descricao = c
+    objeto.categoria = input('Qual a categoria do item : (cabeca, corpo, pes, maos)')
     lista_itens.append(objeto)
+    interface()
 
 def mostrar():
     system('clear')
@@ -45,6 +48,7 @@ def load_itens():
             a.efeitos = i['efeitos']
             a.descricao = i['descricao']
             a.qtd = 0
+            a.categoria = ''
             lista_itens.append(a)
     except:
         pass
@@ -63,6 +67,7 @@ def edit_item():
         lista_de_efeitos.append(lista)
     lista_itens[a].efeitos = lista_de_efeitos
     lista_itens[a].descricao = input('Nova descrição: ')
+    lista_itens[a].categoria = input('Qual a categoria do item : (cabeca, corpo, pes, maos)')
 
 def excluir_item():
     return
@@ -75,6 +80,7 @@ def write():
     utills.salvar_infos('lista_itens', lista)
 
 def interface():
+    write()
     print('1- Adicionar um item')
     print('2- Editar um item')
     print('3- Excluir um item')

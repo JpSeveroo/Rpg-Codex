@@ -82,10 +82,15 @@ class interface:
 
     def jogar():
         os.system('clear')
-        b = InquirerPy.inquirer.select(message='Qual o personagem desejado', choices= name_list).execute()
-        c = name_list.index(b)
-        global personagem_escolhido
-        personagem_escolhido = personagens[c]
+        try:
+            b = InquirerPy.inquirer.select(message='Qual o personagem desejado', choices= name_list).execute()
+            c = name_list.index(b)
+            global personagem_escolhido
+            personagem_escolhido = personagens[c]
+        except:
+            print('Não há nenhum personagem criado!')
+            input('Pressione qualquer tecla para voltar ao menu...')
+            interface.interface_usuário(user)
         jogo.lore_1_andar(personagem_escolhido)
     
     def visualizar_ficha():

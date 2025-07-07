@@ -8,7 +8,8 @@
             ]
         ],
         "descricao": "Restaura 25 pontos de HP",
-        "qtd": 0
+        "qtd": 0,
+        "categoria": ""
     },
     {
         "nome": "Po\u00e7\u00e3o de Mana",
@@ -19,7 +20,8 @@
             ]
         ],
         "descricao": "Restaura 25 pontos de MP",
-        "qtd": 0
+        "qtd": 0,
+        "categoria": ""
     },
     {
         "nome": "Arco Simples",
@@ -30,7 +32,8 @@
             ]
         ],
         "descricao": "Leve, resistente, s\u00edmbolo do treinamento \u00e9lfico. N\u00e3o m\u00e1gico e um pouco velho, mas us\u00e1vel. (mira)",
-        "qtd": 0
+        "qtd": 0,
+        "categoria": ""
     },
     {
         "nome": "Broche da Folha",
@@ -41,7 +44,8 @@
             ]
         ],
         "descricao": "Um broche simples que pode ajudar em intera\u00e7\u00f5es sociais. (diplomacia)",
-        "qtd": 0
+        "qtd": 0,
+        "categoria": ""
     },
     {
         "nome": "Luvas \u00c9lficas Surradas",
@@ -52,7 +56,8 @@
             ]
         ],
         "descricao": "Luvas leves e confort\u00e1veis. Oferecem vantagem em tarefas delicadas. (m\u00e3os r\u00e1pidas)",
-        "qtd": 0
+        "qtd": 0,
+        "categoria": ""
     },
     {
         "nome": "Espada de combate",
@@ -63,7 +68,8 @@
             ]
         ],
         "descricao": "Confi\u00e1vel e robusta, a cl\u00e1ssica espada de um aventureiro iniciante. (mano a mano)",
-        "qtd": 0
+        "qtd": 0,
+        "categoria": ""
     },
     {
         "nome": "Medalh\u00e3o da Sorte",
@@ -74,7 +80,8 @@
             ]
         ],
         "descricao": "Um amuleto simples que ajuda a encontrar respostas por pura sorte. (percep\u00e7\u00e3o)",
-        "qtd": 0
+        "qtd": 0,
+        "categoria": ""
     },
     {
         "nome": "Botas de Couro",
@@ -85,7 +92,8 @@
             ]
         ],
         "descricao": "Melhora a armadura e a resist\u00eancia a terrenos dif\u00edceis (lama, neve, areia) fora de combate. (resist\u00eancia) (efeito)",
-        "qtd": 0
+        "qtd": 0,
+        "categoria": ""
     },
     {
         "nome": "Adaga de Escamas",
@@ -96,7 +104,8 @@
             ]
         ],
         "descricao": "Pequena adaga com s\u00edmbolos drac\u00f4nicos entalhados, item comum entre guerreiros draconianos inexperientes. (mano a mano)",
-        "qtd": 0
+        "qtd": 0,
+        "categoria": ""
     },
     {
         "nome": "Talism\u00e3 do Ca\u00e7ador",
@@ -107,7 +116,8 @@
             ]
         ],
         "descricao": "Objeto que alimenta o instinto de ca\u00e7a dos draconianos, os deixando mais \u00e1geis. (acrobacia)",
-        "qtd": 0
+        "qtd": 0,
+        "categoria": ""
     },
     {
         "nome": "Colar de Pedra Drac\u00f4nica",
@@ -118,7 +128,8 @@
             ]
         ],
         "descricao": "Pequeno pingente com uma pedra da cor do drag\u00e3o ancestral do personagem; Acalma o cora\u00e7\u00e3o dos draconianos e os deixam mais soci\u00e1veis. (diplomacia)",
-        "qtd": 0
+        "qtd": 0,
+        "categoria": ""
     },
     {
         "nome": "Mascara da Inverdade",
@@ -129,7 +140,8 @@
             ]
         ],
         "descricao": "Mascara magica que muda a express\u00e3o facial do personagem conforme a necessidade da conversa. Melhora a capacidade de mentir. (blefe)",
-        "qtd": 0
+        "qtd": 0,
+        "categoria": ""
     },
     {
         "nome": "Arco Longo \u00c9lfico",
@@ -140,7 +152,8 @@
             ]
         ],
         "descricao": "Um arco elegante feito de madeira de alt\u00edssima qualidade, imbu\u00eddo com encantamentos que melhoram a precis\u00e3o da flechada. (mira)",
-        "qtd": 0
+        "qtd": 0,
+        "categoria": ""
     },
     {
         "nome": "Espada Fio da Lua",
@@ -151,7 +164,8 @@
             ]
         ],
         "descricao": "Espada forjada sob um eclipse lunar. Tem um corte preciso e feita com detalhes em prata.(mano a mano)",
-        "qtd": 0
+        "qtd": 0,
+        "categoria": ""
     },
     {
         "nome": "Besta",
@@ -162,7 +176,8 @@
             ]
         ],
         "descricao": "Ferramenta engenhosa forjada pelas maos humanas, unindo precisao e letalidade em um so disparo. (mira)",
-        "qtd": 0
+        "qtd": 0,
+        "categoria": ""
     },
     {
         "nome": "Tiara da Sabedoria",
@@ -173,7 +188,8 @@
             ]
         ],
         "descricao": "Tiara perdida de antigos fil\u00f3sofos e pensadores elfos. Garante um aumento do racioc\u00ednio do usu\u00e1rio. (percep\u00e7\u00e3o)",
-        "qtd": 0
+        "qtd": 0,
+        "categoria": ""
     },
     {
         "nome": "Sand\u00e1lias de Hermes",
@@ -184,7 +200,8 @@
             ]
         ],
         "descricao": "Sand\u00e1lias que dizem ser do pr\u00f3prio deus grego, mas na verdade s\u00c3\u00a3o apenas sand\u00e1lias boa para se movimentar. (acrobacia)",
-        "qtd": 0
+        "qtd": 0,
+        "categoria": ""
     },
     {
         "nome": "Capa de Ladr\u00e3o",
@@ -195,7 +212,8 @@
             ]
         ],
         "descricao": "Capa que ajuda o personagem a passar despercebido e a executar acoes sem ser notado. (furtividade)",
-        "qtd": 0
+        "qtd": 0,
+        "categoria": ""
     },
     {
         "nome": "Lan\u00e7a de Ca\u00e7a",
@@ -206,7 +224,8 @@
             ]
         ],
         "descricao": "Lan\u00e7a simples, feita pelos draconianos para iniciantes nas artes da ca\u00e7a e da guerra. Leve, pratica e feita para ser arremessada. (mira)",
-        "qtd": 0
+        "qtd": 0,
+        "categoria": ""
     },
     {
         "nome": "Talism\u00e3 da F\u00faria",
@@ -225,7 +244,8 @@
             ]
         ],
         "descricao": "Um talism\u00e3 que deixa o personagem extremamente suscet\u00edvel a raiva. Aumenta a for\u00e7a mas diminui a raz\u00e3o. (mano a mano) (resist\u00eancia) -(percep\u00e7\u00e3o)",
-        "qtd": 0
+        "qtd": 0,
+        "categoria": ""
     },
     {
         "nome": "Anel da Mentira",
@@ -236,30 +256,35 @@
             ]
         ],
         "descricao": "Usa da maldade no cora\u00e7\u00e3o do usu\u00e1rio para ajuda-lo a manipular os outros. (blefe)",
-        "qtd": 0
+        "qtd": 0,
+        "categoria": ""
     },
     {
         "nome": "Adaga Quebrada",
         "efeitos": [],
         "descricao": "Uma adaga velha que n\u00e3o melhora muito o seu combate, mas \u00e9 melhor do que usar os punhos",
-        "qtd": 0
+        "qtd": 0,
+        "categoria": ""
     },
     {
         "nome": "Espada Trincada",
         "efeitos": [],
         "descricao": "Uma espada velha que n\u00e3o melhora muito o seu combate mas, \u00e9 melhor do que usar os punhos.",
-        "qtd": 0
+        "qtd": 0,
+        "categoria": ""
     },
     {
         "nome": "Machado Enferrujado",
         "efeitos": [],
         "descricao": "Um machado velho que n\u00e3o melhora muito o seu combate mas, \u00e9 melhor do que usar os punhos.",
-        "qtd": 0
+        "qtd": 0,
+        "categoria": ""
     },
     {
         "nome": "Livro de pericias",
         "efeitos": [],
-        "descricao": "Livro escrito por outros ecos que ajuda a entender as pericias. Cada pericia se relaciona com um atributo: Acrobacia (destreza); Blefar (carisma); Mira (destreza); Diplomacia (carisma); Furtividade (inteligência); Percepção(inteligência); Mãos rápidas(destreza); Mano a mano(força); Resistência (força). O combate: As pericia de mano a mano e mira se relacionam diretamente com os ataques. Mano a mano é diretamente relacionado com o ataque corpo a corpo e mira é com ataque a distancia. O ataque especial gasta mais mana que o ataque simples, mas ele pode ser combado com outra pericia pra se aproveitar da fraqueza do boss e dar mais dano. A esquiva é baseada na acrobacia e caso vc acerte recupera 5 de mana.",
-        "qtd": 0
+        "descricao": "Livro escrito por outros ecos que ajuda a entender as pericias. Cada pericia se relaciona com um atributo: Acrobacia (destreza); Blefar (carisma); Mira (destreza); Diplomacia (carisma); Furtividade (intelig\u00eancia); Percep\u00e7\u00e3o(intelig\u00eancia); M\u00e3os r\u00e1pidas(destreza); Mano a mano(for\u00e7a); Resist\u00eancia (for\u00e7a). O combate: As pericia de mano a mano e mira se relacionam diretamente com os ataques. Mano a mano \u00e9 diretamente relacionado com o ataque corpo a corpo e mira \u00e9 com ataque a distancia. O ataque especial gasta mais mana que o ataque simples, mas ele pode ser combado com outra pericia pra se aproveitar da fraqueza do boss e dar mais dano. A esquiva \u00e9 baseada na acrobacia e caso vc acerte recupera 5 de mana.",
+        "qtd": 0,
+        "categoria": ""
     }
 ]
