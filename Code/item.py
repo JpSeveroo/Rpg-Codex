@@ -91,7 +91,8 @@ def interface():
     if a:
         a()
 
+load_itens()
+
 if __name__ == '__main__':
-    load_itens()
     interface()
     

@@ -53,28 +53,31 @@ def interface_inv(personagem):
     lista_nomes = []
     for a in personagem.inventario :
         lista_nomes.append(a.nome)
+    lista_nomes.append('Sair')
     a = inquirer.select(message='Selecione um item ', choices=lista_nomes).execute()
-    a = lista_de_nomes_de_itens.index(a)
-    b = inquirer.select(message='Selecione onde você deseja equipar', choices=['Cabeça', 'Corpo', 'Pés', 'Mãos']).execute()
-    if b == 'Cabeça':
-        equipamento.cabeca['item'] = item.lista_itens[a]
-        equipamento.cabeca['equipado'] = True
-        interface_inv(personagem)
-    elif b == 'Corpo':
-        equipamento.corpo['item'] = item.lista_itens[a]
-        equipamento.corpo['equipado'] = True
-        interface_inv(personagem)
-    elif b == 'Pés':
-        equipamento.pes['item'] = item.lista_itens[a]
-        equipamento.pes['equipado'] = True
-        interface_inv(personagem)
-    elif b == 'Mãos':
-        equipamento.maos['item'] = item.lista_itens[a]
-        equipamento.maos['equipado'] = True
-        interface_inv(personagem)
+    if a == 'Sair':
+        return
+    else :
+        a = lista_de_nomes_de_itens.index(a)
+        b = inquirer.select(message='Selecione onde você deseja equipar', choices=['Cabeça', 'Corpo', 'Pés', 'Mãos']).execute()
+        if b == 'Cabeça':
+            equipamento.cabeca['item'] = item.lista_itens[a]
+            equipamento.cabeca['equipado'] = True
+            interface_inv(personagem)
+        elif b == 'Corpo':
+            equipamento.corpo['item'] = item.lista_itens[a]
+            equipamento.corpo['equipado'] = True
+            interface_inv(personagem)
+        elif b == 'Pés':
+            equipamento.pes['item'] = item.lista_itens[a]
+            equipamento.pes['equipado'] = True
+            interface_inv(personagem)
+        elif b == 'Mãos':
+            equipamento.maos['item'] = item.lista_itens[a]
+            equipamento.maos['equipado'] = True
+            interface_inv(personagem)
 
 if __name__ == '__main__':
-    item.load_itens()
     p = Personagem()
     p.inventario.append(item.lista_itens[4])
     p.inventario.append(item.lista_itens[5])

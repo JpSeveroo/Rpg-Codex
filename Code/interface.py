@@ -10,6 +10,7 @@ import InquirerPy
 import InquirerPy.inquirer
 import ficha
 import combate
+import jogo
 from time import sleep
 
 usuarios = []
@@ -85,6 +86,7 @@ class interface:
         c = name_list.index(b)
         global personagem_escolhido
         personagem_escolhido = personagens[c]
+        jogo.lore_1_andar(personagem_escolhido)
     
     def visualizar_ficha():
         a = []
