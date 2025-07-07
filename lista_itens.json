@@ -139,7 +139,7 @@
                 2
             ]
         ],
-        "descricao": "Um arco elegante feito de madeira de alt\u00edssima qualidade, imbu\u00eddo com encantamentos que melhoram a precis\u00e3o da flechada. (mira) ",
+        "descricao": "Um arco elegante feito de madeira de alt\u00edssima qualidade, imbu\u00eddo com encantamentos que melhoram a precis\u00e3o da flechada. (mira)",
         "qtd": 0
     },
     {
@@ -150,18 +150,18 @@
                 2
             ]
         ],
-        "descricao": "espada forjada sob a lua cheia de Ilirien com corte preciso e detalhes em prata.(mano a mano)",
+        "descricao": "Espada forjada sob um eclipse lunar. Tem um corte preciso e feita com detalhes em prata.(mano a mano)",
         "qtd": 0
     },
     {
-        "nome": "X-besta",
+        "nome": "Besta",
         "efeitos": [
             [
                 "mira",
                 2
             ]
         ],
-        "descricao": "Ferramenta humana criada para competir com os arcos encantados dos elfos. (mira)",
+        "descricao": "Ferramenta engenhosa forjada pelas maos humanas, unindo precisao e letalidade em um so disparo. (mira)",
         "qtd": 0
     },
     {
@@ -172,7 +172,7 @@
                 2
             ]
         ],
-        "descricao": "tiara perdida de antigos fil\u00f3sofos e pensadores elfos. Garante um aumento do racioc\u00ednio do usu\u00e1rio. (percep\u00e7\u00e3o)",
+        "descricao": "Tiara perdida de antigos fil\u00f3sofos e pensadores elfos. Garante um aumento do racioc\u00ednio do usu\u00e1rio. (percep\u00e7\u00e3o)",
         "qtd": 0
     },
     {
@@ -183,18 +183,18 @@
                 2
             ]
         ],
-        "descricao": "Sand\u00e1lias que dizem ser do pr\u00f3prio deus grego, mas na verdade \u00e9 apenas uma sand\u00e1lia boa para se movimentar. (acrobacia)",
+        "descricao": "Sand\u00e1lias que dizem ser do pr\u00f3prio deus grego, mas na verdade são apenas sand\u00e1lias boa para se movimentar. (acrobacia)",
         "qtd": 0
     },
     {
         "nome": "Capa de Ladr\u00e3o",
         "efeitos": [
             [
-                "acrobacia",
+                "furtividade",
                 2
             ]
         ],
-        "descricao": "capa que ajuda o personagem a passar despercebido e aumenta o saque. (m\u00e3os r\u00e1pidas)",
+        "descricao": "Capa que ajuda o personagem a passar despercebido e a executar acoes sem ser notado. (furtividade)",
         "qtd": 0
     },
     {
@@ -205,7 +205,7 @@
                 2
             ]
         ],
-        "descricao": "Uma lan\u00e7a feita pelos draconianos para arremessar. (mira)",
+        "descricao": "Lan\u00e7a simples, feita pelos draconianos para iniciantes nas artes da ca\u00e7a e da guerra. Leve, pratica e feita para ser arremessada. (mira)",
         "qtd": 0
     },
     {
@@ -224,7 +224,7 @@
                 -2
             ]
         ],
-        "descricao": "Um talism\u00e3 que deixa o personagem extremamente suscet\u00edvel a raiva.Aumenta a for\u00e7a mas diminui a raz\u00e3o. (mano a mano) (resist\u00eancia) -(percep\u00e7\u00e3o)",
+        "descricao": "Um talism\u00e3 que deixa o personagem extremamente suscet\u00edvel a raiva. Aumenta a for\u00e7a mas diminui a raz\u00e3o. (mano a mano) (resist\u00eancia) -(percep\u00e7\u00e3o)",
         "qtd": 0
     },
     {
@@ -235,7 +235,7 @@
                 2
             ]
         ],
-        "descricao": "Usa da maldade no cora\u00e7\u00e3o do usu\u00e1rio para ajuda-lo a manipular osoutros. (blefe)",
+        "descricao": "Usa da maldade no cora\u00e7\u00e3o do usu\u00e1rio para ajuda-lo a manipular os outros. (blefe)",
         "qtd": 0
     },
     {
