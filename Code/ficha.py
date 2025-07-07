@@ -28,6 +28,7 @@ class Personagem:
         self.historico = []
         self.status = {"hp": 100, "mana": 50}
         self.vida_atual = self.status["hp"]
+        self.equipamento = {}
 
     def criar_ficha(self):
         print()

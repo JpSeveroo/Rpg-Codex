@@ -30,11 +30,11 @@ def add_item():
     lista_itens.append(objeto)
 
 def mostrar():
-    for i in lista_itens:
-        print(i.nome)
-        print(i.efeitos)
-        print(i.descricao)
-        print()
+    system('clear')
+    for i in range(len(lista_itens)):
+        print(f'{i}-{lista_itens[i].nome}')
+    input()
+    interface()
 
 def load_itens():
     try:
@@ -49,6 +49,24 @@ def load_itens():
     except:
         pass
 
+def edit_item():
+    mostrar()
+    a = int(input('Qual item você deseja editar : ')) - 1
+    lista_de_efeitos = []
+    lista_itens[a].nome = input('Qual o novo nome : ')
+    for _ in range(b):
+        lista = []
+        b = input('Efeito: ')
+        lista.append(b)
+        c = int(input('Modificador: '))
+        lista.append(c)
+        lista_de_efeitos.append(lista)
+    lista_itens[a].efeitos = lista_de_efeitos
+    lista_itens[a].descricao = input('Nova descrição: ')
+
+def excluir_item():
+    return
+
 def write():
     lista = []
     for i in lista_itens:
@@ -56,12 +74,24 @@ def write():
         lista.append(a)
     utills.salvar_infos('lista_itens', lista)
 
+def interface():
+    print('1- Adicionar um item')
+    print('2- Editar um item')
+    print('3- Excluir um item')
+    print('4- Listar os itens')
+    print('5- Finalizar')
+    a = int(input('Qual das opções você deseja ? '))
+    opcoes = {
+        1: add_item,
+        2: edit_item,
+        3: excluir_item,
+        4: mostrar,
+    }
+    a = opcoes.get(a)
+    if a:
+        a()
+
 if __name__ == '__main__':
     load_itens()
-    a = input()
-    if a == 's':
-        system('clear')
-        mostrar()
-    elif a == 'n':
-        add_item()
-        write()
+    interface()
+    
