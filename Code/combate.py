@@ -146,7 +146,7 @@ if __name__ == '__main__':
     p1.status["hp"] = 50
     p1.status["mana"] = 30
     p1.pericias['mano a mano'] = 12
-    p1.vida_atual = 50
+    p1.vida_atual = 100
     p1.inventario.append(pocao_cura)
     p1.inventario.append(pocao_mana)
 
@@ -156,7 +156,7 @@ if __name__ == '__main__':
     p2.status["hp"] = 50
     p2.status["mana"] = 5
     p1.pericias['mano a mano'] = 12
-    p2.vida_atual = 50
+    p2.vida_atual = 100
 
     combate(p1, p2)
 

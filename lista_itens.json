@@ -183,7 +183,7 @@
                 2
             ]
         ],
-        "descricao": "Sand\u00e1lias que dizem ser do pr\u00f3prio deus grego, mas na verdade são apenas sand\u00e1lias boa para se movimentar. (acrobacia)",
+        "descricao": "Sand\u00e1lias que dizem ser do pr\u00f3prio deus grego, mas na verdade s\u00c3\u00a3o apenas sand\u00e1lias boa para se movimentar. (acrobacia)",
         "qtd": 0
     },
     {
@@ -254,6 +254,12 @@
         "nome": "Machado Enferrujado",
         "efeitos": [],
         "descricao": "Um machado velho que n\u00e3o melhora muito o seu combate mas, \u00e9 melhor do que usar os punhos.",
+        "qtd": 0
+    },
+    {
+        "nome": "Livro de pericias",
+        "efeitos": [],
+        "descricao": "Livro escrito por outros ecos que ajuda a entender as pericias. Cada pericia se relaciona com um atributo: Acrobacia (destreza); Blefar (carisma); Mira (destreza); Diplomacia (carisma); Furtividade (inteligência); Percepção(inteligência); Mãos rápidas(destreza); Mano a mano(força); Resistência (força). O combate: As pericia de mano a mano e mira se relacionam diretamente com os ataques. Mano a mano é diretamente relacionado com o ataque corpo a corpo e mira é com ataque a distancia. O ataque especial gasta mais mana que o ataque simples, mas ele pode ser combado com outra pericia pra se aproveitar da fraqueza do boss e dar mais dano. A esquiva é baseada na acrobacia e caso vc acerte recupera 5 de mana.",
         "qtd": 0
     }
 ]
