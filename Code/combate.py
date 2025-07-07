@@ -41,10 +41,20 @@ def rolar_dano(personagem, pericia_principal, bonus_extra=0):
 
 def ataque_especial(atacante, defensor, pericia_principal):
     if atacante.status['mana'] > 0:
-        # Escolher perícia extra
-        pericias_disponiveis = list(atacante.pericias.keys())
-        pericias_disponiveis.remove(pericia_principal)
-        pericia_extra = inquirer.select(message='Escolha uma perícia extra para o ataque especial:', choices=pericias_disponiveis).execute()
+        
+        if getattr(atacante, "is_player", True): # Verifica se é jogador ou IA
+            # Escolher perícia extra
+            pericias_disponiveis = list(atacante.pericias.keys())
+            pericias_disponiveis.remove(pericia_principal)
+            pericia_extra = inquirer.select(message='Escolha uma perícia extra para o ataque especial:', choices=pericias_disponiveis).execute()
+        else:
+            # IA escolhe uma perícia extra aleatória
+            pericia_extra = max(
+                (p for p in atacante.pericias if p != pericia_principal),
+                key=lambda p: atacante.pericias[p],
+                default=pericia_principal  # fallback caso só tenha uma
+            )
+            digitar(f"⚔️ {atacante.nick} usa a perícia extra '{pericia_extra}' no ataque especial!")
         bonus_extra = atacante.pericias.get(pericia_extra, 0)
         dano = rolar_dano(atacante, pericia_principal, bonus_extra)
         defensor.vida_atual -= dano
@@ -156,58 +166,68 @@ def inv(personagem, mana_max):
         print('-'*35)
 
 #Interromper a luta quando o personagem ou inimigo morrer
-
-def tentar_fugir(personagem):
-    digitar(f"\n🏃 {personagem.nick} tenta fugir do combate!")
-    dado = random.randint(1, 6)
-    dificuldade = 4
-    digitar(f"🎲 Rolagem de dado para fuga: {dado} (precisava tirar {dificuldade} ou mais)")
-    if dado >= dificuldade:
-        digitar("✅ Fuga bem-sucedida!")
-        return True
-    else:
-        digitar("❌ A fuga falhou! O inimigo aproveita a abertura...")
-        return False
-
-def loop_principal(personagem, inimigo, mana_max):
+def loop_principal(personagem, inimigo, mana_max, mana_max_inimigo):
     limpar_tela()
-    acoes_inimigo = {1:'Atacar', 2:'Ataque Especial'}
+    acoes_inimigo = {
+    1: 'Corpo a Corpo',
+    2: 'Longo Alcance',
+    3: 'Ataque Especial Corpo a Corpo',
+    4: 'Ataque Especial Longo Alcance'
+}
     tabelas(personagem, inimigo)
     print()
 
     a = inquirer.select(
         message='Qual a sua próxima ação:',
-        choices=['Corpo a Corpo', 'Longo Alcance', 'Ataque Especial Corpo a Corpo', 'Ataque Especial Longo Alcance', 'Inventário', 'Esquivar', 'Fugir']
+        choices=['Corpo a Corpo', 'Longo Alcance', 'Ataque Especial Corpo a Corpo', 'Ataque Especial Longo Alcance', 'Inventário', 'Esquivar']
     ).execute()
-
-    inimigo_deve_agir = True
 
     if personagem.vida_atual > 0:
         #turno do jogador
         if a == 'Esquivar':
             sucesso = esquivar(personagem, mana_max)
-            if sucesso:
-                inimigo_deve_agir = False
+            if not sucesso:
+                return
+            else:
+                a = inquirer.select(
+                    message='Esquiva bem-sucedida! Escolha sua ação:',
+                    choices=['Corpo a Corpo', 'Longo Alcance', 'Ataque Especial Corpo a Corpo', 'Ataque Especial Longo Alcance', 'Inventário', 'Esquivar']
+                ).execute()
+                acoes(a, personagem, inimigo, mana_max)
         else:
             acoes(a, personagem, inimigo, mana_max)
-
     
-    if inimigo.vida_atual > 0 and inimigo_deve_agir:
-        #turno da IA
-        if inimigo.status['mana'] > 0 :
-            b = random.randint(1, 2)
-            b = acoes_inimigo.get(b)
+    if inimigo.vida_atual > 0: #turno da IA
+        if inimigo.status['mana'] >= 5:
+            b = random.randint(1, 4)  # pode usar qualquer ataque
+            acao_ia = acoes_inimigo.get(b)
+        elif inimigo.status['mana'] >= 2:
+            b = random.randint(1, 2) # só ataques corpo a corpo ou longo alcance
+            acao_ia = acoes_inimigo.get(b)
         else:
-            b = 'Corpo a Corpo'
-        acoes(b, inimigo, personagem, 0)
+            acao_ia = 'Esquivar'
+
+        if acao_ia == 'Esquivar':
+            sucesso = esquivar(inimigo, mana_max_inimigo)
+            if not sucesso:
+                return
+            else:
+                if inimigo.status['mana'] >= 5:
+                    b = random.randint(1, 4)
+                    acao_ia = acoes_inimigo.get(b)
+                elif inimigo.status['mana'] >= 2:
+                    b = random.randint(1, 2)
+                    acao_ia = acoes_inimigo.get(b)
+        acoes(acao_ia, inimigo, personagem, mana_max_inimigo)
 
 
 def combate(p1, p2):
     digitar(f"\n🛡️  Combate iniciado entre {p1.nick} e {p2.nick}!")
     time.sleep(0.8)
     mana_max1 = p1.status['mana']
+    mana_max2 = p2.status['mana']
     while p1.vida_atual > 0 and p2.vida_atual > 0:
-        resultado = loop_principal(p1, p2, mana_max1)
+        resultado = loop_principal(p1, p2, mana_max1, mana_max2)
         if resultado == "fugiu":
             digitar(f"\n🏃 {p1.nick} conseguiu fugir do combate!")
             return p1
@@ -223,20 +243,22 @@ if __name__ == '__main__':
     p1 = Personagem()
     p1.nick = "Artemis"
     p1.atributos["força"] = 6
-    p1.status["hp"] = 50
+    p1.status["hp"] = 100
     p1.status["mana"] = 30
     p1.pericias['mano a mano'] = 12
     p1.vida_atual = 100
     p1.inventario.append(pocao_cura)
     p1.inventario.append(pocao_mana)
+    p1.is_player = True
 
     p2 = Personagem()
     p2.nick = "Gorak"
     p2.atributos["força"] = 8
-    p2.status["hp"] = 50
+    p2.status["hp"] = 100
     p2.status["mana"] = 5
-    p1.pericias['mano a mano'] = 12
+    p2.pericias['mano a mano'] = 12
     p2.vida_atual = 100
+    p2.is_player = False
 
     combate(p1, p2)
 
