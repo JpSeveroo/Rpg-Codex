@@ -44,7 +44,6 @@ def lore_introducao(personagem):
             elif esc_1 == "2":
                 inventario.interface_inv(personagem)
                 print()
-            break 
         except ValueError as e:
             print(f"{e} Tente novamente.")
 
@@ -250,9 +249,11 @@ def lore_2_andar(personagem):
         except ValueError as e:
             print(f"{e} Tente novamente.")
 
-def lore_recompensa002():
+def lore_recompensa002(personagem):
     os.system('cls' if os.name == 'nt' else 'clear')
     time.sleep(8)
+    personagem.inventario.append(lista_itens[0])
+    personagem.inventario.append(lista_itens[1])
 
     print(f"[bold purple][Sistema] 🪙   RECOMPENSAS: \nXp: [150] \nPoção de cura [1]\nPoção de mana [1]")
     text_inf = ('\nItens sendo computados...')
@@ -327,52 +328,15 @@ def lore_3_andar(personagem):
             if esc_5 not in ("1", "2"):
                 raise ValueError("❗ Opção inválida.")
             if esc_5 == "1":
-                lore_1_enigma()
+                lore_1_enigma(personagem)
 
             elif esc_5 == "2":
-                lore_4_andar()
+                lore_4_andar(personagem)
             break 
         except ValueError as e:
             print(f"{e} Tente novamente.")
 
-def lore_3_andar(personagem):
-    texto16 = ('Você atravessa o portal do Andar 3 e se encontra em uma cúpula colossal. As paredes circulares são revestidas por inúmeros cristais de dados, cada um pulsando com uma luz tênue em diferentes frequências, como batimentos digitais. O chão, liso e polido, reflete sua imagem como um espelho de mercúrio, distorcendo levemente a realidade. Não há sinal de inimigos, nem som que quebre o silêncio, exceto por um sutil zumbido de ruído branco. Contudo, uma sensação incômoda de que algo está fundamentalmente errado paira no ar. No centro da cúpula, uma estrutura imponente se ergue: uma esfinge negra, etérea e flutuante, sua forma absorvendo a pouca luz do ambiente.Uma mensagem espectral se materializa à sua frente: ')
-    digitar(texto16)
 
-    print(f'[bold purple][Sistema] "Desafio de Integridade Perceptiva iniciado."\n [Sistema] Qualquer erro lógico nesta sala desencadeará uma reinicialização forçada do {personagem.nick}.]\n [Sistema] Recompensa única detectada [/bold purple]')
-
-    texto17 = ('A voz da esfinge ecoa pela cúpula, grave e ressonante, parecendo vir de todos os lugares e de lugar nenhum ao mesmo tempo:')
-    digitar(texto17)
-
-    print('[bold blue]"Viajante... Você sente a anomalia? O véu da realidade tremula aqui. Para avançar, seus olhos devem ver além do óbvio, sua mente deve discernir a desarmonia."[/bold blue]')
-
-    texto18 = ('Ela se inclina ligeiramente, como se o observasse com atenção.')
-    digitar(texto18)
-
-    print('[bold blue]"Um único erro. Uma falha em perceber o que se esconde à plena vista... e esta existência será reescrita. Mas para aquele que enxerga a verdade, uma recompensa aguarda." [/bold blue]')
-
-    texto19 = ('Para superar este desafio, você precisará ser perspicaz o suficiente. É um teste de acuidade, um confronto direto com a ilusão.')
-    digitar(texto19)
-
-    while True:
-        try:
-            texto20 = ("\nVocê pode:\n\n1. Enfrentar o Enigma Sua capacidade de percepção determinará a dificuldade do desafio. Quanto mais aguçada sua percepção, mais claro será o caminho para a solução.\n2. Seguir em frente e Desistir: Você abandona o enigma sem tentar, perde a chance de obter a recompensa única, mas avança para o próximo andar sem sofrer penalidades.")
-            digitar(texto20)
-            
-            print('[bold purple]Qual a sua escolha? [/bold purple]',end='')
-            esc_5 = input('')
-            if esc_5 not in ("1", "2"):
-                raise ValueError("❗ Opção inválida.")
-            if esc_5 == "1":
-                lore_1_enigma()
-
-            elif esc_5 == "2":
-                lore_4_andar()
-            break 
-        except ValueError as e:
-            print(f"{e} Tente novamente.")
-
-#AJEITAR O CLEAR
 #TERMINAR A PARTE ABAIXO 
 #FAZER A PARTE DE SAIR DO INVENTARIO COLOCAR PRA VOLTAR PRA ESCOLHA
 #ATRIBUTOS
@@ -380,8 +344,44 @@ def lore_3_andar(personagem):
 #FAZER A VERIFICAÇÃO DO PERSONAGEM PRA VER QUAL ENIGMA ELE VAI PEGAR
 def lore_1_enigma(personagem):
     if personagem.atributos['percepcao'] >= 18:
-        print('[bold purple]\033"Sempre sigo você, \nMas não tenho vida,\n Só apareço quando a luz me permite."\033[0m[/bold purple]\n')
-        texto21 = ('Alternativas:\n A) Um animal domesticado 🐕 \nB) Sua sombra 🌑 \nC) Um reflexo no espelho 🪞')
+        while True:
+            try:
+                print('[bold purple]\033"Sempre sigo você, \nMas não tenho vida,\n Só apareço quando a luz me permite."\033[0m[/bold purple]\n')
+                texto21 = ('Alternativas:\n A) Um animal domesticado 🐕 \nB) Sua sombra 🌑 \nC) Um reflexo no espelho 🪞')
+                digitar(texto21)
+
+                print('\n [bold purple]Qual a sua resposta? [/bold purple]',end='')
+                resp_1 = input('').lower()
+
+                if resp_1 not in ("a", "b", "c"):
+                    raise ValueError("❗ Opção inválida.")
+                if resp_1 == "a":
+
+                    #DEPOIS EU AJEITO FDP
+                    O silêncio na Cúpula da Percepção prevalece enquanto o Eco [PLAYER] profere sua resposta. Um instante de suspense se estende, pesado com a expectativa da Esfinge Negra de Aethelgard. Mas a calma é logo rompida por um zumbido agudo, quase um chiado furioso. A Esfinge, antes imóvel, contorce sua forma etérea, e um brilho vermelho intenso pulsa em seus olhos. Não há mais perguntas. A indignação da entidade por ter recebido a alternativa incorreta é palpável, reverberando pelas paredes de cristal. Em um instante brutal, a cúpula se torna um vórtice de dados colapsados, e o Eco é consumido pela fúria de uma verdade distorcida. A percepção falha selou seu destino: o Eco se desintegra em um véu de ruído branco, e a escuridão o engole. Ao despertar, o Ponto de Início o aguarda, o vazio da planície se estendendo à sua frente, e a Torre de Etherion, indiferente, erguendo-se à distância. A lição é brutal: a falha na percepção não é um tropeço, é uma sentença de retorno forçado, uma repetição eterna até que a verdade seja finalmente alcançada.
+                    lore_1_enigma(personagem)
+
+                elif resp_1 == "b":
+                    lore_4_andar(personagem)
+                
+                elif resp_1 == "c":
+                    lore_4_andar(personagem)
+                break 
+            except ValueError as e:
+                print(f"{e} Tente novamente.")
+                
+
+    
+    elif 12 <= personagem.atributos['percepcao'] <18:
+     print('[bold purple]\033"Não sou vivo, mas cresço, \nNão tenho pulmões, mas respiro,\n Não tenho boca, mas devoro tudo."\033[0m[/bold purple]\n')
+     texto22 = ('Alternativas: \nA) O fogo 🔥 \nB) A sombra 🌑 \nC) O tempo ⏳')
+     digitar(texto22)
+    
+    elif personagem.atributos['percepcao'] <12:
+        print('[bold purple]\033"Não tenho forma, nem sombra que me prenda,\n Sou a força que molda e que desvenda, \nEm silêncio corro, sem deixar vestígio, \nTransformo o sólido em poeira, \nE ainda que eu jamais seja tocado, \nSem mim, nada se move, nada existe."\033[0m[/bold purple]\n')
+        texto23 = ('\nA) A essência do tempo ⏳ \nB) O sopro invisível do vento 🌬 \nC) O pensamento eterno 🧠')
+        digitar(texto23)
+
 
 
 
