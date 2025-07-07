@@ -9,9 +9,9 @@ item.load_itens()
 pocao_cura = item.lista_itens[0]
 pocao_mana = item.lista_itens[1]
 
+#funções utilitarias
 def limpar_tela():
     os.system('cls' if os.name == 'nt' else 'clear')
-
 
 def digitar(texto, delay=0.03):
     for c in texto:
@@ -25,9 +25,11 @@ def rolar_dado():
     critico = (dado == 6)
     return dado, critico
 
+""" === DANO E AÇÕES === """
+
 #Precisa adaptar pra quando for colocar o sistema de pericia
-def rolar_dano(personagem, pericia_principal, bonus_extra=0):
-    if personagem.status['mana'] > 0:    
+def calc_dano(personagem, pericia_principal, bonus_extra=0):
+    if personagem.status['mana'] >= 10:    
         base = personagem.pericias.get(pericia_principal, 0)
         dado, critico = rolar_dado()
         dano_base = base + bonus_extra + dado
@@ -39,14 +41,23 @@ def rolar_dano(personagem, pericia_principal, bonus_extra=0):
             digitar(f"🎲 {personagem.nick} rola 1d6: {dado} + bônus ({base} + {bonus_extra}) = {dano}")
     return dano
 
+def ataque(atacante, defensor, pericia_principal):
+    dano = calc_dano(atacante, pericia_principal)
+    defensor.vida_atual -= dano
+    if defensor.vida_atual < 0:
+            defensor.vida_atual = 0
+    digitar(f"\n⚔️  {atacante.nick} ataca {defensor.nick} causando {dano} de dano!")
+    digitar(f"❤️  {defensor.nick} agora tem {defensor.vida_atual} HP.")
+    time.sleep(0.8)
+
 def ataque_especial(atacante, defensor, pericia_principal):
-    if atacante.status['mana'] > 0:
+    if atacante.status['mana'] >= 15:
         # Escolher perícia extra
         pericias_disponiveis = list(atacante.pericias.keys())
         pericias_disponiveis.remove(pericia_principal)
         pericia_extra = inquirer.select(message='Escolha uma perícia extra para o ataque especial:', choices=pericias_disponiveis).execute()
         bonus_extra = atacante.pericias.get(pericia_extra, 0)
-        dano = rolar_dano(atacante, pericia_principal, bonus_extra)
+        dano = calc_dano(atacante, pericia_principal, bonus_extra)
         defensor.vida_atual -= dano
         if defensor.vida_atual < 0:
             defensor.vida_atual = 0
@@ -58,16 +69,7 @@ def ataque_especial(atacante, defensor, pericia_principal):
         print('⚠️ Mana insuficiente para ataque especial!')
         time.sleep(0.8)
 
-
-def turno_ataque(atacante, defensor, pericia_principal):
-    dano = rolar_dano(atacante, pericia_principal)
-    defensor.vida_atual -= dano
-    if defensor.vida_atual < 0:
-            defensor.vida_atual = 0
-    digitar(f"\n⚔️  {atacante.nick} ataca {defensor.nick} causando {dano} de dano!")
-    digitar(f"❤️  {defensor.nick} agora tem {defensor.vida_atual} HP.")
-    time.sleep(0.8)
-
+#fazer o calculo de pericias do ataque especial
 
 def esquivar(personagem, mana_max):
     acrobacia = personagem.pericias.get('acrobacia', 0)
@@ -89,7 +91,21 @@ def esquivar(personagem, mana_max):
         time.sleep(0.8)
         return False
 
+def acoes(valor, personagem, inimigo, mana_max):
+    if valor == 'Corpo a Corpo':
+        ataque(personagem, inimigo, 'mano a mano')
+    elif valor == 'Longo Alcance':
+        ataque(personagem, inimigo, 'mira')
+    elif valor == 'Ataque Especial Corpo a Corpo':
+        ataque_especial(personagem, inimigo, 'mano a mano')
+    elif valor == 'Ataque Especial Longo Alcance':
+        ataque_especial(personagem, inimigo, 'mira')
+    elif valor == 'Inventário':
+        inv(personagem, mana_max)
+    elif valor == 'Esquivar':
+        esquivar(personagem, mana_max)
 
+"""=== PARTE VISUAL ==="""
 
 def barra(life):
         preenchido = int((life.vida_atual/life.status['hp'])*10)
@@ -109,20 +125,6 @@ def tabelas(personagem, inimigo):
     show_life(personagem, inimigo)
     write('Mana', personagem.status['mana'], inimigo.status['mana'])
     print('-'*35 + ' '*25 + '-'*35)
-
-def acoes(valor, personagem, inimigo, mana_max):
-    if valor == 'Corpo a Corpo':
-        turno_ataque(personagem, inimigo, 'mano a mano')
-    elif valor == 'Longo Alcance':
-        turno_ataque(personagem, inimigo, 'mira')
-    elif valor == 'Ataque Especial Corpo a Corpo':
-        ataque_especial(personagem, inimigo, 'mano a mano')
-    elif valor == 'Ataque Especial Longo Alcance':
-        ataque_especial(personagem, inimigo, 'mira')
-    elif valor == 'Inventário':
-        inv(personagem, mana_max)
-    elif valor == 'Esquivar':
-        esquivar(personagem, mana_max)
 
 def inv(personagem, mana_max):
     lista_nome = [item.nome for item in personagem.inventario]
@@ -157,27 +159,15 @@ def inv(personagem, mana_max):
 
 #Interromper a luta quando o personagem ou inimigo morrer
 
-def tentar_fugir(personagem):
-    digitar(f"\n🏃 {personagem.nick} tenta fugir do combate!")
-    dado = random.randint(1, 6)
-    dificuldade = 4
-    digitar(f"🎲 Rolagem de dado para fuga: {dado} (precisava tirar {dificuldade} ou mais)")
-    if dado >= dificuldade:
-        digitar("✅ Fuga bem-sucedida!")
-        return True
-    else:
-        digitar("❌ A fuga falhou! O inimigo aproveita a abertura...")
-        return False
-
 def loop_principal(personagem, inimigo, mana_max):
     limpar_tela()
-    acoes_inimigo = {1:'Atacar', 2:'Ataque Especial'}
+    acoes_inimigo = {1:'Atacar'}
     tabelas(personagem, inimigo)
     print()
 
     a = inquirer.select(
         message='Qual a sua próxima ação:',
-        choices=['Corpo a Corpo', 'Longo Alcance', 'Ataque Especial Corpo a Corpo', 'Ataque Especial Longo Alcance', 'Inventário', 'Esquivar', 'Fugir']
+        choices=['Ataque', 'Ataque Especial', 'Esquivar', 'Inventario']
     ).execute()
 
     inimigo_deve_agir = True
