@@ -343,47 +343,127 @@ def lore_3_andar(personagem):
 #ADICIONAR POÇOES NO INV
 #FAZER A VERIFICAÇÃO DO PERSONAGEM PRA VER QUAL ENIGMA ELE VAI PEGAR
 def lore_1_enigma(personagem):
-    if personagem.atributos['percepcao'] >= 18:
-        while True:
-            try:
-                print('[bold purple]\033"Sempre sigo você, \nMas não tenho vida,\n Só apareço quando a luz me permite."\033[0m[/bold purple]\n')
-                texto21 = ('Alternativas:\n A) Um animal domesticado 🐕 \nB) Sua sombra 🌑 \nC) Um reflexo no espelho 🪞')
-                digitar(texto21)
-
-                print('\n [bold purple]Qual a sua resposta? [/bold purple]',end='')
-                resp_1 = input('').lower()
-
-                if resp_1 not in ("a", "b", "c"):
-                    raise ValueError("❗ Opção inválida.")
-                if resp_1 == "a":
-
-                    #DEPOIS EU AJEITO FDP
-                    O silêncio na Cúpula da Percepção prevalece enquanto o Eco [PLAYER] profere sua resposta. Um instante de suspense se estende, pesado com a expectativa da Esfinge Negra de Aethelgard. Mas a calma é logo rompida por um zumbido agudo, quase um chiado furioso. A Esfinge, antes imóvel, contorce sua forma etérea, e um brilho vermelho intenso pulsa em seus olhos. Não há mais perguntas. A indignação da entidade por ter recebido a alternativa incorreta é palpável, reverberando pelas paredes de cristal. Em um instante brutal, a cúpula se torna um vórtice de dados colapsados, e o Eco é consumido pela fúria de uma verdade distorcida. A percepção falha selou seu destino: o Eco se desintegra em um véu de ruído branco, e a escuridão o engole. Ao despertar, o Ponto de Início o aguarda, o vazio da planície se estendendo à sua frente, e a Torre de Etherion, indiferente, erguendo-se à distância. A lição é brutal: a falha na percepção não é um tropeço, é uma sentença de retorno forçado, uma repetição eterna até que a verdade seja finalmente alcançada.
-                    lore_1_enigma(personagem)
-
-                elif resp_1 == "b":
-                    lore_4_andar(personagem)
-                
-                elif resp_1 == "c":
-                    lore_4_andar(personagem)
-                break 
-            except ValueError as e:
-                print(f"{e} Tente novamente.")
-                
-
+    if personagem.andar_esfinge_completado:
+        print("[bold purple]⚠️ O Andar da Esfinge foi destruído por corrompimento dimensional. Você avança direto para o próximo andar...[/bold purple]")
+        lore_4_andar(personagem)
+        return
     
-    elif 12 <= personagem.atributos['percepcao'] <18:
-     print('[bold purple]\033"Não sou vivo, mas cresço, \nNão tenho pulmões, mas respiro,\n Não tenho boca, mas devoro tudo."\033[0m[/bold purple]\n')
-     texto22 = ('Alternativas: \nA) O fogo 🔥 \nB) A sombra 🌑 \nC) O tempo ⏳')
-     digitar(texto22)
-    
-    elif personagem.atributos['percepcao'] <12:
-        print('[bold purple]\033"Não tenho forma, nem sombra que me prenda,\n Sou a força que molda e que desvenda, \nEm silêncio corro, sem deixar vestígio, \nTransformo o sólido em poeira, \nE ainda que eu jamais seja tocado, \nSem mim, nada se move, nada existe."\033[0m[/bold purple]\n')
-        texto23 = ('\nA) A essência do tempo ⏳ \nB) O sopro invisível do vento 🌬 \nC) O pensamento eterno 🧠')
-        digitar(texto23)
+    else:
+        if personagem.atributos['percepcao'] >= 18:
+            while True:
+                try:
+                    print('[bold purple][italic]"Sempre sigo você, \nMas não tenho vida,\n Só apareço quando a luz me permite."[/italic][/bold purple]\n')
+                    texto21 = ('Alternativas:\n A) Um animal domesticado 🐕 \nB) Sua sombra 🌑 \nC) Um reflexo no espelho 🪞')
+                    digitar(texto21)
+
+                    print('\n [bold purple]Qual a sua resposta? [/bold purple]',end='')
+                    resp_1 = input('').lower()
+
+                    if resp_1 not in ("a", "b", "c"):
+                        raise ValueError("❗ Opção inválida.")
+                    if resp_1 == "a":
+                            morte_esfinge(personagem)
+                            break
+
+                    elif resp_1 == "b":
+                        personagem.andar_esfinge_completado = True
+                        texto23 = ('O silêncio na Cúpula da Percepção se quebra quando o Eco profere a resposta correta. Um zumbido suave preenche o ar, e a Esfinge Negra se inclina.')
+                        digitar(texto23)
+
+                        print(f'[bold blue]"{personagem.nick}... Você sim vê a verdade "[/bold blue]')
+
+                        texto24 = ('Sua voz ecoa, sem surpresa, mas com reconhecimento. A Esfinge então se dissolve em partículas douradas, revelando a "🎭 Máscara da inverdade". O caminho para o próximo andar se abre, e Etherion aceita sua acuidade. A jornada continua, e você carrega a máscara da inverdade.')
+                        digitar(texto24)
+                        personagem.inventario.append(lista_itens[11])
+
+                        lore_4_andar(personagem)
+                        break
+                    
+                    elif resp_1 == "c":
+                        morte_esfinge(personagem)
+                        break
+                except ValueError as e:
+                    print(f"{e} Tente novamente.")       
+
+        
+        elif 12 <= personagem.atributos['percepcao'] < 18:
+            while True:
+                try:
+                    print('[bold purple][italic]"Não sou vivo, mas cresço, \nNão tenho pulmões, mas respiro,\n Não tenho boca, mas devoro tudo."[/italic][/bold purple]\n')
+                    texto22 = ('Alternativas: \nA) O fogo 🔥 \nB) A sombra 🌑 \nC) O tempo ⏳')
+                    digitar(texto22)
+                    
+                    print('\n [bold purple]Qual a sua resposta? [/bold purple]',end='')
+                    resp_1 = input('').lower()
+
+                    if resp_1 not in ("a", "b", "c"):
+                        raise ValueError("❗ Opção inválida.")
+                    if resp_1 == "a":
+                        personagem.andar_esfinge_completado = True
+                        texto23 = ('O silêncio na Cúpula da Percepção se quebra quando o Eco profere a resposta correta. Um zumbido suave preenche o ar, e a Esfinge Negra se inclina.')
+                        digitar(texto23)
+
+                        print(f'[bold blue]"{personagem.nick}... Você sim vê a verdade "[/bold blue]')
+
+                        texto24 = ('Sua voz ecoa, sem surpresa, mas com reconhecimento. A Esfinge então se dissolve em partículas douradas, revelando a "🎭 Máscara da inverdade". O caminho para o próximo andar se abre, e Etherion aceita sua acuidade. A jornada continua, e você carrega a máscara da inverdade.')
+                        digitar(texto24)
+                        personagem.inventario.append(lista_itens[11])
+                        lore_4_andar(personagem)
+                        break
+                    
+                    elif resp_1 == "b":
+                        morte_esfinge(personagem)
+                        break
+                    
+                    elif resp_1 == "c":
+                        morte_esfinge(personagem)
+                        break
+
+                except ValueError as e:
+                    print(f"{e} Tente novamente.")  
+
+        elif personagem.atributos['percepcao'] < 12:
+            while True:
+                try:
+                    print('[bold purple][italic]"Não tenho forma, nem sombra que me prenda,\n Sou a força que molda e que desvenda, \nEm silêncio corro, sem deixar vestígio, \nTransformo o sólido em poeira, \nE ainda que eu jamais seja tocado, \nSem mim, nada se move, nada existe."[/italic][/bold purple]\n')
+                    texto23 = ('\nA) A essência do tempo ⏳ \nB) O sopro invisível do vento 🌬️ \nC) O pensamento eterno 🧠')
+                    digitar(texto23)
+
+                    print('\n [bold purple]Qual a sua resposta? [/bold purple]',end='')
+                    resp_1 = input('').lower()
+
+                    if resp_1 not in ("a", "b", "c"):
+                        raise ValueError("❗ Opção inválida.")
+                    if resp_1 == "a":
+                        morte_esfinge(personagem)
+                        break
+
+                    elif resp_1 == "b":
+                        personagem.andar_esfinge_completado = True
+                        texto23 = ('O silêncio na Cúpula da Percepção se quebra quando o Eco profere a resposta correta. Um zumbido suave preenche o ar, e a Esfinge Negra se inclina.')
+                        digitar(texto23)
+
+                        print(f'[bold blue]"{personagem.nick}... Você sim vê a verdade "[/bold blue]')
+
+                        texto24 = ('Sua voz ecoa, sem surpresa, mas com reconhecimento. A Esfinge então se dissolve em partículas douradas, revelando a "🎭 Máscara da inverdade". O caminho para o próximo andar se abre, e Etherion aceita sua acuidade. A jornada continua, e você carrega a máscara da inverdade.')
+                        digitar(texto24)
+                        personagem.inventario.append(lista_itens[11])
+                        lore_4_andar(personagem)
+                        break
+
+                    elif resp_1 == "c":
+                        morte_esfinge(personagem)
+                        break
+                except ValueError as e:
+                    print(f"{e} Tente novamente.") 
 
 
-
+def morte_esfinge(personagem):
+    personagem.andar_esfinge_completado = True
+    texto22 = ('O silêncio na Cúpula da Percepção a resposta é proferida. Um instante de suspense se estende, pesado com a expectativa da Esfinge Negra de Aethelgard. Mas a calma é logo rompida por um zumbido agudo, quase um chiado furioso. A Esfinge, antes imóvel, contorce sua forma etérea, e um brilho vermelho intenso pulsa em seus olhos. Não há mais perguntas. A indignação da entidade por ter recebido a alternativa incorreta é palpável, reverberando pelas paredes de cristal. Em um instante brutal, a cúpula se torna um vórtice de dados colapsados, e você é consumido pela fúria de uma verdade distorcida. A percepção falha selou seu destino: você se desintegra em um véu de ruído branco, e a escuridão o engole. Ao despertar, o Ponto de Início o aguarda, o vazio da planície se estendendo à sua frente, e a Torre de Etherion, indiferente, erguendo-se à distância. A lição é brutal: a falha na percepção não é um tropeço, é uma sentença de retorno forçado, uma repetição eterna até que a verdade seja finalmente alcançada.')
+    digitar(texto22)
+    print(f'[bold red]🩸 {personagem.nick} MORREU [/bold red]')
+    lore_1_andar(personagem)
 
 
 def lore_4_andar(personagem):
