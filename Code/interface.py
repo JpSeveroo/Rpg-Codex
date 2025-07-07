@@ -20,6 +20,7 @@ user = ''
 personagem_escolhido = ''
 
 class interface:
+
     def interface_principal():
         opcoes = {
             'Criar usuário': interface.interface_criacao,
@@ -27,14 +28,20 @@ class interface:
         }
         os.system('cls' if os.name == 'nt' else 'clear')
         print(' Olá, seja bem vindo!')
+
         a = InquirerPy.inquirer.select(
             message='Escolha uma opção',
             choices=['Criar usuário', 'Login', 'Finalizar' ]
         ).execute()
+
+        if a == 'Finalizar':
+            print('Encerrando o programa')
+            return
+        
         opcao = opcoes.get(a)
         if opcao:
             opcao()
-
+ 
     def save(info, path):
         lista = []
         for user in info:
@@ -43,7 +50,8 @@ class interface:
 
     def interface_criacao():
         user = users.users()
-        a = InquirerPy.inquirer.text(message='Digite o nome de usuário', validate= lambda x: x != '', invalid_message='O campo não pode estar vazio').execute()
+        nomes_existentes = [u.username for u in usuarios]
+        a = InquirerPy.inquirer.text(message='Digite o nome de usuário', validate= lambda x: x != '' and x not in nomes_existentes, invalid_message='O campo não pode estar vazio ou o nome já existir').execute()    
         b = InquirerPy.inquirer.text(message='Digite a senha do usuário', validate= lambda x: x != '', invalid_message='O campo não pode estar vazio').execute()
         user.criar_user(str(a), utills.cripto(str(b)))
         usuarios.append(user)

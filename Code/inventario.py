@@ -2,7 +2,7 @@ import item
 from InquirerPy import inquirer
 from ficha import Personagem
 from interface import personagem_escolhido
-from os import system
+import os
 
 lista_de_nomes_de_itens = [i.nome for i in item.lista_itens]
 
@@ -48,7 +48,7 @@ def equips(a):
     print('-'*35)
 
 def interface_inv(personagem):
-    system('clear')
+    os.system('cls' if os.name == 'nt' else 'clear')
     equips(equipamento)
     lista_nomes = []
     for a in personagem.inventario :
