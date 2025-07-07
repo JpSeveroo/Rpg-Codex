@@ -29,7 +29,7 @@ def rolar_dado():
 """ === DANO E AÇÕES === """
 
 #Precisa adaptar pra quando for colocar o sistema de pericia
-def calc_dano(personagem, pericia_principal, bonus_extra=0):
+def calc_dano(personagem, pericia_principal, bonus_extra=0): #FUNÇÃO OK
     if personagem.status['mana'] >= 10:    
         base = personagem.pericias.get(pericia_principal, 0)
         dado, critico = rolar_dado()
@@ -42,7 +42,7 @@ def calc_dano(personagem, pericia_principal, bonus_extra=0):
             digitar(f"🎲 {personagem.nick} rola 1d6: {dado} + bônus ({base} + {bonus_extra}) = {dano}")
     return dano
 
-def ataque(atacante, defensor, pericia_principal):
+def ataque(atacante, defensor, pericia_principal): #FUNÇÃO PRECISA SER REAVALIADA
     dano = calc_dano(atacante, pericia_principal)
     defensor.vida_atual -= dano
     if defensor.vida_atual < 0:
@@ -92,7 +92,7 @@ def esquivar(personagem, mana_max):
         time.sleep(0.8)
         return False
 
-def acoes(valor, personagem, inimigo, mana_max):
+def acoes_personagem(valor, personagem, inimigo, mana_max):
     if valor == 'Corpo a Corpo':
         ataque(personagem, inimigo, 'mano a mano')
     elif valor == 'Longo Alcance':
@@ -180,7 +180,7 @@ def loop_principal(personagem, inimigo, mana_max):
             if sucesso:
                 inimigo_deve_agir = False
         else:
-            acoes(a, personagem, inimigo, mana_max)
+            acoes_personagem(a, personagem, inimigo, mana_max)
 
     
     if inimigo.vida_atual > 0 and inimigo_deve_agir:
@@ -190,7 +190,7 @@ def loop_principal(personagem, inimigo, mana_max):
             b = acoes_inimigo.get(b)
         else:
             b = 'Corpo a Corpo'
-        acoes(b, inimigo, personagem, 0)
+        acoes_personagem(b, inimigo, personagem, 0)
 
 
 def combate(p1, p2):
