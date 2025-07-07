@@ -161,26 +161,31 @@ def inv(personagem, mana_max):
     lista_nome = [item.nome for item in personagem.inventario]
     print('-'*35)
     if len(lista_nome) != 0:
-        a = inquirer.select(message='Itens no inventário', choices=lista_nome).execute()
+        a = inquirer.select(message='Itens no inventário: ', choices=lista_nome).execute()
         b = inquirer.confirm(message='Você deseja usar o item ?').execute()
         if b == True :
             num = lista_nome.index(a)
-            personagem.inventario[num].qtd -= 1
-            efeitos = personagem.inventario[num].efeitos
-            descricao = personagem.inventario[num].descricao
-            for efeito in efeitos:
-                if efeito[0] == 'vida_atual':
-                    personagem.vida_atual += efeito[1]
-                    if personagem.vida_atual > personagem.status['hp']:
-                        personagem.vida_atual = personagem.status['hp']
-                    digitar(descricao)
-                    time.sleep(0.8)
-                else :
-                    personagem.status[efeito[0]] += efeito[1]
-                    digitar(descricao)
-                    time.sleep(0.8)
-                if personagem.status['mana'] > mana_max:
-                    personagem.status['mana'] = mana_max
+            if personagem.inventario[num].categoria == 'Utilizaveis':
+                personagem.inventario[num].qtd -= 1
+                efeitos = personagem.inventario[num].efeitos
+                descricao = personagem.inventario[num].descricao
+                for efeito in efeitos:
+                    if efeito[0] == 'vida_atual':
+                        personagem.vida_atual += efeito[1]
+                        if personagem.vida_atual > personagem.status['hp']:
+                            personagem.vida_atual = personagem.status['hp']
+                        digitar(descricao)
+                        time.sleep(0.8)
+                    else :
+                        personagem.status[efeito[0]] += efeito[1]
+                        digitar(descricao)
+                        time.sleep(0.8)
+                    if personagem.status['mana'] > mana_max:
+                        personagem.status['mana'] = mana_max
+            else :
+                print('Este item não é um utilizavel!')
+                input('Pressione enter para voltar...')
+                inv(personagem, mana_max)
         else:
             pass
         print('-'*35)
@@ -291,6 +296,7 @@ if __name__ == '__main__':
     p1.vida_atual = 100
     p1.inventario.append(pocao_cura)
     p1.inventario.append(pocao_mana)
+    p1.inventario.append(item.lista_itens[4])
     p1.is_player = True
 
     p2 = Personagem()

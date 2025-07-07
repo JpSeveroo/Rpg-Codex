@@ -9,7 +9,7 @@
         ],
         "descricao": "Restaura 25 pontos de HP",
         "qtd": 0,
-        "categoria": ""
+        "categoria": "Utilizaveis"
     },
     {
         "nome": "Po\u00e7\u00e3o de Mana",
@@ -21,7 +21,7 @@
         ],
         "descricao": "Restaura 25 pontos de MP",
         "qtd": 0,
-        "categoria": ""
+        "categoria": "Utilizaveis"
     },
     {
         "nome": "Arco Simples",

@@ -28,7 +28,7 @@ def add_item():
     objeto.nome = a
     objeto.efeitos = lista_de_efeitos
     objeto.descricao = c
-    objeto.categoria = input('Qual a categoria do item : (Cabeça, Corpo, Pés, Mãos)')
+    objeto.categoria = input('Qual a categoria do item : (Cabeça, Corpo, Pés, Mãos, Utilizaveis)')
     lista_itens.append(objeto)
     interface()
 

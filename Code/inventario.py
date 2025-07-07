@@ -1,7 +1,7 @@
 import item
 from InquirerPy import inquirer
 from ficha import Personagem
-from os import system
+import os
 
 lista_de_nomes_de_itens = [i.nome for i in item.lista_itens]
 

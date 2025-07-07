@@ -36,5 +36,12 @@
         "_username": "Deco1",
         "_password": "827ccb0eea8a706c4c34a16891f84e7b",
         "personagens": []
+    },
+    {
+        "_username": "Junin_do_Grau",
+        "_password": "dd7cc12f3c2ce05ee5f67d834f3cdb1f",
+        "personagens": [
+            "36e331d8da012bf9f51023594a6f4022"
+        ]
     }
 ]
