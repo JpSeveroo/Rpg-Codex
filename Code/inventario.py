@@ -8,21 +8,22 @@ lista_de_nomes_de_itens = [i.nome for i in item.lista_itens]
 
 class Equipamento:
     def __init__(self):
-        self.cabeca = {
+        self.itens = { 'cabeca' : {
             'equipado' : False,
             'item' : ''
-        }
-        self.corpo = {
+        },
+        'corpo' : {
             'equipado' : False,
             'item' : ''
-        }
-        self.pes = {
+        },
+        'pes' : {
             'equipado' : False,
             'item' : ''
-        }
-        self.maos = {
+        },
+        'maos' : {
             'equipado' : False,
             'item' : ''
+        } 
         }
 
 equipamento = Equipamento()
@@ -50,32 +51,12 @@ def equips(a):
 def interface_inv(personagem):
     system('clear')
     equips(equipamento)
-    lista_nomes = []
-    for a in personagem.inventario :
-        lista_nomes.append(a.nome)
-    lista_nomes.append('Sair')
-    a = inquirer.select(message='Selecione um item ', choices=lista_nomes).execute()
-    if a == 'Sair':
-        return
-    else :
-        a = lista_de_nomes_de_itens.index(a)
-        b = inquirer.select(message='Selecione onde você deseja equipar', choices=['Cabeça', 'Corpo', 'Pés', 'Mãos']).execute()
-        if b == 'Cabeça':
-            equipamento.cabeca['item'] = item.lista_itens[a]
-            equipamento.cabeca['equipado'] = True
-            interface_inv(personagem)
-        elif b == 'Corpo':
-            equipamento.corpo['item'] = item.lista_itens[a]
-            equipamento.corpo['equipado'] = True
-            interface_inv(personagem)
-        elif b == 'Pés':
-            equipamento.pes['item'] = item.lista_itens[a]
-            equipamento.pes['equipado'] = True
-            interface_inv(personagem)
-        elif b == 'Mãos':
-            equipamento.maos['item'] = item.lista_itens[a]
-            equipamento.maos['equipado'] = True
-            interface_inv(personagem)
+    opcoes = [
+        {'name':'Cabeça', 'value':'cabeca'},
+        {'name':'Corpo', 'value':'cabeca'}
+    ]
+    a = inquirer.select(message='Qual equipamento você deseja alterar ?', choices=opcoes).execute()
+    print(a)
 
 if __name__ == '__main__':
     p = Personagem()
