@@ -29,7 +29,7 @@
                 1
             ]
         ],
-        "descricao": "um arco leve, resistente, s\u00edmbolo do treinamento \u00e9lfico. N\u00e3o m\u00e1gico e um pouco velho, mas us\u00e1vel. (mira)",
+        "descricao": "Leve, resistente, s\u00edmbolo do treinamento \u00e9lfico. N\u00e3o m\u00e1gico e um pouco velho, mas us\u00e1vel. (mira)",
         "qtd": 0
     },
     {
@@ -51,7 +51,7 @@
                 1
             ]
         ],
-        "descricao": "Luvas leves e confort\u00e1veis, oferecem vantagem em tarefas delicadas. (m\u00e3os r\u00e1pidas)",
+        "descricao": "Luvas leves e confort\u00e1veis. Oferecem vantagem em tarefas delicadas. (m\u00e3os r\u00e1pidas)",
         "qtd": 0
     },
     {
@@ -62,7 +62,7 @@
                 1
             ]
         ],
-        "descricao": "confi\u00e1vel e robusta, a cl\u00e1ssica espada de um aventureiro iniciante. (mano a mano)",
+        "descricao": "Confi\u00e1vel e robusta, a cl\u00e1ssica espada de um aventureiro iniciante. (mano a mano)",
         "qtd": 0
     },
     {
@@ -73,7 +73,7 @@
                 1
             ]
         ],
-        "descricao": "um amuleto simples que ajuda a encontrar respostas por pura sorte. (percep\u00e7\u00e3o)",
+        "descricao": "Um amuleto simples que ajuda a encontrar respostas por pura sorte. (percep\u00e7\u00e3o)",
         "qtd": 0
     },
     {
@@ -84,18 +84,18 @@
                 1
             ]
         ],
-        "descricao": "melhora a armadura e a resist\u00eancia a terrenos dif\u00edceis (lama, neve, areia) fora de combate. (resist\u00eancia) (efeito)",
+        "descricao": "Melhora a armadura e a resist\u00eancia a terrenos dif\u00edceis (lama, neve, areia) fora de combate. (resist\u00eancia) (efeito)",
         "qtd": 0
     },
     {
         "nome": "Adaga de Escamas",
         "efeitos": [
             [
-                "mano_a_mano",
+                "mano a mano",
                 1
             ]
         ],
-        "descricao": "pequena adaga com s\u00edmbolos drac\u00f4nicos entalhados, item comum entre guerreiros draconianos inexperientes. (mano a mano)",
+        "descricao": "Pequena adaga com s\u00edmbolos drac\u00f4nicos entalhados, item comum entre guerreiros draconianos inexperientes. (mano a mano)",
         "qtd": 0
     },
     {
@@ -106,7 +106,7 @@
                 1
             ]
         ],
-        "descricao": "alimenta o instinto de ca\u00e7a dos draconianos, os deixando mais \u00e1geis. (acrobacia)",
+        "descricao": "Objeto que alimenta o instinto de ca\u00e7a dos draconianos, os deixando mais \u00e1geis. (acrobacia)",
         "qtd": 0
     },
     {
@@ -117,7 +117,7 @@
                 1
             ]
         ],
-        "descricao": "pequeno pingente com uma pedra da cor do drag\u00e3o ancestral do personagem; Acalma o cora\u00e7\u00e3o dos draconianos e os deixam mais soci\u00e1veis. (diplomacia)",
+        "descricao": "Pequeno pingente com uma pedra da cor do drag\u00e3o ancestral do personagem; Acalma o cora\u00e7\u00e3o dos draconianos e os deixam mais soci\u00e1veis. (diplomacia)",
         "qtd": 0
     },
     {
@@ -128,7 +128,7 @@
                 3
             ]
         ],
-        "descricao": "ela muda a express\u00e3o facial do personagem conforme a necessidade da conversa. Melhora a capacidade de mentira. (blefe)",
+        "descricao": "Mascara magica que muda a express\u00e3o facial do personagem conforme a necessidade da conversa. Melhora a capacidade de mentir. (blefe)",
         "qtd": 0
     },
     {
@@ -146,7 +146,7 @@
         "nome": "Espada Fio da Lua",
         "efeitos": [
             [
-                "mano_a_mano",
+                "mano a mano",
                 2
             ]
         ],
@@ -212,7 +212,7 @@
         "nome": "Talism\u00e3 da F\u00faria",
         "efeitos": [
             [
-                "mano_a_mano",
+                "mano a mano",
                 2
             ],
             [
