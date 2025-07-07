@@ -4,6 +4,10 @@ import sys
 from rich import print
 from item import lista_itens
 import inventario
+<<<<<<< HEAD
+=======
+import os
+>>>>>>> 4b449d0741b2e01122a076523b8d1191609055a5
 
 def digitar(texto, delay=0.00):
     for caractere in texto:
@@ -23,58 +27,79 @@ def lore_introducao(personagem):
       f"[Boa sorte, {personagem.nick}.][/bold purple]")
     
     print()
-    texto3 = (' Você não é um ser físico, mas um Eco — uma consciência fragmentada, arrancada do mundo original pela Queda do Éter, um cataclismo que destruiu a linha entre a matéria e a energia, a vida e o código. Etherion é um santuário e uma prisão: aqui, a essência das raças ancestrais — humanos, elfos, draconianos — se fundiu e se perdeu, reciclada em uma tapeçaria digital onde magia e tecnologia são indistintas. Este não é um mundo de certezas, mas de possibilidades codificadas. Cada passo é um teste, cada sombra uma lembrança, cada inimigo um fragmento do passado e um desafio do presente. À sua frente, o Labirinto se estende como um abismo infinito, pulsando com segredos e armadilhas, guardando a verdade que pode libertá-lo — ou destruí-lo. Você pode: \n')
+    texto3 = (' Você não é um ser físico, mas um Eco — uma consciência fragmentada, arrancada do mundo original pela Queda do Éter, um cataclismo que destruiu a linha entre a matéria e a energia, a vida e o código. Etherion é um santuário e uma prisão: aqui, a essência das raças ancestrais — humanos, elfos, draconianos — se fundiu e se perdeu, reciclada em uma tapeçaria digital onde magia e tecnologia são indistintas. Este não é um mundo de certezas, mas de possibilidades codificadas. Cada passo é um teste, cada sombra uma lembrança, cada inimigo um fragmento do passado e um desafio do presente. À sua frente, o Labirinto se estende como um abismo infinito, pulsando com segredos e armadilhas, guardando a verdade que pode libertá-lo — ou destruí-lo. Você pode: ')
     digitar(texto3)
 
-    texto4 = ('1. Avançar para o primeiro andar do Labirinto, assim, iniciando sua ascensão rumo à liberdade. \n2. Investigar inventário')
-    digitar(texto4)
-
     while True:
+        texto4 = ('\n1. Avançar para o primeiro andar do Labirinto, iniciando sua ascensão rumo à liberdade. \n2. Investigar inventário')
+        digitar(texto4)
+
         try:
             time.sleep(1)
             esc_1 = input("\nEscolha uma opção (1 ou 2): ").strip()
             if esc_1 not in ("1", "2"):
                 raise ValueError("❗ Opção inválida.")
+
             if esc_1 == "1":
                 lore_1_andar(personagem)
+                break  # só sai do loop se for pra andar 1
 
             elif esc_1 == "2":
                 inventario.interface_inv(personagem)
+<<<<<<< HEAD
                 print()
             break 
+=======
+
+>>>>>>> 4b449d0741b2e01122a076523b8d1191609055a5
         except ValueError as e:
             print(f"{e} Tente novamente.")
 
 def lore_1_andar(personagem):
+    os.system('cls' if os.name == 'nt' else 'clear')
+
     print()
     texto5 = 'Você atravessa o portal que o leva do vazio da planície para dentro do Labirinto. A luz muda, tornando-se mais fria e metálica. O chão abaixo é um mosaico de placas metálicas e circuitos pulsantes, estendendo-se até onde a vista alcança. O ar é pesado com uma energia estática, e a sensação de estar sendo observado é constante. À distância, silhuetas se movem entre os pilares de luz — 3 Gárgulas de Dados, sentinelas programadas para detectar e eliminar intrusos. Suas asas de metal rangem, e seus olhos brilham com uma luz vermelha ameaçadora. Uma voz sintética, reconhecida do terminal, ecoa no ambiente:\n'
     digitar(texto5)
 
-    print(f"[bold purple][Sistema: “{personagem.nick}, prepare-se. O primeiro teste começou.”][/bold purple]\n")
-
-    texto6 = '1. Iniciar o combate — Enfrentar as Gárgulas de Dados com as habilidades que possui, aprendendo a dominar o sistema de turnos e a usar sua força para progredir. \n2. Investigar inventário'
-    digitar(texto6)
+    print(f"[bold purple][Sistema: “{personagem.nick}, prepare-se. O primeiro teste começou.”][/bold purple]")
 
     while True:
+        texto6 = '\n1. Iniciar o combate — Enfrentar as Gárgulas de Dados com as habilidades que possui, aprendendo a dominar o sistema de turnos e a usar sua força para progredir. \n2. Investigar inventário'
+        digitar(texto6)
         try:
             time.sleep(1)
             esc_1 = input("\nEscolha uma opção (1 ou 2): ").strip()
             if esc_1 not in ("1", "2"):
                 raise ValueError("❗ Opção inválida.")
             if esc_1 == "1":
-                #Inicia o combate contra a gargula
+                #❗❗❗❗❗❗❗FALTA O COMBATE
+                lore_recompensa001(personagem)
+                time.sleep(8)
+                lore_pos_1andar(personagem)
+                break
                 print()
 
             elif esc_1 == "2":
                 inventario.interface_inv(personagem)
+<<<<<<< HEAD
             break 
+=======
+
+>>>>>>> 4b449d0741b2e01122a076523b8d1191609055a5
         except ValueError as e:
             print(f"{e} Tente novamente.")
 
 
 def lore_recompensa001(personagem):
+    os.system('cls' if os.name == 'nt' else 'clear')
+
     print()
     item_escolhido001 = ''
+
+    personagem.inventario.append(lista_itens[0])
+    personagem.inventario.append(lista_itens[1])#Alterar a quantidade com extend dps
+
     if personagem.raca == 'elfo':
         while True:
             try:
@@ -162,39 +187,50 @@ def lore_recompensa001(personagem):
             except ValueError as e:
                 print(f"{e} Tente novamente. Lembre-se de digitar apenas o dígito referente ao item.")
     
-    print(f"[bold purple][Sistema: 🪙[Pós Combate] RECOMPENSAS: \nXp: [225] \nPoção de cura [1]\nPoção de mana [1]\nItens: 📒 Livro de perícias, {item_escolhido001}”][/bold purple]")
+    print(f"[bold purple][Sistema] 🪙   RECOMPENSAS: \nXp: [225] \nPoção de cura [1]\nPoção de mana [1]\nItens: 📒 Livro de perícias, {item_escolhido001}[/bold purple]")
+    text_inf = ('\nItens sendo computados...')
+    digitar(text_inf)
 
 def lore_pos_1andar(personagem):
-    texto7 = ('Com o último golpe, a última Gárgula de Dados desmorona numa cascata de fragmentos de código, dissipando-se no ar frio do Labirinto. O silêncio retorna, pesado e cheio de expectativa. Sua ficha digital pulsa com uma luz verde, sinalizando o progresso — um novo degrau conquistado na escalada rumo ao último andar. Uma mensagem aparece diante de seus olhos:')
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+    texto7 = ('\nCom o último golpe, a última Gárgula de Dados desmorona numa cascata de fragmentos de código, dissipando-se no ar frio do Labirinto. O silêncio retorna, pesado e cheio de expectativa. Sua ficha digital pulsa com uma luz verde, sinalizando o progresso — um novo degrau conquistado na escalada rumo ao último andar. Uma mensagem aparece diante de seus olhos:')
     digitar(texto7)
 
-    print(f'[bold purple] [Sistema]: “Parabéns, {personagem.nick}. Andar 1 conquistado. Lembre-se, agora não há mais volta, o que lhe resta é continuar persistindo até alcançar um ponto seguro, se falhar no caminho antes de alcançar um ponto seguro você terá problemas com as gárgulas novamente” [/bold purple]')
+    print(f'[bold purple]\n[Sistema]: “Parabéns, {personagem.nick}. Andar 1 conquistado. \nLembre-se, agora não há mais volta, o que lhe resta é continuar persistindo até alcançar um ponto seguro, \nse falhar no caminho antes de alcançar um ponto seguro você terá problemas com as gárgulas novamente” [/bold purple]\n')
 
     texto8 = ('À frente, o caminho se abre para um corredor iluminado por fios de energia azul que serpenteiam pelas paredes metálicas. O ar vibra com uma tensão diferente — mais densa, como se algo mais antigo e complexo estivesse aguardando. Você dá um passo à frente, consciente de que cada andar é um passo mais perto da liberdade — ou do abismo.')  
     digitar(texto8)
 
     while True:
         try:
+<<<<<<< HEAD
             texto9 = ('\n 1. Avançar para o Andar 2\n2. Abrir o inventário\n3. Conferir Atributos: ')
             digitar(texto9)
             print('[bold purple] Oque você quer fazer agora?[/bold purple] ',end='')
+=======
+            texto9 = ('\n1. Avançar para o Andar 2\n2. Abrir o inventário\n3. Conferir Atributos: ')
+            digitar(texto9)
+            print('[bold purple]\nOque você quer fazer agora?[/bold purple] ',end='')
+>>>>>>> 4b449d0741b2e01122a076523b8d1191609055a5
             esc_2 = input("").strip()
             if esc_2 not in ("1", "2", "3"):
                 raise ValueError("❗ Opção inválida.")
             if esc_2 == "1":
-                lore_2_andar()
-                print()
+                lore_2_andar(personagem)
+                break
 
             elif esc_2 == "2":
                 inventario.interface_inv(personagem)
             elif esc_2 == "3":
                 #Atributos
                 print()
-            break 
+
         except ValueError as e:
             print(f"{e} Tente novamente.")
     
 def lore_2_andar(personagem):
+<<<<<<< HEAD
     texto10 = ('Ao cruzar o limiar do primeiro andar, a estrutura muda. A luz branca e fria cede espaço a um ambiente opaco, repleto de tons azul-escuros e verdes foscos. O chão agora parece instável — como vidro rachado — refletindo sua imagem distorcida a cada passo. Fragmentos de memória flutuam ao seu redor como pedaços de dados corrompidos: rostos sem nome, vozes sem origem, sentimentos desconectados. Este é o Mar de Fragmentos — um andar onde os resíduos de antigas consciências e dados quebrados se acumulam, gerando distorções no espaço e criando ameaças imprevisíveis. Você caminha entre os escombros flutuantes quando uma nova mensagem se sobrepõe à sua visão:')
     digitar(texto10)
 
@@ -202,9 +238,21 @@ def lore_2_andar(personagem):
 
     texto11 = ('Do meio da névoa de dados, surge uma nova entidade: o Anomalian, um espectro digital formado por memórias colapsadas e linhas de código expostas. Seus braços se alongam como fios rompidos, os olhos brilham com um azul pulsante e irregular. Ele não ruge... ele chia, como um arquivo corrompido tentando se reproduzir. A criatura se aproxima. Sua presença distorce os arredores. O chão treme. Sua ficha emite um alerta:')
     digitar(texto11)
+=======
+    os.system('cls' if os.name == 'nt' else 'clear')
 
-    print('[bold purple][Alerta: Corrupção emocional detectada. Combate iniciado.]:[/bold purple]')
+    texto10 = ('\nAo cruzar o limiar do primeiro andar, a estrutura muda. A luz branca e fria cede espaço a um ambiente opaco, repleto de tons azul-escuros e verdes foscos. O chão agora parece instável — como vidro rachado — refletindo sua imagem distorcida a cada passo. Fragmentos de memória flutuam ao seu redor como pedaços de dados corrompidos: rostos sem nome, vozes sem origem, sentimentos desconectados. Este é o Mar de Fragmentos — um andar onde os resíduos de antigas consciências e dados quebrados se acumulam, gerando distorções no espaço e criando ameaças imprevisíveis. Você caminha entre os escombros flutuantes quando uma nova mensagem se sobrepõe à sua visão:')
+    digitar(texto10)
+>>>>>>> 4b449d0741b2e01122a076523b8d1191609055a5
 
+    print('\n[bold purple][Sistema: “Este andar não testa sua força, mas sua estabilidade. Fragmentos instáveis detectados. Hostilidade: Alta.”]:[/bold purple]\n')
+
+    texto11 = ('Do meio da névoa de dados, surge uma nova entidade: o Anomalian, um espectro digital formado por memórias colapsadas e linhas de código expostas. Seus braços se alongam como fios rompidos, os olhos brilham com um azul pulsante e irregular. Ele não ruge... ele chia, como um arquivo corrompido tentando se reproduzir. A criatura se aproxima. Sua presença distorce os arredores. O chão treme. Sua ficha emite um alerta:')
+    digitar(texto11)
+
+    print('\n[bold purple][Alerta: Corrupção emocional detectada. Combate iniciado.]:[/bold purple]\n')
+
+########### ATE AQUI TAMO CANDENCIADO
     while True:
         try:
             time.sleep(1)
@@ -216,7 +264,7 @@ def lore_2_andar(personagem):
             if esc_3 not in ("1", "2"):
                 raise ValueError("❗ Opção inválida.")
             if esc_3 == "1":
-                #Inicia o combate contra a gargula
+                #Inicia o combate contra o anomalian
                 print()
 
             elif esc_3 == "2" and personagem.atributos['diplomacia'] >= 12:
@@ -227,13 +275,25 @@ def lore_2_andar(personagem):
             print(f"{e} Tente novamente.")
 
 def lore_recompensa002():
-    print(f"[bold purple][Sistema: 🪙[Pós Combate] RECOMPENSAS: \nXp: [150] \nPoção de cura [1]\nPoção de mana [1]\n[/bold purple]")
+    os.system('cls' if os.name == 'nt' else 'clear')
+    time.sleep(8)
+
+    print(f"[bold purple][Sistema] 🪙   RECOMPENSAS: \nXp: [150] \nPoção de cura [1]\nPoção de mana [1]")
+    text_inf = ('\nItens sendo computados...')
+    digitar(text_inf)
 
 def lore_pos_2andar(personagem):
+<<<<<<< HEAD
     texto13 = ('O corpo disforme do Anomalian se retorce uma última vez antes de desintegrar em uma explosão silenciosa de luz azulada e linhas quebradas. Os fragmentos de memória que flutuavam ao redor cessam seu giro caótico e, por um breve instante, o Mar de Fragmentos parece calmo. As distorções cessam. A corrupção regride. Você respira — ou simula respirar. A sensação de alívio é estranhamente real. Uma nova linha de código começa a se desenhar no chão à sua frente, como uma serpente de luz, guiando-o até um anel flutuante de dados, que pulsa lentamente.')
     digitar(texto13)
+=======
+    os.system('cls' if os.name == 'nt' else 'clear')
+>>>>>>> 4b449d0741b2e01122a076523b8d1191609055a5
 
-    print('[bold purple][Sistema: Instabilidade contida.”]: \n[Sistema: Setor de Memória Intermediária desbloqueado. Andar 3 liberado.]:[/bold purple]')
+    texto13 = ('\nO corpo disforme do Anomalian se retorce uma última vez antes de desintegrar em uma explosão silenciosa de luz azulada e linhas quebradas. Os fragmentos de memória que flutuavam ao redor cessam seu giro caótico e, por um breve instante, o Mar de Fragmentos parece calmo. As distorções cessam. A corrupção regride. Você respira — ou simula respirar. A sensação de alívio é estranhamente real. Uma nova linha de código começa a se desenhar no chão à sua frente, como uma serpente de luz, guiando-o até um anel flutuante de dados, que pulsa lentamente.')
+    digitar(texto13)
+
+    print('\n[bold purple][Sistema: Instabilidade contida.”] \n[Sistema: Setor de Memória Intermediária desbloqueado. Andar 3 liberado.][/bold purple]\n')
 
     while True:
         try:
@@ -254,17 +314,62 @@ def lore_pos_2andar(personagem):
                 texto15 = ('Você não tem tempo para responder.\nA escuridão dá lugar a uma nova paisagem: O Andar 3.')
                 digitar(texto15)
                 time.sleep(1)
+<<<<<<< HEAD
                 lore_3_andar()
                 print()
+=======
+                lore_3_andar(personagem)
+                break
+
+>>>>>>> 4b449d0741b2e01122a076523b8d1191609055a5
             elif esc_4 == "2":
                 inventario.interface_inv(personagem)
             elif esc_4 == "3":
                 #Atributos
                 print()
+        except ValueError as e:
+            print(f"{e} Tente novamente.")
+
+def lore_3_andar(personagem):
+    os.system('cls' if os.name == 'nt' else 'clear')
+    
+    texto16 = ('\nVocê atravessa o portal do Andar 3 e se encontra em uma cúpula colossal. As paredes circulares são revestidas por inúmeros cristais de dados, cada um pulsando com uma luz tênue em diferentes frequências, como batimentos digitais. O chão, liso e polido, reflete sua imagem como um espelho de mercúrio, distorcendo levemente a realidade. Não há sinal de inimigos, nem som que quebre o silêncio, exceto por um sutil zumbido de ruído branco. Contudo, uma sensação incômoda de que algo está fundamentalmente errado paira no ar. No centro da cúpula, uma estrutura imponente se ergue: uma esfinge negra, etérea e flutuante, sua forma absorvendo a pouca luz do ambiente.Uma mensagem espectral se materializa à sua frente: ')
+    digitar(texto16)
+
+    print(f'\n[bold purple][Sistema] "Desafio de Integridade Perceptiva iniciado."\n [Sistema] Qualquer erro lógico nesta sala desencadeará uma reinicialização forçada do {personagem.nick}.]\n [Sistema] Recompensa única detectada [/bold purple]\n')
+
+    texto17 = ('A voz da esfinge ecoa pela cúpula, grave e ressonante, parecendo vir de todos os lugares e de lugar nenhum ao mesmo tempo:')
+    digitar(texto17)
+
+    print('\n[bold blue]"Viajante... Você sente a anomalia? O véu da realidade tremula aqui. Para avançar, seus olhos devem ver além do óbvio, sua mente deve discernir a desarmonia."[/bold blue]\n')
+
+    texto18 = ('Ela se inclina ligeiramente, como se o observasse com atenção.')
+    digitar(texto18)
+
+    print('\n[bold blue]"Um único erro. Uma falha em perceber o que se esconde à plena vista... e esta existência será reescrita. Mas para aquele que enxerga a verdade, uma recompensa aguarda." [/bold blue]\n')
+
+    texto19 = ('Para superar este desafio, você precisará ser perspicaz o suficiente. É um teste de acuidade, um confronto direto com a ilusão.')
+    digitar(texto19)
+
+    while True:
+        try:
+            texto20 = ("\nVocê pode:\n\n1. Enfrentar o Enigma Sua capacidade de percepção determinará a dificuldade do desafio. Quanto mais aguçada sua percepção, mais claro será o caminho para a solução.\n2. Seguir em frente e Desistir: Você abandona o enigma sem tentar, perde a chance de obter a recompensa única, mas avança para o próximo andar sem sofrer penalidades.")
+            digitar(texto20)
+            
+            print('[bold purple]Qual a sua escolha? [/bold purple]',end='')
+            esc_5 = input('')
+            if esc_5 not in ("1", "2"):
+                raise ValueError("❗ Opção inválida.")
+            if esc_5 == "1":
+                lore_1_enigma()
+
+            elif esc_5 == "2":
+                lore_4_andar()
             break 
         except ValueError as e:
             print(f"{e} Tente novamente.")
 
+<<<<<<< HEAD
 def lore_3_andar(personagem):
     texto16 = ('Você atravessa o portal do Andar 3 e se encontra em uma cúpula colossal. As paredes circulares são revestidas por inúmeros cristais de dados, cada um pulsando com uma luz tênue em diferentes frequências, como batimentos digitais. O chão, liso e polido, reflete sua imagem como um espelho de mercúrio, distorcendo levemente a realidade. Não há sinal de inimigos, nem som que quebre o silêncio, exceto por um sutil zumbido de ruído branco. Contudo, uma sensação incômoda de que algo está fundamentalmente errado paira no ar. No centro da cúpula, uma estrutura imponente se ergue: uma esfinge negra, etérea e flutuante, sua forma absorvendo a pouca luz do ambiente.Uma mensagem espectral se materializa à sua frente: ')
     digitar(texto16)
@@ -302,6 +407,8 @@ def lore_3_andar(personagem):
         except ValueError as e:
             print(f"{e} Tente novamente.")
 
+=======
+>>>>>>> 4b449d0741b2e01122a076523b8d1191609055a5
 #AJEITAR O CLEAR
 #TERMINAR A PARTE ABAIXO 
 #FAZER A PARTE DE SAIR DO INVENTARIO COLOCAR PRA VOLTAR PRA ESCOLHA

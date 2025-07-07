@@ -50,7 +50,8 @@ class interface:
 
     def interface_criacao():
         user = users.users()
-        a = InquirerPy.inquirer.text(message='Digite o nome de usuário', validate= lambda x: x != '', invalid_message='O campo não pode estar vazio').execute()
+        nomes_existentes = [u.username for u in usuarios]
+        a = InquirerPy.inquirer.text(message='Digite o nome de usuário', validate= lambda x: x != '' and x not in nomes_existentes, invalid_message='O campo não pode estar vazio ou o nome já existir').execute()    
         b = InquirerPy.inquirer.text(message='Digite a senha do usuário', validate= lambda x: x != '', invalid_message='O campo não pode estar vazio').execute()
         user.criar_user(str(a), utills.cripto(str(b)))
         usuarios.append(user)

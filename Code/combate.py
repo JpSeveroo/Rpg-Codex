@@ -29,8 +29,13 @@ def rolar_dado():
 """ === DANO E AÇÕES === """
 
 #Precisa adaptar pra quando for colocar o sistema de pericia
+<<<<<<< HEAD
 def calc_dano(personagem, pericia_principal, bonus_extra=0, custo_mana=0):
     if personagem.status['mana'] >= custo_mana:    
+=======
+def calc_dano(personagem, pericia_principal, bonus_extra=0): #FUNÇÃO OK
+    if personagem.status['mana'] >= 10:    
+>>>>>>> 4b449d0741b2e01122a076523b8d1191609055a5
         base = personagem.pericias.get(pericia_principal, 0)
         dado, critico = rolar_dado()
         dano_base = base + bonus_extra + dado
@@ -40,14 +45,44 @@ def calc_dano(personagem, pericia_principal, bonus_extra=0, custo_mana=0):
         else:
             dano = dano_base
             digitar(f"🎲 {personagem.nick} rola 1d6: {dado} + bônus ({base} + {bonus_extra}) = {dano}")
+<<<<<<< HEAD
         personagem.status['mana'] -= custo_mana
         if personagem.status['mana'] < 0:
             personagem.status['mana'] = 0
         return dano
+=======
+    return dano
+
+def ataque(atacante, defensor, pericia_principal): #FUNÇÃO PRECISA SER REAVALIADA
+    dano = calc_dano(atacante, pericia_principal)
+    defensor.vida_atual -= dano
+    if defensor.vida_atual < 0:
+            defensor.vida_atual = 0
+    digitar(f"\n⚔️  {atacante.nick} ataca {defensor.nick} causando {dano} de dano!")
+    digitar(f"❤️  {defensor.nick} agora tem {defensor.vida_atual} HP.")
+    time.sleep(0.8)
+
+def ataque_especial(atacante, defensor, pericia_principal):
+    if atacante.status['mana'] >= 15:
+        # Escolher perícia extra
+        pericias_disponiveis = list(atacante.pericias.keys())
+        pericias_disponiveis.remove(pericia_principal)
+        pericia_extra = inquirer.select(message='Escolha uma perícia extra para o ataque especial:', choices=pericias_disponiveis).execute()
+        bonus_extra = atacante.pericias.get(pericia_extra, 0)
+        dano = calc_dano(atacante, pericia_principal, bonus_extra)
+        defensor.vida_atual -= dano
+        if defensor.vida_atual < 0:
+            defensor.vida_atual = 0
+        digitar(f"\n⚔️  {atacante.nick} usa um ataque especial em {defensor.nick}! causando {dano} de dano!")
+        digitar(f"❤️  {defensor.nick} agora tem {defensor.vida_atual} HP.")
+        atacante.status['mana'] -= 5
+        time.sleep(0.8)
+>>>>>>> 4b449d0741b2e01122a076523b8d1191609055a5
     else:
         digitar(f"⚠️ {personagem.nick} não tem mana suficiente para atacar!")
         return 0
 
+<<<<<<< HEAD
 def ataque(atacante, defensor, pericia_principal):
     dano = calc_dano(atacante, pericia_principal, custo_mana=5)
     defensor.vida_atual -= dano
@@ -94,6 +129,8 @@ def ataque_especial(atacante, defensor, pericia_principal):
         time.sleep(0.8)
         return True
 
+=======
+>>>>>>> 4b449d0741b2e01122a076523b8d1191609055a5
 #fazer o calculo de pericias do ataque especial
 
 def esquivar(personagem, mana_max):
@@ -116,6 +153,7 @@ def esquivar(personagem, mana_max):
         time.sleep(0.8)
         return False
 
+<<<<<<< HEAD
 def acoes(valor, personagem, inimigo, mana_max):
     if valor == 'Corpo a Corpo':
         ataque(personagem, inimigo, 'mano a mano')
@@ -133,6 +171,21 @@ def acoes(valor, personagem, inimigo, mana_max):
     elif valor == 'Esquivar':
         return esquivar(personagem, mana_max)
     return False  # ação inválida ou não reconhecida
+=======
+def acoes_personagem(valor, personagem, inimigo, mana_max):
+    if valor == 'Corpo a Corpo':
+        ataque(personagem, inimigo, 'mano a mano')
+    elif valor == 'Longo Alcance':
+        ataque(personagem, inimigo, 'mira')
+    elif valor == 'Ataque Especial Corpo a Corpo':
+        ataque_especial(personagem, inimigo, 'mano a mano')
+    elif valor == 'Ataque Especial Longo Alcance':
+        ataque_especial(personagem, inimigo, 'mira')
+    elif valor == 'Inventário':
+        inv(personagem, mana_max)
+    elif valor == 'Esquivar':
+        esquivar(personagem, mana_max)
+>>>>>>> 4b449d0741b2e01122a076523b8d1191609055a5
 
 """=== PARTE VISUAL ==="""
 
@@ -189,6 +242,7 @@ def inv(personagem, mana_max):
         print('-'*35)
 
 #Interromper a luta quando o personagem ou inimigo morrer
+<<<<<<< HEAD
 def loop_principal(personagem, inimigo, mana_max, mana_max_inimigo):
     limpar_tela()
     acoes_inimigo = {
@@ -203,6 +257,19 @@ def loop_principal(personagem, inimigo, mana_max, mana_max_inimigo):
     while True:
         a = inquirer.select(
             message='Qual a sua próxima ação:',
+=======
+
+def loop_principal(personagem, inimigo, mana_max):
+    limpar_tela()
+    acoes_inimigo = {1:'Atacar'}
+    tabelas(personagem, inimigo)
+    print()
+
+    a = inquirer.select(
+        message='Qual a sua próxima ação:',
+        choices=['Ataque', 'Ataque Especial', 'Esquivar', 'Inventario']
+    ).execute()
+>>>>>>> 4b449d0741b2e01122a076523b8d1191609055a5
 
             choices=['Corpo a Corpo', 'Longo Alcance', 'Ataque Especial Corpo a Corpo', 'Ataque Especial Longo Alcance', 'Inventário', 'Esquivar']
         ).execute()
@@ -225,8 +292,13 @@ def loop_principal(personagem, inimigo, mana_max, mana_max_inimigo):
         if sucesso:
             break
         else:
+<<<<<<< HEAD
             digitar("⚠️ Ação inválida ou mana insuficiente. Escolha outra ação.")
             time.sleep(0.8)
+=======
+            acoes_personagem(a, personagem, inimigo, mana_max)
+
+>>>>>>> 4b449d0741b2e01122a076523b8d1191609055a5
     
     if inimigo.vida_atual > 0: #turno da IA
         if inimigo.status['mana'] >= 10:
@@ -236,6 +308,7 @@ def loop_principal(personagem, inimigo, mana_max, mana_max_inimigo):
             b = random.randint(1, 2) # só ataques corpo a corpo ou longo alcance
             acao_ia = acoes_inimigo.get(b)
         else:
+<<<<<<< HEAD
             acao_ia = 'Esquivar'
 
         if acao_ia == 'Esquivar':
@@ -251,6 +324,10 @@ def loop_principal(personagem, inimigo, mana_max, mana_max_inimigo):
                     acao_ia = acoes_inimigo.get(b)
 
         acoes(acao_ia, inimigo, personagem, mana_max_inimigo)
+=======
+            b = 'Corpo a Corpo'
+        acoes_personagem(b, inimigo, personagem, 0)
+>>>>>>> 4b449d0741b2e01122a076523b8d1191609055a5
 
 
 def combate(p1, p2):
