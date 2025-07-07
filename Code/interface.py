@@ -23,7 +23,7 @@ class interface:
             'Criar usuário': interface.interface_criacao,
             'Login' : interface.interface_login
         }
-        os.system('clear')
+        os.system('cls' if os.name == 'nt' else 'clear')
         print(' Olá, seja bem vindo!')
         a = InquirerPy.inquirer.select(
             message='Escolha uma opção',

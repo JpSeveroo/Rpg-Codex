@@ -27,15 +27,16 @@ def rolar_dado():
 
 #Precisa adaptar pra quando for colocar o sistema de pericia
 def rolar_dano(personagem, pericia_principal, bonus_extra=0):
-    base = personagem.pericias.get(pericia_principal, 0)
-    dado, critico = rolar_dado()
-    dano_base = base + bonus_extra + dado
-    if critico:
-        dano = dano_base * 2
-        digitar(f"🎲 {personagem.nick} rola 1d6: {dado} + bônus ({base} + {bonus_extra}) = {dano_base} 🎉 CRÍTICO! Dano dobrado para {dano}!")
-    else:
-        dano = dano_base
-        digitar(f"🎲 {personagem.nick} rola 1d6: {dado} + bônus ({base} + {bonus_extra}) = {dano}")
+    if personagem.status['mana'] > 0:    
+        base = personagem.pericias.get(pericia_principal, 0)
+        dado, critico = rolar_dado()
+        dano_base = base + bonus_extra + dado
+        if critico:
+            dano = dano_base * 2
+            digitar(f"🎲 {personagem.nick} rola 1d6: {dado} + bônus ({base} + {bonus_extra}) = {dano_base} 🎉 CRÍTICO! Dano dobrado para {dano}!")
+        else:
+            dano = dano_base
+            digitar(f"🎲 {personagem.nick} rola 1d6: {dado} + bônus ({base} + {bonus_extra}) = {dano}")
     return dano
 
 def ataque_especial(atacante, defensor, pericia_principal):
