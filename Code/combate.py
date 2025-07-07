@@ -218,12 +218,14 @@ def loop_principal(personagem, inimigo, mana_max):
 
                 choices=['Corpo a corpo (mano a mano)', 'Longo alcance (mira)']
             ).execute()
+
         elif a == 'Ataque Especial':
             a2 = inquirer.select(
                 message='Qual a sua próxima ação:',
 
                 choices=['Corpo a corpo (mano a mano)', 'Longo alcance (mira)']
             ).execute()
+            
         elif a == 'Esquivar':
             sucesso = esquivar(personagem, mana_max)
             if sucesso:
