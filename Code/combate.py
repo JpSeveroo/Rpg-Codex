@@ -16,11 +16,46 @@ def digitar(texto, delay=0.03):
         time.sleep(delay)
     print()
 
+def rolar_dado():
+    dado = random.randint(1, 6)
+    critico = (dado == 6)
+    return dado, critico
+
 #Precisa adaptar pra quando for colocar o sistema de pericia
 def rolar_dano(personagem, pericia):
     base = personagem.atributos[pericia]
-    dado = random.randint(1, 6)
-    return base + dado
+    dado, critico = rolar_dado()
+    dano_base = base + dado
+    if critico:
+        dano = (dado + base) * 2
+        digitar(f"🎲 {personagem.nick} rola 1d6: {dado} + bônus ({base}) = {dado + base} 🎉 CRÍTICO! Dano dobrado para {dano}!")
+    else:
+        dano = dado + base
+        digitar(f"🎲 {personagem.nick} rola 1d6: {dado} + bônus ({base}) = {dano}")
+    return dano
+
+def ataque_especial(atacante, defensor, pericia):
+    if atacante.status['mana'] > 0:
+        pericia_bonus = atacante.pericias[pericia]
+        dado, critico = rolar_dado()
+        dano_base = pericia_bonus + dado
+        if critico:
+            dano = dano_base * 2
+            digitar(f"🎲 {atacante.nick} rola 1d6: {dado} + bônus ({pericia_bonus}) = {dado + pericia_bonus} 🎉 CRÍTICO! Dano dobrado para {dano}!")
+        else:
+            dano = dano_base
+            digitar(f"🎲 {atacante.nick} rola 1d6: {dado} + bônus ({pericia_bonus}) = {dano}")
+        defensor.vida_atual -= dano
+        if defensor.vida_atual < 0:
+            defensor.vida_atual = 0
+        digitar(f"\n⚔️  {atacante.nick} usa um ataque especial em {defensor.nick}! causando {dano} de dano!")
+        digitar(f"❤️  {defensor.nick} agora tem {defensor.vida_atual} HP.")
+        atacante.status['mana'] -= 5
+        time.sleep(0.5)
+    else:
+        print('Mana insuficiente!')
+        time.sleep(0.5)
+
 
 def turno_ataque(atacante, defensor):
     dano = rolar_dano(atacante, 'força')
@@ -50,27 +85,13 @@ def tabelas(personagem, inimigo):
     write('Mana', personagem.status['mana'], inimigo.status['mana'])
     print('-'*35 + ' '*25 + '-'*35)
 
-def ataque_especial(atacante, defensor, pericia):
-    if atacante.status['mana'] > 0:
-        dano = atacante.pericias[pericia] + rolar_dano(atacante, 'força')
-        defensor.vida_atual -= dano
-        if defensor.vida_atual < 0:
-            defensor.vida_atual = 0
-        digitar(f"\n⚔️  {atacante.nick} usa um ataque especial em {defensor.nick}! causando {dano} de dano!")
-        digitar(f"❤️  {defensor.nick} agora tem {defensor.vida_atual} HP.")
-        atacante.status['mana'] -= 5
-        time.sleep(0.5)
-    else:
-        print('Mana insuficiente!')
-        time.sleep(0.5)
-
 def acoes(valor, personagem, inimigo, mana_max):
     if valor == 'Atacar':
         turno_ataque(personagem, inimigo)
     elif valor == 'Ataque Especial':
         ataque_especial(personagem, inimigo, 'mano a mano')
     elif valor == 'Inventário':
-        inv(personagem, mana_max)
+        inv(personagem, mana_max)     
 
 def inv(personagem, mana_max):
     lista_nome = [item.nome for item in personagem.inventario]
@@ -105,6 +126,18 @@ def inv(personagem, mana_max):
 
 #Interromper a luta quando o personagem ou inimigo morrer
 
+def tentar_fugir(personagem):
+    digitar(f"\n🏃 {personagem.nick} tenta fugir do combate!")
+    dado = random.randint(1, 6)
+    dificuldade = 4
+    digitar(f"🎲 Rolagem de dado para fuga: {dado} (precisava tirar {dificuldade} ou mais)")
+    if dado >= dificuldade:
+        digitar("✅ Fuga bem-sucedida!")
+        return True
+    else:
+        digitar("❌ A fuga falhou! O inimigo aproveita a abertura...")
+        return False
+
 def loop_principal(personagem, inimigo, mana_max):
     system('clear')
     acoes_inimigo = {1:'Atacar', 2:'Ataque Especial'}
@@ -113,8 +146,12 @@ def loop_principal(personagem, inimigo, mana_max):
     a = inquirer.select(message='Qual a sua próxima ação: ', choices=['Atacar', 'Ataque Especial', 'Inventário', 'Fugir']).execute()
     
     if personagem.vida_atual > 0:
-        #turno jogador
-        acoes(a, personagem, inimigo, mana_max)
+    
+        if a == 'Fugir':
+            sucesso = tentar_fugir(personagem)
+            if sucesso:
+                return "fugiu"
+        acoes(a, personagem, inimigo, mana_max) #turno jogador
     
     if inimigo.vida_atual > 0:
         #turno da IA
@@ -130,7 +167,10 @@ def combate(p1, p2):
     time.sleep(0.5)
     mana_max1 = p1.status['mana']
     while p1.vida_atual > 0 and p2.vida_atual > 0:
-        loop_principal(p1, p2, mana_max1)
+        resultado = loop_principal(p1, p2, mana_max1)
+        if resultado == "fugiu":
+            digitar(f"\n🏃 {p1.nick} conseguiu fugir do combate!")
+            return p1
      
 # Exemplo de execução direta
 
@@ -155,7 +195,7 @@ if __name__ == '__main__':
     p2.atributos["força"] = 8
     p2.status["hp"] = 50
     p2.status["mana"] = 5
-    p1.pericias['mano a mano'] = 12
+    p2.pericias['mano a mano'] = 12
     p2.vida_atual = 50
 
     combate(p1, p2)
