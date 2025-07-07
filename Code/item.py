@@ -28,7 +28,7 @@ def add_item():
     objeto.nome = a
     objeto.efeitos = lista_de_efeitos
     objeto.descricao = c
-    objeto.categoria = input('Qual a categoria do item : (cabeca, corpo, pes, maos)')
+    objeto.categoria = input('Qual a categoria do item : (Cabeça, Corpo, Pés, Mãos)')
     lista_itens.append(objeto)
     interface()
 
@@ -47,8 +47,8 @@ def load_itens():
             a.nome = i['nome']
             a.efeitos = i['efeitos']
             a.descricao = i['descricao']
-            a.qtd = 0
-            a.categoria = ''
+            a.qtd = i['qtd']
+            a.categoria = i['categoria']
             lista_itens.append(a)
     except:
         pass
@@ -100,5 +100,7 @@ def interface():
 load_itens()
 
 if __name__ == '__main__':
+    for i in lista_itens:
+        print(i.categoria)
     interface()
     
