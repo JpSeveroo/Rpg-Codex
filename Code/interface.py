@@ -16,6 +16,7 @@ usuarios = []
 personagens = []
 name_list = []
 user = ''
+personagem_escolhido = ''
 
 class interface:
     def interface_principal():
@@ -79,7 +80,11 @@ class interface:
         interface.interface_usuário(user.username)
 
     def jogar():
-        combate.combate(personagens[0], personagens[1])
+        os.system('clear')
+        b = InquirerPy.inquirer.select(message='Qual o personagem desejado', choices= name_list).execute()
+        c = name_list.index(b)
+        global personagem_escolhido
+        personagem_escolhido = personagens[c]
     
     def visualizar_ficha():
         a = []
@@ -133,6 +138,7 @@ def load_caracter(lista_pers):
             if utills.cripto(item['nick']) in lista_pers:
                 b = ficha.Personagem()
                 b.nick = item['nick']
+                name_list.append(b.nick)
                 b.raca = item['raca']
                 b.classe = item['classe']
                 b.xp = item['xp']
