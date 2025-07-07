@@ -27,7 +27,7 @@
                 1
             ]
         ],
-        "descricao": "um arco leve, resistente, s\u00edmbolo do treinamento \u00e9lfico. N\u00e3o m\u00e1gico e um pouco velho, mas us\u00e1vel. (vai puder usar mira)"
+        "descricao": "Um arco leve, resistente, s\u00edmbolo do treinamento \u00e9lfico. N\u00e3o m\u00e1gico e um pouco velho, mas us\u00e1vel. (vai puder usar mira)"
     },
     {
         "nome": "Broche da Folha",
@@ -37,7 +37,7 @@
                 1
             ]
         ],
-        "descricao": "broche simples que pode ajudar em intera\u00e7\u00f5es sociais. (diplomacia)"
+        "descricao": "Broche simples que pode ajudar em intera\u00e7\u00f5es sociais. (diplomacia)"
     },
     {
         "nome": "Luvas \u00c9lficas Surradas",
@@ -47,7 +47,7 @@
                 1
             ]
         ],
-        "descricao": "leves e confort\u00e1veis, oferecem vantagem tarefas delicadas. (m\u00e3os r\u00e1pidas)"
+        "descricao": "Leves e confort\u00e1veis, oferecem vantagem tarefas delicadas. (m\u00e3os r\u00e1pidas)"
     },
     {
         "nome": "Espada Enferrujada",
@@ -57,7 +57,7 @@
                 1
             ]
         ],
-        "descricao": "confi\u00e1vel e robusta, a cl\u00e1ssica espada de aventureiro iniciante. (mano a mano)"
+        "descricao": "Confi\u00e1vel e robusta, a cl\u00e1ssica espada de aventureiro iniciante. (mano a mano)"
     },
     {
         "nome": "Medalh\u00e3o da Sorte",
@@ -67,7 +67,7 @@
                 1
             ]
         ],
-        "descricao": "um amuleto simples que ajuda a encontrar respostas por pura sorte. (percep\u00e7\u00e3o)"
+        "descricao": "Um amuleto simples que ajuda a encontrar respostas por pura sorte. (percep\u00e7\u00e3o)"
     },
     {
         "nome": "Botas de Couro",
@@ -77,7 +77,7 @@
                 1
             ]
         ],
-        "descricao": "melhora a armadura e a resist\u00eancia a terrenos dif\u00edceis (lama, neve, areia) fora de combate. (resist\u00eancia) (efeito)"
+        "descricao": "Melhora a armadura e a resist\u00eancia a terrenos dif\u00edceis (lama, neve, areia) fora de combate. (resist\u00eancia) (efeito)"
     },
     {
         "nome": "Adaga de Escamas",
@@ -87,7 +87,7 @@
                 1
             ]
         ],
-        "descricao": "pequena adaga com s\u00edmbolos drac\u00f4nicos entalhados, item comum entre guerreiros draconianos inexperientes. (mano a mano)"
+        "descricao": "Pequena adaga com s\u00edmbolos drac\u00f4nicos entalhados, item comum entre guerreiros draconianos inexperientes. (mano a mano)"
     },
     {
         "nome": "Talism\u00e3 do Ca\u00e7ador",
@@ -97,7 +97,7 @@
                 1
             ]
         ],
-        "descricao": "alimenta o instinto de ca\u00e7a dos draconianos, os deixando mais \u00e1geis. (acrobacia)"
+        "descricao": "Pingente que canaliza o instinto de ca\u00e7a dos draconianos, os deixando mais \u00e1geis. (acrobacia)"
     },
     {
         "nome": "Colar de Pedra Drac\u00f4nica",
@@ -107,7 +107,7 @@
                 1
             ]
         ],
-        "descricao": "pequeno pingente com uma pedra da cor do drag\u00e3o ancestral do personagem; Acalma o cora\u00e7\u00e3o dos draconianos e os deixam mais soci\u00e1veis. (diplomacia)"
+        "descricao": "Pequeno pingente com uma pedra preciosa com propriedades magicas. Acalma o cora\u00e7\u00e3o dos draconianos e os deixam mais soci\u00e1veis. (diplomacia)"
     },
     {
         "nome": "Mascara da Inverdade",
@@ -117,7 +117,7 @@
                 3
             ]
         ],
-        "descricao": "ela muda a express\u00e3o facial do personagem conforme a necessidade da conversa. Melhora a capacidade de mentira. (blefe)"
+        "descricao": "Ela muda a express\u00e3o facial do personagem conforme a necessidade da conversa. Melhora a capacidade de mentira. (blefe)"
     },
     {
         "nome": "Arco Longo \u00c9lfico",
@@ -137,17 +137,17 @@
                 2
             ]
         ],
-        "descricao": "espada forjada sob a lua cheia de Ilirien com corte preciso e detalhes em prata.(mano a mano)"
+        "descricao": "Espada forjada sob um eclipse lunar. Tem um corte preciso e feita com detalhes em prata.(mano a mano)"
     },
     {
-        "nome": "X-besta",
+        "nome": "Besta",
         "efeitos": [
             [
                 "mira",
                 2
             ]
         ],
-        "descricao": "Ferramenta humana criada para competir com os arcos encantados dos elfos. (mira)"
+        "descricao": "Ferramenta engenhosa forjada pelas maos humanas, unindo precisao e letalidade em um so disparo. (mira)"
     },
     {
         "nome": "Tiara da Sabedoria",
@@ -157,7 +157,7 @@
                 2
             ]
         ],
-        "descricao": "tiara perdida de antigos fil\u00f3sofos e pensadores elfos. Garante um aumento do racioc\u00ednio do usu\u00e1rio. (percep\u00e7\u00e3o)"
+        "descricao": "Tiara perdida de antigos fil\u00f3sofos e pensadores elfos. Garante um aumento do racioc\u00ednio do usu\u00e1rio. (percep\u00e7\u00e3o)"
     },
     {
         "nome": "Sand\u00e1lias de Hermes",
@@ -167,17 +167,17 @@
                 2
             ]
         ],
-        "descricao": "Sand\u00e1lias que dizem ser do pr\u00f3prio deus grego, mas na verdade \u00e9 apenas uma sand\u00e1lia boa para se movimentar. (acrobacia)"
+        "descricao": "Sand\u00e1lias que dizem ser do pr\u00f3prio deus grego, mas na verdade são apenas sand\u00e1lias boa para se movimentar. (acrobacia)"
     },
     {
         "nome": "Capa de Ladr\u00e3o",
         "efeitos": [
             [
-                "acrobacia",
+                "furtividade",
                 2
             ]
         ],
-        "descricao": "capa que ajuda o personagem a passar despercebido e aumenta o saque. (m\u00e3os r\u00e1pidas)"
+        "descricao": "Capa que ajuda o personagem a passar despercebido e a executar acoes sem ser notado. (furtividade)"
     },
     {
         "nome": "Lan\u00e7a de Ca\u00e7a",
@@ -187,13 +187,13 @@
                 2
             ]
         ],
-        "descricao": "Uma lan\u00e7a feita pelos draconianos para arremessar. (mira)"
+        "descricao": "Lan\u00e7a simples, feita pelos draconianos para iniciantes nas artes da ca\u00e7a e da guerra. Leve, pratica e feita para ser arremessada. (mira)"
     },
     {
         "nome": "Talism\u00e3 da F\u00faria",
         "efeitos": [
             [
-                "mano_a_mano",
+                "mano a mano",
                 2
             ],
             [
@@ -205,7 +205,7 @@
                 -2
             ]
         ],
-        "descricao": "Um talism\u00e3 que deixa o personagem extremamente suscet\u00edvel a raiva.Aumenta a for\u00e7a mas diminui a raz\u00e3o. (mano a mano) (resist\u00eancia) -(percep\u00e7\u00e3o)"
+        "descricao": "Um talism\u00e3 que deixa o personagem extremamente suscet\u00edvel a raiva. Aumenta a for\u00e7a mas diminui a raz\u00e3o. (mano a mano) (resist\u00eancia) -(percep\u00e7\u00e3o)"
     },
     {
         "nome": "Anel da Mentira",
@@ -215,6 +215,6 @@
                 2
             ]
         ],
-        "descricao": "Usa da maldade no cora\u00e7\u00e3o do usu\u00e1rio para ajuda-lo a manipular osoutros. (blefe)"
+        "descricao": "Usa da maldade no cora\u00e7\u00e3o do usu\u00e1rio para ajuda-lo a manipular os outros. (blefe)"
     }
 ]
