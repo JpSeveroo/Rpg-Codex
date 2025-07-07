@@ -62,40 +62,37 @@ def ataque(atacante, defensor, pericia_principal):
 
 def ataque_especial(atacante, defensor, pericia_principal):
     custo_especial = 10
+    
+    if getattr(atacante, "is_player", True):
+        pericia_extra = inquirer.select(
+            message='Escolha uma perícia extra para o ataque especial:',
+            choices=list(atacante.pericias.keys())
+        ).execute()
+    else:
+        pericia_extra = max(
+            atacante.pericias,
+            key=lambda p: atacante.pericias[p],
+            default=pericia_principal  # fallback caso só tenha uma
+        )
+        digitar(f"⚔️ {atacante.nick} usa a perícia extra '{pericia_extra}' no ataque especial!")
+    
     if atacante.status['mana'] < custo_especial:
         digitar("⚠️ Mana insuficiente para ataque especial! Tente outra ação.")
         time.sleep(0.8)
         return False  # não conseguiu atacar
-    
-    # garante que a perícia extra não seja a mesma que a principal
-    pericias_disponiveis = list(atacante.pericias.keys())
-    if pericia_principal in pericias_disponiveis:
-        pericias_disponiveis.remove(pericia_principal)
-    if not pericias_disponiveis:
-        pericia_extra = pericia_principal  # se não houver perícias extras, usa a principal
-    else:
-        if getattr(atacante, "is_player", True):
-            pericia_extra = inquirer.select(
-                message='Escolha uma perícia extra para o ataque especial:',
-                choices=pericias_disponiveis
-            ).execute()
-        else:
-            pericia_extra = max(
-                pericias_disponiveis,
-                key=lambda p: atacante.pericias[p],
-                default=pericia_principal  # fallback caso só tenha uma
-            )
-            digitar(f"⚔️ {atacante.nick} usa a perícia extra '{pericia_extra}' no ataque especial!")
+        
+    # calculo de dano extra
+    bonus_extra = atacante.pericias.get(pericia_extra, 0)
 
-        bonus_extra = atacante.pericias.get(pericia_extra, 0)
-        dano = calc_dano(atacante, pericia_principal, bonus_extra, custo_mana=custo_especial)
-        defensor.vida_atual -= dano
-        if defensor.vida_atual < 0:
-            defensor.vida_atual = 0
-        digitar(f"\n⚔️  {atacante.nick} usa um ataque especial em {defensor.nick}! causando {dano} de dano!")
-        digitar(f"❤️  {defensor.nick} agora tem {defensor.vida_atual} HP.")
-        time.sleep(0.8)
-        return True
+    dano = calc_dano(atacante, pericia_principal, bonus_extra, custo_mana=custo_especial)
+    defensor.vida_atual -= dano
+    if defensor.vida_atual < 0:
+        defensor.vida_atual = 0
+
+    digitar(f"\n⚔️  {atacante.nick} usa um ataque especial em {defensor.nick}! causando {dano} de dano!")
+    digitar(f"❤️  {defensor.nick} agora tem {defensor.vida_atual} HP.")
+    time.sleep(0.8)
+    return True
 
 #fazer o calculo de pericias do ataque especial
 
