@@ -1,27 +1,27 @@
 [
     {
-        "nick": "Xenovaldo",
+        "nick": "Andr\u00e9",
         "raca": "humano",
         "classe": "guerreiro",
         "xp": 0,
         "nivel": 1,
         "atributos": {
-            "for\u00e7a": 17,
+            "for\u00e7a": 15,
             "destreza": 9,
             "constituicao": 7,
-            "carisma": 6,
-            "inteligencia": 6
+            "carisma": 7,
+            "inteligencia": 7
         },
         "pericias": {
             "acrobacia": 9,
-            "blefar": 6,
+            "blefar": 7,
             "mira": 9,
-            "diplomacia": 6,
-            "furtividade": 6,
-            "percepcao": 6,
+            "diplomacia": 7,
+            "furtividade": 7,
+            "percepcao": 7,
             "maos rapidas": 9,
-            "mano a mano": 17,
-            "resistencia": 17
+            "mano a mano": 15,
+            "resistencia": 15
         },
         "inventario": [],
         "historico": [],
@@ -29,6 +29,7 @@
             "hp": 100,
             "mana": 50
         },
-        "vida_atual": 100
+        "vida_atual": 100,
+        "equipamento": []
     }
 ]

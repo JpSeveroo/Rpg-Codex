@@ -1,8 +1,8 @@
 import time
 from ficha import Personagem
-from interface import personagens
 import sys
 from rich import print
+from item import lista_itens
 
 def digitar(texto, delay=0.00):
     for caractere in texto:
@@ -117,7 +117,7 @@ def lore_recompensa001(personagem):
                 if recompensa001 not in ("1", "2","3"):
                     raise ValueError("❗ Opção inválida.")
                 if recompensa001 == "1":
-                    #add o item 1
+                    personagem.inventário.append(lista_itens[5])
                     item_escolhido001 = '⚔️ Espada simples'
                     print()
 
