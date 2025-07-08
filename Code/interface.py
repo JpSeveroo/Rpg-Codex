@@ -99,7 +99,7 @@ class interface:
             print('Não há nenhum personagem criado!')
             input('Pressione qualquer tecla para voltar ao menu...')
             interface.interface_usuário(user)
-        jogo.lore_1_andar(personagem_escolhido)
+        jogo1.lore_1_andar(personagem_escolhido)
     
     def visualizar_ficha():
         a = []
