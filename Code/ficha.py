@@ -1,11 +1,22 @@
 from time import sleep
 class Personagem:
+
+    tabela_xp = {
+        1: 100, 2: 120, 3: 150, 4: 170, 5: 190,
+        6: 200, 7: 220, 8: 240, 9: 250, 10: 270,
+        11: 300, 12: 320, 13: 340, 14: 350, 15: 400,
+        16: 450, 17: 500, 18: 520, 19: 550, 20: 600,
+        21: 650, 22: 700, 23: 800, 24: 900, 25: 950,
+        26: 1100, 27: 1200, 28: 1300, 29: 1450, 30: float('inf')
+    }
+
     def __init__(self):
         self.nick = ''
         self.raca = ''
         self.classe = ''
         self.xp = 0
         self.nivel = 1
+        self.xp_para_proximo_nivel = self.tabela_xp.get(self.nivel, 100)
         self.atributos = {
             "força": 0,
             "destreza": 0,
@@ -184,6 +195,44 @@ class Personagem:
             "mano a mano": self.atributos["força"],
             "resistencia": self.atributos["força"]
         }
+    
+    def evoluir_nivel(self):
+        self.nivel += 1
+        self.xp = 0 # reseta XP ao subir de nível
+
+        # usa a tabela de XP para definir a xp necessária para o próximo nível
+        self.xp_para_proximo_nivel = self.tabela_xp.get(self.nivel, float('inf'))
+        digitar(f"\n🎉 Parabéns, {self.nick}! Você alcançou o Nível {self.nivel}!")
+
+        # distribui 5 pontos de atributos
+        pontos_disponiveis = 5
+        digitar(f"Você tem {pontos_disponiveis} pontos para distribuir entre seus atributos.")
+        while pontos_disponiveis > 0:
+            digitar("\n✨ Atributos disponíveis:")
+            for atributo, valor in self.atributos.items():
+                print(f"  {atributo.capitalize()}: {valor}")
+
+            escolha = input(f"Escolha um atributo para aumentar (pontos restantes: {pontos_disponiveis}): ").strip().lower()
+
+            if escolha in self.atributos:
+                while True:
+                    try:
+                        qtd_pontos = int(input(f"Quantos pontos você quer adicionar a {escolha.capitalize()}? "))
+                        if 0 < qtd_pontos <= pontos_disponiveis:
+                            self.atributos[escolha] += qtd_pontos
+                            pontos_disponiveis -= qtd_pontos
+                            digitar(f"✅ {qtd_pontos} pontos adicionados a {escolha.capitalize()}.")
+                            break
+                        else:
+                            digitar(f"❌ Quantidade inválida. Você pode adicionar entre 1 e {pontos_disponiveis} pontos.")
+                    except ValueError:
+                        digitar("❌ Digite um número válido.")
+            else: 
+                digitar("❌ Atributo inválido. Tente novamente.")
+        
+        self.calcular_pericias()  # recalcula as perícias com os novos atributos
+        digitar("\n✨ Atributos atualizados com sucesso!")
+        sleep(2)
 
     def visualizar(self):
         sleep(1)

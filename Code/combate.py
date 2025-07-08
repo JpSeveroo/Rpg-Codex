@@ -277,6 +277,12 @@ def combate(p1, p2):
     
     if p1.vida_atual > 0:
         digitar(f"\n🏆 {p1.nick} venceu o combate!")
+        # concede xp ao vencedor
+        xp_ganho = random.randint(50, 100) # quantidade de xp exemplo, trocar pela xp do inimigo quando tiver
+        p1.xp += xp_ganho
+        digitar(f"{p1.nick} ganhou {xp_ganho} de XP!")
+        if p1.xp >= p1.xp_para_proximo_nivel: # se o personagem subir de nível
+            p1.evoluir_nivel() 
         time.sleep(3)
         utills.limpar_tela()
         return p1
