@@ -50,7 +50,7 @@ def ataque(atacante, defensor, pericia_principal): #FUNÇÃO OK
     custo_mana = 5
     if atacante.status['mana'] < custo_mana:
         digitar("⚠️ Mana insuficiente para ataque! Tente outra ação.")
-        time.sleep(1)
+        time.sleep(2)
         return False
     atacante.status['mana'] -= custo_mana
     dano = calc_dano(atacante, pericia_principal)
@@ -59,7 +59,7 @@ def ataque(atacante, defensor, pericia_principal): #FUNÇÃO OK
             defensor.vida_atual = 0
     digitar(f"\n⚔️  {atacante.nick} ataca {defensor.nick} causando {dano} de dano!")
     digitar(f"❤️  {defensor.nick} agora tem {defensor.vida_atual} HP.")
-    time.sleep(1)
+    time.sleep(2)
     return True
 
 def ataque_especial(atacante, defensor, pericia_principal, pericia_secundaria):
@@ -78,16 +78,18 @@ def ataque_especial(atacante, defensor, pericia_principal, pericia_secundaria):
     if acertou_pericia:
         dano = calc_dano(atacante, pericia_principal, True)
         defensor.vida_atual -= dano
+        digitar(f"🎯 A perícia escolhida ({pericia_secundaria}) é eficaz contra {defensor.nick}!")
     else:
         dano = calc_dano(atacante, pericia_principal, False)
         defensor.vida_atual -= dano
+        digitar(f"💨 A perícia escolhida ({pericia_secundaria}) não teve efeito especial...")
 
     if defensor.vida_atual < 0:
         defensor.vida_atual = 0
 
     digitar(f"\n⚔️  {atacante.nick} usa um ataque especial em {defensor.nick}! causando {dano} de dano!")
     digitar(f"❤️  {defensor.nick} agora tem {defensor.vida_atual} HP.")
-    time.sleep(0.8)
+    time.sleep(2)
     return True
 
 #fazer o calculo de pericias do ataque especial
@@ -97,19 +99,19 @@ def esquivar(personagem, mana_max):
     dado = random.randint(1, 20)
     total = dado + acrobacia
     digitar(f"🤸 {personagem.nick} tenta se esquivar! Rolagem: {dado} + Acrobacia ({acrobacia}) = {total}")
-    time.sleep(0.8)
+    time.sleep(2)
     
-    if total >= 12: # Sucesso na esquiva
+    if total >= 15: # Sucesso na esquiva
         recuperado = 3
         personagem.status['mana'] += recuperado
         if personagem.status['mana'] > mana_max:
             personagem.status['mana'] = mana_max
         digitar(f"✅ Esquiva bem-sucedida! Recuperou {recuperado} de mana.")
-        time.sleep(0.8)
+        time.sleep(2)
         return True
     else:
         digitar("❌ Esquiva falhou! Você se desequilibrou e perdeu a chance de recuperar energia.")
-        time.sleep(0.8)
+        time.sleep(2)
         return False
 
 def acoes(valor, personagem, inimigo, mana_max):
@@ -175,14 +177,15 @@ def inv(personagem, mana_max):
                 for efeito in efeitos:
                     if efeito[0] == 'vida_atual':
                         personagem.vida_atual += efeito[1]
+                        digitar(f"💊 {personagem.nick} recuperou {efeito[1]} de HP!")
                         if personagem.vida_atual > personagem.status['hp']:
                             personagem.vida_atual = personagem.status['hp']
                         digitar(descricao)
-                        time.sleep(0.8)
+                        time.sleep(2)
                     else :
                         personagem.status[efeito[0]] += efeito[1]
                         digitar(descricao)
-                        time.sleep(0.8)
+                        time.sleep(2)
                     if personagem.status['mana'] > mana_max:
                         personagem.status['mana'] = mana_max
             else :
@@ -206,7 +209,7 @@ def loop_principal(personagem, inimigo, mana_max):
         a = inquirer.select(
             message='Qual a sua próxima ação:',
 
-            choices=['Ataque', 'Ataque Especial', 'Inventário', 'Esquiva']
+            choices=['Ataque', 'Ataque Especial', 'Inventário', 'Esquivar']
         ).execute()
 
         if personagem.vida_atual <= 0:
@@ -217,36 +220,41 @@ def loop_principal(personagem, inimigo, mana_max):
             a2 = inquirer.select(
                 message='Qual a sua próxima ação:',
 
-                choices=['Corpo a Corpo', 'Longo Alcance']
+                choices=['Corpo a Corpo', 'Longo Alcance', 'Voltar']
             ).execute()
+            if a2 == 'Voltar':
+                continue
             valor_acao = a2
 
         elif a == 'Ataque Especial':
             a2 = inquirer.select(
                 message='Qual a sua próxima ação:',
-                choices=['Corpo a Corpo', 'Longo Alcance']
+                choices=['Corpo a Corpo', 'Longo Alcance', 'Voltar']
             ).execute()
+            if a2 == 'Voltar':
+                continue
             a3 = inquirer.select(
                 message='Escolha qual perícia vc quer usar para melhorar o ataque:',
-                choices=['acrobacia', "blefar", "mira", "diplomacia", "furtividade", "percepção", "maos rapidas", "mano a mano", "resistencia"]
+                choices=['acrobacia', "blefar", "mira", "diplomacia", "furtividade", "percepção", "maos rapidas", "mano a mano", "resistencia", "Voltar"]
             ).execute()
+            if a3 == 'Voltar':
+                continue
             valor_acao = (a, a2, a3)
 
         elif a == 'Esquivar':
             sucesso = esquivar(personagem, mana_max)
             if sucesso:
                 digitar("Você pode agir novamente após esquivar!")
-                time.sleep(0.8)
-                continue # volta para escolha de ação
+                time.sleep(2)
+                return # volta para escolha de ação
             else:
                 digitar("Você falhou na esquiva e perdeu seu turno!")
-                time.sleep(0.8)
+                time.sleep(2)
                 break #perdeu o turno
         
         elif a == 'Inventário':
             inv(personagem, mana_max)
-            
-            continue
+            break
 
         else:
             valor_acao = a
@@ -256,7 +264,7 @@ def loop_principal(personagem, inimigo, mana_max):
             break
         else:
             digitar("⚠️ Ação inválida ou mana insuficiente. Escolha outra ação.")
-            time.sleep(0.8)
+            time.sleep(2)
     
     if inimigo.vida_atual > 0: #turno da IA
         acao_ia = 'Corpo a Corpo'
@@ -265,19 +273,19 @@ def loop_principal(personagem, inimigo, mana_max):
 
 def combate(p1, p2):
     digitar(f"\n🛡️  Combate iniciado entre {p1.nick} e {p2.nick}!")
-    time.sleep(0.8)
+    time.sleep(2)
     mana_max1 = p1.status['mana']
     while p1.vida_atual > 0 and p2.vida_atual > 0:
         loop_principal(p1, p2, mana_max1)
     
     if p1.vida_atual > 0:
         digitar(f"\n🏆 {p1.nick} venceu o combate!")
-        time.sleep(1.5)
+        time.sleep(3)
         limpar_tela()
         return p1
     elif p2.vida_atual > 0:
         digitar(f"\n🏆 {p2.nick} venceu o combate!")
-        time.sleep(1.5)
+        time.sleep(3)
         limpar_tela()
         return p2
      
