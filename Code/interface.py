@@ -150,7 +150,7 @@ class interface:
         if b:
             b()
 
-def load_caracter():
+def load_caracter(lista_pers):
     try:
         a = utills.load_infos('personagem')
         for item in a:
@@ -159,7 +159,8 @@ def load_caracter():
             name_list.append(utills.cripto(b.nick))
             b.raca = item['raca']
             b.classe = item['classe']
-            b.xp = item['xp']
+            b.xp = int(item.get('xp', 0))
+            b.xp_para_proximo_nivel = item.get('xp_para_proximo_nivel', b.tabela_xp.get(b.nivel, 100))
             b.nivel = item['nivel']
             b.atributos = item['atributos']
             b.pericias = item['pericias']
