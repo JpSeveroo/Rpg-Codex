@@ -32,7 +32,7 @@ def rolar_dado():
 """ === DANO E AÇÕES === """
 
 #Precisa adaptar pra quando for colocar o sistema de pericia
-def calc_dano(personagem, pericia_principal, bonus_extra=False): #FUNÇÃO OK
+def calc_dano(personagem, pericia_principal, bonus_extra=False): #FUNÇÃO OK    
         multiplicador = equip(personagem, pericia_principal)
         base = int((personagem.pericias.get(pericia_principal, 0)) * 2 * multiplicador)
         dado, critico = rolar_dado()
@@ -59,7 +59,7 @@ def _executar_ataque(atacante, defensor, pericia_principal, custo_mana, bonus_ex
     if pericia_secundaria:
         digitar(f'⚔️ {atacante.nick} usou a perícia {pericia_secundaria} no ataque especial!')
         if bonus_extra:
-             digitar(f'🎯 A perícia escolhida ({pericia_secundaria}) é eficaz contra {defensor.nick}!')
+             digitar(f'🎯 A perícia escolhida ({pericia_secundaria}) é eficaz contra {defensor.nome}!')
         else:
              digitar(f'💨 A perícia escolhida ({pericia_secundaria}) não teve efeito')
 
@@ -146,14 +146,18 @@ def barra(life):
 def tabelas(personagem, inimigo):
     def write(info, info1, info2):
         print('|'+ f'{info} : {info1}'.center(33) + '|' + ' '*25 + '|'+ f'{info} : {info2}'.center(33) + '|')
+
+    def write2(info, info1, info2, info3):
+        print('|'+ f'{info} : {info2}'.center(33) + '|' + ' '*25 + '|'+ f'{info1} : {info3}'.center(33) + '|')
+
     def show_life(a, b):
         barra_a = barra(a)
         barra_b = barra(b)
         print('|'+ f"Vida : {barra_a}  {a.vida_atual}/{a.status['hp']}".center(33) + '|' + ' '*25 + '|'+ f"Vida : {barra_b}  {b.vida_atual}/{b.status['hp']}".center(33) + '|')
     print('-'*35 + ' '*25 + '-'*35)
-    write('Nome', personagem.nick, inimigo.nick)
+    write('Nome', personagem.nick, inimigo.nome)
     show_life(personagem, inimigo)
-    write('Mana', personagem.status['mana'], inimigo.status['mana'])
+    write2('Mana', 'Dano', personagem.status['mana'], inimigo.dano)
     print('-'*35 + ' '*25 + '-'*35)
 
 def inv(personagem, mana_max):
@@ -301,9 +305,10 @@ def combate(personagem, inimigo):
 #ver como a gente vai relacionar os itens
 
 def equip(personagem, pericia_principal):
-    
-    # Retorna multiplicador (1 ou 0.5) dependendo se há arma equipada
-    
+    # Se o personagem não tem equipamento (ex: é um inimigo), assume multiplicador 1
+    if not hasattr(personagem, 'equipamento'):
+        return 1
+
     arma = personagem.equipamento.get("maos")
     pericias_que_exigem_arma = {'mano a mano', 'mira'}
     if pericia_principal not in pericias_que_exigem_arma:
