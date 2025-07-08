@@ -1,5 +1,3 @@
-import json
-import os
 import utills
 
 lista_inimigos = []

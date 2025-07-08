@@ -92,7 +92,7 @@ def lore_recompensa001(personagem):
     if personagem.raca == 'elfo':
         while True:
             try:
-                texto6 = ("\nQual destes 3 itens você deseja levar consigo? \n 🏹[1] Arco Simples: Um arco leve, resistente, símbolo do treinamento élfico. Não mágico e um pouco velho, mas usável. (vai poder usar mira)\n 🍃[2] Broche da Folha: broche simples que pode ajudar em interações sociais. (+1 diplomacia)\n 🧤[3] Luvas Élficas surradas: leves e confortáveis, oferecem vantagem em tarefas delicadas. (+1 mãos rápidas) ")
+                texto6 = ("\nQual destes 3 itens você deseja levar consigo? \n 🏹[1] Arco Simples: Um arco leve, resistente, símbolo do treinamento élfico. Não mágico e um pouco velho, mas usável. (+1 mira)\n 🍃[2] Broche da Folha: broche simples que pode ajudar em interações sociais. (+1 diplomacia)\n 🧤[3] Luvas Élficas surradas: leves e confortáveis, oferecem vantagem em tarefas delicadas. (+1 mãos rápidas) ")
                 digitar(texto6)
                 time.sleep(1)
 

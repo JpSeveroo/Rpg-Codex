@@ -37,56 +37,49 @@ def calc_dano(personagem, pericia_principal, bonus_extra=False): #FUNÇÃO OK
             dano += dano_base//2
         if critico:
             dano += dano_base//2
-            digitar(f"🎲 {personagem.nick} rola 1d6: {dado}; dano = {dano} 🎉 QUE SORTE, DEU CRÍTICO! Dano dobrado para {dano}!")
+            digitar(f"🎲 {personagem.nick} rola 1d6: {dado}; dano = {dano} 🎉 QUE SORTE, DEU CRÍTICO!")
         else:
             digitar(f"🎲 {personagem.nick} rola 1d6: {dado}; dano = {dano}")
         return dano
 
-def ataque(atacante, defensor, pericia_principal): #FUNÇÃO OK
-    custo_mana = 5
+def _executar_ataque(atacante, defensor, pericia_principal, custo_mana, bonus_extra=False, pericia_secundaria=None):
+
     if atacante.status['mana'] < custo_mana:
-        digitar("⚠️ Mana insuficiente para ataque! Tente outra ação.")
-        time.sleep(2)
+        digitar('⚠️ Mana insuficiente! Tente outra ação.')
+        time.sleep(1.5)
         return False
+    
     atacante.status['mana'] -= custo_mana
-    dano = calc_dano(atacante, pericia_principal)
+
+    if pericia_secundaria:
+        digitar(f'⚔️ {atacante.nick} usou a perícia {pericia_secundaria} no ataque especial!')
+        if bonus_extra:
+             digitar(f'🎯 A perícia escolhida ({pericia_secundaria}) é eficaz contra {defensor.nick}!')
+        else:
+             digitar(f'💨 A perícia escolhida ({pericia_secundaria}) não teve efeito')
+
+    dano = calc_dano(atacante, pericia_principal, bonus_extra)
+
     defensor.vida_atual -= dano
     if defensor.vida_atual < 0:
-            defensor.vida_atual = 0
-    digitar(f"\n⚔️  {atacante.nick} ataca {defensor.nick} causando {dano} de dano!")
-    digitar(f"❤️  {defensor.nick} agora tem {defensor.vida_atual} HP.")
+        defensor.vida_atual = 0
+
+    tipo_de_ataque = 'um ataque especial' if pericia_secundaria else 'ataca'
+    digitar(f'\n⚔️  {atacante.nick} {tipo_de_ataque} em {defensor.nick}! causando {dano} de dano!')
+    digitar(f'❤️  {defensor.nick} agora tem {defensor.vida_atual} HP.')
     time.sleep(2)
     return True
+
+def ataque(atacante, defensor, pericia_principal):
+    custo_mana = 5
+    return _executar_ataque(atacante, defensor, pericia_principal, custo_mana)
 
 def ataque_especial(atacante, defensor, pericia_principal, pericia_secundaria):
     custo_especial = 10
     
-    acertou_pericia = pericia_secundaria in getattr(defensor, 'fraquezas', [])
-
-    if atacante.status['mana'] < custo_especial:
-        digitar("⚠️ Mana insuficiente para ataque especial! Tente outra ação.")
-        time.sleep(2)
-        return False
-
-    digitar(f"⚔️ {atacante.nick} usou a perícia '{pericia_secundaria}' no ataque especial!")
-
-    atacante.status['mana'] -= custo_especial
-    if acertou_pericia:
-        dano = calc_dano(atacante, pericia_principal, True)
-        defensor.vida_atual -= dano
-        digitar(f"🎯 A perícia escolhida ({pericia_secundaria}) é eficaz contra {defensor.nick}!")
-    else:
-        dano = calc_dano(atacante, pericia_principal, False)
-        defensor.vida_atual -= dano
-        digitar(f"💨 A perícia escolhida ({pericia_secundaria}) não teve efeito especial...")
-
-    if defensor.vida_atual < 0:
-        defensor.vida_atual = 0
-
-    digitar(f"\n⚔️  {atacante.nick} usa um ataque especial em {defensor.nick}! causando {dano} de dano!")
-    digitar(f"❤️  {defensor.nick} agora tem {defensor.vida_atual} HP.")
-    time.sleep(2)
-    return True
+    acertou_fraqueza = pericia_secundaria in getattr(defensor, 'fraquezas', [])
+    
+    return _executar_ataque(atacante, defensor, pericia_principal, custo_especial, bonus_extra=acertou_fraqueza, pericia_secundaria=pericia_secundaria)
 
 # fazer o calculo de pericias do ataque especial
 
@@ -283,7 +276,31 @@ def combate(p1, p2):
         time.sleep(3)
         utills.limpar_tela()
         return p2
-     
+
+'''===FUNÇÕES INTERATIVAS DO COMBATE==='''
+
+
+#função de caso o jogador não tenha uma arma de corpo a corpo e ou longa distancia
+
+#função de puxar os inimigos da lista 
+
+#função que relaciona os atributos da lista com as funções que gerenciam o "p2"
+
+#ver como a gente vai relacionar os itens
+
+def equip():
+    #função que vai dizer se tem item de corpo a corpo ou longo alcance equipado
+    #quando não tiver atacar com metade da pericia
+    ...
+
+def ene():
+    #isso daqui eu vejo oq eu faço
+    ...
+
+def adv_IA():
+    #IA dos inimigos
+    ...
+
 """=== EXEMPLO DE EXECUÇÃO ==="""
 
 if __name__ == '__main__':

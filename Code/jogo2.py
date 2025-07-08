@@ -108,6 +108,8 @@ def lore_recompensa001(personagem):
     time.sleep(8)
 
 def lore_pos_6andar(personagem):
+    os.system('cls' if os.name == 'nt' else 'clear')
+
     print('[bold purple][Sistema]Protocolo de silêncio restaurado. Fluxo de dados liberado. Acesso ao Andar 7 desbloqueado. [Sistema]Recomenda-se verificar estado do inventário antes de prosseguir.[/bold purple]')
 
     while True:
@@ -146,6 +148,8 @@ def lore_pos_6andar(personagem):
             print(f"{e} Tente novamente.")
 
 def lore_7_andar(personagem):
+    os.system('cls' if os.name == 'nt' else 'clear')
+
     texto10 = ('Ao deixar para trás o silêncio opressor da Estação, você atravessa o portal e é recebido por um cenário que desafia toda lógica e expectativa. À sua frente, um vasto jardim digital se estende até onde a vista alcança — mas não há vida aqui. As plantas, feitas de vetores geométricos cinzentos, estão imóveis e estéreis, como esculturas abandonadas pelo tempo. O ar é pesado com o cheiro metálico da corrosão digital, e partículas de dados flutuam lentamente, como folhas mortas em um outono eterno. O chão é um mosaico quebrado de chips e fragmentos de sistemas caídos. A sensação é de que este lugar foi um dia vibrante, mas sofreu uma falha irreversível. No centro do jardim, uma figura surge lentamente: a Flor - Código Cadavérica. Essa entidade parece imóvel à primeira vista, mas seus olhos escarlates brilham com uma inteligência fria e predatória. Ela não se move, mas com um simples pensamento, manipula os dados ao redor para criar armadilhas mentais e ataques de confusão.')
 
     jogo1.digitar(texto10)
@@ -172,7 +176,7 @@ def lore_7_andar(personagem):
                     print('[bold purple]Inimigo derrotado sem chances de reagir. 8° Andar liberado.[/bold purple]')
 
                     time.sleep(3)
-
+                    lore_recompensa002(personagem)
                     lore_pos_7andar(personagem)
 
                 else:
@@ -189,15 +193,14 @@ def lore_recompensa002(personagem):
     os.system('cls' if os.name == 'nt' else 'clear')
     item_escolhido001 = ''
 
-    personagem.inventario[0].qtd = 2
-    personagem.inventario[1].qtd = 2
+    personagem.inventario[0].qtd = 3
+    personagem.inventario[1].qtd = 3
 
-'''AJEITAR ESSE BASCUIO
     if personagem.raca == 'elfo':
         while True:
             try:
-                texto6 = ("\nQual destes 3 itens você deseja levar consigo? \n 👖[1] Calças frouxas do Andarilho verde: Calças leves e maleáveis feitas de tecido encantado com fios vegetais antigos. Ajudam o elfo a se mover como o vento entre as folhas, mas exigem foco constante por que ficam querendo cair toda hora, diminuindo o respeito que o personagem passa. (+1 resistência) (+1 furtividade) (-2 diplomacia)\n 📖[2] Livro Mofado de Poções: Livro esquecido coberto de musgo e cheiro de terra molhada. Amplifica o poder das poções de cura, mas seu dono se perde nos detalhes alquímicos, dificultando perceber o ambiente ao redor. (poções de cura melhoradas)\n 🧤[3] Luvas Élficas surradas: leves e confortáveis, oferecem vantagem em tarefas delicadas. (+1 mãos rápidas) ")
-                jogo1.digitar(texto6)
+                texto13 = ("\nQual destes 3 itens você deseja levar consigo? \n 👖[1] Calças frouxas do Andarilho verde: Calças leves e maleáveis feitas de tecido encantado com fios vegetais antigos. Ajudam o elfo a se mover como o vento entre as folhas, mas exigem foco constante por que ficam querendo cair toda hora, diminuindo o respeito que o personagem passa. (+2 resistência),(+2 furtividade),(-2 diplomacia)\n 🪭[2] Elmo da Dança das Sombras: Um elmo leve adornado com penas negras que amplifica a agilidade e destreza do portador em combates corpo a corpo, facilitando movimentos acrobáticos e ataques rápidos. Porém, o barulho causado pelas penas ao se mover pode comprometer a furtividade. (+2 mano a mano), (+2 acrobacia), (-2 furtividade)\n 🌻 Broche de Girassol: Um broche mágico com um girassol encantado que nunca murcha. Irradia calor e simpatia, facilitando interações sociais, mas torna o portador mais vulnerável a mentiras. (+2 diplomacia)")
+                jogo1.digitar(texto13)
                 time.sleep(1)
 
                 print(f"[bold purple][Sistema: “{personagem.nick}, Escolha com sabedoria... ”][/bold purple]", end='')
@@ -206,17 +209,17 @@ def lore_recompensa002(personagem):
                 if recompensa001 not in ("1", "2","3"):
                     raise ValueError("❗ Opção inválida.")
                 if recompensa001 == "1":
-                    personagem.inventario.append(lista_itens[2])
-                    item_escolhido001 = '🏹 Arco Simples'
+                    personagem.inventario.append(lista_itens[28])
+                    item_escolhido001 = '👖 Calças frouxas do Andarilho verde'
                     print()
 
                 elif recompensa001 == "2":
-                    personagem.inventario.append(lista_itens[3])
-                    item_escolhido001 = '🍃 Broche da Folha'
+                    personagem.inventario.append(lista_itens[83])
+                    item_escolhido001 = '🪭 Elmo da Dança das Sombras'
                     print()
                 elif recompensa001 == "3":  
-                    personagem.inventario.append(lista_itens[4])
-                    item_escolhido001 = '🧤 Luvas Élficas surradas'
+                    personagem.inventario.append(lista_itens[30])
+                    item_escolhido001 = '🌻 Broche de Girassol'
                     print()
                 break 
             except ValueError as e:
@@ -225,8 +228,8 @@ def lore_recompensa002(personagem):
     elif personagem.raca == 'humano':
         while True:
             try:
-                texto6 = ("\nQual destes 3 itens você deseja levar consigo? \n ⚔️[1] Espada de combate simples: confiável e robusta, a clássica espada de aventureiro iniciante. (+1 mano a mano)\n 🍀[2] Medalhão da Sorte: um amuleto simples que ajuda a encontrar respostas por pura sorte. (+1 percepção)\n 🧤[3] Botas de Couro: melhora a armadura e a resistência a terrenos difíceis (lama, neve, areia) fora de combate. (+1 resistência)")
-                jogo1.digitar(texto6)
+                texto13 = ("\nQual destes 3 itens você deseja levar consigo? \n ⚔️[1] Espada de Cavaleiro Antigo: Espada rústica mas confiável, forjada para os cavaleiros que protegiam antigos reis da região. Melhora o combate corpo a corpo. (+2 mano a mano)\n 🛡️[2] Escudo de Madeira Reforçado: Escudo resistente, feito das árvores ancestrais do jardim. Dá defesa extra e estabilidade, mas seu peso dificulta movimentos rápidos. (+2 resistência)\n 🪶[3] Pena de Corvo Solar: Rara pena negra com brilho dourado nas pontas. Dizem que quem a carrega ganha olhos atentos e mãos ágeis. (+2 mãos rápidas)")
+                jogo1.digitar(texto13)
                 time.sleep(1)
 
                 print(f"[bold purple][Sistema: “{personagem.nick}, Escolha com sabedoria... ”][/bold purple]", end='')
@@ -235,17 +238,17 @@ def lore_recompensa002(personagem):
                 if recompensa001 not in ("1", "2","3"):
                     raise ValueError("❗ Opção inválida.")
                 if recompensa001 == "1":
-                    personagem.inventario.append(lista_itens[5])
-                    item_escolhido001 = '⚔️ Espada de combate simples'
+                    personagem.inventario.append(lista_itens[31])
+                    item_escolhido001 = '⚔️  Espada de Cavaleiro Antigo'
                     print()
 
                 elif recompensa001 == "2":
-                    personagem.inventario.append(lista_itens[6])
-                    item_escolhido001 = '🍀 Medalhão da Sorte'
+                    personagem.inventario.append(lista_itens[41])
+                    item_escolhido001 = '🛡️ Escudo de Madeira Reforçado'
                     print()
                 elif recompensa001 == "3":
-                    personagem.inventario.append(lista_itens[7])
-                    item_escolhido001 = '🧤 Botas de Couro'
+                    personagem.inventario.append(lista_itens[33])
+                    item_escolhido001 = '🪶 Pena de Corvo Solar'
                     print()
                 break 
             except ValueError as e:
@@ -254,8 +257,8 @@ def lore_recompensa002(personagem):
     elif personagem.raca == 'draconiano':
         while True:
             try:
-                texto6 = ("\nQual destes 3 itens você deseja levar consigo? \n 🗡️[1] Adaga de Escamas: pequena adaga com símbolos dracônicos entalhados, item comum entre guerreiros draconianos inexperientes. (+1 mano a mano)\n 🧿[2] Talismã do caçador: alimenta o instinto de caça dos draconianos, os deixando mais ágeis. (+1 acrobacia)\n 🪨[3] Colar quebrado de Pedra Dracônica: pequeno pingente com uma pedra rachada da cor do dragão ancestral do personagem; Acalma o coração dos draconianos e os deixam mais sociáveis. (+1 diplomacia)")
-                jogo1.digitar(texto6)
+                texto13 = ("\nQual destes 3 itens você deseja levar consigo? \n 🐲[1] Escama de Dragão Ancião: Fragmento ancestral endurecido de um grande dragão. Reforça a defesa do portador (+2 resistência)\n 💍[2] Anel do Patriarca: Símbolo da linhagem draconiana. Melhora a presença social, mas sua energia imponente facilita negociações. (+2 diplomacia)\n 🔨[3] Maça de Escamas: Maça pesada revestida com escamas negras, símbolo de brutalidade e poder. Aumenta o dano físico e a resistência, mas deixa o portador menos ágil. (+2 mano a mano)")
+                jogo1.digitar(texto13)
                 time.sleep(1)
 
                 print(f"[bold purple][Sistema: “{personagem.nick}, Escolha com sabedoria... ”][/bold purple]", end='')
@@ -265,28 +268,107 @@ def lore_recompensa002(personagem):
                     raise ValueError("❗ Opção inválida.")
                 if recompensa001 == "1":
                     personagem.inventario.append(lista_itens[8])
-                    item_escolhido001 = '🗡️ Adaga de Escamas'
+                    item_escolhido001 = '🐲 Escama de Dragão Ancião'
                     print()
 
                 elif recompensa001 == "2":
                     personagem.inventario.append(lista_itens[9])
-                    item_escolhido001 = '🧿 Talismã do caçador'
+                    item_escolhido001 = '💍 Anel do Patriarca'
                     print()
                 elif recompensa001 == "3":
                     personagem.inventario.append(lista_itens[10])
-                    item_escolhido001 = '🪨 Colar quebrado de Pedra Dracônica'
+                    item_escolhido001 = '🔨 Maça de Escamas'
                     print()
                 break 
             except ValueError as e:
                 print(f"{e} Tente novamente. Lembre-se de digitar apenas o dígito referente ao item.")
     
-    print(f"[bold purple][Sistema] 🪙   RECOMPENSAS: \nXp: [225] \nPoção de cura [1]\nPoção de mana [1]\nItens: 📒 Livro de perícias, {item_escolhido001}[/bold purple]")
+    print(f"[bold purple][Sistema] 🪙   RECOMPENSAS: \nXp: [320] \nPoção de cura [3]\nPoção de mana [3]\nItem: {item_escolhido001}[/bold purple]")
     text_inf = ('\nItens sendo computados...')
     jogo1.digitar(text_inf)
     time.sleep(8)
 
 def lore_pos_7andar(personagem):
-    print()'''
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+    texto14 = ('Ao derrotar a Flor-Código Cadavérica o portal para o próximo andar é revelado.')
+    jogo1.digitar(texto14)
+    while True:
+        try:
+            time.sleep(1)
+            texto15 = ("\nVocê pode:\n\n1. Avançar para o Andar 6\n2. Investigar inventário\n3. Conferir Atributos")
+            jogo1.digitar(texto15)
+            time.sleep(1)
+            print('\n[bold purple]Qual a sua escolha? [/bold purple]',end='')
+            esc_1 = input('')
+
+            if esc_1 not in ("1", "2", "3"):
+                raise ValueError("❗ Opção inválida.")
+            if esc_1 == "1":
+                lore_8_andar(personagem)
+                print()
+                break
+            elif esc_1 == "2":
+                inventario.interface_inv(personagem)
+            elif esc_1 == "3":
+                #Atributos
+                print()
+        except ValueError as e:
+            print(f"{e} Tente novamente.")
+
+def lore_8_andar(personagem):
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+    texto16 = ('Ao atravessar o portal, você entra em uma imensa cúpula de cristal virtual que lembra a anterior, mas aqui a atmosfera é ainda mais densa, quase palpável. As paredes são cobertas por circuitos interligados, que brilham em uma sequência hipnótica, emitindo um zumbido persistente que parece ressoar diretamente em sua mente. O ar vibra com uma energia que desgasta lentamente a concentração e a força mental. Fragmentos de códigos, símbolos e padrões complexos giram ao seu redor, formando ilusões que testam não apenas sua inteligência, mas sua capacidade de manter a mente firme diante do desgaste contínuo. No centro da cúpula, um pedestal exibe um orbe pulsante, o núcleo do desafio. Você deve ser capaz de resistir a uma série de ataques mentais intensos e enigmas que pressionam sua mente, forçando-o a usar sua Perícia de Resistência para manter o foco e não sucumbir à exaustão psíquica. Conforme o jogador pisa no coração da cúpula, os circuitos ao redor começam a emitir ondas mentais pulsantes. A luz se intensifica até tudo se tornar branco por um momento. Quando a visão volta, o cenário está parado. Só resta o jogador... e uma única pergunta projetada no ar diante dele.')
+    jogo1.digitar(texto16)
+
+    time.sleep(1)
+    print('\n[bold blue]"O quanto você sabe sobre tudo? Quer testar seus conhecimentos?"[/italic][/bold blue]\n')
+
+    texto17 = ('A pergunta se forma dentro da mente do jogador — como se a torre estivesse escavando memórias para confundir e desestabilizar. Falhar na resistência a esse teste poderá causa uma perda irrecuperável da sua consciência...')
+    jogo1.digitar(texto17)
+
+    while True:
+        try:
+            time.sleep(1)
+            texto2 = ("\nVocê pode:\n\n1. Enfrentar diretamente o desafio mental. \n2. Ignorar todo o andar e ir direto para o próximo.")
+            jogo1.digitar(texto2)
+            time.sleep(1)
+            print('\n[bold purple]Qual a sua escolha? [/bold purple]',end='')
+            esc_1 = input('')
+
+            if esc_1 not in ("1", "2"):
+                raise ValueError("❗ Opção inválida.")
+            if esc_1 == "1":
+                lore_2_enigma(personagem)
+                print()
+                break
+            elif esc_1 == "2":
+                lore_9_andar(personagem)
+                break
+        except ValueError as e:
+            print(f"{e} Tente novamente.")
+
+def lore_2_enigma(personagem):
+    #SE ERRAR PERDE 20% DE PONTOS NO ATRIBUTO DE PERCEPÇÃO
+    print('[bold purple][Sistema]Iniciando teste de resiliência cognitiva.[/bold purple]')
+    time.sleep(1)
+    print('[bold purple][Sistema]A mente do Eco será testada não por força, mas pela integridade de suas lembranças.[/bold purple]')
+    time.sleep(1)
+
+def morte_cupula(personagem):
+    personagem.andar_cupula_completado = True
+
+    texto22 = ('O silêncio na Cúpula da Percepção a resposta é proferida. Um instante de suspense se estende, pesado com a expectativa da Esfinge Negra de Aethelgard. Mas a calma é logo rompida por um zumbido agudo, quase um chiado furioso. A Esfinge, antes imóvel, contorce sua forma etérea, e um brilho vermelho intenso pulsa em seus olhos. Não há mais perguntas. A indignação da entidade por ter recebido a alternativa incorreta é palpável, reverberando pelas paredes de cristal. Em um instante brutal, a cúpula se torna um vórtice de dados colapsados, e você é consumido pela fúria de uma verdade distorcida. A percepção falha selou seu destino: você se desintegra em um véu de ruído branco, e a escuridão o engole. Ao despertar, o Ponto de Início o aguarda, o vazio da planície se estendendo à sua frente, e a Torre de Etherion, indiferente, erguendo-se à distância. A lição é brutal: a falha na percepção não é um tropeço, é uma sentença de retorno forçado, uma repetição eterna até que a verdade seja finalmente alcançada.')
+    jogo1.digitar(texto22)
+    print(f'[bold red]🩸 {personagem.nick} MORREU [/bold red]')
+    lore_6_andar(personagem)
+
+
+def lore_9_andar(personagem):
+    print()
+    
+
 
 
 
