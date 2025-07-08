@@ -60,15 +60,15 @@ def lore_6_andar(personagem):
             time.sleep(1)
 
             print('\n[bold purple]Qual a sua escolha? [/bold purple]',end='')
-            esc_1 = input('')
+            esc_2 = input('')
 
-            if esc_1 not in ("1", "2"):
+            if esc_2 not in ("1", "2"):
                 raise ValueError("❗ Opção inválida.")
-            if esc_1 == "1":
+            if esc_2 == "1":
                 #COMBATEEEEEEEEEEEE
                 print()
                 break
-            elif esc_1 == "2":
+            elif esc_2 == "2":
                 if personagem.atributos['furtividade'] >= 20:
                     texto5 = ('Sucesso total. Você se move como um fragmento apagado entre os dados, confundindo os sensores das sentinelas. Você alcança um terminal auxiliar e pode desativar 1 inimigo imediatamente ou iniciar o combate com vantagem.')
                     jogo1.digitar(texto5)
@@ -113,6 +113,7 @@ def lore_pos_6andar(personagem):
     print('[bold purple][Sistema]Protocolo de silêncio restaurado. Fluxo de dados liberado. Acesso ao Andar 7 desbloqueado. [Sistema]Recomenda-se verificar estado do inventário antes de prosseguir.[/bold purple]')
 
     while True:
+        explore1 = False
         try:
             time.sleep(1)
             texto8 = ("\nVocê pode:\n\n1. Avançar para o Andar 7\n2. Investigar inventário\n3. Conferir Atributos\n4. Examinar os terminais inativos da estação em busca de dados perdidos. (Pode render informação da lore ou um item raro.)")
@@ -133,16 +134,20 @@ def lore_pos_6andar(personagem):
                 #Atributos
                 print()
             elif esc_2 == "4":
-                if personagem.atributos['maos rapidas'] > 20:
-                    texto9 = ('Você decide vasculhar a estação em busca de recursos escondidos entre cabos, painéis e restos de unidades antigas.')
-                    jogo1.digitar(texto9)
-                    #ADICIONAR A KACETA DO ITEM NO INVENTARIO
-                    print('\n[bold purple][Sistema]Você encontrou um Fragmento de Dados Recuperados[/bold purple]\n')
-                else:
-                    texto9 = ('Você decide vasculhar a estação em busca de recursos escondidos entre cabos, painéis e restos de unidades antigas.')
-                    jogo1.digitar(texto9)
+                if explore1 == False:
+                    explore1 = True
+                    if personagem.atributos['maos rapidas'] > 20:
+                        texto9 = ('Você decide vasculhar a estação em busca de recursos escondidos entre cabos, painéis e restos de unidades antigas.')
+                        jogo1.digitar(texto9)
+                        personagem.inventario.append(lista_itens[81])
+                        print('\n[bold purple][Sistema]Você encontrou um Fragmento de Dados Recuperados[/bold purple]\n')
+                    else:
+                        texto9 = ('Você decide vasculhar a estação em busca de recursos escondidos entre cabos, painéis e restos de unidades antigas.')
+                        jogo1.digitar(texto9)
 
-                    print('\n[bold purple][Sistema]Nada foi encontrado...[/bold purple]\n')
+                        print('\n[bold purple][Sistema]Nada foi encontrado...[/bold purple]\n')
+                else:
+                    print('[bold purple][Sistema]Você já explorou este andar...[/bold purple]')
 
         except ValueError as e:
             print(f"{e} Tente novamente.")
@@ -163,11 +168,11 @@ def lore_7_andar(personagem):
             jogo1.digitar(texto11)
             time.sleep(1)
             print('\n[bold purple]Qual a sua escolha? [/bold purple]',end='')
-            esc_1 = input('')
+            esc_3 = input('')
 
-            if esc_1 not in ("1", "2"):
+            if esc_3 not in ("1", "2"):
                 raise ValueError("❗ Opção inválida.")
-            if esc_1 == "1":
+            if esc_3 == "1":
                 chance = random.random()
                 if chance < 0.2:
                     texto12 = ('No instante em que sua lâmina rasgou o ar com a fúria de mil sóis, um brilho intenso irrompeu. Não era apenas a força bruta, mas a precisão de um mestre, aliada a uma sorte improvável, que guiou seu ataque. O metal encontrou o ponto mais vulnerável do inimigo: o caule binário, a essência pulsante de sua existência digital, onde a vida e o código se entrelaçavam em uma dança caótica')
@@ -183,7 +188,7 @@ def lore_7_andar(personagem):
                     #VANTAGEM PRO INIMIGO
                     #COMBATEEEEEEEEEEEEEEEE
                     print()
-            elif esc_1 == "2":
+            elif esc_3 == "2":
                 #COMBATEEEEEEEEEEEEEEEE
                 print()
         except ValueError as e:
@@ -296,21 +301,21 @@ def lore_pos_7andar(personagem):
     while True:
         try:
             time.sleep(1)
-            texto15 = ("\nVocê pode:\n\n1. Avançar para o Andar 6\n2. Investigar inventário\n3. Conferir Atributos")
+            texto15 = ("\nVocê pode:\n\n1. Avançar para o Andar 8\n2. Investigar inventário\n3. Conferir Atributos")
             jogo1.digitar(texto15)
             time.sleep(1)
             print('\n[bold purple]Qual a sua escolha? [/bold purple]',end='')
-            esc_1 = input('')
+            esc_4 = input('')
 
-            if esc_1 not in ("1", "2", "3"):
+            if esc_4 not in ("1", "2", "3"):
                 raise ValueError("❗ Opção inválida.")
-            if esc_1 == "1":
+            if esc_4 == "1":
                 lore_8_andar(personagem)
                 print()
                 break
-            elif esc_1 == "2":
+            elif esc_4 == "2":
                 inventario.interface_inv(personagem)
-            elif esc_1 == "3":
+            elif esc_4 == "3":
                 #Atributos
                 print()
         except ValueError as e:
@@ -335,16 +340,16 @@ def lore_8_andar(personagem):
             jogo1.digitar(texto2)
             time.sleep(1)
             print('\n[bold purple]Qual a sua escolha? [/bold purple]',end='')
-            esc_1 = input('')
+            esc_5 = input('')
 
-            if esc_1 not in ("1", "2"):
+            if esc_5 not in ("1", "2"):
                 raise ValueError("❗ Opção inválida.")
-            if esc_1 == "1":
+            if esc_5 == "1":
                 lore_2_enigma(personagem)
                 print()
                 break
-            elif esc_1 == "2":
-                lore_9_andar(personagem)
+            elif esc_5 == "2":
+                lore_pos_8andar(personagem)
                 break
         except ValueError as e:
             print(f"{e} Tente novamente.")
@@ -356,7 +361,7 @@ def lore_2_enigma(personagem):
         os.system('cls' if os.name == 'nt' else 'clear')
 
         print("\n[bold purple]⚠️ O Andar da cúpula foi destruído por corrompimento dimensional. Você avança direto para o próximo andar...[/bold purple]\n")
-        lore_9_andar(personagem)
+        lore_pos_8andar(personagem)
         return
     else:
         print('[bold purple][Sistema]Iniciando teste de resiliência cognitiva.[/bold purple]')
@@ -384,14 +389,64 @@ def lore_2_enigma(personagem):
                         lore_recompensa003(personagem)
                     elif resp_1 == "c":
                         morte_cupula(personagem)
-                        
+
                 except ValueError as e:
                     print(f"{e} Tente novamente.")  
-                        
+        
+        elif 20 <= personagem.atributos['resistencia'] <25:
+             while True:
+                try:
+                    print('[bold purple][italic]"Por que o Eco Corrompido foi criado, segundo os registros fragmentados do sistema?"[/italic][/bold purple]\n')
+
+                    texto21 = ('Alternativas:\n A) Para impedir que Ecos coletassem fragmentos de si mesmos em andares superiores. \nB) Para testar a integridade emocional dos que desejam transcender a prisão do Etherion \nC) Porque era uma anomalia espontânea, resultado de dados acumulados corrompidos')
+                    jogo1.digitar(texto21)
+
+                    time.sleep(1)
+                    print('\n [bold purple]Qual a sua resposta? [/bold purple]',end='')
+                    resp_1 = input('').lower()
+
+                    if resp_1 not in ("a", "b", "c"):
+                        raise ValueError("❗ Opção inválida.")
+                    
+                    if resp_1 == "a":
+                        morte_cupula(personagem)
+                    elif resp_1 == "b":
+                        lore_recompensa003(personagem)
+                    elif resp_1 == "c":
+                        morte_cupula(personagem)
+
+                except ValueError as e:
+                    print(f"{e} Tente novamente.")  
+        
+        elif personagem.atributos['resistencia'] < 20:
+            while True:
+                try:
+                    print('[bold purple][italic]"Qual é o verdadeiro propósito da Torre de Etherion, segundo os fragmentos mais antigos?"[/italic][/bold purple]\n')
+
+                    texto21 = ('Alternativas:\n A) Proteger as últimas memórias conscientes antes da extinção do mundo físico \nB) Reciclar identidades digitais e reconstruir consciências aptas a coexistir com o novo mundo pós-Éter \nC) Isolar ecos contaminados para evitar a propagação da corrupção para fora do núcleo')
+                    jogo1.digitar(texto21)
+
+                    time.sleep(1)
+                    print('\n [bold purple]Qual a sua resposta? [/bold purple]',end='')
+                    resp_1 = input('').lower()
+
+                    if resp_1 not in ("a", "b", "c"):
+                        raise ValueError("❗ Opção inválida.")
+                    
+                    if resp_1 == "a":
+                        morte_cupula(personagem)
+                    elif resp_1 == "b":
+                        lore_recompensa003(personagem)
+                    elif resp_1 == "c":
+                        morte_cupula(personagem)
+
+                except ValueError as e:
+                    print(f"{e} Tente novamente.")  
 
 
 
 def morte_cupula(personagem):
+    os.system('cls' if os.name == 'nt' else 'clear')
     personagem.andar_cupula_completado = True
 
     texto22 = ('\nAs alternativas surgem. Mas o zumbido cresce. A resposta certa escapa, como fumaça entre os dedos. Você hesita. Escolhe...')
@@ -447,11 +502,51 @@ def lore_recompensa003(personagem):
     jogo1.digitar(text_inf)
     time.sleep(8)
 
-    lore_9_andar(personagem)
+    lore_pos_8andar(personagem)
 
+
+def lore_pos_8andar(personagem):
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+    explore2 = False
+    while True:
+        try:
+            time.sleep(1)
+            texto25 = ("\nVocê pode:\n\n1. Ignorar todo o andar e ir direto para o próximo.\n2. Investigar inventário\n3. Conferir Atributos\n4.  Explorar a cúpula em busca de itens.")
+            jogo1.digitar(texto25)
+            time.sleep(1)
+            print('\n[bold purple]Qual a sua escolha? [/bold purple]',end='')
+            esc_6 = input('')
+
+            if esc_6 not in ("1", "2", "3","4"):
+                raise ValueError("❗ Opção inválida.")
+            if esc_6 == "1":
+                lore_9_andar(personagem)
+                print()
+                break
+            elif esc_6 == "2":
+                inventario.interface_inv(personagem)
+            elif esc_6 == "3":
+                #Atributos
+                print()
+            elif esc_6 == "4":
+                if explore2 == False:
+                    explore2 = True
+                    if personagem.atributos['maos rapidas'] >= 20:
+                        personagem.inventario.append(lista_itens[82])
+                        time.sleep(1)
+                        print('\n[bold purple][Sistema]Você encontrou um Fragmento de Dados Recuperados[/bold purple]\n')
+                    else:
+                        texto26 = ('Você decide vasculhar a estação em busca de recursos escondidos entre cabos, painéis e restos de unidades antigas.')
+                        jogo1.digitar(texto26)
+                        print('\n[bold purple][Sistema]Nada foi encontrado...[/bold purple]\n')
+                else:
+                    print('[bold purple][Sistema]Você já explorou este andar...[/bold purple]')
+
+        except ValueError as e:
+            print(f"{e} Tente novamente.")
 
 def lore_9_andar(personagem):
-    print()
     
 
 #FUI COMPRAR PÃO
