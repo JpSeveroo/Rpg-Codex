@@ -192,9 +192,9 @@ def lore_pos_1andar(personagem):
 
     while True:
         try:
-            texto9 = ('\n 1. Avançar para o Andar 2\n2. Abrir o inventário\n3. Conferir Atributos: ')
+            texto9 = ('\n1. Avançar para o Andar 2\n2. Abrir o inventário\n3. Conferir Atributos: ')
             digitar(texto9)
-            print('[bold purple] Oque você quer fazer agora?[/bold purple] ',end='')
+            print('\n[bold purple] Oque você quer fazer agora?[/bold purple] ',end='')
             esc_2 = input("").strip()
             if esc_2 not in ("1", "2", "3"):
                 raise ValueError("❗ Opção inválida.")
@@ -212,10 +212,10 @@ def lore_pos_1andar(personagem):
             print(f"{e} Tente novamente.")
     
 def lore_2_andar(personagem):
-    texto10 = ('Ao cruzar o limiar do primeiro andar, a estrutura muda. A luz branca e fria cede espaço a um ambiente opaco, repleto de tons azul-escuros e verdes foscos. O chão agora parece instável — como vidro rachado — refletindo sua imagem distorcida a cada passo. Fragmentos de memória flutuam ao seu redor como pedaços de dados corrompidos: rostos sem nome, vozes sem origem, sentimentos desconectados. Este é o Mar de Fragmentos — um andar onde os resíduos de antigas consciências e dados quebrados se acumulam, gerando distorções no espaço e criando ameaças imprevisíveis. Você caminha entre os escombros flutuantes quando uma nova mensagem se sobrepõe à sua visão:')
-    digitar(texto10)
+    os.system('cls' if os.name == 'nt' else 'clear')
 
-    print('[bold purple][Sistema: “Este andar não testa sua força, mas sua estabilidade. Fragmentos instáveis detectados. Hostilidade: Alta.”]:[/bold purple]')
+    texto10 = ('\nAo cruzar o limiar do primeiro andar, a estrutura muda. A luz branca e fria cede espaço a um ambiente opaco, repleto de tons azul-escuros e verdes foscos. O chão agora parece instável — como vidro rachado — refletindo sua imagem distorcida a cada passo. Fragmentos de memória flutuam ao seu redor como pedaços de dados corrompidos: rostos sem nome, vozes sem origem, sentimentos desconectados. Este é o Mar de Fragmentos — um andar onde os resíduos de antigas consciências e dados quebrados se acumulam, gerando distorções no espaço e criando ameaças imprevisíveis. Você caminha entre os escombros flutuantes quando uma nova mensagem se sobrepõe à sua visão:')
+    digitar(texto10)
 
     texto11 = ('Do meio da névoa de dados, surge uma nova entidade: o Anomalian, um espectro digital formado por memórias colapsadas e linhas de código expostas. Seus braços se alongam como fios rompidos, os olhos brilham com um azul pulsante e irregular. Ele não ruge... ele chia, como um arquivo corrompido tentando se reproduzir. A criatura se aproxima. Sua presença distorce os arredores. O chão treme. Sua ficha emite um alerta:')
     digitar(texto11)
@@ -231,15 +231,18 @@ def lore_2_andar(personagem):
     while True:
         try:
             time.sleep(1)
-            texto12 = ('Você pode: \n1.Enfrentar o Anomalian — Confrontar a distorção com foco e resistência, dominando o combate contra uma entidade instável.\n2.Tentar Estabilizar o ambiente — Usar parte da sua energia para reconfigurar o campo ao seu redor, reduzindo a agressividade do inimigo. [Pontos de diplomacia necessários: 12]\n')
+            texto12 = ('Você pode: \n1.Enfrentar o Anomalian — Confrontar a distorção com foco e resistência, dominando o combate contra uma entidade instável.\n2.Tentar Estabilizar o ambiente — Usar parte da sua energia para reconfigurar o campo ao seu redor, reduzindo a agressividade do inimigo. [Pontos de diplomacia necessários: 12]')
             digitar(texto12)
 
-            print('[bold purple]Qual a sua escolha? [/bold purple]',end='')
+            print('\n[bold purple]Qual a sua escolha? [/bold purple]',end='')
             esc_3 = input(" ").strip()
             if esc_3 not in ("1", "2"):
                 raise ValueError("❗ Opção inválida.")
             if esc_3 == "1":
-                #Inicia o combate contra o anomalian
+                #❗❗❗❗❗❗❗FALTA O COMBATE
+                lore_recompensa002(personagem)
+                time.sleep(8)
+                lore_pos_2andar(personagem)
                 print()
 
             elif esc_3 == "2" and personagem.atributos['diplomacia'] >= 12:
@@ -251,7 +254,6 @@ def lore_2_andar(personagem):
 
 def lore_recompensa002(personagem):
     os.system('cls' if os.name == 'nt' else 'clear')
-    time.sleep(8)
     personagem.inventario.append(lista_itens[0])
     personagem.inventario.append(lista_itens[1])
 
@@ -259,27 +261,27 @@ def lore_recompensa002(personagem):
     text_inf = ('\nItens sendo computados...')
     digitar(text_inf)
 
-def lore_pos_2andar(personagem):
-    texto13 = ('O corpo disforme do Anomalian se retorce uma última vez antes de desintegrar em uma explosão silenciosa de luz azulada e linhas quebradas. Os fragmentos de memória que flutuavam ao redor cessam seu giro caótico e, por um breve instante, o Mar de Fragmentos parece calmo. As distorções cessam. A corrupção regride. Você respira — ou simula respirar. A sensação de alívio é estranhamente real. Uma nova linha de código começa a se desenhar no chão à sua frente, como uma serpente de luz, guiando-o até um anel flutuante de dados, que pulsa lentamente.')
-    digitar(texto13)
 
+def lore_pos_2andar(personagem):
+    os.system('cls' if os.name == 'nt' else 'clear')
     texto13 = ('\nO corpo disforme do Anomalian se retorce uma última vez antes de desintegrar em uma explosão silenciosa de luz azulada e linhas quebradas. Os fragmentos de memória que flutuavam ao redor cessam seu giro caótico e, por um breve instante, o Mar de Fragmentos parece calmo. As distorções cessam. A corrupção regride. Você respira — ou simula respirar. A sensação de alívio é estranhamente real. Uma nova linha de código começa a se desenhar no chão à sua frente, como uma serpente de luz, guiando-o até um anel flutuante de dados, que pulsa lentamente.')
     digitar(texto13)
 
-    print('\n[bold purple][Sistema: Instabilidade contida.”] \n[Sistema: Setor de Memória Intermediária desbloqueado. Andar 3 liberado.][/bold purple]\n')
+    print('\n[bold purple][Sistema: Instabilidade contida.”] \n[Sistema: Setor de Memória Intermediária desbloqueado. Andar 3 liberado.][/bold purple]')
 
     while True:
         try:
             time.sleep(1)
-            texto14 = ("\nVocê pode:\n\n 1. Avançar para o Andar 3\n2. Investigar inventário\n3. Conferir Atributos: ")
+            texto14 = ("\nVocê pode:\n\n1. Avançar para o Andar 3\n2. Investigar inventário\n3. Conferir Atributos: ")
             digitar(texto14)
-            print('[bold purple]Qual a sua escolha? [/bold purple]',end='')
+            time.sleep(1)
+            print('\n[bold purple]Qual a sua escolha? [/bold purple]',end='')
             esc_4 = input('')
 
             if esc_4 not in ("1", "2", "3"):
                 raise ValueError("❗ Opção inválida.")
             if esc_4 == "1":
-                texto13 = ('Conforme você atravessa o anel, tudo ao redor se desfaz como uma tela sendo reinicializada. Por instantes, existe apenas escuridão e um sussurro distante — a mesma voz misteriosa de antes, ainda fragmentada, mas um pouco mais clara:')
+                texto13 = ('\nConforme você atravessa o anel, tudo ao redor se desfaz como uma tela sendo reinicializada. Por instantes, existe apenas escuridão e um sussurro distante — a mesma voz misteriosa de antes, ainda fragmentada, mas um pouco mais clara:')
                 digitar(texto13)
 
                 print('"[bold blue]...Eles nos dividem por camadas... mas somos inteiros... ainda somos inteiros..."[/bold blue]')
@@ -287,7 +289,7 @@ def lore_pos_2andar(personagem):
                 texto15 = ('Você não tem tempo para responder.\nA escuridão dá lugar a uma nova paisagem: O Andar 3.')
                 digitar(texto15)
                 time.sleep(1)
-                lore_3_andar()
+                lore_3_andar(personagem)
                 print()
             elif esc_4 == "2":
                 inventario.interface_inv(personagem)
@@ -303,27 +305,28 @@ def lore_3_andar(personagem):
     texto16 = ('\nVocê atravessa o portal do Andar 3 e se encontra em uma cúpula colossal. As paredes circulares são revestidas por inúmeros cristais de dados, cada um pulsando com uma luz tênue em diferentes frequências, como batimentos digitais. O chão, liso e polido, reflete sua imagem como um espelho de mercúrio, distorcendo levemente a realidade. Não há sinal de inimigos, nem som que quebre o silêncio, exceto por um sutil zumbido de ruído branco. Contudo, uma sensação incômoda de que algo está fundamentalmente errado paira no ar. No centro da cúpula, uma estrutura imponente se ergue: uma esfinge negra, etérea e flutuante, sua forma absorvendo a pouca luz do ambiente.Uma mensagem espectral se materializa à sua frente: ')
     digitar(texto16)
 
-    print(f'\n[bold purple][Sistema] "Desafio de Integridade Perceptiva iniciado."\n [Sistema] Qualquer erro lógico nesta sala desencadeará uma reinicialização forçada do {personagem.nick}.]\n [Sistema] Recompensa única detectada [/bold purple]\n')
+    print(f'\n[bold purple][Sistema] "Desafio de Integridade Perceptiva iniciado."\n[Sistema] Qualquer erro lógico nesta sala desencadeará uma reinicialização forçada do {personagem.nick}.]\n[Sistema] Recompensa única detectada [/bold purple]\n')
 
     texto17 = ('A voz da esfinge ecoa pela cúpula, grave e ressonante, parecendo vir de todos os lugares e de lugar nenhum ao mesmo tempo:')
     digitar(texto17)
 
-    print('\n[bold blue]"Viajante... Você sente a anomalia? O véu da realidade tremula aqui. Para avançar, seus olhos devem ver além do óbvio, sua mente deve discernir a desarmonia."[/bold blue]\n')
+    print('[bold blue]"Viajante... Você sente a anomalia? O véu da realidade tremula aqui.\nPara avançar, seus olhos devem ver além do óbvio, sua mente deve discernir a desarmonia."[/bold blue]\n')
 
     texto18 = ('Ela se inclina ligeiramente, como se o observasse com atenção.')
     digitar(texto18)
 
-    print('\n[bold blue]"Um único erro. Uma falha em perceber o que se esconde à plena vista... e esta existência será reescrita. Mas para aquele que enxerga a verdade, uma recompensa aguarda." [/bold blue]\n')
+    print('[bold blue]"Um único erro.\nUma falha em perceber o que se esconde à plena vista... e esta existência será reescrita.\nMas para aquele que enxerga a verdade, uma recompensa aguarda." [/bold blue]\n')
 
     texto19 = ('Para superar este desafio, você precisará ser perspicaz o suficiente. É um teste de acuidade, um confronto direto com a ilusão.')
     digitar(texto19)
 
     while True:
         try:
-            texto20 = ("\nVocê pode:\n\n1. Enfrentar o Enigma Sua capacidade de percepção determinará a dificuldade do desafio. Quanto mais aguçada sua percepção, mais claro será o caminho para a solução.\n2. Seguir em frente e Desistir: Você abandona o enigma sem tentar, perde a chance de obter a recompensa única, mas avança para o próximo andar sem sofrer penalidades.")
+            texto20 = ("\nVocê pode:\n\n1. Enfrentar o Enigma, no qual sua capacidade de percepção determinará a dificuldade do desafio. Quanto mais aguçada sua percepção, mais claro será o caminho para a solução.\n2. Seguir em frente e Desistir, abandonando o enigma sem tentar, perdendo a chance de obter uma recompensa única, mas avança para o próximo andar sem sofrer penalidades.")
             digitar(texto20)
             
-            print('[bold purple]Qual a sua escolha? [/bold purple]',end='')
+            time.sleep(1)
+            print('\n[bold purple]Qual a sua escolha? [/bold purple]',end='')
             esc_5 = input('')
             if esc_5 not in ("1", "2"):
                 raise ValueError("❗ Opção inválida.")
@@ -356,6 +359,7 @@ def lore_1_enigma(personagem):
                     texto21 = ('Alternativas:\n A) Um animal domesticado 🐕 \nB) Sua sombra 🌑 \nC) Um reflexo no espelho 🪞')
                     digitar(texto21)
 
+                    time.sleep(1)
                     print('\n [bold purple]Qual a sua resposta? [/bold purple]',end='')
                     resp_1 = input('').lower()
 
@@ -393,6 +397,7 @@ def lore_1_enigma(personagem):
                     texto22 = ('Alternativas: \nA) O fogo 🔥 \nB) A sombra 🌑 \nC) O tempo ⏳')
                     digitar(texto22)
                     
+                    time.sleep(1)
                     print('\n [bold purple]Qual a sua resposta? [/bold purple]',end='')
                     resp_1 = input('').lower()
 
@@ -429,6 +434,7 @@ def lore_1_enigma(personagem):
                     texto23 = ('\nA) A essência do tempo ⏳ \nB) O sopro invisível do vento 🌬️ \nC) O pensamento eterno 🧠')
                     digitar(texto23)
 
+                    time.sleep(1)
                     print('\n [bold purple]Qual a sua resposta? [/bold purple]',end='')
                     resp_1 = input('').lower()
 
@@ -467,9 +473,181 @@ def morte_esfinge(personagem):
 
 
 def lore_4_andar(personagem):
-    print()
-    
+    os.system('cls' if os.name == 'nt' else 'clear')
 
+    texto25 = ('Você atravessa o portal e adentra uma vasta câmara mergulhada em sombras oscilantes, onde a luz parece hesitar antes de preencher o espaço. As paredes se distorcem como se fossem feitas de líquido escuro e espelhado, refletindo imagens fragmentadas de você mesmo — rostos que sorriem, que choram, que gritam, mas que não são você. O ar pulsa com um murmúrio baixo, um coro de vozes apagadas e risadas abafadas, ecos perdidos de consciências presas que se contorcem tentando manipular a realidade ao redor. No centro da sala, três figuras espectrais surgem como sombras vivas, seus rostos mudando e se rearranjando numa dança inquietante de feições falsas e distorcidas. São os Três ceifadores da Ilusão — entidades que personificam suas dúvidas, medos e inseguranças, prontas para testar a sua mente e espírito. O silêncio é cortado por um sussurro sintético, reverberando em sua mente:')
+    digitar(texto25)
+
+    print(f'[bold purple][Sistema] {personagem.nick}, neste salão, a verdade é uma arma maleável. Use sua perícia de blefar para virar o jogo, pois nem tudo aqui pode ser enfrentado pela força bruta.[/bold purple]')
+    
+    while True:
+        try:
+            texto26 = ('\n1. Iniciar combate\n2. Abrir o inventário\n3. Conferir Atributos: ')
+            digitar(texto26)
+            print('\n[bold purple] Oque você quer fazer agora?[/bold purple] ',end='')
+            esc_2 = input("").strip()
+            if esc_2 not in ("1", "2", "3"):
+                raise ValueError("❗ Opção inválida.")
+            if esc_2 == "1":
+                #COMBATEEEEEEEE
+                lore_recompensa003(personagem)
+                lore_pos_4andar(personagem)
+                break
+
+            elif esc_2 == "2":
+                inventario.interface_inv(personagem)
+            elif esc_2 == "3":
+                #Atributos
+                print()
+        except ValueError as e:
+            print(f"{e} Tente novamente.")
+
+def lore_recompensa003(personagem):
+    os.system('cls' if os.name == 'nt' else 'clear')
+    personagem.inventario.append(lista_itens[0])
+    personagem.inventario.append(lista_itens[1])
+
+    item_escolhido002 = ''
+
+    if personagem.raca == 'elfo':
+        while True:
+            try:
+                texto27 = ("\nQual destes 3 itens você deseja levar consigo? \n 🏹[1] Arco Longo Élfico: Um arco elegante feito de madeira de altíssima qualidade, imbuído com encantamentos que melhoram a precisão da flechada. (+2 mira)\n ⚔️[2] espada fio da lua: espada forjada sob a lua cheia de Ilirien com corte preciso e detalhes em prata.(+2 mano a mano)\n 👑 Tiara da sabedoria: tiara perdida de antigos filósofos e pensadores elfos. Garante um aumento do raciocínio do usuário. (+2 percepção)")
+                digitar(texto27)
+                time.sleep(1)
+
+                print(f"[bold purple][Sistema: “{personagem.nick}, Escolha com sabedoria... ”][/bold purple]", end='')
+                recompensa002 = input().strip()
+
+                if recompensa002 not in ("1", "2","3"):
+                    raise ValueError("❗ Opção inválida.")
+                if recompensa002 == "1":
+                    personagem.inventário.append(lista_itens[12])
+                    item_escolhido002 = '🏹 Arco Longo Élfico'
+                    print()
+
+                elif recompensa002 == "2":
+                    personagem.inventário.append(lista_itens[13])
+                    item_escolhido002 = '⚔️ Espada fio da lua'
+                    print()
+                elif recompensa002 == "3":
+                    personagem.inventário.append(lista_itens[15])
+                    item_escolhido002 = '👑 Tiara da sabedoria'
+                    print()
+                break 
+            except ValueError as e:
+                print(f"{e} Tente novamente. Lembre-se de digitar apenas o dígito referente ao item.")
+    
+    elif personagem.raca == 'humano':
+        while True:
+            try:
+                texto6 = ("\nQual destes 3 itens você deseja levar consigo? \n 🏹[1] X-besta: Ferramenta humana criada para competir com os arcos encantados dos elfos. (+2 mira)\n 🩴[2] Sandálias de Hermes: Sandálias que dizem ser do próprio deus grego, mas na verdade é apenas uma sandália boa para se movimentar. (+2 acrobacia)\n 🥷[3] Capa de ladrão: capa que ajuda o personagem a passar despercebido e aumenta o saque. (+2 mãos rápidas)")
+                digitar(texto6)
+                time.sleep(1)
+
+                print(f"[bold purple][Sistema: “{personagem.nick}, Escolha com sabedoria... ”][/bold purple]", end='')
+                recompensa002 = input().strip()
+
+                if recompensa002 not in ("1", "2","3"):
+                    raise ValueError("❗ Opção inválida.")
+                if recompensa002 == "1":
+                    personagem.inventário.append(lista_itens[14])
+                    item_escolhido002 = '🏹 X-besta'
+                    print()
+
+                elif recompensa002 == "2":
+                    personagem.inventario.append(lista_itens[16])
+                    item_escolhido002 = '🩴 Sandálias de Hermes'
+                    print()
+                elif recompensa002 == "3":
+                    personagem.inventario.append(lista_itens[17])
+                    item_escolhido002 = '🥷 Capa de ladrão'
+                    print()
+                break 
+            except ValueError as e:
+                print(f"{e} Tente novamente. Lembre-se de digitar apenas o dígito referente ao item.")
+
+    elif personagem.raca == 'draconiano':
+        while True:
+            try:
+                texto6 = ("\nQual destes 3 itens você deseja levar consigo? \n 🗡️[1] Lança de caça: Uma lança feita pelos draconianos para arremessar. (+1 mira).\n 🧿[2] Talismã da Fúria: Um talismã que deixa o personagem extremamente suscetível a raiva. Aumenta a força mas diminui a razão. (+1 mano a mano), (+1 resistência), (-2 percepção)\n 🥾[3] Botas de Couro: melhora a armadura e a resistência a terrenos difíceis (lama, neve, areia) fora de combate. (+2 resistência)")
+                digitar(texto6)
+                time.sleep(1)
+
+                print(f"[bold purple][Sistema: “{personagem.nick}, Escolha com sabedoria... ”][/bold purple]", end='')
+                recompensa002 = input().strip()
+
+                if recompensa002 not in ("1", "2","3"):
+                    raise ValueError("❗ Opção inválida.")
+                if recompensa002 == "1":
+                    personagem.inventario.append(lista_itens[18])
+                    item_escolhido002 = '🗡️ Lança de caça'
+                    print()
+
+                elif recompensa002 == "2":
+                    personagem.inventario.append(lista_itens[19])
+                    item_escolhido002 = '🧿 Talismã da Fúria'
+                    print()
+                elif recompensa002 == "3":
+                    personagem.inventario.append(lista_itens[7])
+                    item_escolhido002 = '🥾 Botas de Couro:'
+                    print()
+                break 
+            except ValueError as e:
+                print(f"{e} Tente novamente. Lembre-se de digitar apenas o dígito referente ao item.")
+
+    print(f"[bold purple][Sistema] 🪙   RECOMPENSAS: \nXp: [280] \nPoção de cura [1]\nPoção de mana [1]\nItem: {item_escolhido002}[/bold purple]")
+    text_inf = ('\nItens sendo computados...')
+    digitar(text_inf)
+    time.sleep(8)
+
+def lore_pos_4andar(personagem):
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+    texto27 = ('\nAs últimas sombras dos Três Juízes da Ilusão se desfazem em fragmentos cintilantes de luz distorcida, evaporando-se no ar pesado da câmara. O silêncio que se instala é profundo, quase palpável, como se o próprio tempo respirasse de forma suspensa. Sua respiração — ou o que a simula — parece o único som que permanece, um ritmo débil em meio ao vazio. O chão, antes espelhado e instável, começa a mudar lentamente. Os reflexos se apagam e, em seu lugar, surge um mosaico complexo de códigos fluindo, luzes pulsando e circuitos vibrando com uma energia ancestral. Cada fragmento conta uma história — pedaços de dados, memórias e realidades codificadas que se entrelaçam numa dança eterna. À sua frente, uma enorme porta translúcida se materializa, feita de vidro etéreo e linhas de código trançadas como veias de energia pura. Ela pulsa com uma luz vermelha profunda, quase viva, e em sua superfície, uma silhueta começa a emergir — uma forma colossal, uma fusão de carne, circuitos e magia. Uma voz ecoa no salão, reverberando dentro de sua mente como um trovão distante, fria e cheia de autoridade:')
+    digitar(texto27)
+
+    print('\n[bold blue]"Eu sou Kairon, o Guardião do Abismo — o elo perdido entre a essência e o código.\nVocês, ecos fragmentados, se atrevem a escalar até meu domínio, desafiando a ordem que sustenta este Labirinto.\nNão é apenas sua força que será testada, mas sua própria realidade.\nProve que sua existência é mais do que ruído corrompido.\nEnfrente-me... ou seja apagado para sempre."[/bold blue]\n')
+
+    texto28 = ('A porta se abre lentamente, revelando uma arena circular gigantesca, onde os dados fluem como rios de energia vermelha e negra, turbulenta e imprevisível. No centro, Kairon espera, seus olhos de um azul profundo perfurando sua consciência.')
+    digitar(texto28)
+
+    print('[bold purple][Sistema] não será apenas um combate — será um teste decisivo de sua vontade, astúcia e da síntese entre sua essência e a tecnologia que o mantém vivo.[/bold purple]')
+
+    time.sleep(3)
+    lore_5_andar(personagem)
+
+def lore_5_andar(personagem):
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+    texto29 = ('Você adentra o quinto andar do Labirinto Etherion, conhecido como o Abismo de Kairon — uma vastidão desolada onde a realidade se funde ao código em um cenário traiçoeiro e instável. O chão sob seus pés é uma malha vibrante de fragmentos digitais que se entrelaçam e se desfazem sem aviso, formando plataformas suspensas sobre abismos infinitos, pontes feitas de linhas de código cintilante que podem desaparecer a qualquer momento e superfícies com distorções magnéticas que interferem na sua movimentação. O ar é denso e pesado, comprimido por forças invisíveis que sugam sua energia e testam sua resistência, enquanto feixes vermelhos e negros cortam o ambiente, e ecos distorcidos de dados corrompidos zumbem em sua mente, aumentando a tensão a cada passo.')
+    digitar(texto29)
+
+    texto30 = ('O terreno exige agilidade, atenção e equilíbrio extremo, onde um deslize pode significar queda no vazio. Nesse momento, uma mensagem surge diante de você, uma advertência do sistema:')
+    digitar(texto30)
+
+    print('[bold purple][Sistema] — Aviso! Este andar apresenta terreno altamente instável e perigoso. \nEquipamentos que aumentem sua estabilidade e mobilidade, como botas magnéticas ou escudos estabilizadores, podem facilitar sua travessia e reduzir os riscos de queda.[/bold purple]')
+
+    texto31 = ('Ciente do desafio iminente, você avança com cautela, sabendo que à frente o Guardião do Abismo, Kairon, espera para testar sua força, astúcia e capacidade de sobreviver ao caos pulsante deste labirinto fragmentado.')
+    digitar(texto31)
+
+    while True:
+        try:
+            texto26 = ('\n1. Iniciar combate')
+            digitar(texto26)
+            print('\n[bold purple] Oque você quer fazer agora?[/bold purple] ',end='')
+            esc_2 = input("").strip()
+            if esc_2 not in ("1"):
+                raise ValueError("❗ Opção inválida.")
+            if esc_2 == "1":
+                #COMBATEEEEEEEE
+
+                break
+        except ValueError as e:
+            print(f"{e} Tente novamente.")
+
+def lore_recompensa004(personagem):
+    print()
 
 
 if __name__ == "__main__":

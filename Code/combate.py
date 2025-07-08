@@ -245,6 +245,7 @@ def loop_principal(personagem, inimigo, mana_max):
         
         elif a == 'Inventário':
             inv(personagem, mana_max)
+            
             continue
 
         else:
