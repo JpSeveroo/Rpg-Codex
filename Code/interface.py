@@ -10,7 +10,7 @@ import InquirerPy
 import InquirerPy.inquirer
 import ficha
 import combate
-import jogo
+import jogo1
 from time import sleep
 
 usuarios = []
