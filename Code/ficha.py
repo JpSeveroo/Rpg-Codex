@@ -22,7 +22,7 @@ class Personagem:
             "mira": 0,
             "diplomacia": 0,
             "furtividade": 0,
-            "percepção": 0,
+            "percepcao": 0,
             "maos rapidas": 0,
             "mano a mano": 0,
             "resistencia": 0
