@@ -41,6 +41,7 @@ class Personagem:
         self.vida_atual = self.status["hp"]
         self.equipamento = []
         self.andar_esfinge_completado = False
+        self.andar_cupula_completado = False
 
     def criar_ficha(self):
         print()
