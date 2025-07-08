@@ -89,7 +89,7 @@ def ataque_especial(atacante, defensor, pericia_principal, pericia_secundaria):
     time.sleep(2)
     return True
 
-#fazer o calculo de pericias do ataque especial
+# fazer o calculo de pericias do ataque especial
 
 def esquivar(personagem, mana_max):
     acrobacia = personagem.pericias.get('acrobacia', 0)
@@ -98,7 +98,7 @@ def esquivar(personagem, mana_max):
     digitar(f"🤸 {personagem.nick} tenta se esquivar! Rolagem: {dado} + Acrobacia ({acrobacia}) = {total}")
     time.sleep(2)
     
-    if total >= 15: # Sucesso na esquiva
+    if total >= 15: # sucesso na esquiva
         recuperado = 3
         personagem.status['mana'] += recuperado
         if personagem.status['mana'] > mana_max:
@@ -147,22 +147,16 @@ def barra(life):
         return ('#' * preenchido) + ('-' * vazio)
 
 def tabelas(personagem, inimigo):
-    def write1(info, info1, info2):
+    def write(info, info1, info2):
         print('|'+ f'{info} : {info1}'.center(33) + '|' + ' '*25 + '|'+ f'{info} : {info2}'.center(33) + '|')
-
-    def write2(info, info1):
-        print('|'+ f'{info} : {info1}'.center(33) + '|' + ' '*25 + '|'+ ' '*33 + '|')
-
     def show_life(a, b):
         barra_a = barra(a)
         barra_b = barra(b)
         print('|'+ f"Vida : {barra_a}  {a.vida_atual}/{a.status['hp']}".center(33) + '|' + ' '*25 + '|'+ f"Vida : {barra_b}  {b.vida_atual}/{b.status['hp']}".center(33) + '|')
     print('-'*35 + ' '*25 + '-'*35)
-    write1('Nome', personagem.nick, inimigo.nick)
+    write('Nome', personagem.nick, inimigo.nick)
     show_life(personagem, inimigo)
-
-    write2('Mana', personagem.status['mana'])
-
+    write('Mana', personagem.status['mana'], inimigo.status['mana'])
     print('-'*35 + ' '*25 + '-'*35)
 
 def inv(personagem, mana_max):
@@ -273,7 +267,6 @@ def loop_principal(personagem, inimigo, mana_max):
         acao_ia = 'Corpo a Corpo'
         acoes(acao_ia, inimigo, personagem, 9999)
 
-
 def combate(p1, p2):
     digitar(f"\n🛡️  Combate iniciado entre {p1.nick} e {p2.nick}!")
     time.sleep(2)
@@ -306,9 +299,11 @@ if __name__ == '__main__':
     p1.status["hp"] = 100
     p1.status["mana"] = 100
     p1.pericias['mano a mano'] = 12
-    p1.pericias['mira'] = 8
+    p1.pericias['mira'] = 8   
     p1.pericias['acrobacia'] = 5 
     p1.vida_atual = 100
+    p1.xp = 0
+    p1.xp_para_proximo_nivel = 100
     p1.inventario.append(pocao_cura)
     p1.inventario.append(pocao_mana)
     p1.inventario.append(item.lista_itens[4])
@@ -316,10 +311,22 @@ if __name__ == '__main__':
 
     p2 = Personagem()
     p2.nick = "Gorak"
+    p2.atributos["força"] = 8
     p2.status["hp"] = 100
+    p2.status["mana"] = 100
     p2.pericias['mano a mano'] = 12
-    p2.vida_atual = 100
+    p2.pericias['mira'] = 6
+    p2.pericias['acrobacia'] = 3
+    p2.vida_atual = 1
     p2.is_player = False
     p2.fraquezas = ['mano a mano']
 
-    combate(p1, p2)
+    vencedor = combate(p1, p2)
+
+    if vencedor == p1:
+        xp_ganho = 100
+        p1.xp += xp_ganho
+        digitar(f"\n🎉 {p1.nick} ganhou {xp_ganho} de XP!")
+        if p1.xp >= p1.xp_para_proximo_nivel:
+            p1.evoluir_nivel()
+    p1.visualizar()
