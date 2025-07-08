@@ -193,7 +193,7 @@ def lore_pos_1andar(personagem):
 
     while True:
         try:
-            texto9 = ('\n1. Avançar para o Andar 2\n2. Abrir o inventário\n3. Conferir Atributos: ')
+            texto9 = ('\n1. Avançar para o Andar 2\n2. Abrir o inventário\n3. Conferir Atributos')
             digitar(texto9)
             print('\n[bold purple] Oque você quer fazer agora?[/bold purple] ',end='')
             esc_2 = input("").strip()
@@ -273,7 +273,7 @@ def lore_pos_2andar(personagem):
     while True:
         try:
             time.sleep(1)
-            texto14 = ("\nVocê pode:\n\n1. Avançar para o Andar 3\n2. Investigar inventário\n3. Conferir Atributos: ")
+            texto14 = ("\nVocê pode:\n\n1. Avançar para o Andar 3\n2. Investigar inventário\n3. Conferir Atributos")
             digitar(texto14)
             time.sleep(1)
             print('\n[bold purple]Qual a sua escolha? [/bold purple]',end='')
@@ -482,7 +482,7 @@ def lore_4_andar(personagem):
     
     while True:
         try:
-            texto26 = ('\n1. Iniciar combate\n2. Abrir o inventário\n3. Conferir Atributos: ')
+            texto26 = ('\n1. Iniciar combate\n2. Abrir o inventário\n3. Conferir Atributos')
             digitar(texto26)
             print('\n[bold purple] Oque você quer fazer agora?[/bold purple] ',end='')
             esc_2 = input("").strip()
