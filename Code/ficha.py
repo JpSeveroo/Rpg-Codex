@@ -25,7 +25,7 @@ class Personagem:
             "resistencia": 0
         }
         self.inventario = []
-        self.historico = []
+        self.fraquezas = []
         self.status = {"hp": 100, "mana": 50}
         self.vida_atual = self.status["hp"]
         self.equipamento = []
