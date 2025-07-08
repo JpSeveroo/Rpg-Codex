@@ -5,6 +5,7 @@ import os
 from rich import print
 from item import lista_itens
 import inventario
+import jogo2
 
 def digitar(texto, delay=0.00):
     for caractere in texto:
@@ -653,21 +654,22 @@ def lore_recompensa004(personagem):
     
     if personagem.raca == 'elfo':
         item_escolhido003 = '🧥 Manto do caído'
-        personagem.inventario.append(lista_itens[])
+        personagem.inventario.append(lista_itens[25])
             
     
     elif personagem.raca == 'humano':
         item_escolhido003 = '👹 Colar da maldade'
-        personagem.inventario.append(lista_itens[])
+        personagem.inventario.append(lista_itens[26])
 
     elif personagem.raca == 'draconiano':
         item_escolhido003 = '🛡️ Armadura Negra Abissal:'
-        personagem.inventario.append(lista_itens[])
+        personagem.inventario.append(lista_itens[27])
 
     print(f"[bold purple][Sistema] 🪙   RECOMPENSAS: \nXp: [700] \nPoção de cura [5]\nPoção de mana [5]\nItem: {item_escolhido003}[/bold purple]")
     text_inf = ('\nItens sendo computados...')
     digitar(text_inf)
     time.sleep(8)
+    jogo2.lore_pos_5andar(personagem)
 
 
 if __name__ == "__main__":
