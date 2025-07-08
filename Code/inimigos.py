@@ -19,7 +19,7 @@ def add_ene():
     weak = int(input('Numero de fraquezas: '))
     lista_fraquezas = []
     for _ in range(weak):
-        fraq = input('digite uma fraqueza: ')
+        fraq = input('Digite uma fraqueza: ')
         lista_fraquezas.append(fraq)
     inimigo = Inimigos()
     inimigo.nome = name
@@ -30,22 +30,26 @@ def add_ene():
 
 def edit_ene():
     mostrar_ene()
-    ene = int(input('Qual item você deseja editar : ')) - 1
+    ene = int(input('Qual inimigo você deseja editar : ')) - 1
     lista_de_fraquezas = []
     lista_inimigos[ene].nome = input('Qual o novo nome : ')
-    for _ in range(b):
-        lista = []
-        b = input('Efeito: ')
-        lista.append(b)
-        c = int(input('Modificador: '))
-        lista.append(c)
-        lista_de_fraquezas.append(lista)
-    lista_inimigos[ene].efeitos = lista_de_fraquezas
-    lista_inimigos[ene].descricao = input('Nova descrição: ')
-    lista_inimigos[ene].categoria = input('Qual a categoria do item : (cabeca, corpo, pes, maos)')
+    fraq = int(input('Numero de fraquezas: '))
+    for _ in range(fraq):
+        fraqs = input('Digite uma fraqueza: ')
+        lista_de_fraquezas.append(fraqs)
+    lista_inimigos[ene].fraquezas = lista_de_fraquezas
+    lista_inimigos[ene].vida = int(input('Nova vida: '))
+    lista_inimigos[ene].dano = int(input('Novo dano: '))
 
 def excluir_ene():
-    ...
+    mostrar_ene()
+    idx = int(input("Qual inimigo você deseja excluir: ")) - 1
+    if 0 <= idx < len(lista_inimigos):
+        del lista_inimigos[idx]
+        print("Inimigo excluído com sucesso.")
+    else:
+        print("Índice inválido.")
+    
 
 def mostrar_ene():
     os.system('cls' if os.name == 'nt' else 'clear')
@@ -64,14 +68,14 @@ def write():
     for i in lista_inimigos:
         a = i.__dict__
         lista.append(a)
-    utills.salvar_infos('lista_itens', lista)
+    utills.salvar_infos('lista_inimigos', lista)
 
 def interface():
     write()
-    print('1- Adicionar um item')
-    print('2- Editar um item')
-    print('3- Excluir um item')
-    print('4- Listar os itens')
+    print('1- Adicionar um inimigo')
+    print('2- Editar um inimigo')
+    print('3- Excluir um inimigo')
+    print('4- Listar os inimigos')
     print('5- Finalizar')
     a = int(input('Qual das opções você deseja ? '))
     opcoes = {
