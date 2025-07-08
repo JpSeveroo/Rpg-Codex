@@ -6,7 +6,6 @@ import item
 import utills
 import ficha
 
-item.load_itens()
 pocao_cura = item.lista_itens[0]
 pocao_mana = item.lista_itens[1]
 
