@@ -284,7 +284,7 @@ def combate(personagem, inimigo):
             break
     
     if personagem.vida_atual > 0:
-        digitar(f"\n🏆 {p1.nick} venceu o combate!")
+        digitar(f"\n🏆 {personagem.nick} venceu o combate!")
         time.sleep(3)
         utills.limpar_tela()
         return personagem
