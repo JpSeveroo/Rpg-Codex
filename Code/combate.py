@@ -258,38 +258,33 @@ def loop_principal(personagem, inimigo, mana_max):
             time.sleep(2)
     
     if inimigo.vida_atual > 0: #turno da IA
-        adv_IA(inimigo, personagem, 9999)
+        adv_IA(inimigo, personagem)
 
 
 def combate(personagem, inimigo):
+
+    personagem.vida_atual = personagem.vida_atual if personagem.vida_atual > 0 else personagem.status.get('hp', 100)
+    personagem.status['mana'] = personagem.status.get('mana', 100) if personagem.status.get('mana', None) is not None else 100
+
+    inimigo.vida_atual = inimigo.status.get('hp', 100)
+    inimigo.status['mana'] = inimigo.status.get('mana', 100) if inimigo.status.get('mana', None) is not None else 100
+
     print(f"\n⚔️ Começando combate: {personagem.nick} VS {inimigo.nome}!\n")
     time.sleep(2)
 
-    mana_max = personagem.status.get('mana', 100)
-    personagem.vida_atual = personagem.vida_atual if personagem.vida_atual > 0 else personagem.status.get('hp', 100)
-    inimigo.vida_atual = inimigo.vida_atual if hasattr(inimigo, 'vida_atual') and inimigo.vida_atual > 0 else inimigo.status.get('hp', 100)
-
-
     while personagem.vida_atual > 0 and inimigo.vida_atual > 0:
-        sucesso_jogador = loop_principal(personagem, inimigo, mana_max)
-        if not sucesso_jogador:
-            # jogador perdeu turno ou morreu
-            if personagem.vida_atual <= 0:
-                break
+        loop_principal(personagem, inimigo, personagem.status['mana'])
 
-        if inimigo.vida_atual <= 0:
-            break
-    
     if personagem.vida_atual > 0:
         digitar(f"\n🏆 {p1.nick} venceu o combate!")
         time.sleep(3)
         utills.limpar_tela()
-        return personagem
+        return True
     elif inimigo.vida_atual > 0:
-        digitar(f"\n🏆 {p2.nick} venceu o combate!")
+        digitar(f"\n💀 {personagem.nick} foi derrotado na torre...")
         time.sleep(3)
         utills.limpar_tela()
-        return inimigo
+        return False
 
 '''===FUNÇÕES INTERATIVAS DO COMBATE==='''
 
@@ -346,7 +341,6 @@ if __name__ == '__main__':
     p1.xp_para_proximo_nivel = 100
     p1.equipamento = {
         "maos": item.lista_itens[2],  # Arma corpo a corpo
-        "longa_distancia": item.lista_itens[3]  # Arma de longo alcance
     }
     p1.inventario.append(pocao_cura)
     p1.inventario.append(pocao_mana)
