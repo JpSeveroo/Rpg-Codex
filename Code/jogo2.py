@@ -71,12 +71,24 @@ def lore_6_andar(personagem):
 
                     print('[bold purple][Sistema]Ruído ignorado. Presença não detectada. Parâmetro mantido[/bold purple]')
 
-                    texto6 = ('Ao derrotar ou enganar as sentinelas, a estação inteira parece “desligar”. Um silêncio novo surge — não mais pesado, mas libertador. As luzes mudam para um tom azul suave. Um dos painéis centrais se ergue, revelando uma espiral de escadas virtuais em queda livre.')
+                    texto6 = ('Ao enganar as sentinelas, a estação inteira parece “desligar”. Um silêncio novo surge — não mais pesado, mas libertador. As luzes mudam para um tom azul suave. Um dos painéis centrais se ergue, revelando uma espiral de escadas virtuais em queda livre.')
                     jogo1.digitar(texto6)
 
-                    lore_7_andar(personagem)
+                    lore_pos_6andar(personagem)
+
+                elif personagem.atributos['furtividade'] < 20:
+                    texto6 = ('Falha crítica. Um leve som de sua movimentação ecoa pela estação — o suficiente. As três sentinelas giram as cabeças na sua direção instantaneamente.')
+                    jogo1.digitar(texto6)
+
+                    print('[bold purple][Sistema]Presença confirmada. Silêncio violado. Protocolo de punição iniciado.[/bold purple]')
+
+                    texto7 = ('Você recebe dano crítico inicial e as sentinelas iniciam o combate em modo agressivo.')
+                    jogo1.digitar(texto7)
+
+                    #COMBATEEEEEEEEEEEEEEEEEEEEE
+
         except ValueError as e:
             print(f"{e} Tente novamente.")
-            
-def lore_7_andar(personagem):
+
+def lore_pos_6andar(personagem):
     print()
