@@ -1,1 +1,1109 @@
-[]
+[
+    {
+        "nome": "Po\u00e7\u00e3o de Cura",
+        "efeitos": [
+            [
+                "vida_atual",
+                25
+            ]
+        ],
+        "descricao": "Restaura 25 pontos de HP",
+        "qtd": 0,
+        "categoria": "Utilizaveis"
+    },
+    {
+        "nome": "Po\u00e7\u00e3o de Mana",
+        "efeitos": [
+            [
+                "mana",
+                25
+            ]
+        ],
+        "descricao": "Restaura 25 pontos de MP",
+        "qtd": 0,
+        "categoria": "Utilizaveis"
+    },
+    {
+        "nome": "Arco Simples",
+        "efeitos": [
+            [
+                "mira",
+                1
+            ]
+        ],
+        "descricao": "Leve, resistente, s\u00edmbolo do treinamento \u00e9lfico. N\u00e3o m\u00e1gico e um pouco velho, mas us\u00e1vel. (mira)",
+        "qtd": 0,
+        "categoria": ""
+    },
+    {
+        "nome": "Broche da Folha",
+        "efeitos": [
+            [
+                "diplomacia",
+                1
+            ]
+        ],
+        "descricao": "Um broche simples que pode ajudar em intera\u00e7\u00f5es sociais. (diplomacia)",
+        "qtd": 0,
+        "categoria": ""
+    },
+    {
+        "nome": "Luvas \u00c9lficas Surradas",
+        "efeitos": [
+            [
+                "maos rapidas",
+                1
+            ]
+        ],
+        "descricao": "Luvas leves e confort\u00e1veis. Oferecem vantagem em tarefas delicadas. (m\u00e3os r\u00e1pidas)",
+        "qtd": 0,
+        "categoria": "Corpo"
+    },
+    {
+        "nome": "Espada de combate",
+        "efeitos": [
+            [
+                "mano a mano",
+                1
+            ]
+        ],
+        "descricao": "Confi\u00e1vel e robusta, a cl\u00e1ssica espada de um aventureiro iniciante. (mano a mano)",
+        "qtd": 0,
+        "categoria": "M\u00e3os"
+    },
+    {
+        "nome": "Medalh\u00e3o da Sorte",
+        "efeitos": [
+            [
+                "percepcao",
+                1
+            ]
+        ],
+        "descricao": "Um amuleto simples que ajuda a encontrar respostas por pura sorte. (percep\u00e7\u00e3o)",
+        "qtd": 0,
+        "categoria": "Corpo"
+    },
+    {
+        "nome": "Botas de Couro",
+        "efeitos": [
+            [
+                "resistencia",
+                1
+            ]
+        ],
+        "descricao": "Melhora a armadura e a resist\u00eancia a terrenos dif\u00edceis (lama, neve, areia) fora de combate. (resist\u00eancia) (efeito)",
+        "qtd": 0,
+        "categoria": "P\u00e9s"
+    },
+    {
+        "nome": "Adaga de Escamas",
+        "efeitos": [
+            [
+                "mano a mano",
+                1
+            ]
+        ],
+        "descricao": "Pequena adaga com s\u00edmbolos drac\u00f4nicos entalhados, item comum entre guerreiros draconianos inexperientes. (mano a mano)",
+        "qtd": 0,
+        "categoria": "M\u00e3os"
+    },
+    {
+        "nome": "Talism\u00e3 do Ca\u00e7ador",
+        "efeitos": [
+            [
+                "acrobacia",
+                1
+            ]
+        ],
+        "descricao": "Objeto que alimenta o instinto de ca\u00e7a dos draconianos, os deixando mais \u00e1geis. (acrobacia)",
+        "qtd": 0,
+        "categoria": "Corpo"
+    },
+    {
+        "nome": "Colar de Pedra Drac\u00f4nica",
+        "efeitos": [
+            [
+                "diplomacia",
+                1
+            ]
+        ],
+        "descricao": "Pequeno pingente com uma pedra da cor do drag\u00e3o ancestral do personagem; Acalma o cora\u00e7\u00e3o dos draconianos e os deixam mais soci\u00e1veis. (diplomacia)",
+        "qtd": 0,
+        "categoria": ""
+    },
+    {
+        "nome": "Mascara da Inverdade",
+        "efeitos": [
+            [
+                "blefe",
+                3
+            ]
+        ],
+        "descricao": "Mascara magica que muda a express\u00e3o facial do personagem conforme a necessidade da conversa. Melhora a capacidade de mentir. (blefe)",
+        "qtd": 0,
+        "categoria": ""
+    },
+    {
+        "nome": "Arco Longo \u00c9lfico",
+        "efeitos": [
+            [
+                "mira",
+                2
+            ]
+        ],
+        "descricao": "Um arco elegante feito de madeira de alt\u00edssima qualidade, imbu\u00eddo com encantamentos que melhoram a precis\u00e3o da flechada. (mira)",
+        "qtd": 0,
+        "categoria": ""
+    },
+    {
+        "nome": "Espada Fio da Lua",
+        "efeitos": [
+            [
+                "mano a mano",
+                2
+            ]
+        ],
+        "descricao": "Espada forjada sob um eclipse lunar. Tem um corte preciso e feita com detalhes em prata.(mano a mano)",
+        "qtd": 0,
+        "categoria": ""
+    },
+    {
+        "nome": "Besta",
+        "efeitos": [
+            [
+                "mira",
+                2
+            ]
+        ],
+        "descricao": "Ferramenta engenhosa forjada pelas maos humanas, unindo precisao e letalidade em um so disparo. (mira)",
+        "qtd": 0,
+        "categoria": ""
+    },
+    {
+        "nome": "Tiara da Sabedoria",
+        "efeitos": [
+            [
+                "percepcao",
+                2
+            ]
+        ],
+        "descricao": "Tiara perdida de antigos fil\u00f3sofos e pensadores elfos. Garante um aumento do racioc\u00ednio do usu\u00e1rio. (percep\u00e7\u00e3o)",
+        "qtd": 0,
+        "categoria": ""
+    },
+    {
+        "nome": "Sand\u00e1lias de Hermes",
+        "efeitos": [
+            [
+                "acrobacia",
+                2
+            ]
+        ],
+        "descricao": "Sand\u00e1lias que dizem ser do pr\u00f3prio deus grego, mas na verdade s\u00c3\u00a3o apenas sand\u00e1lias boa para se movimentar. (acrobacia)",
+        "qtd": 0,
+        "categoria": ""
+    },
+    {
+        "nome": "Capa de Ladr\u00e3o",
+        "efeitos": [
+            [
+                "furtividade",
+                2
+            ]
+        ],
+        "descricao": "Capa que ajuda o personagem a passar despercebido e a executar acoes sem ser notado. (furtividade)",
+        "qtd": 0,
+        "categoria": ""
+    },
+    {
+        "nome": "Lan\u00e7a de Ca\u00e7a",
+        "efeitos": [
+            [
+                "mira",
+                2
+            ]
+        ],
+        "descricao": "Lan\u00e7a simples, feita pelos draconianos para iniciantes nas artes da ca\u00e7a e da guerra. Leve, pratica e feita para ser arremessada. (mira)",
+        "qtd": 0,
+        "categoria": ""
+    },
+    {
+        "nome": "Talism\u00e3 da F\u00faria",
+        "efeitos": [
+            [
+                "mano a mano",
+                2
+            ],
+            [
+                "resistencia",
+                2
+            ],
+            [
+                "percepcao",
+                -2
+            ]
+        ],
+        "descricao": "Um talism\u00e3 que deixa o personagem extremamente suscet\u00edvel a raiva. Aumenta a for\u00e7a mas diminui a raz\u00e3o. (mano a mano) (resist\u00eancia) -(percep\u00e7\u00e3o)",
+        "qtd": 0,
+        "categoria": ""
+    },
+    {
+        "nome": "Anel da Mentira",
+        "efeitos": [
+            [
+                "blefe",
+                2
+            ]
+        ],
+        "descricao": "Usa da maldade no cora\u00e7\u00e3o do usu\u00e1rio para ajuda-lo a manipular os outros. (blefe)",
+        "qtd": 0,
+        "categoria": ""
+    },
+    {
+        "nome": "Adaga Quebrada",
+        "efeitos": [],
+        "descricao": "Uma adaga velha que n\u00e3o melhora muito o seu combate, mas \u00e9 melhor do que usar os punhos",
+        "qtd": 0,
+        "categoria": ""
+    },
+    {
+        "nome": "Espada Trincada",
+        "efeitos": [],
+        "descricao": "Uma espada velha que n\u00e3o melhora muito o seu combate mas, \u00e9 melhor do que usar os punhos.",
+        "qtd": 0,
+        "categoria": ""
+    },
+    {
+        "nome": "Machado Enferrujado",
+        "efeitos": [],
+        "descricao": "Um machado velho que n\u00e3o melhora muito o seu combate mas, \u00e9 melhor do que usar os punhos.",
+        "qtd": 0,
+        "categoria": ""
+    },
+    {
+        "nome": "Livro de pericias",
+        "efeitos": [],
+        "descricao": "Livro escrito por outros ecos que ajuda a entender as pericias. Cada pericia se relaciona com um atributo: Acrobacia (destreza); Blefar (carisma); Mira (destreza); Diplomacia (carisma); Furtividade (intelig\u00eancia); Percep\u00e7\u00e3o(intelig\u00eancia); M\u00e3os r\u00e1pidas(destreza); Mano a mano(for\u00e7a); Resist\u00eancia (for\u00e7a). O combate: As pericia de mano a mano e mira se relacionam diretamente com os ataques. Mano a mano \u00e9 diretamente relacionado com o ataque corpo a corpo e mira \u00e9 com ataque a distancia. O ataque especial gasta mais mana que o ataque simples, mas ele pode ser combado com outra pericia pra se aproveitar da fraqueza do boss e dar mais dano. A esquiva \u00e9 baseada na acrobacia e caso vc acerte recupera 5 de mana.",
+        "qtd": 0,
+        "categoria": ""
+    },
+    {
+        "nome": "Manto do ca\u00eddo",
+        "efeitos": [
+            [
+                "+3 furtividade",
+                3
+            ],
+            [
+                "+3 blefe",
+                3
+            ],
+            [
+                "-3 carisma",
+                -3
+            ]
+        ],
+        "descricao": ": Um elfo que h\u00e1 muitas eras passou por essas terras e foi consumido pela energia sombria do lugar, deixou esse artefato como memoria da sua passagem.",
+        "qtd": 0,
+        "categoria": "Corpo"
+    },
+    {
+        "nome": "Colar da maldade",
+        "efeitos": [
+            [
+                "+blefe",
+                3
+            ],
+            [
+                "+diplomacia",
+                3
+            ],
+            [
+                "-intelig\u00eancia",
+                -3
+            ]
+        ],
+        "descricao": "Colar simples com um pingente negro em forma de adaga. A lenda ao redor desse anel \u00e9 que ele foi criado por entidades antigas com o objetivo de enganar os tolos.",
+        "qtd": 0,
+        "categoria": "Acess\u00c3\u00b3rio"
+    },
+    {
+        "nome": "Armadura Negra Abissal",
+        "efeitos": [
+            [
+                "+resist\u00eancia",
+                3
+            ],
+            [
+                "+mano a mano",
+                3
+            ],
+            [
+                "-intelig\u00eancia",
+                3
+            ]
+        ],
+        "descricao": "Armadura de um antigo aventureiro draconiano que ficou tanto tempo perdido na fenda do vazio que absorveu parte das sombras do lugar. A estrutura melhora a defesa e as trevas aumentam a for\u00e7a do usu\u00e1rio mas a energia sombria cega ele para a realidade.",
+        "qtd": 0,
+        "categoria": "Corpo"
+    },
+    {
+        "nome": "Cal\u00e7as frouxas do Andarilho verde",
+        "efeitos": [
+            [
+                "resist\u00eancia",
+                2
+            ],
+            [
+                "furtividade",
+                2
+            ],
+            [
+                "diplomacia",
+                -2
+            ]
+        ],
+        "descricao": "Cal\u00e7as leves e male\u00e1veis feitas de tecido encantado com fios vegetais antigos. Ajudam o elfo a se mover como o vento entre as folhas, mas exigem foco constante por que ficam querendo cair toda hora, diminuindo o respeito que o personagem passa.",
+        "qtd": 0,
+        "categoria": "P\u00e9s"
+    },
+    {
+        "nome": "Livro Mofado de Po\u00e7\u00f5es",
+        "efeitos": [
+            [
+                "po\u00e7\u00f5es de cura melhoradas",
+                2
+            ]
+        ],
+        "descricao": "Livro esquecido coberto de musgo e cheiro de terra molhada. Amplifica o poder das po\u00e7\u00f5es de cura, mas seu dono se perde nos detalhes alqu\u00edmicos, dificultando perceber o ambiente ao redor",
+        "qtd": 0,
+        "categoria": "Acessório"
+    },
+    {
+        "nome": "Broche de Girassol",
+        "efeitos": [
+            [
+                "diplomacia",
+                2
+            ]
+        ],
+        "descricao": "Um broche mágico com um girassol encantado que nunca murcha. Irradia calor e simpatia, facilitando interações sociais, mas torna o portador mais vulnerável a mentiras.",
+        "qtd": 0,
+        "categoria": "Acessório"
+    },
+    {
+        "nome": "Espada de Cavaleiro Antigo",
+        "efeitos": [
+            [
+                "mano a mano",
+                2
+            ]
+        ],
+        "descricao": "Espada rústica mas confiável, forjada para os cavaleiros que protegiam antigos reis da região. Melhora o combate corpo a corpo.",
+        "qtd": 0,
+        "categoria": "Mãos"
+    },
+    {
+        "nome": "Escudo de Madeira Reforçado",
+        "efeitos": [
+            [
+                "resistência",
+                2
+            ]
+        ],
+        "descricao": "Escudo resistente, feito das árvores ancestrais do jardim. Dá defesa extra e estabilidade, mas seu peso dificulta movimentos rápidos. (Desbloqueia segunda mão)",
+        "qtd": 0,
+        "categoria": "Mãos"
+    },
+    {
+        "nome": "Pena de Corvo Solar",
+        "efeitos": [
+            [
+                "mãos rápidas",
+                2
+            ]
+        ],
+        "descricao": "Rara pena negra com brilho dourado nas pontas. Dizem que quem a carrega ganha olhos atentos e mãos ágeis.",
+        "qtd": 0,
+        "categoria": "Acessório"
+    },
+    {
+        "nome": "Escama de Dragão Ancião",
+        "efeitos": [
+            [
+                "resistência",
+                2
+            ]
+        ],
+        "descricao": "Fragmento ancestral endurecido de um grande dragão. Reforça a defesa do portador (Desbloqueia segunda mão)",
+        "qtd": 0,
+        "categoria": "Mãos"
+    },
+    {
+        "nome": "Anel do Patriarca",
+        "efeitos": [
+            [
+                "diplomacia",
+                2
+            ]
+        ],
+        "descricao": "Símbolo da linhagem draconiana. Melhora a presença social, mas sua energia imponente facilita negociações.",
+        "qtd": 0,
+        "categoria": "Acessório"
+    },
+    {
+        "nome": "Maça de Escamas",
+        "efeitos": [
+            [
+                "mano a mano",
+                2
+            ]
+        ],
+        "descricao": "Maça pesada revestida com escamas negras, símbolo de brutalidade e poder.",
+        "qtd": 0,
+        "categoria": "Mãos"
+    },
+    {
+        "nome": "Anel do Patriarca",
+        "efeitos": [
+            [
+                "diplomacia",
+                2
+            ]
+        ],
+        "descricao": "Símbolo da linhagem draconiana. Melhora a presença social, mas sua energia imponente facilita negociações.",
+        "qtd": 0,
+        "categoria": "Acessório"
+    },
+    {
+        "nome": "Cetro da Pertubação",
+        "efeitos": [
+            [
+                "percepção",
+                4
+            ]
+        ],
+        "descricao": "Artefato que absorve luzes e ruídos perturbadores do ambiente. Garante um foco sobrenatural ao usuário melhorando as suas observações e agilidade ao resolver tarefas.",
+        "qtd": 0,
+        "categoria": "Mãos"
+    },
+    {
+        "nome": "Elmo Dourado do Guardião Caído",
+        "efeitos": [
+            [
+                "resistência",
+                3
+            ],
+            [
+                "diplomacia",
+                3
+            ],
+            [
+                "acrobacia",
+                -3
+            ]
+        ],
+        "descricao": "Reluzente mesmo coberto de poeira e sangue, este elmo é símbolo de um antigo defensor élfico. Protege o portador e eleva sua imponência, mas é pesado e por conta disso é mais difícil de se locomover com ele.",
+        "qtd": 0,
+        "categoria": "Cabeça"
+    },
+    {
+        "nome": "Espada Longa do Veterano",
+        "efeitos": [
+            [
+                "mano a mano",
+                3
+            ]
+        ],
+        "descricao": "Forjada nas eras antigas, passou por inúmeras batalhas. Seu fio é preciso e a lâmina, bem equilibrada.",
+        "qtd": 0,
+        "categoria": "Mãos"
+    },
+    {
+        "nome": "Escudo de Madeira Encantada",
+        "efeitos": [
+            [
+                "resistência",
+                3
+            ]
+        ],
+        "descricao": "Escudo leve feito de madeira das florestas élficas, reforçado com magia ancestral emanada pelas runas desenhadas nele. Resistente e útil para defesa.",
+        "qtd": 0,
+        "categoria": "Mãos"
+    },
+    {
+        "nome": "Machado da Vanguarda",
+        "efeitos": [
+            [
+                "mano a mano",
+                6
+            ],
+            [
+                "mãos rápidas",
+                -3
+            ]
+        ],
+        "descricao": "Machado robusto, pesado, feito para abrir caminho em meio ao caos. Aumenta a força bruta, mas atrapalha a destreza das mãos.",
+        "qtd": 0,
+        "categoria": "Mãos"
+    },
+    {
+        "nome": "Besta do Veterano",
+        "efeitos": [
+            [
+                "mira",
+                3
+            ]
+        ],
+        "descricao": "Uma besta com mecanismo reforçado e maior alcance. Esse equipamento acerta os adversários a distancia com muito mais potencia e velocidade que uma besta comum.",
+        "qtd": 0,
+        "categoria": "Mãos"
+    },
+    {
+        "nome": "Medalhão do General morto",
+        "efeitos": [
+            [
+                "diplomacia",
+                3
+            ],
+            [
+                "inteligência",
+                3
+            ],
+            [
+                "furtividade",
+                -3
+            ]
+        ],
+        "descricao": "Relíquia de um antigo comandante. Impõe respeito e melhora a capacidade de liderança, mas carrega o peso do orgulho e não permite ataques pelas costas.",
+        "qtd": 0,
+        "categoria": "Corpo"
+    },
+    {
+        "nome": "Bracelete de Ossos Esmagados",
+        "efeitos": [
+            [
+                "acrobacia",
+                3
+            ],
+            [
+                "mano a mano",
+                3
+            ],
+            [
+                "mãos rápidas",
+                -3
+            ]
+        ],
+        "descricao": "Feito com os ossos dos inimigos vencidos, simboliza a brutalidade e selvageria do exercito draconiano. É um artefato pesado que limita a agilidade das mãos.",
+        "qtd": 0,
+        "categoria": "Mãos"
+    },
+    {
+        "nome": "Lança da Escama Rubra",
+        "efeitos": [
+            [
+                "mira",
+                3
+            ]
+        ],
+        "descricao": "Símbolo da bravura dos guerreiros draconianos, ela foi forjada para perfurar escudos ao ser arremessada. Sua lâmina nunca perde o fio, permanecendo sempre afiada mesmo após anos de uso intenso.",
+        "qtd": 0,
+        "categoria": "Mãos"
+    },
+    {
+        "nome": "Botas de Assassinos Dracônicos",
+        "efeitos": [
+            [
+                "acrobacia",
+                3
+            ],
+            [
+                "furtividade",
+                3
+            ],
+            [
+                "mira",
+                -3
+            ]
+        ],
+        "descricao": "Calçados leves usadas por assassinos para melhorar a furtividade, os saltos e esquivas. O equipamento é desconfortável quando o usuário fica parado o que deixa mais difícil de mirar.",
+        "qtd": 0,
+        "categoria": "Pés"
+    },
+    {
+        "nome": "Aljava Rúnica",
+        "efeitos": [
+            [
+                "mira",
+                4
+            ],
+            [
+                "inteligência",
+                4
+            ]
+        ],
+        "descricao": "Artefato que desperta o o potencial da raça.",
+        "qtd": 0,
+        "categoria": "Mãos"
+    },
+    {
+        "nome": "Pergaminho da Revelação",
+        "efeitos": [
+            [
+                "diplomacia",
+                4
+            ],
+            [
+                "destreza",
+                4
+            ]
+        ],
+        "descricao": "Artefato que desperta o potencial da raça.",
+        "qtd": 0,
+        "categoria": "Mãos"
+    },
+    {
+        "nome": "Marca do dragão soberano",
+        "efeitos": [
+            [
+                "acrobacia",
+                4
+            ],
+            [
+                "força",
+                4
+            ]
+        ],
+        "descricao": "Artefato que desperta o potencial da raça.",
+        "qtd": 0,
+        "categoria": "Corpo"
+    },
+    {
+        "nome": "Manto das Sombras Dilaceradas",
+        "efeitos": [
+            [
+                "furtividade",
+                3
+            ]
+        ],
+        "descricao": "Este manto escuro parece rasgado pelas bordas, mas as fendas se movem como se fossem rasgos na própria realidade. Envolve o portador em sombras vivas, facilitando desaparecimentos e movimentos furtivos.",
+        "qtd": 0,
+        "categoria": "Corpo"
+    },
+    {
+        "nome": "Adaga da Lâmina Partida",
+        "efeitos": [
+            [
+                "mano a mano",
+                3
+            ],
+            [
+                "mãos rápidas",
+                3
+            ],
+            [
+                "resistência",
+                -3
+            ]
+        ],
+        "descricao": "Uma adaga aparentemente quebrada, mas cuja lâmina incompleta vibra com magia ancestral. Ideal para golpes rápidos e traiçoeiros, sua aparência danificada engana os inimigos, mas dificulta bloqueios ou defesas prolongadas.",
+        "qtd": 0,
+        "categoria": "Mãos"
+    },
+    {
+        "nome": "Bracelete do Eco Silencioso",
+        "efeitos": [
+            [
+                "percepção",
+                3
+            ]
+        ],
+        "descricao": "Feito de metal prateado e fino como teia de aranha, este bracelete amplifica a sensibilidade do portador aos sons e vibrações ao redor, facilitando perceber armadilhas ou presenças ocultas.",
+        "qtd": 0,
+        "categoria": "Mãos"
+    },
+    {
+        "nome": "Espada do Lamento Estilhaçado",
+        "efeitos": [
+            [
+                "mano a mano",
+                3
+            ]
+        ],
+        "descricao": "Espada longa de aço escurecido com rachaduras ao longo da lâmina. Cada golpe emite um leve som agudo, como um lamento distante, que perturba os oponentes. Apesar do aspecto danificado, a lâmina é resistente e eficiente.",
+        "qtd": 0,
+        "categoria": "Mãos"
+    },
+    {
+        "nome": "Escudo do Juramento Ruído",
+        "efeitos": [
+            [
+                "resistência",
+                3
+            ],
+            [
+                "furtividade",
+                3
+            ],
+            [
+                "acrobacia",
+                -3
+            ]
+        ],
+        "descricao": "Escudo metálico de formato irregular, com a superfície coberta por símbolos apagados e riscos profundos. Ele abafa sons ao redor quando erguido, protegendo não só fisicamente, mas criando uma breve zona de silêncio. Contudo, seu peso reduz um pouco a mobilidade.",
+        "qtd": 0,
+        "categoria": "Mãos"
+    },
+    {
+        "nome": "Luvas do Sentinela Esquecido",
+        "efeitos": [
+            [
+                "mãos rápidas",
+                3
+            ],
+            [
+                "mira",
+                3
+            ],
+            [
+                "blefar",
+                -3
+            ]
+        ],
+        "descricao": "Luvas de couro reforçado com pequenas placas metálicas nas costas das mãos. Facilitam o manuseio rápido de armas ou objetos, mas o toque frio e áspero reduz a precisão em tarefas delicadas.",
+        "qtd": 0,
+        "categoria": "Mãos"
+    },
+    {
+        "nome": "Manoplas do Rugido Quebrado",
+        "efeitos": [
+            [
+                "mano a mano",
+                3
+            ],
+            [
+                "resistência",
+                3
+            ],
+            [
+                "acrobacia",
+                -3
+            ]
+        ],
+        "descricao": "Manoplas de metal escuro, marcadas por batalhas, que amplificam a força do portador em combate corpo a corpo. Cada golpe ecoa um rugido abafado, mas o peso excessivo dificulta movimentos rápidos.",
+        "qtd": 0,
+        "categoria": "Mãos"
+    },
+    {
+        "nome": "Cinturão das Mandíbulas Rachadas",
+        "efeitos": [
+            [
+                "resistência",
+                3
+            ]
+        ],
+        "descricao": "Cinturão largo feito de couro reforçado com placas metálicas danificadas. Aumenta a resistência física e a capacidade de suportar danos.",
+        "qtd": 0,
+        "categoria": "Corpo"
+    },
+    {
+        "nome": "Elmo do Olho de Falcão",
+        "efeitos": [
+            [
+                "percepção",
+                3
+            ]
+        ],
+        "descricao": "Elmo de metal com uma viseira móvel que amplia a visão do portador, destacando movimentos e detalhes distantes. Aumenta significativamente a percepção.",
+        "qtd": 0,
+        "categoria": "Elmo"
+    },
+    {
+        "nome": "Pingente da Ampulheta",
+        "efeitos": [],
+        "descricao": "Pingente misterioso com uma pequena ampulheta na ponta. Experimente voltar em outro andar existente.",
+        "qtd": 0,
+        "categoria": "Corpo"
+    },
+    {
+        "nome": "Arco do Sussurro Sangrento",
+        "efeitos": [
+            [
+                "mira",
+                4
+            ],
+            [
+                "furtividade",
+                4
+            ]
+        ],
+        "descricao": "Criado a partir dos galhos retorcidos das árvores banhadas pelo rio de sangue do Salão Escarlate, este arco emite um leve sussurro quando a corda é puxada, como se as vozes do próprio sangue aconselhassem o atirador. As flechas cortam o ar em silêncio, e os inimigos raramente percebem de onde veio o disparo.",
+        "qtd": 0,
+        "categoria": "Mãos"
+    },
+    {
+        "nome": "Manto dos Ecos Carmesins",
+        "efeitos": [
+            [
+                "acrobacia",
+                4
+            ],
+            [
+                "percepção",
+                4
+            ]
+        ],
+        "descricao": "Tecido com fios encharcados pela névoa rubra das câmaras sangrentas, este manto carrega fragmentos de memórias e lamentos antigos. Suas tramas encantadas guiam os passos do usuário e aguçam seus sentidos, permitindo que se mova com leveza e perceba detalhes ocultos até nas sombras tingidas de vermelho.",
+        "qtd": 0,
+        "categoria": "Corpo"
+    },
+    {
+        "nome": "Espada da Aliança Rubra",
+        "efeitos": [
+            [
+                "mano a mano",
+                4
+            ],
+            [
+                "diplomacia",
+                4
+            ]
+        ],
+        "descricao": "Forjada como um símbolo de coragem e unidade nas profundezas marcadas pelo sangue deste lugar, esta espada carrega as cicatrizes das provações vividas aqui. Sua lâmina reluz com um brilho tênue, como se séculos de lutas estivessem impressos em seu aço, mas no fim, tudo faz parte do cenário cruel e ilusório desse andar. Ainda assim, seu peso, equilíbrio e a confiança que ela inspira são reais.",
+        "qtd": 0,
+        "categoria": "Mãos"
+    },
+    {
+        "nome": "Elmo do Guardião Morto",
+        "efeitos": [
+            [
+                "resistência",
+                4
+            ],
+            [
+                "furtividade",
+                4
+            ]
+        ],
+        "descricao": "Deixado para trás depois que seu ultimo dono morreu, este elmo de aço escuro é protegido por encantamentos antigos que abafam os sons ao redor do portador. Diz-se que aqueles que o vestem são guardados não só pela resistência do metal, mas pelo espirito de um guardião aprisionado no sangue seco.",
+        "qtd": 0,
+        "categoria": "Cabeça"
+    },
+    {
+        "nome": "Clava de Fulgor Ágil",
+        "efeitos": [
+            [
+                "mano a mano",
+                4
+            ],
+            [
+                "acrobacia",
+                4
+            ]
+        ],
+        "descricao": "Esta clava compacta pulsa com uma energia ancestral, envolvendo- se em um brilho sutil a cada movimento. Forjada nas chamas de um ritual esquecido, sua magia permite que golpes rápidos sejam desferidos com força ampliada, enquanto o portador sente uma leveza sobrenatural que torna seus movimentos fluídos e precisos. Uma arma para guerreiros que unem destreza e poder místico em combate.",
+        "qtd": 0,
+        "categoria": "Mãos"
+    },
+    {
+        "nome": "Escudo do Sangue da Fera Caída",
+        "efeitos": [
+            [
+                "resistência",
+                4
+            ],
+            [
+                "mira",
+                4
+            ]
+        ],
+        "descricao": "Forjado em aço negro e banhado com o sangue coagulado de um predador colossal que assombrou as terras geradas, este escudo emana uma aura vigorosa. Gravuras rúnicas em sua superfície brilham com uma luz rubra pulsante, aprimorando a visão e o foco do portador, facilitando a mira mesmo em condições adversas.",
+        "qtd": 0,
+        "categoria": "Mãos"
+    },
+    {
+        "nome": "Cajado de Convergência",
+        "efeitos": [
+            [
+                "mira",
+                5
+            ],
+            [
+                "mano a mano",
+                5
+            ]
+        ],
+        "descricao": "Pode ser usado tanto como arma de curto alcance quanto como arma de longo alcance que canaliza dano mágico ao invés de ataques físicos ou flechas. Sua vantagem está em poder ocupar o slot de longo ou curto alcance, permitindo potencializar os aprimoramentos em dobro.",
+        "qtd": 0,
+        "categoria": "Mãos"
+    },
+    {
+        "nome": "Grimório de Etherion",
+        "efeitos": [
+            [
+                "poções de mana melhoradas",
+                5
+            ],
+            [
+                "percepção",
+                5
+            ]
+        ],
+        "descricao": "Livro ancestral repleto de magias e conhecimentos ocultos que aprimoram os efeitos das poções de mana. Além disso, contém valiosas informações sobre o mundo de Etherion, ampliando a percepção e o entendimento do usuário.",
+        "qtd": 0,
+        "categoria": "Acessório"
+    },
+    {
+        "nome": "Orbe do Crepúsculo",
+        "efeitos": [
+            [
+                "resistência",
+                5
+            ],
+            [
+                "destreza",
+                5
+            ]
+        ],
+        "descricao": "Esfera envolta por sombras que pode tanto gerar um campo protetor quanto ser usada em negociações, influenciando emoções e deixando o outro lado mais propenso a aceitar sua oferta.",
+        "qtd": 0,
+        "categoria": "Mãos"
+    },
+    {
+        "nome": "Adagas do Caçador de Sombras",
+        "efeitos": [
+            [
+                "mano a mano",
+                5
+            ],
+            [
+                "acrobacia",
+                5
+            ]
+        ],
+        "descricao": "Adagas forjadas em aço escurecido, leves e mortais, perfeitas para ataques rápidos e silenciosos.",
+        "qtd": 0,
+        "categoria": "Mãos"
+    },
+    {
+        "nome": "Luvas do Ladrão Veloz",
+        "efeitos": [
+            [
+                "mãos rápidas",
+                5
+            ],
+            [
+                "blefe",
+                5
+            ]
+        ],
+        "descricao": "Luvas de couro macio e discreto que facilitam movimentos ágeis e furtivos, além de ajudar o usuário a enganar com mais facilidade.",
+        "qtd": 0,
+        "categoria": "Mãos"
+    },
+    {
+        "nome": "Besta de Mão Oculta",
+        "efeitos": [
+            [
+                "mira",
+                5
+            ],
+            [
+                "furtividade",
+                5
+            ]
+        ],
+        "descricao": "Uma pequena besta discreta que dispara flechas rápidas e silenciosas. Ideal para eliminar alvos à distância sem ser notado.",
+        "qtd": 0,
+        "categoria": "Mãos"
+    },
+    {
+        "nome": "Espada Ancestral de Perseu",
+        "efeitos": [
+            [
+                "mano a mano",
+                10
+            ]
+        ],
+        "descricao": "Espada forjada com propriedades mágicas, herança de heróis lendários. Só pode ser empunhada por um grande guerreiro, sábio e inteligente, capaz de dominar seu poder oculto.",
+        "qtd": 0,
+        "categoria": "Mãos"
+    },
+    {
+        "nome": "Escudo sagrado de São Jorge",
+        "efeitos": [
+            [
+                "resistência",
+                10
+            ]
+        ],
+        "descricao": "Um escudo de construção impecável, adornado com símbolos medievais e um imponente dragão esculpido no centro. Sua defesa é lendária, protegendo o portador como as bênçãos do próprio santo guerreiro.",
+        "qtd": 0,
+        "categoria": "Mãos"
+    },
+    {
+        "nome": "Peitoral de Pedra Rúnica",
+        "efeitos": [
+            [
+                "resistência",
+                5
+            ],
+            [
+                "mano a mano",
+                5
+            ]
+        ],
+        "descricao": "Peitoral esculpido em pedra encantada, coberto por runas que reagem ao espírito do guerreiro. As inscrições mágicas tornam o peitoral surpreendentemente leve e ampliam a capacidade de combate de quem o veste.",
+        "qtd": 0,
+        "categoria": "Corpo"
+    },
+    {
+        "nome": "Amuleto do Insight Oculto",
+        "efeitos": [
+            [
+                "percepção",
+                5
+            ],
+            [
+                "blefe",
+                5
+            ]
+        ],
+        "descricao": "Torna o usuário mais astuto e atento, ampliando sua capacidade de perceber e antecipar os movimentos do adversário, além de facilitar o uso de enganações e blefes em combate ou negociação.",
+        "qtd": 0,
+        "categoria": "Corpo"
+    },
+    {
+        "nome": "Cetro da Luz Interior",
+        "efeitos": [
+            [
+                "melhora as poções de cura",
+                5
+            ],
+            [
+                "mano a mano",
+                5
+            ]
+        ],
+        "descricao": "Um cetro que canaliza a fé e a força interior do usuário, potencializando seus poderes de cura e fortalecendo sua convicção ao enfrentar inimigos.",
+        "qtd": 0,
+        "categoria": "Mãos"
+    },
+    {
+        "nome": "Braçadeira dos Anciões",
+        "efeitos": [
+            [
+                "resistência",
+                5
+            ],
+            [
+                "diplomacia",
+                5
+            ]
+        ],
+        "descricao": "Símbolo da autoridade e sabedoria dos mais velhos, forjada em metais ancestrais e gravada com runas de proteção. Esse artefato permite ao portador se defender melhor de ataques e lidar com intrigas com maior destreza.",
+        "qtd": 0,
+        "categoria": "Mãos"
+    }
+]

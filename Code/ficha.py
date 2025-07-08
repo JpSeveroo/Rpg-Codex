@@ -4,7 +4,10 @@ class Personagem:
         self.nick = ''
         self.raca = ''
         self.classe = ''
-        self.xp = 0
+        self.xp = {
+            'atual' : 0,
+            'proximo' : 100
+        }
         self.nivel = 1
         self.atributos = {
             "força": 0,
