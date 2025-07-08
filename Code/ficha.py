@@ -1,14 +1,22 @@
 from time import sleep
 class Personagem:
+
+    tabela_xp = {
+        1: 100, 2: 120, 3: 150, 4: 170, 5: 190,
+        6: 200, 7: 220, 8: 240, 9: 250, 10: 270,
+        11: 300, 12: 320, 13: 340, 14: 350, 15: 400,
+        16: 450, 17: 500, 18: 520, 19: 550, 20: 600,
+        21: 650, 22: 700, 23: 800, 24: 900, 25: 950,
+        26: 1100, 27: 1200, 28: 1300, 29: 1450, 30: float('inf')
+    }
+
     def __init__(self):
         self.nick = ''
         self.raca = ''
         self.classe = ''
-        self.xp = {
-            'atual' : 0,
-            'proximo' : 100
-        }
+        self.xp = 0
         self.nivel = 1
+        self.xp_para_proximo_nivel = self.tabela_xp.get(self.nivel, 100)
         self.atributos = {
             "força": 0,
             "destreza": 0,
@@ -22,7 +30,7 @@ class Personagem:
             "mira": 0,
             "diplomacia": 0,
             "furtividade": 0,
-            "percepção": 0,
+            "percepcao": 0,
             "maos rapidas": 0,
             "mano a mano": 0,
             "resistencia": 0
@@ -156,6 +164,10 @@ class Personagem:
             self.atributos["destreza"] += 5
             self.pericias["furtividade"] -= 3
 
+        #calcula hp baseado na constituição
+        self.status["hp"] = 100 + (self.atributos["constituicao"] * 5)
+        self.vida_atual = self.status["hp"]
+
         # Calcular as perícias
         self.calcular_pericias()
         sleep(1)
@@ -187,6 +199,47 @@ class Personagem:
             "mano a mano": self.atributos["força"],
             "resistencia": self.atributos["força"]
         }
+    
+    def evoluir_nivel(self):
+        self.nivel += 1
+        self.xp = 0 # reseta XP ao subir de nível
+
+        # usa a tabela de XP para definir a xp necessária para o próximo nível
+        self.xp_para_proximo_nivel = self.tabela_xp.get(self.nivel, float('inf'))
+        digitar(f"\n🎉 Parabéns, {self.nick}! Você alcançou o Nível {self.nivel}!")
+
+        # distribui 5 pontos de atributos
+        pontos_disponiveis = 5
+        digitar(f"Você tem {pontos_disponiveis} pontos para distribuir entre seus atributos.")
+        atributos_lista = list(self.atributos.keys())
+        while pontos_disponiveis > 0:
+            digitar("\n✨ Atributos disponíveis:")
+            for i, atributo_nome in enumerate(atributos_lista):
+                print(f"  {i+1}. {atributo_nome.capitalize()}: {self.atributos[atributo_nome]}")
+            try:
+                escolha_numero = int(input(f"Escolha o número do atributo para adicionar pontos (pontos restantes: {pontos_disponiveis}): "))
+                if 1 <= escolha_numero <= len(atributos_lista):
+                    escolha_atributo_nome = atributos_lista[escolha_numero - 1]
+
+                    while True:
+                        try:
+                            qtd_pontos = int(input(f"Quantos pontos você quer adicionar a {escolha_atributo_nome.capitalize()}? "))
+                            if 0 < qtd_pontos <= pontos_disponiveis:
+                                self.atributos[escolha_atributo_nome] += qtd_pontos
+                                pontos_disponiveis -= qtd_pontos
+                                digitar(f"✅ {qtd_pontos} pontos adicionados a {escolha_atributo_nome.capitalize()}.")
+                                break
+                            else:
+                                digitar(f"❌ Quantidade inválida. Você pode adicionar entre 1 e {pontos_disponiveis} pontos.")
+                        except ValueError:
+                            digitar("❌ Digite um número válido.")
+                else:   
+                    digitar("❌ Número inválido. Tente novamente.")
+            except ValueError:
+                digitar("❌ Digite um número válido.")
+        self.calcular_pericias()  # recalcula as perícias com os novos atributos   
+        digitar("\n✨ Atributos atualizados com sucesso!")
+        sleep(3) 
 
     def visualizar(self):
         sleep(1)

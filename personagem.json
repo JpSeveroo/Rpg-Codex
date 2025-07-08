@@ -3,10 +3,7 @@
         "nick": "Teste1",
         "raca": "humano",
         "classe": "guerreiro",
-        "xp": {
-            "atual": 0,
-            "proximo": 100
-        },
+        "xp": 100,
         "nivel": 1,
         "atributos": {
             "for\u00e7a": 15,
@@ -39,10 +36,7 @@
         "nick": "Teste2",
         "raca": "humano",
         "classe": "guerreiro",
-        "xp": {
-            "atual": 0,
-            "proximo": 100
-        },
+        "xp": 100,
         "nivel": 1,
         "atributos": {
             "for\u00e7a": 15,
