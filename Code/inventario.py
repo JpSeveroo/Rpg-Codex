@@ -3,8 +3,6 @@ from InquirerPy import inquirer
 from ficha import Personagem
 import os
 
-#código corrigido
-
 lista_de_nomes_de_itens = [i.nome for i in item.lista_itens]
 
 class Equipamento:
@@ -62,21 +60,7 @@ def interface_inv(personagem):
         if i.categoria == a :
             disponiveis.append(i)
     if a == 'Utilizaveis':
-        if len(disponiveis) == 0 :
-            print('Não há nenhum utilizavel disponivel')
-            input('Pressione enter para voltar...')
-            interface_inv(personagem)
-        nomes_itens = []
-        for i in range(len(disponiveis)):
-            nomes_itens.append(disponiveis[i].nome)
-        b = inquirer.select(message=f'Qual o item que você deseja utilizar: ', choices=nomes_itens).execute()
-        if personagem.inventario[nomes_itens.index(b)].efeitos[0][0] == 'vida_atual':
-            personagem.vida_atual += personagem.inventario[nomes_itens.index(b)].efeitos[0][1]
-            input()
-            interface_inv(personagem)
-        elif personagem.inventario[nomes_itens.index(b)].efeitos[0][0] == 'mana':
-            personagem.status['mana'] += personagem.inventario[nomes_itens.index(b)].efeitos[0][1]
-            interface_inv(personagem)
+        utilizaveis(personagem, disponiveis)
     elif a != 'Sair':
         if equipamento.itens[a]['equipado'] == False:
             if len(disponiveis) == 0 :
@@ -98,6 +82,36 @@ def interface_inv(personagem):
                 interface_inv(personagem)
             if c == False:
                 interface_inv(personagem)
+    else:
+        pass
+
+def utilizaveis(personagem, disponiveis):
+    if len(disponiveis) == 0 :
+        print('Não há nenhum utilizavel disponivel')
+        input('Pressione enter para voltar...')
+        interface_inv(personagem)
+    nomes_itens = []
+    for i in range(len(disponiveis)):
+        nomes_itens.append(disponiveis[i].nome)
+    b = inquirer.select(message=f'Qual o item que você deseja utilizar: ', choices=nomes_itens).execute()
+    if personagem.inventario[nomes_itens.index(b)].efeitos[0][0] == 'vida_atual':
+        if personagem.status['hp'] - personagem.vida_atual >= 25:
+            personagem.vida_atual += personagem.inventario[nomes_itens.index(b)].efeitos[0][1]
+            personagem.inventario[nomes_itens.index(b)].qtd -= 1
+            if personagem.inventario[nomes_itens.index(b)].qtd == 0:
+                personagem.inventario.remove(personagem.inventario[nomes_itens.index(b)])
+        else:
+            personagem.vida_atual += personagem.status['hp'] - personagem.vida_atual
+        interface_inv(personagem)
+    elif personagem.inventario[nomes_itens.index(b)].efeitos[0][0] == 'mana':
+        if 50 - personagem.status['mana'] >= 25:
+            personagem.status['mana'] += personagem.inventario[nomes_itens.index(b)].efeitos[0][1]
+            personagem.inventario[nomes_itens.index(b)].qtd -= 1
+            if personagem.inventario[nomes_itens.index(b)].qtd == 0:
+                personagem.inventario.remove(personagem.inventario[nomes_itens.index(b)])
+        else:
+            personagem.vida_atual += 50 - personagem.status['mana']
+        interface_inv(personagem)
 
 def equipando(personagem, item, parte):
     for i in item.efeitos:
@@ -113,10 +127,15 @@ def desequipando(personagem, item, parte):
 if __name__ == '__main__':
     p = Personagem()
     p.inventario.append(item.lista_itens[0])
+    p.inventario[0].qtd = 2
+    p.inventario.append(item.lista_itens[1])
+    p.inventario[1].qtd = 2
     p.inventario.append(item.lista_itens[4])
     p.inventario.append(item.lista_itens[5])
     p.inventario.append(item.lista_itens[6])
     p.inventario.append(item.lista_itens[7])
     p.inventario.append(item.lista_itens[8])
     p.inventario.append(item.lista_itens[9])
+    p.vida_atual = 50
+    p.status['mana'] = 0
     interface_inv(p)
