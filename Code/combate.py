@@ -5,12 +5,15 @@ from InquirerPy import inquirer
 import item
 import utills
 import ficha
+import inimigos
+
+"""=== FUNÇÕES UTILITARIAS ==="""
 
 item.load_itens()
 pocao_cura = item.lista_itens[0]
 pocao_mana = item.lista_itens[1]
 
-"""=== FUNÇÕES UTILITARIAS ==="""
+
 
 def digitar(texto, delay=0.03):
     for c in texto:
@@ -286,7 +289,7 @@ def combate(personagem, inimigo):
         utills.limpar_tela()
         return personagem
     elif inimigo.vida_atual > 0:
-        digitar(f"\n🏆 {p2.nick} venceu o combate!")
+        digitar(f"\n🏆 {inimigo.nome} venceu o combate!")
         time.sleep(3)
         utills.limpar_tela()
         return inimigo
@@ -316,19 +319,18 @@ def equip(personagem, pericia_principal):
         return 1
 
 def ene():
-    #isso daqui eu vejo oq eu faço
     ...
 
 def adv_IA(inimigo, jogador):
-     # IA do inimigo
-    ataque(inimigo, jogador, 'mano a mano')
 
-    
+    ataque(inimigo, jogador, 'mano a mano')
 
 """=== EXEMPLO DE EXECUÇÃO ==="""
 
 if __name__ == '__main__':
     from ficha import Personagem
+
+    inimigos.load_enemys()
 
     pocao_cura.qtd = 2
     pocao_mana.qtd = 2
@@ -353,19 +355,9 @@ if __name__ == '__main__':
     p1.inventario.append(item.lista_itens[4])
     p1.is_player = True
 
-    p2 = Personagem()
-    p2.nome = "Gorak"
-    p2.atributos["força"] = 8
-    p2.status["hp"] = 100
-    p2.status["mana"] = 100
-    p2.pericias['mano a mano'] = 12
-    p2.pericias['mira'] = 6
-    p2.pericias['acrobacia'] = 3
-    p2.vida_atual = 1
-    p2.is_player = False
-    p2.fraquezas = ['mano a mano']
+    inimigo = inimigos.lista_inimigos[0]
 
-    vencedor = combate(p1, p2)
+    vencedor = combate(p1, inimigo)
 
     if vencedor == p1:
         xp_ganho = 100
