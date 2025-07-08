@@ -2,7 +2,7 @@ import utills
 
 lista_inimigos = []
 
-class Inimigos:
+class Inimigo:
     def __init__(self, nome, dano, vida, fraquezas):
         self.nome = nome
         self.dano = dano
@@ -15,15 +15,9 @@ def add_ene():
     dmg = int(input('Dano: '))
     health = int(input('Vida: '))
     weak = int(input('Numero de fraquezas: '))
-    lista_fraquezas = []
-    for _ in range(weak):
-        fraq = input('Digite uma fraqueza: ')
-        lista_fraquezas.append(fraq)
-    inimigo = Inimigos()
-    inimigo.nome = name
-    inimigo.dano = dmg
-    inimigo.vida = health
-    inimigo.fraquezas = lista_fraquezas
+    lista_fraquezas = [input(f'Digite a fraqueza {i+1}: ') for i in range(weak)]
+    
+    inimigo = Inimigo(nome=name, dano=dmg, vida=health, fraquezas=lista_fraquezas)
     lista_inimigos.append(inimigo)
     write()
 
@@ -112,7 +106,7 @@ def load_enemys():
     try:
         dados = utills.load_infos('lista_inimigos')
         for item_data in dados:
-            inimigo = Inimigos()
+            inimigo = Inimigo()
             inimigo.nome = item_data.get('nome', '')
             inimigo.dano = item_data.get('dano', 0)
             inimigo.vida = item_data.get('vida', 0)
