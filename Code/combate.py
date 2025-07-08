@@ -147,16 +147,22 @@ def barra(life):
         return ('#' * preenchido) + ('-' * vazio)
 
 def tabelas(personagem, inimigo):
-    def write(info, info1, info2):
+    def write1(info, info1, info2):
         print('|'+ f'{info} : {info1}'.center(33) + '|' + ' '*25 + '|'+ f'{info} : {info2}'.center(33) + '|')
+
+    def write2(info, info1):
+        print('|'+ f'{info} : {info1}'.center(33) + '|' + ' '*25 + '|'+ ' '*33 + '|')
+
     def show_life(a, b):
         barra_a = barra(a)
         barra_b = barra(b)
         print('|'+ f"Vida : {barra_a}  {a.vida_atual}/{a.status['hp']}".center(33) + '|' + ' '*25 + '|'+ f"Vida : {barra_b}  {b.vida_atual}/{b.status['hp']}".center(33) + '|')
     print('-'*35 + ' '*25 + '-'*35)
-    write('Nome', personagem.nick, inimigo.nick)
+    write1('Nome', personagem.nick, inimigo.nick)
     show_life(personagem, inimigo)
-    write('Mana', personagem.status['mana'], inimigo.status['mana'])
+
+    write2('Mana', personagem.status['mana'])
+
     print('-'*35 + ' '*25 + '-'*35)
 
 def inv(personagem, mana_max):
@@ -300,7 +306,7 @@ if __name__ == '__main__':
     p1.status["hp"] = 100
     p1.status["mana"] = 100
     p1.pericias['mano a mano'] = 12
-    p1.pericias['mira'] = 8   
+    p1.pericias['mira'] = 8
     p1.pericias['acrobacia'] = 5 
     p1.vida_atual = 100
     p1.inventario.append(pocao_cura)
@@ -310,12 +316,8 @@ if __name__ == '__main__':
 
     p2 = Personagem()
     p2.nick = "Gorak"
-    p2.atributos["força"] = 8
     p2.status["hp"] = 100
-    p2.status["mana"] = 100
     p2.pericias['mano a mano'] = 12
-    p2.pericias['mira'] = 6
-    p2.pericias['acrobacia'] = 3
     p2.vida_atual = 100
     p2.is_player = False
     p2.fraquezas = ['mano a mano']
