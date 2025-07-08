@@ -71,7 +71,6 @@ def lore_1_andar(personagem):
                 time.sleep(8)
                 lore_pos_1andar(personagem)
                 break
-                print()
 
             elif esc_1 == "2":
                 inventario.interface_inv(personagem)
@@ -83,12 +82,12 @@ def lore_1_andar(personagem):
 
 def lore_recompensa001(personagem):
     os.system('cls' if os.name == 'nt' else 'clear')
-
-    print()
     item_escolhido001 = ''
 
     personagem.inventario.append(lista_itens[0])
-    personagem.inventario.append(lista_itens[1])#Alterar a quantidade com extend dps
+    personagem.inventario[0].qtd = 1
+    personagem.inventario.append(lista_itens[1])
+    personagem.inventario[1].qtd = 1#Alterar a quantidade com extend dps
 
     if personagem.raca == 'elfo':
         while True:
@@ -256,8 +255,8 @@ def lore_2_andar(personagem):
 
 def lore_recompensa002(personagem):
     os.system('cls' if os.name == 'nt' else 'clear')
-    personagem.inventario.append(lista_itens[0])
-    personagem.inventario.append(lista_itens[1])
+    personagem.inventario[0].qtd = 1
+    personagem.inventario[0].qtd = 1
 
     print(f"[bold purple][Sistema] 🪙   RECOMPENSAS: \nXp: [150] \nPoção de cura [1]\nPoção de mana [1]")
     text_inf = ('\nItens sendo computados...')
@@ -505,8 +504,8 @@ def lore_4_andar(personagem):
 
 def lore_recompensa003(personagem):
     os.system('cls' if os.name == 'nt' else 'clear')
-    personagem.inventario.append(lista_itens[0])
-    personagem.inventario.append(lista_itens[1])
+    personagem.inventario[0].qtd = 2
+    personagem.inventario[1].qtd = 2
 
     item_escolhido002 = ''
 
@@ -649,8 +648,9 @@ def lore_5_andar(personagem):
 
 def lore_recompensa004(personagem):
     os.system('cls' if os.name == 'nt' else 'clear')
-    personagem.inventario.extend(lista_itens[0]*5)
-    personagem.inventario.extend(lista_itens[1]*5)
+    personagem.inventario[0].qtd = 5
+    personagem.inventario[1].qtd = 5
+
     item_escolhido003 = ''
     
     if personagem.raca == 'elfo':

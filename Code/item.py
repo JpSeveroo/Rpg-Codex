@@ -100,4 +100,5 @@ def interface():
 load_itens()
 
 if __name__ == '__main__':
+    print(lista_itens)
     interface()
