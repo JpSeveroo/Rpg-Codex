@@ -56,20 +56,23 @@ def interface_inv(personagem):
     personagem.equipamento = equipamento
     a = inquirer.select(message='Qual equipamento você deseja alterar ?', choices=['Cabeça', 'Corpo', 'Pés', 'Mãos', 'Sair']).execute()
     if a != 'Sair':
-        disponiveis = []
-        for i in personagem.inventario :
-            if i.categoria == a :
-                disponiveis.append(i)
-        if len(disponiveis) == 0 :
-            print('Não há nenhum equipamento disponivel para essa parte')
-            input('Pressione enter para voltar...')
+        try:
+            disponiveis = []
+            for i in personagem.inventario :
+                if i.categoria == a :
+                    disponiveis.append(i)
+            if len(disponiveis) == 0 :
+                print('Não há nenhum equipamento disponivel para essa parte')
+                input('Pressione enter para voltar...')
+                interface_inv(personagem)
+            nomes_itens = []
+            for i in range(len(disponiveis)):
+                nomes_itens.append(disponiveis[i].nome)
+            b = inquirer.select(message=f'Qual o item que você deseja equipar na(o) {a}: ', choices=nomes_itens).execute()
+            equipamento.itens[a]['item'] = disponiveis[nomes_itens.index(b)]
             interface_inv(personagem)
-        nomes_itens = []
-        for i in range(len(disponiveis)):
-            nomes_itens.append(disponiveis[i].nome)
-        b = inquirer.select(message=f'Qual o item que você deseja equipar na(o) {a}: ', choices=nomes_itens).execute()
-        equipamento.itens[a]['item'] = disponiveis[nomes_itens.index(b)]
-        interface_inv(personagem)
+        except:
+            pass
     else:
         pass
 
