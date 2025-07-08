@@ -58,6 +58,7 @@ def edit_item():
     a = int(input('Qual item você deseja editar : ')) - 1
     lista_de_efeitos = []
     lista_itens[a].nome = input('Qual o novo nome : ')
+    b = int(input('Numero de efeitos: '))
     for _ in range(b):
         lista = []
         b = input('Efeito: ')
