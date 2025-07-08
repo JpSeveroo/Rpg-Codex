@@ -1,9 +1,9 @@
 import random
 import time
 import sys
-import os
 from InquirerPy import inquirer
 import item
+import utills
 import ficha
 
 item.load_itens()
@@ -11,9 +11,6 @@ pocao_cura = item.lista_itens[0]
 pocao_mana = item.lista_itens[1]
 
 """=== FUNÇÕES UTILITARIAS ==="""
-
-def limpar_tela():
-    os.system('cls' if os.name == 'nt' else 'clear')
 
 def digitar(texto, delay=0.03):
     for c in texto:
@@ -201,7 +198,7 @@ def inv(personagem, mana_max):
 
 #Interromper a luta quando o personagem ou inimigo morrer
 def loop_principal(personagem, inimigo, mana_max):
-    limpar_tela()
+    utills.limpar_tela()
     tabelas(personagem, inimigo)
     print()
 
@@ -281,12 +278,12 @@ def combate(p1, p2):
     if p1.vida_atual > 0:
         digitar(f"\n🏆 {p1.nick} venceu o combate!")
         time.sleep(3)
-        limpar_tela()
+        utills.limpar_tela()
         return p1
     elif p2.vida_atual > 0:
         digitar(f"\n🏆 {p2.nick} venceu o combate!")
         time.sleep(3)
-        limpar_tela()
+        utills.limpar_tela()
         return p2
      
 """=== EXEMPLO DE EXECUÇÃO ==="""

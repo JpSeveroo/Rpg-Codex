@@ -2,6 +2,9 @@ import hashlib
 import json
 import os
 
+def limpar_tela():
+    os.system('cls' if os.name == 'nt' else 'clear')
+    
 def salvar_infos(path, data):
     a = str(path) + '.json'
     try:
