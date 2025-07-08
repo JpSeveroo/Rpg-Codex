@@ -27,10 +27,19 @@ def add_ene():
     inimigo.vida = health
     inimigo.fraquezas = lista_fraquezas
     lista_inimigos.append(inimigo)
+    write()
 
 def edit_ene():
     mostrar_ene()
-    ene = int(input('Qual inimigo você deseja editar : ')) - 1
+    try:
+        ene = int(input('Qual inimigo você deseja editar : ')) - 1
+        if ene < 0 or ene >= len(lista_inimigos):
+            print("Índice inválido.")
+            return
+    except ValueError:
+        print("Digite um número válido.")
+        return
+
     lista_de_fraquezas = []
     lista_inimigos[ene].nome = input('Qual o novo nome : ')
     fraq = int(input('Numero de fraquezas: '))
@@ -40,6 +49,7 @@ def edit_ene():
     lista_inimigos[ene].fraquezas = lista_de_fraquezas
     lista_inimigos[ene].vida = int(input('Nova vida: '))
     lista_inimigos[ene].dano = int(input('Novo dano: '))
+    write()
 
 def excluir_ene():
     mostrar_ene()
@@ -47,9 +57,9 @@ def excluir_ene():
     if 0 <= idx < len(lista_inimigos):
         del lista_inimigos[idx]
         print("Inimigo excluído com sucesso.")
+        write()  # ✅ Save to file
     else:
         print("Índice inválido.")
-    
 
 def mostrar_ene():
     os.system('cls' if os.name == 'nt' else 'clear')
@@ -71,19 +81,47 @@ def write():
     utills.salvar_infos('lista_inimigos', lista)
 
 def interface():
-    write()
-    print('1- Adicionar um inimigo')
-    print('2- Editar um inimigo')
-    print('3- Excluir um inimigo')
-    print('4- Listar os inimigos')
-    print('5- Finalizar')
-    a = int(input('Qual das opções você deseja ? '))
-    opcoes = {
-        1: add_ene,
-        2: edit_ene,
-        3: excluir_ene,
-        4: mostrar_ene,
-    }
-    a = opcoes.get(a)
-    if a:
-        a()
+    while True:
+        print('\n1- Adicionar um inimigo')
+        print('2- Editar um inimigo')
+        print('3- Excluir um inimigo')
+        print('4- Listar os inimigos')
+        print('5- Finalizar')
+
+        try:
+            a = int(input('Qual das opções você deseja? '))
+        except ValueError:
+            print("Digite um número válido.")
+            continue
+
+        if a == 5:
+            print("Saindo do gerenciador de inimigos...")
+            break
+
+        opcoes = {
+            1: add_ene,
+            2: edit_ene,
+            3: excluir_ene,
+            4: mostrar_ene,
+        }
+
+        acao = opcoes.get(a)
+        if acao:
+            acao()
+        else:
+            print("Opção inválida.")
+
+def read():
+    global lista_inimigos
+    dados = utills.load_infos('lista_inimigos')
+    for item in dados:
+        inimigo = Inimigos()
+        inimigo.nome = item.get('nome', '')
+        inimigo.dano = item.get('dano', 0)
+        inimigo.vida = item.get('vida', 0)
+        inimigo.fraquezas = item.get('fraquezas', [])
+        lista_inimigos.append(inimigo)
+
+if __name__ == '__main__':
+    read()
+    interface()

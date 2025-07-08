@@ -1,0 +1,132 @@
+[
+    {
+        "nome": "Gargula de dados",
+        "dano": 5,
+        "vida": 40,
+        "fraquezas": [
+            "acrobacia",
+            "mira"
+        ]
+    },
+    {
+        "nome": "Anomalian",
+        "dano": 15,
+        "vida": 100,
+        "fraquezas": [
+            "mano a mano"
+        ]
+    },
+    {
+        "nome": "Juizes da Ilus\u00e3o",
+        "dano": 10,
+        "vida": 55,
+        "fraquezas": [
+            "blefar"
+        ]
+    },
+    {
+        "nome": "Kairon",
+        "dano": 20,
+        "vida": 120,
+        "fraquezas": [
+            "acrobacia"
+        ]
+    },
+    {
+        "nome": "Sentinelas Silenciadas",
+        "dano": 8,
+        "vida": 50,
+        "fraquezas": [
+            "mira"
+        ]
+    },
+    {
+        "nome": "Flor-C\u00f3digo Cadav\u00e9rica",
+        "dano": 15,
+        "vida": 110,
+        "fraquezas": [
+            "mano a mano"
+        ]
+    },
+    {
+        "nome": "Anomalian do V\u00f3rtice",
+        "dano": 10,
+        "vida": 60,
+        "fraquezas": [
+            "mano a mano"
+        ]
+    },
+    {
+        "nome": "G\u00e1rgula Carcinizada",
+        "dano": 11,
+        "vida": 45,
+        "fraquezas": [
+            "acrobacia"
+        ]
+    },
+    {
+        "nome": "Juiz Fragmentado",
+        "dano": 8,
+        "vida": 70,
+        "fraquezas": [
+            "blefar"
+        ]
+    },
+    {
+        "nome": "Eco Corrompido",
+        "dano": 25,
+        "vida": 130,
+        "fraquezas": [
+            "percepcao"
+        ]
+    },
+    {
+        "nome": "Lamentadores",
+        "dano": 12,
+        "vida": 105,
+        "fraquezas": [
+            "diplomacia",
+            "resistencia"
+        ]
+    },
+    {
+        "nome": "Guardi\u00f5es de Pulso",
+        "dano": 13,
+        "vida": 120,
+        "fraquezas": [
+            "acrobacia"
+        ]
+    },
+    {
+        "nome": "KOR\u2019NAH",
+        "dano": 30,
+        "vida": 150,
+        "fraquezas": []
+    },
+    {
+        "nome": "Jo\u00e3o Pedro - O tecel\u00e3o",
+        "dano": 50,
+        "vida": 200,
+        "fraquezas": []
+    },
+    {
+        "nome": "Andr\u00e9 - O Guardi\u00e3o",
+        "dano": 50,
+        "vida": 200,
+        "fraquezas": []
+    },
+    {
+        "nome": "Mateus - O Condutor",
+        "dano": 5,
+        "vida": 210,
+        "fraquezas": [
+            "mulher"
+        ]
+    },
+    {
+        "nome": "Carlos - O Escultor",
+        "dano": 50,
+        "vida": 200,
+        "fraquezas": []
+    }
+]
