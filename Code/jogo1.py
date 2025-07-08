@@ -5,7 +5,6 @@ import os
 from rich import print
 from item import lista_itens
 import inventario
-import jogo2
 
 def digitar(texto, delay=0.00):
     for caractere in texto:
@@ -44,6 +43,7 @@ def lore_introducao(personagem):
 
             elif esc_1 == "2":
                 inventario.interface_inv(personagem)
+                lore_introducao(personagem)
                 print()
         except ValueError as e:
             print(f"{e} Tente novamente.")
@@ -75,6 +75,7 @@ def lore_1_andar(personagem):
 
             elif esc_1 == "2":
                 inventario.interface_inv(personagem)
+                lore_1_andar(personagem)
             break 
         except ValueError as e:
             print(f"{e} Tente novamente.")
@@ -102,16 +103,16 @@ def lore_recompensa001(personagem):
                 if recompensa001 not in ("1", "2","3"):
                     raise ValueError("❗ Opção inválida.")
                 if recompensa001 == "1":
-                    personagem.inventário.append(lista_itens[2])
+                    personagem.inventario.append(lista_itens[2])
                     item_escolhido001 = '🏹 Arco Simples'
                     print()
 
                 elif recompensa001 == "2":
-                    personagem.inventário.append(lista_itens[3])
+                    personagem.inventario.append(lista_itens[3])
                     item_escolhido001 = '🍃 Broche da Folha'
                     print()
-                elif recompensa001 == "3":
-                    personagem.inventário.append(lista_itens[4])
+                elif recompensa001 == "3":  
+                    personagem.inventario.append(lista_itens[4])
                     item_escolhido001 = '🧤 Luvas Élficas surradas'
                     print()
                 break 
@@ -131,7 +132,7 @@ def lore_recompensa001(personagem):
                 if recompensa001 not in ("1", "2","3"):
                     raise ValueError("❗ Opção inválida.")
                 if recompensa001 == "1":
-                    personagem.inventário.append(lista_itens[5])
+                    personagem.inventario.append(lista_itens[5])
                     item_escolhido001 = '⚔️ Espada de combate simples'
                     print()
 
@@ -654,22 +655,21 @@ def lore_recompensa004(personagem):
     
     if personagem.raca == 'elfo':
         item_escolhido003 = '🧥 Manto do caído'
-        personagem.inventario.append(lista_itens[25])
+        personagem.inventario.append(lista_itens[1])
             
     
     elif personagem.raca == 'humano':
         item_escolhido003 = '👹 Colar da maldade'
-        personagem.inventario.append(lista_itens[26])
+        personagem.inventario.append(lista_itens[1])
 
     elif personagem.raca == 'draconiano':
         item_escolhido003 = '🛡️ Armadura Negra Abissal:'
-        personagem.inventario.append(lista_itens[27])
+        personagem.inventario.append(lista_itens[1])
 
     print(f"[bold purple][Sistema] 🪙   RECOMPENSAS: \nXp: [700] \nPoção de cura [5]\nPoção de mana [5]\nItem: {item_escolhido003}[/bold purple]")
     text_inf = ('\nItens sendo computados...')
     digitar(text_inf)
     time.sleep(8)
-    jogo2.lore_pos_5andar(personagem)
 
 
 if __name__ == "__main__":
