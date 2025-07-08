@@ -5,14 +5,14 @@ import utills
 lista_inimigos = []
 
 class Inimigos:
-    def __init__(self):
-        self.nome = ''
-        self.dano = 0
-        self.vida = 0
-        self.fraquezas = []
+    def __init__(self, nome, dano, vida, fraquezas):
+        self.nome = nome
+        self.dano = dano
+        self.vida = vida
+        self.fraquezas = fraquezas
 
 def add_ene():
-    os.system('cls' if os.name == 'nt' else 'clear')
+    utills.limpar_tela()
     name = input('Nome: ')
     dmg = int(input('Dano: '))
     health = int(input('Vida: '))
@@ -57,12 +57,12 @@ def excluir_ene():
     if 0 <= idx < len(lista_inimigos):
         del lista_inimigos[idx]
         print("Inimigo excluído com sucesso.")
-        write()  # ✅ Save to file
+        write()
     else:
         print("Índice inválido.")
 
 def mostrar_ene():
-    os.system('cls' if os.name == 'nt' else 'clear')
+    utills.limpar_tela
 
     if not lista_inimigos:
         print('Não tem inimigo ainda')
@@ -95,33 +95,34 @@ def interface():
             continue
 
         if a == 5:
-            print("Saindo do gerenciador de inimigos...")
+            print('Saindo do gerenciador de inimigos')
             break
-
         opcoes = {
             1: add_ene,
             2: edit_ene,
             3: excluir_ene,
             4: mostrar_ene,
         }
-
         acao = opcoes.get(a)
         if acao:
             acao()
         else:
-            print("Opção inválida.")
+            print('Opção inválida.')
 
-def read():
+def load_enemys():
     global lista_inimigos
-    dados = utills.load_infos('lista_inimigos')
-    for item in dados:
-        inimigo = Inimigos()
-        inimigo.nome = item.get('nome', '')
-        inimigo.dano = item.get('dano', 0)
-        inimigo.vida = item.get('vida', 0)
-        inimigo.fraquezas = item.get('fraquezas', [])
-        lista_inimigos.append(inimigo)
+    try:
+        dados = utills.load_infos('lista_inimigos')
+        for item_data in dados:
+            inimigo = Inimigos()
+            inimigo.nome = item_data.get('nome', '')
+            inimigo.dano = item_data.get('dano', 0)
+            inimigo.vida = item_data.get('vida', 0)
+            inimigo.fraquezas = item_data.get('fraquezas', [])
+            lista_inimigos.append(inimigo)
+    except Exception as e:
+        print(f"Erro ao carregar inimigos: {e}")
 
 if __name__ == '__main__':
-    read()
+    load_enemys()
     interface()

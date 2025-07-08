@@ -30,7 +30,7 @@ def add_item():
     objeto.descricao = c
     objeto.categoria = input('Qual a categoria do item : (Cabeça, Corpo, Pés, Mãos, Utilizaveis)')
     lista_itens.append(objeto)
-    interface()
+    write()
 
 def mostrar():
     utills.limpar_tela()
@@ -43,15 +43,15 @@ def load_itens():
     try:
         lista = utills.load_infos('lista_itens')
         for i in lista:
-            a = item()
-            a.nome = i['nome']
-            a.efeitos = i['efeitos']
-            a.descricao = i['descricao']
-            a.qtd = i['qtd']
-            a.categoria = i['categoria']
-            lista_itens.append(a)
-    except:
-        pass
+            novo_item = item()
+            novo_item.nome = i.get('nome', '')
+            novo_item.efeitos = i.get('efeitos', [])
+            novo_item.descricao = i.get('descricao', '')
+            novo_item.qtd = i.get('qtd', 0)
+            novo_item.categoria = i.get('categoria', '')
+            lista_itens.append(novo_item)
+    except Exception as e:
+        print(f"Erro ao carregar itens: {e}")
 
 def edit_item():
     mostrar()
@@ -69,6 +69,7 @@ def edit_item():
     lista_itens[a].efeitos = lista_de_efeitos
     lista_itens[a].descricao = input('Nova descrição: ')
     lista_itens[a].categoria = input('Qual a categoria do item : (cabeca, corpo, pes, maos)')
+    write()
 
 def excluir_item():
     return
@@ -81,25 +82,32 @@ def write():
     utills.salvar_infos('lista_itens', lista)
 
 def interface():
-    write()
-    print('1- Adicionar um item')
-    print('2- Editar um item')
-    print('3- Excluir um item')
-    print('4- Listar os itens')
-    print('5- Finalizar')
-    a = int(input('Qual das opções você deseja ? '))
-    opcoes = {
-        1: add_item,
-        2: edit_item,
-        3: excluir_item,
-        4: mostrar,
-    }
-    a = opcoes.get(a)
-    if a:
-        a()
-
-load_itens()
+    while True:
+        print('1- Adicionar um item')
+        print('2- Editar um item')
+        print('3- Excluir um item')
+        print('4- Listar os itens')
+        print('5- Finalizar')
+        try:
+            a = int(input('Qual das opções você deseja ? '))
+        except ValueError:
+            print('Digite um número válido')
+            continue
+        if a == 5:
+            print('Saindo do gerenciador de itens')
+            break
+        opcoes = {
+            1: add_item,
+            2: edit_item,
+            3: excluir_item,
+            4: mostrar,
+        }
+        a = opcoes.get(a)
+        if a:
+            a()
+        else:
+            print('Opção invalida')
 
 if __name__ == '__main__':
-    print(lista_itens)
+    load_itens()
     interface()
