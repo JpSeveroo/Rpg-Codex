@@ -30,7 +30,8 @@ def rolar_dado():
 
 #Precisa adaptar pra quando for colocar o sistema de pericia
 def calc_dano(personagem, pericia_principal, bonus_extra=False): #FUNÇÃO OK
-        base = (personagem.pericias.get(pericia_principal, 0))*2
+        multiplicador = equip(personagem, pericia_principal)
+        base = int((personagem.pericias.get(pericia_principal, 0)) * 2 * multiplicador)
         dado, critico = rolar_dado()
         dano_base = base - ((base//(dado+1))+2)
         dano = dano_base
@@ -257,26 +258,38 @@ def loop_principal(personagem, inimigo, mana_max):
             time.sleep(2)
     
     if inimigo.vida_atual > 0: #turno da IA
-        acao_ia = 'Corpo a Corpo'
-        acoes(acao_ia, inimigo, personagem, 9999)
+        adv_IA(inimigo, personagem, 9999)
 
-def combate(p1, p2):
-    digitar(f"\n🛡️  Combate iniciado entre {p1.nick} e {p2.nick}!")
+
+def combate(personagem, inimigo):
+    print(f"\n⚔️ Começando combate: {personagem.nick} VS {inimigo.nome}!\n")
     time.sleep(2)
-    mana_max1 = p1.status['mana']
-    while p1.vida_atual > 0 and p2.vida_atual > 0:
-        loop_principal(p1, p2, mana_max1)
+
+    mana_max = personagem.status.get('mana', 100)
+    personagem.vida_atual = personagem.vida_atual if personagem.vida_atual > 0 else personagem.status.get('hp', 100)
+    inimigo.vida_atual = inimigo.vida_atual if hasattr(inimigo, 'vida_atual') and inimigo.vida_atual > 0 else inimigo.status.get('hp', 100)
+
+
+    while personagem.vida_atual > 0 and inimigo.vida_atual > 0:
+        sucesso_jogador = loop_principal(personagem, inimigo, mana_max)
+        if not sucesso_jogador:
+            # jogador perdeu turno ou morreu
+            if personagem.vida_atual <= 0:
+                break
+
+        if inimigo.vida_atual <= 0:
+            break
     
-    if p1.vida_atual > 0:
+    if personagem.vida_atual > 0:
         digitar(f"\n🏆 {p1.nick} venceu o combate!")
         time.sleep(3)
         utills.limpar_tela()
-        return p1
-    elif p2.vida_atual > 0:
+        return personagem
+    elif inimigo.vida_atual > 0:
         digitar(f"\n🏆 {p2.nick} venceu o combate!")
         time.sleep(3)
         utills.limpar_tela()
-        return p2
+        return inimigo
 
 '''===FUNÇÕES INTERATIVAS DO COMBATE==='''
 
@@ -289,18 +302,28 @@ def combate(p1, p2):
 
 #ver como a gente vai relacionar os itens
 
-def equip():
-    #função que vai dizer se tem item de corpo a corpo ou longo alcance equipado
-    #quando não tiver atacar com metade da pericia
-    ...
+def equip(personagem, pericia_principal):
+    
+    # Retorna multiplicador (1 ou 0.5) dependendo se há arma equipada
+    
+    arma = personagem.equipamento.get("maos")
+    pericias_que_exigem_arma = {'mano a mano', 'mira'}
+    if pericia_principal not in pericias_que_exigem_arma:
+        return 1
+    if arma is None:
+        return 0.5
+    else:
+        return 1
 
 def ene():
     #isso daqui eu vejo oq eu faço
     ...
 
-def adv_IA():
-    #IA dos inimigos
-    ...
+def adv_IA(inimigo, jogador):
+     # IA do inimigo
+    ataque(inimigo, jogador, 'mano a mano')
+
+    
 
 """=== EXEMPLO DE EXECUÇÃO ==="""
 
@@ -321,13 +344,17 @@ if __name__ == '__main__':
     p1.vida_atual = 100
     p1.xp = 0
     p1.xp_para_proximo_nivel = 100
+    p1.equipamento = {
+        "maos": item.lista_itens[2],  # Arma corpo a corpo
+        "longa_distancia": item.lista_itens[3]  # Arma de longo alcance
+    }
     p1.inventario.append(pocao_cura)
     p1.inventario.append(pocao_mana)
     p1.inventario.append(item.lista_itens[4])
     p1.is_player = True
 
     p2 = Personagem()
-    p2.nick = "Gorak"
+    p2.nome = "Gorak"
     p2.atributos["força"] = 8
     p2.status["hp"] = 100
     p2.status["mana"] = 100
