@@ -12,7 +12,7 @@ class item :
         self.categoria = ''
 
 def add_item():
-    system('clear')
+    utills.limpar_tela()
     a = input('Nome: ')
     b = int(input('Digite o número de efeitos '))
     lista_de_efeitos = []
@@ -33,7 +33,7 @@ def add_item():
     interface()
 
 def mostrar():
-    system('clear')
+    utills.limpar_tela()
     for i in range(len(lista_itens)):
         print(f'{i}-{lista_itens[i].nome}')
     input()

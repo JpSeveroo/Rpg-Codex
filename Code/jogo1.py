@@ -5,6 +5,7 @@ import os
 from rich import print
 from item import lista_itens
 import inventario
+import jogo2
 
 def digitar(texto, delay=0.00):
     for caractere in texto:
@@ -340,11 +341,10 @@ def lore_3_andar(personagem):
             print(f"{e} Tente novamente.")
 
 
-#TERMINAR A PARTE ABAIXO 
 #FAZER A PARTE DE SAIR DO INVENTARIO COLOCAR PRA VOLTAR PRA ESCOLHA
 #ATRIBUTOS
 #ADICIONAR POÇOES NO INV
-#FAZER A VERIFICAÇÃO DO PERSONAGEM PRA VER QUAL ENIGMA ELE VAI PEGAR
+#FAZER O CHECKPOINT
 def lore_1_enigma(personagem):
     if personagem.andar_esfinge_completado:
         print("[bold purple]⚠️ O Andar da Esfinge foi destruído por corrompimento dimensional. Você avança direto para o próximo andar...[/bold purple]")
@@ -635,19 +635,41 @@ def lore_5_andar(personagem):
         try:
             texto26 = ('\n1. Iniciar combate')
             digitar(texto26)
-            print('\n[bold purple] Oque você quer fazer agora?[/bold purple] ',end='')
+            print('\n[bold purple]Oque você quer fazer agora?[/bold purple] ',end='')
             esc_2 = input("").strip()
             if esc_2 not in ("1"):
                 raise ValueError("❗ Opção inválida.")
             if esc_2 == "1":
                 #COMBATEEEEEEEE
-
+                #Checkpoint
                 break
         except ValueError as e:
             print(f"{e} Tente novamente.")
 
 def lore_recompensa004(personagem):
-    print()
+    os.system('cls' if os.name == 'nt' else 'clear')
+    personagem.inventario.extend(lista_itens[0]*5)
+    personagem.inventario.extend(lista_itens[1]*5)
+    item_escolhido003 = ''
+    
+    if personagem.raca == 'elfo':
+        item_escolhido003 = '🧥 Manto do caído'
+        personagem.inventario.append(lista_itens[25])
+            
+    
+    elif personagem.raca == 'humano':
+        item_escolhido003 = '👹 Colar da maldade'
+        personagem.inventario.append(lista_itens[26])
+
+    elif personagem.raca == 'draconiano':
+        item_escolhido003 = '🛡️ Armadura Negra Abissal:'
+        personagem.inventario.append(lista_itens[27])
+
+    print(f"[bold purple][Sistema] 🪙   RECOMPENSAS: \nXp: [700] \nPoção de cura [5]\nPoção de mana [5]\nItem: {item_escolhido003}[/bold purple]")
+    text_inf = ('\nItens sendo computados...')
+    digitar(text_inf)
+    time.sleep(8)
+    jogo2.lore_pos_5andar(personagem)
 
 
 if __name__ == "__main__":
