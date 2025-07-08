@@ -269,7 +269,7 @@ def combate(personagem, inimigo):
     personagem.vida_atual = personagem.vida_atual if personagem.vida_atual > 0 else personagem.status.get('hp', 100)
     personagem.status['mana'] = personagem.status.get('mana', 100) if personagem.status.get('mana', None) is not None else 100
 
-    inimigo.vida_atual = inimigo.status.get('hp', 100)
+    inimigo.vida_atual = inimigo.vida
     inimigo.status['mana'] = inimigo.status.get('mana', 100) if inimigo.status.get('mana', None) is not None else 100
 
     print(f"\n⚔️ Começando combate: {personagem.nick} VS {inimigo.nome}!\n")
@@ -282,12 +282,12 @@ def combate(personagem, inimigo):
         digitar(f"\n🏆 {personagem.nick} venceu o combate!")
         time.sleep(3)
         utills.limpar_tela()
-        return True
+        return personagem
     elif inimigo.vida_atual > 0:
         digitar(f"\n💀 {personagem.nick} foi derrotado na torre...")
         time.sleep(3)
         utills.limpar_tela()
-        return False
+        return inimigo
 
 '''===FUNÇÕES INTERATIVAS DO COMBATE==='''
 
