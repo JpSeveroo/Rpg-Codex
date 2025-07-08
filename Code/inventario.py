@@ -53,10 +53,12 @@ def equips(a):
 def interface_inv(personagem):
     os.system('cls' if os.name == 'nt' else 'clear')
     equips(equipamento)
+    print(personagem.pericias)
+    print(equipamento.itens)
     personagem.equipamento = equipamento
-    a = inquirer.select(message='Qual equipamento você deseja alterar ?', choices=['Cabeça', 'Corpo', 'Pés', 'Mãos', 'Sair']).execute()
+    a = inquirer.select(message='Qual equipamento você deseja alterar ?', choices=['Cabeça', 'Corpo', 'Pés', 'Mãos', 'Utilizaveis', 'Sair']).execute()
     if a != 'Sair':
-        try:
+        #try:
             disponiveis = []
             for i in personagem.inventario :
                 if i.categoria == a :
@@ -70,14 +72,19 @@ def interface_inv(personagem):
                 nomes_itens.append(disponiveis[i].nome)
             b = inquirer.select(message=f'Qual o item que você deseja equipar na(o) {a}: ', choices=nomes_itens).execute()
             equipamento.itens[a]['item'] = disponiveis[nomes_itens.index(b)]
+            equipando(personagem, disponiveis[nomes_itens.index(b)], a)
             interface_inv(personagem)
-        except:
-            pass
-    else:
-        pass
+        #except:
+            #pass
+
+def equipando(personagem, item, parte):
+    for i in item.efeitos:
+        personagem.pericias[i[0]] += i[1]
+        equipamento.itens[parte]['equipado'] = True
 
 if __name__ == '__main__':
     p = Personagem()
+    p.inventario.append(item.lista_itens[0])
     p.inventario.append(item.lista_itens[4])
     p.inventario.append(item.lista_itens[5])
     p.inventario.append(item.lista_itens[6])

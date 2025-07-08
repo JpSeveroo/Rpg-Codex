@@ -1,27 +1,60 @@
 [
     {
-        "nick": "Kron",
+        "nick": "Teste1",
         "raca": "humano",
         "classe": "guerreiro",
-        "xp": 0,
+        "xp": 100,
         "nivel": 1,
         "atributos": {
-            "for\u00e7a": 19,
-            "destreza": 7,
+            "for\u00e7a": 15,
+            "destreza": 9,
             "constituicao": 7,
-            "carisma": 6,
-            "inteligencia": 6
+            "carisma": 7,
+            "inteligencia": 7
         },
         "pericias": {
-            "acrobacia": 7,
-            "blefar": 6,
-            "mira": 7,
-            "diplomacia": 6,
-            "furtividade": 6,
-            "percepcao": 6,
-            "maos rapidas": 7,
-            "mano a mano": 19,
-            "resistencia": 19
+            "acrobacia": 9,
+            "blefar": 7,
+            "mira": 9,
+            "diplomacia": 7,
+            "furtividade": 7,
+            "percepcao": 7,
+            "maos rapidas": 9,
+            "mano a mano": 15,
+            "resistencia": 15
+        },
+        "inventario": [],
+        "historico": [],
+        "status": {
+            "hp": 100,
+            "mana": 50
+        },
+        "vida_atual": 100,
+        "equipamento": []
+    },
+    {
+        "nick": "Teste2",
+        "raca": "humano",
+        "classe": "guerreiro",
+        "xp": 100,
+        "nivel": 1,
+        "atributos": {
+            "for\u00e7a": 15,
+            "destreza": 9,
+            "constituicao": 7,
+            "carisma": 7,
+            "inteligencia": 7
+        },
+        "pericias": {
+            "acrobacia": 9,
+            "blefar": 7,
+            "mira": 9,
+            "diplomacia": 7,
+            "furtividade": 7,
+            "percepcao": 7,
+            "maos rapidas": 9,
+            "mano a mano": 15,
+            "resistencia": 15
         },
         "inventario": [],
         "historico": [],

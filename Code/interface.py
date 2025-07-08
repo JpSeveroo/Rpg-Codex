@@ -10,11 +10,13 @@ import InquirerPy
 import InquirerPy.inquirer
 import ficha
 import combate
+#import jogo
 import jogo1
 from time import sleep
 
 usuarios = []
 personagens = []
+personagens_usuario = []
 name_list = []
 user = ''
 personagem_escolhido = ''
@@ -70,7 +72,7 @@ class interface:
             print('Acesso liberado!')
             global user
             user = usuarios[c]
-            load_caracter(user.personagens)
+            load_pers_users(user.personagens)
             input()
             interface.interface_usuário(user.username)
         else:
@@ -91,8 +93,9 @@ class interface:
     def jogar():
         os.system('clear')
         try:
-            b = InquirerPy.inquirer.select(message='Qual o personagem desejado', choices= name_list).execute()
-            c = name_list.index(b)
+            pers = [i.nick for i in personagens_usuario]
+            b = InquirerPy.inquirer.select(message='Qual o personagem desejado', choices= pers).execute()
+            c = pers.index(b)
             global personagem_escolhido
             personagem_escolhido = personagens[c]
         except:
@@ -103,12 +106,13 @@ class interface:
     
     def visualizar_ficha():
         a = []
-        for i in personagens:
+        for i in personagens_usuario:
             a.append(i.nick)
+        print(a)
         if len(a) != 0 :
             b = InquirerPy.inquirer.select(message='Qual o personagem desejado', choices= a).execute()
             c = a.index(b)
-            personagens[c].visualizar()
+            personagens_usuario[c].visualizar()
         else :
             print(f'Não há personagens criados no usuário {user.username} \n')
         input('Pressione qualquer tecla para voltar...')
@@ -117,12 +121,12 @@ class interface:
     def logout():
         a = InquirerPy.inquirer.confirm(message='Você deseja deslogar desse usuário ?').execute()
         global user
-        global personagens
+        global personagens_usuario
         global name_list
         sleep(0.5)
         if a == True:
             user = ''
-            personagens = []
+            personagens_usuario = []
             name_list = []
             interface.interface_principal()
         else :
@@ -150,22 +154,27 @@ def load_caracter(lista_pers):
     try:
         a = utills.load_infos('personagem')
         for item in a:
-            if utills.cripto(item['nick']) in lista_pers:
-                b = ficha.Personagem()
-                b.nick = item['nick']
-                name_list.append(b.nick)
-                b.raca = item['raca']
-                b.classe = item['classe']
-                b.xp = item['xp']
-                b.nivel = item['nivel']
-                b.atributos = item['atributos']
-                b.pericias = item['pericias']
-                b.inventario = item['inventario']
-                b.historico = item['historico']
-                b.status = item['status']
-                personagens.append(b)
+            b = ficha.Personagem()
+            b.nick = item['nick']
+            name_list.append(utills.cripto(b.nick))
+            b.raca = item['raca']
+            b.classe = item['classe']
+            b.xp = int(item.get('xp', 0))
+            b.xp_para_proximo_nivel = item.get('xp_para_proximo_nivel', b.tabela_xp.get(b.nivel, 100))
+            b.nivel = item['nivel']
+            b.atributos = item['atributos']
+            b.pericias = item['pericias']
+            b.inventario = item['inventario']
+            b.historico = item['historico']
+            b.status = item['status']
+            personagens.append(b)
     except TypeError:
         pass
+
+def load_pers_users(lista_pers):
+    for i in personagens:
+        if utills.cripto(i.nick) in lista_pers:
+            personagens_usuario.append(i)
 
 def load():
     try:
@@ -177,3 +186,8 @@ def load():
             usuarios.append(b)
     except TypeError:
         pass
+
+load_caracter()
+
+print(personagens)
+print(personagens_usuario)

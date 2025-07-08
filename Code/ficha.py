@@ -164,6 +164,10 @@ class Personagem:
             self.atributos["destreza"] += 5
             self.pericias["furtividade"] -= 3
 
+        #calcula hp baseado na constituição
+        self.status["hp"] = 100 + (self.atributos["constituicao"] * 5)
+        self.vida_atual = self.status["hp"]
+
         # Calcular as perícias
         self.calcular_pericias()
         sleep(1)
@@ -207,32 +211,35 @@ class Personagem:
         # distribui 5 pontos de atributos
         pontos_disponiveis = 5
         digitar(f"Você tem {pontos_disponiveis} pontos para distribuir entre seus atributos.")
+        atributos_lista = list(self.atributos.keys())
         while pontos_disponiveis > 0:
             digitar("\n✨ Atributos disponíveis:")
-            for atributo, valor in self.atributos.items():
-                print(f"  {atributo.capitalize()}: {valor}")
+            for i, atributo_nome in enumerate(atributos_lista):
+                print(f"  {i+1}. {atributo_nome.capitalize()}: {self.atributos[atributo_nome]}")
+            try:
+                escolha_numero = int(input(f"Escolha o número do atributo para adicionar pontos (pontos restantes: {pontos_disponiveis}): "))
+                if 1 <= escolha_numero <= len(atributos_lista):
+                    escolha_atributo_nome = atributos_lista[escolha_numero - 1]
 
-            escolha = input(f"Escolha um atributo para aumentar (pontos restantes: {pontos_disponiveis}): ").strip().lower()
-
-            if escolha in self.atributos:
-                while True:
-                    try:
-                        qtd_pontos = int(input(f"Quantos pontos você quer adicionar a {escolha.capitalize()}? "))
-                        if 0 < qtd_pontos <= pontos_disponiveis:
-                            self.atributos[escolha] += qtd_pontos
-                            pontos_disponiveis -= qtd_pontos
-                            digitar(f"✅ {qtd_pontos} pontos adicionados a {escolha.capitalize()}.")
-                            break
-                        else:
-                            digitar(f"❌ Quantidade inválida. Você pode adicionar entre 1 e {pontos_disponiveis} pontos.")
-                    except ValueError:
-                        digitar("❌ Digite um número válido.")
-            else: 
-                digitar("❌ Atributo inválido. Tente novamente.")
-        
-        self.calcular_pericias()  # recalcula as perícias com os novos atributos
+                    while True:
+                        try:
+                            qtd_pontos = int(input(f"Quantos pontos você quer adicionar a {escolha_atributo_nome.capitalize()}? "))
+                            if 0 < qtd_pontos <= pontos_disponiveis:
+                                self.atributos[escolha_atributo_nome] += qtd_pontos
+                                pontos_disponiveis -= qtd_pontos
+                                digitar(f"✅ {qtd_pontos} pontos adicionados a {escolha_atributo_nome.capitalize()}.")
+                                break
+                            else:
+                                digitar(f"❌ Quantidade inválida. Você pode adicionar entre 1 e {pontos_disponiveis} pontos.")
+                        except ValueError:
+                            digitar("❌ Digite um número válido.")
+                else:   
+                    digitar("❌ Número inválido. Tente novamente.")
+            except ValueError:
+                digitar("❌ Digite um número válido.")
+        self.calcular_pericias()  # recalcula as perícias com os novos atributos   
         digitar("\n✨ Atributos atualizados com sucesso!")
-        sleep(2)
+        sleep(3) 
 
     def visualizar(self):
         sleep(1)
