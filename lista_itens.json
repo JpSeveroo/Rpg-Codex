@@ -1153,6 +1153,25 @@
         "descricao": "\u201cO Labirinto de Etherion n\u00e3o \u00e9 apenas uma pris\u00e3o digital, mas uma estrutura consciente eautoregenerativa, criada nos prim\u00f3rdios da Queda do \u00c9ter. Sua arquitetura foi concebidapara manter o equil\u00edbrio entre caos e ordem, mat\u00e9ria e energia, vida e c\u00f3digo. Cada andarrepresenta uma camada da consci\u00eancia fragmentada dos antigos \u2014 humanos, elfos,draconianos \u2014 entrela\u00e7ados num sistema complexo de testes e prova\u00e7\u00f5es.A torre n\u00e3o possui apenas um prop\u00f3sito de confinamento: \u00e9 um artefato de purifica\u00e7\u00e3o eaprendizado, onde aqueles que se aventuram podem, se forem capazes, reconstruir aspartes perdidas de si mesmos e do mundo original.No entanto, o Etherion \u00e9 tamb\u00e9m um guardi\u00e3o \u2014 sua ess\u00eancia protege segredos antigos everdades esquecidas, punindo aqueles que tentam ultrapassar seus limites semmerecimento.Somente os Echos que dominam seus medos, resistem \u00e0s tenta\u00e7\u00f5es e compreendem anatureza dual do universo poder\u00e3o aspirar \u00e0 verdadeira liberdade.\u201d",
         "qtd": 0,
         "categoria": "utilizaveis"
+    },
+    {
+        "nome": "Elmo da Dan\u00e7a das Sombras",
+        "efeitos": [
+            [
+                "mano a mano",
+                2
+            ],
+            [
+                "acrobacia",
+                2
+            ],
+            [
+                "- furtividade",
+                2
+            ]
+        ],
+        "descricao": "Um elmo leve adornado com penas negras que amplifica a agilidade e destreza do portador em combates corpo a corpo, facilitando movimentos acrob\u00e1ticos e ataques r\u00e1pidos. Por\u00e9m, o barulho causado pelas penas ao se mover pode comprometer a furtividade",
+        "qtd": 0,
+        "categoria": "cabe\u00e7a"
     }
 ]
-
