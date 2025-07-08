@@ -287,6 +287,20 @@ def combate(p1, p2):
 
 #função que relaciona os atributos da lista com as funções que gerenciam o "p2"
 
+#ver como a gente vai relacionar os itens
+
+def equip():
+    #função que vai dizer se tem item de corpo a corpo ou longo alcance equipado
+    #quando não tiver atacar com metade da pericia
+    ...
+
+def ene():
+    #isso daqui eu vejo oq eu faço
+    ...
+
+def adv_IA():
+    #IA dos inimigos
+    ...
 
 """=== EXEMPLO DE EXECUÇÃO ==="""
 
