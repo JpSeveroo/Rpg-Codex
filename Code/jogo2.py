@@ -351,25 +351,110 @@ def lore_8_andar(personagem):
 
 def lore_2_enigma(personagem):
     #SE ERRAR PERDE 20% DE PONTOS NO ATRIBUTO DE PERCEPÇÃO
-    print('[bold purple][Sistema]Iniciando teste de resiliência cognitiva.[/bold purple]')
-    time.sleep(1)
-    print('[bold purple][Sistema]A mente do Eco será testada não por força, mas pela integridade de suas lembranças.[/bold purple]')
-    time.sleep(1)
+    if personagem.andar_cupula_completado:
+        time.sleep(1)
+        os.system('cls' if os.name == 'nt' else 'clear')
+
+        print("\n[bold purple]⚠️ O Andar da cúpula foi destruído por corrompimento dimensional. Você avança direto para o próximo andar...[/bold purple]\n")
+        lore_9_andar(personagem)
+        return
+    else:
+        print('[bold purple][Sistema]Iniciando teste de resiliência cognitiva.[/bold purple]')
+        time.sleep(1)
+        print('[bold purple][Sistema]A mente do Eco será testada não por força, mas pela integridade de suas lembranças.[/bold purple]')
+        time.sleep(1)
+
+        if personagem.atributos['resistencia'] >= 25:
+            while True:
+                try:
+                    print('[bold purple][italic]"O que foi a Queda do Éter?"[/italic][/bold purple]\n')
+                    texto21 = ('Alternativas:\n A) A ruptura de uma aliança entre as raças antigas e o sistema de proteção central. \nB) O colapso entre os planos físico e digital que dissolveu a barreira entre alma e código \nC) Um evento mágico que corrompeu os ecos originais da raça draconiana')
+                    jogo1.digitar(texto21)
+
+                    time.sleep(1)
+                    print('\n [bold purple]Qual a sua resposta? [/bold purple]',end='')
+                    resp_1 = input('').lower()
+
+                    if resp_1 not in ("a", "b", "c"):
+                        raise ValueError("❗ Opção inválida.")
+                    
+                    if resp_1 == "a":
+                        morte_cupula(personagem)
+                    elif resp_1 == "b":
+                        lore_recompensa003(personagem)
+                    elif resp_1 == "c":
+                        morte_cupula(personagem)
+                        
+                except ValueError as e:
+                    print(f"{e} Tente novamente.")  
+                        
+
+
 
 def morte_cupula(personagem):
     personagem.andar_cupula_completado = True
 
-    texto22 = ('O silêncio na Cúpula da Percepção a resposta é proferida. Um instante de suspense se estende, pesado com a expectativa da Esfinge Negra de Aethelgard. Mas a calma é logo rompida por um zumbido agudo, quase um chiado furioso. A Esfinge, antes imóvel, contorce sua forma etérea, e um brilho vermelho intenso pulsa em seus olhos. Não há mais perguntas. A indignação da entidade por ter recebido a alternativa incorreta é palpável, reverberando pelas paredes de cristal. Em um instante brutal, a cúpula se torna um vórtice de dados colapsados, e você é consumido pela fúria de uma verdade distorcida. A percepção falha selou seu destino: você se desintegra em um véu de ruído branco, e a escuridão o engole. Ao despertar, o Ponto de Início o aguarda, o vazio da planície se estendendo à sua frente, e a Torre de Etherion, indiferente, erguendo-se à distância. A lição é brutal: a falha na percepção não é um tropeço, é uma sentença de retorno forçado, uma repetição eterna até que a verdade seja finalmente alcançada.')
+    texto22 = ('\nAs alternativas surgem. Mas o zumbido cresce. A resposta certa escapa, como fumaça entre os dedos. Você hesita. Escolhe...')
     jogo1.digitar(texto22)
+    time.sleep(1)
+    print('\n[bold purple]ERRADO[/bold purple]\n')
+
+    texto23 = ('Imediatamente, a cúpula se fecha como uma lente queima-neurônios. Um pulso mental desaba sobre ele como uma avalanche psíquica. Seus joelhos falham. A luz se apaga. Mas não há escuridão.')
+    jogo1.digitar(texto23)
+    time.sleep(1)
+
+    print('\n[bold purple]Há vazio.[bold purple]\n')
+
+    texto24 = ('Uma rachadura se abre dentro de sua consciência, profunda e irreversível. A percepção — o que antes lhe permitia detectar mentiras, identificar padrões, ver através das ilusões — se despedaça para sempre.')
+    jogo1.digitar(texto24)
+
+    print("\n[bold purple]🧠 Percepção reduzida permanentemente em 20% ?[/bold purple]\n")
+
+    texto25 = ('E então, a Torre sussurra… uma última sentença.')
+    jogo1.digitar(texto25)
+
+    print("\n[bold blue][italic]“Um Eco que não compreende a essência... não pode continuar existindo.”[/italic][/bold blue]\n")
+
+    texto26 = ('Seu corpo trava. Seus olhos dilatam. Tudo desmorona. Não com um estrondo, mas com o silêncio absoluto da desconexão. A sua alma, antes entrelaçada com o código e o passado, é rejeitada pelo sistema central.')
+    jogo1.digitar(texto26)
+
     print(f'[bold red]🩸 {personagem.nick} MORREU [/bold red]')
     lore_6_andar(personagem)
+
+def lore_recompensa003(personagem):
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+    personagem.inventario.append(lista_itens[38])
+
+    texto22 = ('Ao responder... uma onda de luz dourada varre a cúpula. As ilusões ao redor desaparecem como fumaça, revelando um céu estrelado artificial acima. Os circuitos brilham em verde, como se reconhecessem a lucidez do seu espírito. A torre aceita sua resposta.')
+    jogo1.digitar(texto22)
+
+    print('[bold purple][Sistema]Integridade mental: confirmada. Fragmento de sabedoria desbloqueado.[/bold purple]')
+
+    texto23 = ('O orbe flutua até sua testa, tocando suavemente sua pele. Imagens antigas invadem sua mente: civilizações desaparecidas, ecos quebrados buscando sentido, o nascimento do próprio Etherion. O orbe flutua até sua testa, tocando suavemente sua pele. Imagens antigas invadem sua mente: civilizações desaparecidas, ecos quebrados buscando sentido, o nascimento do próprio Etherion. Você sente algo se expandir dentro de si. A mente se aclara. As ilusões do mundo se tornam mais fáceis de perceber. Você agora não apenas vê… mas compreende.')
+    jogo1.digitar(texto23)
+
+    print('[bold purple][Sistema]Novo item adquirido, 🦯Cetro da perturbação(+4 percepção)[/bold purple]')
+
+    texto24 = ('A cúpula se abre. Um portal translúcido surge, conduzindo você ao próximo andar. Mas antes de atravessar, uma voz antiga — serena, quase orgulhosa — ecoa em sua mente:')
+    jogo1.digitar(texto24)
+
+    print('[bold blue]“Você entendeu. Não basta sobreviver à torre... é preciso compreendê-la.”[/bold blue]')
+    time.sleep(1)
+
+    print(f"[bold purple][Sistema] 🪙   RECOMPENSAS: \nXp: [350] \nItem: Cetro da Perturbação[/bold purple]")
+    text_inf = ('\nItens sendo computados...')
+    jogo1.digitar(text_inf)
+    time.sleep(8)
+
+    lore_9_andar(personagem)
 
 
 def lore_9_andar(personagem):
     print()
     
 
-
+#FUI COMPRAR PÃO
 
 
 
