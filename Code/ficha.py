@@ -247,6 +247,16 @@ class Personagem:
         utills.digitar("\n✨ Atributos atualizados com sucesso!")
         sleep(3) 
 
+    def mostrar_status(self):
+        print(f"\n🧾 Status de {self.nick}")
+        print(f"🎚️ Nível {self.nivel} | 💠 XP: {self.xp}/{self.xp_para_proximo_nivel}")
+        print(f"❤️ Vida: {self.vida_atual}/{self.status['hp']} | 🔮 Mana: {self.status['mana']}/{self.mana_max}")
+    
+        print("\n🧬 Atributos:")
+        for atr, val in self.atributos.items():
+            print(f"  {atr.capitalize():<13}: {val}")
+        print()
+
     def visualizar(self):
         sleep(1)
         print(f"\n--------- Ficha de {self.nick} ---------")
