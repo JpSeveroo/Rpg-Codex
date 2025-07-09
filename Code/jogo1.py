@@ -5,7 +5,8 @@ import os
 from rich import print
 from item import lista_itens
 import inventario
-from utills import digitar
+from utills import digitar, limpar_tela
+from InquirerPy import inquirer
 
 def lore_introducao(personagem):
     print()
@@ -22,28 +23,33 @@ def lore_introducao(personagem):
     digitar(texto3)
 
     while True:
-        texto4 = ('\n1. Avançar para o primeiro andar do Labirinto, iniciando sua ascensão rumo à liberdade. \n2. Investigar inventário')
-        digitar(texto4)
+        limpar_tela()
+        opcao = inquirer.select(
+        message="O que deseja fazer?",
+        choices=[
+            "🔍 Conferir status do personagem",
+            "📖 Avançar para o primeiro andar do Labirinto, iniciando sua ascensão rumo à liberdade.",
+            "🎒Investigar Inventário"
+        ]
+        ).execute()
 
-        try:
-            time.sleep(1)
-            esc_1 = input("\nEscolha uma opção (1 ou 2): ").strip()
-            if esc_1 not in ("1", "2"):
-                raise ValueError("❗ Opção inválida.")
+        if opcao == "🔍 Conferir status do personagem":
+            limpar_tela()
+            personagem.mostrar_status()
+            input("\nPressione ENTER para voltar...")
 
-            if esc_1 == "1":
-                lore_1_andar(personagem)
-                break  # só sai do loop se for pra andar 1
+        elif opcao == "📖 Avançar para o primeiro andar do Labirinto, iniciando sua ascensão rumo à liberdade.":
+            limpar_tela()
+            lore_1_andar(personagem)
+            break  # só sai do loop se for pra andar 1
 
-            elif esc_1 == "2":
-                inventario.interface_inv(personagem)
-                lore_introducao(personagem)
-                print()
-        except ValueError as e:
-            print(f"{e} Tente novamente.")
+        elif opcao == "🎒Investigar Inventário":
+            limpar_tela()
+            inventario.interface_inv(personagem)
+            print()
 
 def lore_1_andar(personagem):
-    os.system('cls' if os.name == 'nt' else 'clear')
+    limpar_tela()
 
     print()
     texto5 = 'Você atravessa o portal que o leva do vazio da planície para dentro do Labirinto. A luz muda, tornando-se mais fria e metálica. O chão abaixo é um mosaico de placas metálicas e circuitos pulsantes, estendendo-se até onde a vista alcança. O ar é pesado com uma energia estática, e a sensação de estar sendo observado é constante. À distância, silhuetas se movem entre os pilares de luz — 3 Gárgulas de Dados, sentinelas programadas para detectar e eliminar intrusos. Suas asas de metal rangem, e seus olhos brilham com uma luz vermelha ameaçadora. Uma voz sintética, reconhecida do terminal, ecoa no ambiente:\n'
