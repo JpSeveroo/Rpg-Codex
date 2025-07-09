@@ -7,7 +7,7 @@
         "nivel": 1,
         "xp_para_proximo_nivel": 100,
         "atributos": {
-            "for\u00e7a": 30,
+            "for\u00e7a": 40,
             "destreza": 9,
             "constituicao": 7,
             "carisma": 7,
@@ -21,8 +21,8 @@
             "furtividade": 15,
             "percepcao": 15,
             "maos rapidas": 9,
-            "mano a mano": 30,
-            "resistencia": 30
+            "mano a mano": 40,
+            "resistencia": 40
         },
         "inventario": [],
         "fraquezas": [],
