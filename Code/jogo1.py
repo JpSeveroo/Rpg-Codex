@@ -68,7 +68,6 @@ def lore_1_andar(personagem):
             if esc_1 == "1":
                 #❗❗❗❗❗❗❗FALTA O COMBATE
                 lore_recompensa001(personagem)
-                time.sleep(8)
                 lore_pos_1andar(personagem)
                 break
 
@@ -177,8 +176,9 @@ def lore_recompensa001(personagem):
                 print(f"{e} Tente novamente. Lembre-se de digitar apenas o dígito referente ao item.")
     
     print(f"[bold purple][Sistema] 🪙   RECOMPENSAS: \nXp: [225] \nPoção de cura [1]\nPoção de mana [1]\nItens: 📒 Livro de perícias, {item_escolhido001}[/bold purple]")
-    text_inf = ('\nItens sendo computados...')
+    text_inf = ('\nPressione ENTER para prosseguir...')
     digitar(text_inf)
+    a = input('')
 
 def lore_pos_1andar(personagem):
     os.system('cls' if os.name == 'nt' else 'clear')
@@ -242,7 +242,6 @@ def lore_2_andar(personagem):
             if esc_3 == "1":
                 #❗❗❗❗❗❗❗FALTA O COMBATE
                 lore_recompensa002(personagem)
-                time.sleep(8)
                 lore_pos_2andar(personagem)
                 print()
 
@@ -259,8 +258,9 @@ def lore_recompensa002(personagem):
     personagem.inventario[0].qtd = 1
 
     print(f"[bold purple][Sistema] 🪙   RECOMPENSAS: \nXp: [150] \nPoção de cura [1]\nPoção de mana [1]")
-    text_inf = ('\nItens sendo computados...')
+    text_inf = ('\nPressione ENTER para prosseguir...')
     digitar(text_inf)
+    a = input('')
 
 
 def lore_pos_2andar(personagem):
@@ -601,9 +601,9 @@ def lore_recompensa003(personagem):
                 print(f"{e} Tente novamente. Lembre-se de digitar apenas o dígito referente ao item.")
 
     print(f"[bold purple][Sistema] 🪙   RECOMPENSAS: \nXp: [280] \nPoção de cura [1]\nPoção de mana [1]\nItem: {item_escolhido002}[/bold purple]")
-    text_inf = ('\nItens sendo computados...')
+    text_inf = ('\nPressione ENTER para prosseguir...')
     digitar(text_inf)
-    time.sleep(8)
+    a = input('')
 
 def lore_pos_4andar(personagem):
     os.system('cls' if os.name == 'nt' else 'clear')
@@ -671,9 +671,9 @@ def lore_recompensa004(personagem):
         personagem.inventario.append(lista_itens[1])
 
     print(f"[bold purple][Sistema] 🪙   RECOMPENSAS: \nXp: [700] \nPoção de cura [5]\nPoção de mana [5]\nItem: {item_escolhido003}[/bold purple]")
-    text_inf = ('\nItens sendo computados...')
+    text_inf = ('\nPressione ENTER para prosseguir...')
     digitar(text_inf)
-    time.sleep(8)
+    a = input('')
 
 
 if __name__ == "__main__":
