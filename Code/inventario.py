@@ -104,7 +104,11 @@ def equip_itens(personagem, disponiveis):
         nomes_itens = []
         for i in range(len(disponiveis)):
             nomes_itens.append(disponiveis[i].nome)
+        nomes_itens.append('Sair')
         b = inquirer.select(message=f'Qual o item que você deseja equipar na(o) {escolhido}: ', choices=nomes_itens).execute()
+        if b == 'Sair':
+            interface_inv(personagem)
+            return
         equipamento.itens[escolhido]['item'] = disponiveis[nomes_itens.index(b)]
         equipando(personagem, disponiveis[nomes_itens.index(b)], escolhido)
         interface_inv(personagem)
@@ -124,12 +128,16 @@ def utilizaveis(personagem, disponiveis):
     nomes_itens = []
     for i in range(len(disponiveis)):
         nomes_itens.append(disponiveis[i].nome)
+    nomes_itens.append('Sair')
     if not nomes_itens :
         print('Não há nenhum utilizavel disponivel')
         input('Pressione enter para voltar...')
         interface_inv(personagem)
         return
     b = inquirer.select(message=f'Qual o item que você deseja utilizar: ', choices=nomes_itens).execute()
+    if b == 'Sair':
+        interface_inv(personagem)
+        return
     print(disponiveis[nomes_itens.index(b)].nome)
     if disponiveis[nomes_itens.index(b)].efeitos[0][0] == 'vida_atual':
         if personagem.status['hp'] - personagem.vida_atual >= 25:
