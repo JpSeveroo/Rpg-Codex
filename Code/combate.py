@@ -275,7 +275,7 @@ def combate(personagem, inimigo):
     time.sleep(2)
 
     while personagem.vida_atual > 0 and inimigo.vida_atual > 0:
-        loop_principal(personagem, inimigo, personagem.status['mana'])
+        loop_principal(personagem, inimigo, 100)
 
     if personagem.vida_atual > 0:
         utills.digitar(f"\n🏆 {personagem.nick} venceu o combate!")

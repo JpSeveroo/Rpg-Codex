@@ -35,10 +35,10 @@ def lore_11_andar(personagem):
                 raise ValueError("❗ Opção inválida.")
             if esc_1 == "1":
                 #COMBATEEE
-                break
+                return
             elif esc_1 == "2":
-                if #PEGAR OS FRAGMENTOS ANTERIORES E VER SE O USUARIO TEM NO INVENTARIO
-
+                #if PEGAR OS FRAGMENTOS ANTERIORES E VER SE O USUARIO TEM NO INVENTARIO
+                return
             elif esc_1 == "3":
                 inventario.interface_inv(personagem)
             elif esc_1 == "4":
