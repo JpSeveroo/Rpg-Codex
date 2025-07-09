@@ -25,11 +25,11 @@ def lore_introducao(personagem):
     while True:
         print()
         opcao = inquirer.select(
-        message="O que deseja fazer?",
+        message="O que deseja fazer?\n",
         choices=[
             "🔍 Conferir status do personagem",
             "📖 Avançar para o primeiro andar do Labirinto, iniciando sua ascensão rumo à liberdade.",
-            "🎒Investigar Inventário"
+            "🎒 Investigar Inventário"
         ]
         ).execute()
 
@@ -43,7 +43,7 @@ def lore_introducao(personagem):
             lore_1_andar(personagem)
             break  # só sai do loop se for pra andar 1
 
-        elif opcao == "🎒Investigar Inventário":
+        elif opcao == "🎒 Investigar Inventário":
             limpar_tela()
             inventario.interface_inv(personagem)
             print()
@@ -60,11 +60,11 @@ def lore_1_andar(personagem):
     while True:
         print()
         opcao = inquirer.select(
-        message="O que deseja fazer?",
+        message="O que deseja fazer?\n",
         choices=[
             "🔍 Conferir status do personagem",
             "⚔️ Iniciar o Combate - Enfrentar as Gárgulas de Dados com as habilidades que possui, aprendendo a dominar o sistema de turnos e a usar sua força para progredir.",
-            "🎒Investigar Inventário"
+            "🎒 Investigar Inventário"
         ]
         ).execute()
         if opcao == "🔍 Conferir status do personagem":
@@ -79,7 +79,7 @@ def lore_1_andar(personagem):
             lore_pos_1andar(personagem)
             break
 
-        elif opcao == "🎒Investigar Inventário":
+        elif opcao == "🎒 Investigar Inventário":
             limpar_tela()
             inventario.interface_inv(personagem)
             print()
@@ -98,7 +98,7 @@ def lore_recompensa001(personagem):
         while True:
             print()
             opcao = inquirer.select(
-            message="Qual destes 3 itens você deseja levar consigo?",
+            message="Qual destes 3 itens você deseja levar consigo?\n",
             choices=[
                 "🏹 Arco Simples: Um arco leve, resistente, símbolo do treinamento élfico. Não mágico e um pouco velho, mas usável. (+1 mira)",
                 "🍃 Broche da Folha: broche simples que pode ajudar em interações sociais. (+1 diplomacia)",
@@ -126,7 +126,7 @@ def lore_recompensa001(personagem):
         while True:
             print()
             opcao = inquirer.select(
-            message="Qual destes 3 itens você deseja levar consigo?",
+            message="Qual destes 3 itens você deseja levar consigo?\n",
             choices=[
                 "⚔️ Espada de combate simples: confiável e robusta, a clássica espada de aventureiro iniciante. (+1 mano a mano)",
                 "🍃 Broche da Folha: broche simples que pode ajudar em interações sociais. (+1 diplomacia)",
@@ -154,7 +154,7 @@ def lore_recompensa001(personagem):
         while True:
             print()
             opcao = inquirer.select(
-            message="Qual destes 3 itens você deseja levar consigo?",
+            message="Qual destes 3 itens você deseja levar consigo?\n",
             choices=[
                 "🗡️ Adaga de Escamas: pequena adaga com símbolos dracônicos entalhados, item comum entre guerreiros draconianos inexperientes. (+1 mano a mano)",
                 "🧿 Talismã do caçador: alimenta o instinto de caça dos draconianos, os deixando mais ágeis. (+1 acrobacia)",
@@ -198,11 +198,11 @@ def lore_pos_1andar(personagem):
     while True:
         print()
         opcao = inquirer.select(
-        message="O que deseja fazer?",
+        message="O que deseja fazer?\n",
         choices=[
             "🔍 Conferir status do personagem",
             "⬆️ Avançar para o Andar 2",
-            "🎒Investigar Inventário"
+            "🎒 Investigar Inventário"
         ]
         ).execute()
         if opcao == "🔍 Conferir status do personagem":
@@ -215,7 +215,7 @@ def lore_pos_1andar(personagem):
             lore_2_andar(personagem)
             break
 
-        elif opcao == "🎒Investigar Inventário":
+        elif opcao == "🎒 Investigar Inventário":
             limpar_tela()
             inventario.interface_inv(personagem)
             print()
@@ -240,12 +240,12 @@ def lore_2_andar(personagem):
     while True:
         print()
         opcao = inquirer.select(
-        message="O que deseja fazer?",
+        message="O que deseja fazer?\n",
         choices=[
             "🔍 Conferir status do personagem",
             "⚔️ Enfrentar o Anomalian — Confrontar a distorção com foco e resistência, dominando o combate contra uma entidade instável.",
             "⚡ Tentar Estabilizar o ambiente — Usar parte da sua energia para reconfigurar o campo ao seu redor, reduzindo a agressividade do inimigo. [Pontos de diplomacia necessários: 12]",
-            "🎒Investigar Inventário"
+            "🎒 Investigar Inventário"
         ]
         ).execute()
         if opcao == "🔍 Conferir status do personagem":
@@ -260,11 +260,11 @@ def lore_2_andar(personagem):
             lore_pos_2andar(personagem)
             print()
 
-        elif opcao == "⚡ Tentar Estabilizar o ambiente — Usar parte da sua energia para reconfigurar o campo ao seu redor, reduzindo a agressividade do inimigo. [Pontos de diplomacia necessários: 12]" and personagem.atributos['diplomacia'] >= 12:
+        elif opcao == "⚡ Tentar Estabilizar o ambiente — Usar parte da sua energia para reconfigurar o campo ao seu redor, reduzindo a agressividade do inimigo. [Pontos de diplomacia necessários: 12]" and personagem.pericias['diplomacia'] >= 12:
             #vantagem para o personagem
             print()
 
-        elif opcao == "🎒Investigar Inventário":
+        elif opcao == "🎒 Investigar Inventário":
             limpar_tela()
             inventario.interface_inv(personagem)
             print()
@@ -290,11 +290,11 @@ def lore_pos_2andar(personagem):
     while True:
         print()
         opcao = inquirer.select(
-        message="O que deseja fazer?",
+        message="O que deseja fazer?\n",
         choices=[
             "🔍 Conferir status do personagem",
             "⬆️ Avançar para o Andar 3",
-            "🎒Investigar Inventário"
+            "🎒 Investigar Inventário"
         ]
         ).execute()
         if opcao == "🔍 Conferir status do personagem":
@@ -314,13 +314,13 @@ def lore_pos_2andar(personagem):
             lore_3_andar(personagem)
             print()
 
-        elif opcao == "🎒Investigar Inventário":
+        elif opcao == "🎒 Investigar Inventário":
             limpar_tela()
             inventario.interface_inv(personagem)
             print()
 
 def lore_3_andar(personagem):
-    os.system('cls' if os.name == 'nt' else 'clear')
+    limpar_tela()
     
     texto16 = ('\nVocê atravessa o portal do Andar 3 e se encontra em uma cúpula colossal. As paredes circulares são revestidas por inúmeros cristais de dados, cada um pulsando com uma luz tênue em diferentes frequências, como batimentos digitais. O chão, liso e polido, reflete sua imagem como um espelho de mercúrio, distorcendo levemente a realidade. Não há sinal de inimigos, nem som que quebre o silêncio, exceto por um sutil zumbido de ruído branco. Contudo, uma sensação incômoda de que algo está fundamentalmente errado paira no ar. No centro da cúpula, uma estrutura imponente se ergue: uma esfinge negra, etérea e flutuante, sua forma absorvendo a pouca luz do ambiente.Uma mensagem espectral se materializa à sua frente: ')
     digitar(texto16)
@@ -343,12 +343,12 @@ def lore_3_andar(personagem):
     while True:
         print()
         opcao = inquirer.select(
-        message="O que deseja fazer?",
+        message="O que deseja fazer?\n",
         choices=[
             "🔍 Conferir status do personagem",
             "🧩 Enfrentar o Enigma, no qual sua capacidade de percepção determinará a dificuldade do desafio. Quanto mais aguçada sua percepção, mais claro será o caminho para a solução.",
             "⬆️ Seguir em frente e Desistir, abandonando o enigma sem tentar, perdendo a chance de obter uma recompensa única, mas avança para o próximo andar sem sofrer penalidades.",
-            "🎒Investigar Inventário"
+            "🎒 Investigar Inventário"
         ]
         ).execute()
         if opcao == "🔍 Conferir status do personagem":
@@ -362,7 +362,7 @@ def lore_3_andar(personagem):
         elif opcao == "⬆️ Seguir em frente e Desistir, abandonando o enigma sem tentar, perdendo a chance de obter uma recompensa única, mas avança para o próximo andar sem sofrer penalidades.":
             lore_4_andar(personagem)
 
-        elif opcao == "🎒Investigar Inventário":
+        elif opcao == "🎒 Investigar Inventário":
             limpar_tela()
             inventario.interface_inv(personagem)
             print()
@@ -386,7 +386,7 @@ def lore_1_enigma(personagem):
             while True:
                 print('[bold purple][italic]"Sempre sigo você, \nMas não tenho vida,\n Só apareço quando a luz me permite."[/italic][/bold purple]\n')
                 opcao = inquirer.select(
-                message="Qual a sua resposta?",
+                message="Qual a sua resposta?\n",
                 choices=[
                     "Um animal domesticado 🐕",
                     "Sua sombra 🌑",
@@ -418,7 +418,7 @@ def lore_1_enigma(personagem):
             while True:
                 print('[bold purple][italic]"Não sou vivo, mas cresço, \nNão tenho pulmões, mas respiro,\n Não tenho boca, mas devoro tudo."[/italic][/bold purple]\n')
                 opcao = inquirer.select(
-                message="Qual a sua resposta?",
+                message="Qual a sua resposta?\n",
                 choices=[
                     "Um animal domesticado 🐕",
                     "Sua sombra 🌑",
@@ -450,7 +450,7 @@ def lore_1_enigma(personagem):
             while True:
                 print('[bold purple][italic]"Não tenho forma, nem sombra que me prenda,\n Sou a força que molda e que desvenda, \nEm silêncio corro, sem deixar vestígio, \nTransformo o sólido em poeira, \nE ainda que eu jamais seja tocado, \nSem mim, nada se move, nada existe."[/italic][/bold purple]\n')
                 opcao = inquirer.select(
-                message="Qual a sua resposta?",
+                message="Qual a sua resposta?\n",
                 choices=[
                     "A essência do tempo ⏳",
                     "O sopro invisível do vento 🌬️",
@@ -499,11 +499,11 @@ def lore_4_andar(personagem):
     while True:
         print()
         opcao = inquirer.select(
-        message="O que deseja fazer?",
+        message="O que deseja fazer?\n",
         choices=[
             "🔍 Conferir status do personagem",
             "⚔️ Iniciar combate - Enfrentar os Três Ceifadores da Ilusão, onde sua perícia de blefar será crucial para desmascarar as ilusões e vencer as entidades.",
-            "🎒Investigar Inventário"
+            "🎒 Investigar Inventário"
         ]
         ).execute()
         if opcao == "🔍 Conferir status do personagem":
@@ -517,7 +517,7 @@ def lore_4_andar(personagem):
             lore_pos_4andar(personagem)
             break
 
-        elif opcao == "🎒Investigar Inventário":
+        elif opcao == "🎒 Investigar Inventário":
             limpar_tela()
             inventario.interface_inv(personagem)
             print()
@@ -533,7 +533,7 @@ def lore_recompensa003(personagem):
         while True:
             print()
             opcao = inquirer.select(
-            message="Qual destes 3 itens você deseja levar consigo?",
+            message="Qual destes 3 itens você deseja levar consigo?\n",
             choices=[
                 "🏹 Arco Longo Élfico: Um arco elegante feito de madeira de altíssima qualidade, imbuído com encantamentos que melhoram a precisão da flechada. (+2 mira)",
                 "⚔️ Espada fio da lua: Espada forjada sob a lua cheia de Ilirien com corte preciso e detalhes em prata.(+2 mano a mano)",
@@ -561,7 +561,7 @@ def lore_recompensa003(personagem):
         while True:
             print()
             opcao = inquirer.select(
-            message="Qual destes 3 itens você deseja levar consigo?",
+            message="Qual destes 3 itens você deseja levar consigo?\n",
             choices=[
                 "🏹 X-besta: Ferramenta humana criada para competir com os arcos encantados dos elfos. (+2 mira)",
                 "🩴 Sandálias de Hermes: Sandálias que dizem ser do próprio deus grego, mas na verdade é apenas uma sandália boa para se movimentar. (+2 acrobacia)",
@@ -589,7 +589,7 @@ def lore_recompensa003(personagem):
         while True:
             print()
             opcao = inquirer.select(
-            message="Qual destes 3 itens você deseja levar consigo?",
+            message="Qual destes 3 itens você deseja levar consigo?\n",
             choices=[
                 "🗡️ Lança de caça: Uma lança feita pelos draconianos para arremessar. (+1 mira)",
                 "🧿 Talismã da Fúria: Um talismã que deixa o personagem extremamente suscetível a raiva. Aumenta a força mas diminui a razão. (+1 mano a mano), (+1 resistência), (-2 percepção)",
@@ -652,12 +652,12 @@ def lore_5_andar(personagem):
     while True:
         print()
         opcao = inquirer.select(
-        message="⚠️Você não tem escolha a não ser o combate\n",
+        message="⚠️  Você não tem escolha a não ser o combate\n",
         choices=[
-            "⚔️ Iniciar combate com Kairon, o Guardião do Abismo — Enfrentar a entidade que controla o Abismo de Kairon, onde sua força e resistência serão testadas em um terreno instável e traiçoeiro."   
+            "⚔️  Iniciar combate com Kairon, o Guardião do Abismo — Enfrentar a entidade que controla o Abismo de Kairon, onde sua força e resistência serão testadas em um terreno instável e traiçoeiro."   
         ]
         ).execute()
-        if opcao == "⚔️ Iniciar combate com Kairon, o Guardião do Abismo — Enfrentar a entidade que controla o Abismo de Kairon, onde sua força e resistência serão testadas em um terreno instável e traiçoeiro.":
+        if opcao == "⚔️  Iniciar combate com Kairon, o Guardião do Abismo — Enfrentar a entidade que controla o Abismo de Kairon, onde sua força e resistência serão testadas em um terreno instável e traiçoeiro.":
             limpar_tela()
             #❗❗❗❗❗❗❗FALTA O COMBATE
             #checkpoint
