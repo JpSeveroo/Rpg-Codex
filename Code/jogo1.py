@@ -5,8 +5,8 @@ import os
 from rich import print
 from item import lista_itens
 import inventario
+from utills import digitar, limpar_tela, tempo_digitar
 from InquirerPy import inquirer
-from utills import digitar, tempo_digitar, limpar_tela
 from combate import combate
 import inimigos
 
@@ -52,7 +52,7 @@ def lore_introducao(personagem):
             print()
 
 def lore_1_andar(personagem):
-    os.system('cls' if os.name == 'nt' else 'clear')
+    limpar_tela()
     if personagem.checkpoint >= 1:
         tempo_digitar(0)
     print()
@@ -78,9 +78,10 @@ def lore_1_andar(personagem):
 
         elif opcao == "⚔️ Iniciar o Combate - Enfrentar as Gárgulas de Dados com as habilidades que possui, aprendendo a dominar o sistema de turnos e a usar sua força para progredir.":
             limpar_tela()
-            #❗❗❗❗❗❗❗FALTA O COMBATE
-            lore_recompensa001(personagem)
-            lore_pos_1andar(personagem)
+            vencedor = combate(personagem, inimigos.lista_inimigos[0])
+            if vencedor == personagem:
+                lore_recompensa001(personagem)
+                lore_pos_1andar(personagem)
             break
 
         elif opcao == "🎒 Investigar Inventário":
@@ -193,7 +194,8 @@ def lore_recompensa001(personagem):
 
 def lore_pos_1andar(personagem):
     limpar_tela()
-
+    if personagem.checkpoint >= 1:
+        tempo_digitar(0)
     texto7 = ('\nCom o último golpe, a última Gárgula de Dados desmorona numa cascata de fragmentos de código, dissipando-se no ar frio do Labirinto. O silêncio retorna, pesado e cheio de expectativa. Sua ficha digital pulsa com uma luz verde, sinalizando o progresso — um novo degrau conquistado na escalada rumo ao último andar. Uma mensagem aparece diante de seus olhos:')
     digitar(texto7)
 
@@ -229,7 +231,8 @@ def lore_pos_1andar(personagem):
     
 def lore_2_andar(personagem):
     limpar_tela()
-
+    if personagem.checkpoint >= 2:
+        tempo_digitar(0)
     texto10 = ('\nAo cruzar o limiar do primeiro andar, a estrutura muda. A luz branca e fria cede espaço a um ambiente opaco, repleto de tons azul-escuros e verdes foscos. O chão agora parece instável — como vidro rachado — refletindo sua imagem distorcida a cada passo. Fragmentos de memória flutuam ao seu redor como pedaços de dados corrompidos: rostos sem nome, vozes sem origem, sentimentos desconectados. Este é o Mar de Fragmentos — um andar onde os resíduos de antigas consciências e dados quebrados se acumulam, gerando distorções no espaço e criando ameaças imprevisíveis. Você caminha entre os escombros flutuantes quando uma nova mensagem se sobrepõe à sua visão:')
     digitar(texto10)
 
@@ -262,10 +265,11 @@ def lore_2_andar(personagem):
 
         elif opcao == "⚔️ Enfrentar o Anomalian — Confrontar a distorção com foco e resistência, dominando o combate contra uma entidade instável.":
             limpar_tela()
-            #❗❗❗❗❗❗❗FALTA O COMBATE
-            lore_recompensa002(personagem)
-            lore_pos_2andar(personagem)
-            print()
+            vencedor = combate(personagem, inimigos.lista_inimigos[1])
+            if vencedor == personagem:
+                lore_recompensa002(personagem)
+                lore_pos_2andar(personagem)
+                print()
 
         elif opcao == "⚡ Tentar Estabilizar o ambiente — Usar parte da sua energia para reconfigurar o campo ao seu redor, reduzindo a agressividade do inimigo. [Pontos de diplomacia necessários: 12]" and personagem.pericias['diplomacia'] >= 12:
             #vantagem para o personagem
@@ -292,6 +296,8 @@ def lore_recompensa002(personagem):
 
 def lore_pos_2andar(personagem):
     limpar_tela()
+    if personagem.checkpoint >= 2:
+        tempo_digitar(0)
     texto13 = ('\nO corpo disforme do Anomalian se retorce uma última vez antes de desintegrar em uma explosão silenciosa de luz azulada e linhas quebradas. Os fragmentos de memória que flutuavam ao redor cessam seu giro caótico e, por um breve instante, o Mar de Fragmentos parece calmo. As distorções cessam. A corrupção regride. Você respira — ou simula respirar. A sensação de alívio é estranhamente real. Uma nova linha de código começa a se desenhar no chão à sua frente, como uma serpente de luz, guiando-o até um anel flutuante de dados, que pulsa lentamente.')
     digitar(texto13)
 
@@ -331,6 +337,9 @@ def lore_pos_2andar(personagem):
 
 def lore_3_andar(personagem):
     limpar_tela()
+    if personagem.checkpoint >= 3:
+        tempo_digitar(0)
+    personagem.checkpoint +=1
     
     texto16 = ('\nVocê atravessa o portal do Andar 3 e se encontra em uma cúpula colossal. As paredes circulares são revestidas por inúmeros cristais de dados, cada um pulsando com uma luz tênue em diferentes frequências, como batimentos digitais. O chão, liso e polido, reflete sua imagem como um espelho de mercúrio, distorcendo levemente a realidade. Não há sinal de inimigos, nem som que quebre o silêncio, exceto por um sutil zumbido de ruído branco. Contudo, uma sensação incômoda de que algo está fundamentalmente errado paira no ar. No centro da cúpula, uma estrutura imponente se ergue: uma esfinge negra, etérea e flutuante, sua forma absorvendo a pouca luz do ambiente.Uma mensagem espectral se materializa à sua frente: ')
     digitar(texto16)
@@ -502,7 +511,9 @@ def morte_esfinge(personagem):
 
 def lore_4_andar(personagem):
     limpar_tela()
-
+    if personagem.checkpoint >= 4:
+        tempo_digitar(0)
+    personagem.checkpoint+=1
     texto25 = ('Você atravessa o portal e adentra uma vasta câmara mergulhada em sombras oscilantes, onde a luz parece hesitar antes de preencher o espaço. As paredes se distorcem como se fossem feitas de líquido escuro e espelhado, refletindo imagens fragmentadas de você mesmo — rostos que sorriem, que choram, que gritam, mas que não são você. O ar pulsa com um murmúrio baixo, um coro de vozes apagadas e risadas abafadas, ecos perdidos de consciências presas que se contorcem tentando manipular a realidade ao redor. No centro da sala, três figuras espectrais surgem como sombras vivas, seus rostos mudando e se rearranjando numa dança inquietante de feições falsas e distorcidas. São os Três ceifadores da Ilusão — entidades que personificam suas dúvidas, medos e inseguranças, prontas para testar a sua mente e espírito. O silêncio é cortado por um sussurro sintético, reverberando em sua mente:')
     digitar(texto25)
 
@@ -522,12 +533,12 @@ def lore_4_andar(personagem):
             limpar_tela()
             personagem.mostrar_status()
             input("\nPressione ENTER para voltar...")
-
         elif opcao == "⚔️ Iniciar combate - Enfrentar os Três Ceifadores da Ilusão, onde sua perícia de blefar será crucial para desmascarar as ilusões e vencer as entidades.":
-            #COMBATEEEEEEEE
-            lore_recompensa003(personagem)
-            lore_pos_4andar(personagem)
-            break
+            vencedor = combate(personagem, inimigos.lista_inimigos[2])
+            if vencedor == personagem:
+                lore_recompensa003(personagem)
+                lore_pos_4andar(personagem)
+                break
 
         elif opcao == "🎒 Investigar Inventário":
             limpar_tela()
@@ -635,7 +646,8 @@ def lore_recompensa003(personagem):
 
 def lore_pos_4andar(personagem):
     limpar_tela()
-
+    if personagem.checkpoint >= 4:
+        tempo_digitar(0)
     texto27 = ('\nAs últimas sombras dos Três Juízes da Ilusão se desfazem em fragmentos cintilantes de luz distorcida, evaporando-se no ar pesado da câmara. O silêncio que se instala é profundo, quase palpável, como se o próprio tempo respirasse de forma suspensa. Sua respiração — ou o que a simula — parece o único som que permanece, um ritmo débil em meio ao vazio. O chão, antes espelhado e instável, começa a mudar lentamente. Os reflexos se apagam e, em seu lugar, surge um mosaico complexo de códigos fluindo, luzes pulsando e circuitos vibrando com uma energia ancestral. Cada fragmento conta uma história — pedaços de dados, memórias e realidades codificadas que se entrelaçam numa dança eterna. À sua frente, uma enorme porta translúcida se materializa, feita de vidro etéreo e linhas de código trançadas como veias de energia pura. Ela pulsa com uma luz vermelha profunda, quase viva, e em sua superfície, uma silhueta começa a emergir — uma forma colossal, uma fusão de carne, circuitos e magia. Uma voz ecoa no salão, reverberando dentro de sua mente como um trovão distante, fria e cheia de autoridade:')
     digitar(texto27)
 
@@ -651,7 +663,8 @@ def lore_pos_4andar(personagem):
 
 def lore_5_andar(personagem):
     limpar_tela()
-
+    if personagem.checkpoint >= 5:
+        tempo_digitar(0)
     texto29 = ('Você adentra o quinto andar do Labirinto Etherion, conhecido como o Abismo de Kairon — uma vastidão desolada onde a realidade se funde ao código em um cenário traiçoeiro e instável. O chão sob seus pés é uma malha vibrante de fragmentos digitais que se entrelaçam e se desfazem sem aviso, formando plataformas suspensas sobre abismos infinitos, pontes feitas de linhas de código cintilante que podem desaparecer a qualquer momento e superfícies com distorções magnéticas que interferem na sua movimentação. O ar é denso e pesado, comprimido por forças invisíveis que sugam sua energia e testam sua resistência, enquanto feixes vermelhos e negros cortam o ambiente, e ecos distorcidos de dados corrompidos zumbem em sua mente, aumentando a tensão a cada passo.')
     digitar(texto29)
 
@@ -673,13 +686,22 @@ def lore_5_andar(personagem):
         ).execute()
         if opcao == "⚔️  Iniciar combate com Kairon, o Guardião do Abismo — Enfrentar a entidade que controla o Abismo de Kairon, onde sua força e resistência serão testadas em um terreno instável e traiçoeiro.":
             limpar_tela()
-            #❗❗❗❗❗❗❗FALTA O COMBATE
-            #checkpoint
+            vencedor = combate(personagem, inimigos.lista_inimigos[3])
+            if vencedor == personagem:
+                lore_recompensa002(personagem)
+                lore_pos_1andar(personagem)
+                break
+            else:
+                print('jogador morreu')
+            break
             lore_recompensa004(personagem)
             break
 
 def lore_recompensa004(personagem):
     limpar_tela()
+    if personagem.checkpoint >= 5:
+        tempo_digitar(0)
+    personagem.checkpoint+=1
     personagem.inventario[0].qtd = 5
     personagem.inventario[1].qtd = 5
 
