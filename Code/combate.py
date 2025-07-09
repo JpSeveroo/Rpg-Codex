@@ -243,11 +243,12 @@ def loop_principal(personagem, inimigo, mana_max):
             valor_acao = (a, a2, a3)
 
         elif a == 'Esquivar':
-            sucesso = esquivar(personagem, mana_max)
+            esquivar(personagem, mana_max)
+            continue
         
         elif a == 'Inventário':
             inv(personagem, mana_max)
-            break
+            continue
 
         else:
             valor_acao = a
