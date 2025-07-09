@@ -10,7 +10,6 @@ import InquirerPy
 import InquirerPy.inquirer
 import ficha
 import combate
-#import jogo
 import jogo1
 from time import sleep
 
@@ -103,10 +102,15 @@ class interface:
         interface.interface_usuário(user.username)
 
     def jogar():
-        os.system('clear')
+        os.system('cls' if os.name == 'nt' else 'clear')
         try:
             pers = [i.nick for i in personagens_usuario]
+            pers.append('Sair')
             b = InquirerPy.inquirer.select(message='Qual o personagem desejado', choices= pers).execute()
+            if b == 'Sair':
+                sleep(0.5)
+                interface.interface_usuário(user.username)
+                return
             c = pers.index(b)
             global personagem_escolhido
             personagem_escolhido = personagens[c]
@@ -150,7 +154,7 @@ class interface:
             sleep(0.5)
 
     def interface_usuário(user):
-        os.system('clear')
+        os.system('cls' if os.name == 'nt' else 'clear')
         print(f'Seja bem vindo {user}')
         print()
         opcoes = {
