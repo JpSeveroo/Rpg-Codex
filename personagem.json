@@ -118,5 +118,45 @@
         "andar_esfinge_completado": false,
         "andar_cupula_completado": false,
         "checkpoint": 0
+    },
+    {
+        "nick": "sadzin",
+        "raca": "humano",
+        "classe": "mago",
+        "xp": 0,
+        "nivel": 1,
+        "xp_para_proximo_nivel": 100,
+        "atributos": {
+            "for\u00e7a": 11,
+            "destreza": 5,
+            "constituicao": 9,
+            "carisma": 7,
+            "inteligencia": 13
+        },
+        "pericias": {
+            "acrobacia": 5,
+            "blefar": 7,
+            "mira": 5,
+            "diplomacia": 7,
+            "furtividade": 13,
+            "percepcao": 13,
+            "maos rapidas": 5,
+            "mano a mano": 11,
+            "resistencia": 11
+        },
+        "inventario": [],
+        "fraquezas": [],
+        "status": {
+            "hp": 145,
+            "mana": 100
+        },
+        "mana_max": 100,
+        "vida_atual": 145,
+        "equipamento": {
+            "maos": null
+        },
+        "andar_esfinge_completado": false,
+        "andar_cupula_completado": false,
+        "checkpoint": 0
     }
 ]

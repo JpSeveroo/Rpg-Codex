@@ -13,6 +13,11 @@ import inimigos
 
 def lore_introducao(personagem):
     print()
+    personagem.inventario.append(lista_itens[0])
+    personagem.inventario[0].qtd = 5
+    personagem.inventario.append(lista_itens[1])
+    personagem.inventario[1].qtd = 5
+
     texto1 = (' No silêncio absoluto de uma existência que não é mais carne nem alma, você desperta. Oque vê não é um mundo, mas um vasto espaço digital — uma planície infinita e vazia, onde o horizonte se dissolve em pixels azuis e violetas, iluminados por uma aurora elétrica que pulsa com o ritmo de um código ancestral. Acima, o céu é uma tela viva, uma tapeçaria de fragmentos de memória, dados e histórias esquecidas. O ar, ou o que resta dele, vibra comum zumbido constante, uma sinfonia mecânica e etérea, como o respirar sutil de uma inteligência que observa cada movimento. À distância, recortando o infinito, ergue-se o Labirinto de Etherion — uma torre monumental e impossivelmente alta, feita de açotranslúcido, luz pulsante e padrões de circuitos que se entrelaçam como raízes de umaárvore cibernética. Cada andar brilha com um espectro de cores e ecos de vozes perdidas,um convite e um aviso ao mesmo tempo. Uma mensagem fria e impessoal se materializa diante de você, uma sentença gravada notecido da realidade:\n')
     digitar(texto1)
 
@@ -106,10 +111,8 @@ def lore_recompensa001(personagem):
         tempo_digitar(0)
     personagem.checkpoint += 1
 
-    personagem.inventario.append(lista_itens[0])
-    personagem.inventario[0].qtd = 5
-    personagem.inventario.append(lista_itens[1])
-    personagem.inventario[1].qtd = 5#Alterar a quantidade com extend dps
+    personagem.inventario[0].qtd += 1
+    personagem.inventario[1].qtd += 1
     personagem.inventario.append(lista_itens[24])
 
     if personagem.raca == 'elfo':
