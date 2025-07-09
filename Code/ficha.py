@@ -47,6 +47,7 @@ class Personagem:
 }
         self.andar_esfinge_completado = False
         self.andar_cupula_completado = False
+        self.checkpoint = 0
 
     def criar_ficha(self):
         print()
@@ -54,7 +55,7 @@ class Personagem:
         print("\n⚠️  AVISO: Você poderá revisar e alterar as informações da ficha antes da criação final.")
         print("✅ Siga os passos normalmente. No final, será perguntado se deseja confirmar ou refazer a ficha.\n")
 
-        self.nick = input('Nome: ').strip().capitalize()
+        self.nick = input('Nome: ').strip()
 
         sleep(1)
         print('='*85)

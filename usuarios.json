@@ -3,46 +3,17 @@
         "_username": "Deco",
         "_password": "827ccb0eea8a706c4c34a16891f84e7b",
         "personagens": [
-            "5d44d60379779d3cd66380eb45f5af27",
-            "07cd109ac902429f267f8279f2a0041c"
+            "5d44d60379779d3cd66380eb45f5af27"
         ]
-    },
-    {
-        "_username": "Mateus",
-        "_password": "827ccb0eea8a706c4c34a16891f84e7b",
-        "personagens": [
-            "87deaac219990ce3a3a6cc691746ebe6"
-        ]
-    },
-    {
-        "_username": "Felipe Cadena",
-        "_password": "3d3aed687aad51229a9af212e8789b91",
-        "personagens": [
-            "607d3eff0d54441baf396a8d4ebd7b0a"
-        ]
-    },
-    {
-        "_username": "jp",
-        "_password": "8685a1dc967d5d49ee2a6407169dac35",
-        "personagens": []
     },
     {
         "_username": "Maria",
         "_password": "dd8fcb2c31ee2c6ebbc63f8cf22e7c16",
         "personagens": [
-            "a6567816e007283cf9781c35b95dd56f"
-        ]
-    },
-    {
-        "_username": "Deco1",
-        "_password": "827ccb0eea8a706c4c34a16891f84e7b",
-        "personagens": []
-    },
-    {
-        "_username": "Junin_do_Grau",
-        "_password": "dd7cc12f3c2ce05ee5f67d834f3cdb1f",
-        "personagens": [
-            "36e331d8da012bf9f51023594a6f4022"
+            "8e6f6f815b50f474cf0dc22d4f400725",
+            "5d44d60379779d3cd66380eb45f5af27",
+            "26cf11725691fdee58e34ab7e95d96ee",
+            "07cd109ac902429f267f8279f2a0041c"
         ]
     }
 ]

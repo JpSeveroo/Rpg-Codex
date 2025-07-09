@@ -10,12 +10,14 @@ import inimigos
 """=== FUNÇÕES UTILITARIAS ==="""
 
 
-item.load_itens()
 pocao_cura = item.lista_itens[0]
 pocao_mana = item.lista_itens[1]
 
 def get_nome(personagem):
-    return getattr(personagem, 'nick', getattr(personagem, 'nome', 'Desconhecido'))
+    if type(personagem) == ficha.Personagem:
+        return personagem.nick
+    elif type(personagem) == inimigos.Inimigo:
+        return personagem.nome
 
 def rolar_dado():
     dado = random.randint(1, 6)
@@ -65,8 +67,8 @@ def _executar_ataque(atacante, defensor, pericia_principal, custo_mana, bonus_ex
         defensor.vida_atual = 0
 
     tipo_de_ataque = 'um ataque especial' if pericia_secundaria else 'ataca'
-    utills.digitar(f'\n⚔️  {atacante.nick} {tipo_de_ataque} em {defensor.nick}! causando {dano} de dano!')
-    utills.digitar(f'❤️  {defensor.nick} agora tem {defensor.vida_atual} HP.')
+    utills.digitar(f'\n⚔️  {get_nome(atacante)} {tipo_de_ataque} em {get_nome(defensor)}! causando {dano} de dano!')
+    utills.digitar(f'❤️  {get_nome(defensor)} agora tem {defensor.vida_atual} HP.')
     time.sleep(2)
     return True
 
@@ -325,8 +327,6 @@ def adv_IA(inimigo, jogador):
 if __name__ == '__main__':
     from ficha import Personagem
 
-    inimigos.load_enemys()
-
     pocao_cura.qtd = 2
     pocao_mana.qtd = 2
 
@@ -349,10 +349,10 @@ if __name__ == '__main__':
     p1.inventario.append(item.lista_itens[4])
     p1.is_player = True
 
-    inimigo = inimigos.lista_inimigos[0]
+    inimigo = inimigos.lista_inimigos[2]
 
     vencedor = combate(p1, inimigo)
-
+    
     if vencedor == p1:
         xp_ganho = 100
         p1.xp += xp_ganho
