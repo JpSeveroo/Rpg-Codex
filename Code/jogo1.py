@@ -6,6 +6,8 @@ from rich import print
 from item import lista_itens
 import inventario
 from utills import digitar, tempo_digitar
+from combate import combate
+import inimigos
 
 def lore_introducao(personagem):
     print()
@@ -61,11 +63,13 @@ def lore_1_andar(personagem):
             if esc_1 not in ("1", "2"):
                 raise ValueError("❗ Opção inválida.")
             if esc_1 == "1":
-                #❗❗❗❗❗❗❗FALTA O COMBATE
-                lore_recompensa001(personagem)
-                lore_pos_1andar(personagem)
-                break
-
+                vencedor = combate(personagem, inimigos.lista_inimigos[0])
+                if vencedor == personagem:
+                    lore_recompensa001(personagem)
+                    lore_pos_1andar(personagem)
+                    break
+                else:
+                    print('jogador morreu')
             elif esc_1 == "2":
                 inventario.interface_inv(personagem)
                 lore_1_andar(personagem)
@@ -239,7 +243,13 @@ def lore_2_andar(personagem):
             if esc_3 not in ("1", "2"):
                 raise ValueError("❗ Opção inválida.")
             if esc_3 == "1":
-                #❗❗❗❗❗❗❗FALTA O COMBATE
+                vencedor = combate(personagem, inimigos.lista_inimigos[1])
+                if vencedor == personagem:
+                    lore_recompensa002(personagem)
+                    lore_pos_1andar(personagem)
+                    break
+                else:
+                    print('jogador morreu')
                 lore_recompensa002(personagem)
                 lore_pos_2andar(personagem)
                 print()
@@ -504,7 +514,13 @@ def lore_4_andar(personagem):
             if esc_2 not in ("1", "2", "3"):
                 raise ValueError("❗ Opção inválida.")
             if esc_2 == "1":
-                #COMBATEEEEEEEE
+                vencedor = combate(personagem, inimigos.lista_inimigos[2])
+                if vencedor == personagem:
+                    lore_recompensa003(personagem)
+                    lore_pos_1andar(personagem)
+                    break
+                else:
+                    print('jogador morreu')
                 lore_recompensa003(personagem)
                 lore_pos_4andar(personagem)
                 break
@@ -660,8 +676,13 @@ def lore_5_andar(personagem):
             if esc_2 not in ("1"):
                 raise ValueError("❗ Opção inválida.")
             if esc_2 == "1":
-                #COMBATEEEEEEEE
-                #Checkpoint
+                vencedor = combate(personagem, inimigos.lista_inimigos[3])
+                if vencedor == personagem:
+                    lore_recompensa002(personagem)
+                    lore_pos_1andar(personagem)
+                    break
+                else:
+                    print('jogador morreu')
                 break
         except ValueError as e:
             print(f"{e} Tente novamente.")

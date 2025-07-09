@@ -27,7 +27,7 @@ def load_infos(path):
         except json.JSONDecodeError:
             print('Não foi possivel ler o arquivo')
 
-delay_digitar = 0.05
+delay_digitar = 0
 
 def digitar(texto):
     for caractere in str(texto):
