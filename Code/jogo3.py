@@ -35,6 +35,8 @@ def lore_11_andar(personagem):
                 raise ValueError("❗ Opção inválida.")
             if esc_1 == "1":
                 #COMBATEEE
+                lore_recompensa001(personagem)
+                lore_pos_11andar(personagem)
                 break
             elif esc_1 == "2":
                 if #PEGAR OS FRAGMENTOS ANTERIORES E VER SE O USUARIO TEM NO INVENTARIO
@@ -49,8 +51,8 @@ def lore_11_andar(personagem):
 
 def lore_recompensa001(personagem):
     os.system('cls' if os.name == 'nt' else 'clear')
-    personagem.inventario[0].qtd = 3
-    personagem.inventario[1].qtd = 3
+    personagem.inventario[0].qtd += 3
+    personagem.inventario[1].qtd += 3
     personagem.inventario.append(lista_itens[79])
 
     item_escolhido001 = ''
@@ -159,5 +161,120 @@ def lore_pos_11andar(personagem):
 
     print('\n[bold purple][Sistema] Fragmento memorial restaurado. Você foi lembrado pelas vozes que salvou.[bold purple]\n')
 
-    texto7 = ('')
+    texto7 = ('Você sente como se algo antigo e obscuro tivesse sido deixado para trás. Mas o caminho continua.')
+    jogo1.digitar(texto7)
+
+    while True:
+        texto8 = '\n1. Avançar para o próximo andar.\n2.  Conferir atributos \n3. Investigar inventário'
+        jogo1.digitar(texto8)
+
+        try:
+            time.sleep(1)
+            esc_2 = input("\nEscolha uma opção: ").strip()
+            if esc_2 not in ("1","2","3"):
+                raise ValueError("❗ Opção inválida.")
+            if esc_2 == "1":
+                lore_12_andar(personagem)
+                break
+            elif esc_2 == "2":
+                #Conferir atributos
+                print()
+
+            elif esc_2 == "3":
+                inventario.interface_inv(personagem)
+        except ValueError as e:
+            print(f"{e} Tente novamente.")
+
+def lore_12_andar(personagem):
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+    texto9 = ('O chão desaparece sob seus pés, e você sente seu corpo — ou o que restou dele — ser puxado para baixo, girado, lançado... até finalmente ser arremessado em um novo ambiente. Você desperta de pé, ou quase, em uma plataforma circular girando lentamente no vazio. Acima, abaixo e ao redor de você, colossais engrenagens vivas se movem em um balé mecânico e preciso. Trilhos flutuantes deslizam no ar, pontes se retraem e reaparecem, correntes se esticam em ângulos impossíveis. A torre agora é um relógio, e você está dentro dele. O som não é mais digital — é físico: estalos de ferro, o rugido distante de vapor escapando, e o baque ritmado de algo — ou alguém — se aproximando. Uma luz vermelha pulsa no fundo das engrenagens. ')
+    jogo1.digitar(texto9)
+    
+    print('\n[bold purple][Sistema]Andar 12 — Núcleo da Inércia detectado.][/bold purple]')
+    print('[bold purple][Sistema]Habilidade: Senso do dominador ativada: Status do usuário bloqueado temporariamente.[/bold purple]')
+    print('[bold purple][Sistema]Terreno instável. Gravidade variável. Risco de esmagamento crítico.[/bold purple]\n')
+
+    texto10 = ('E então você os vê. Emergindo das laterais dos trilhos, deslizando como carruagens vivas sobre cabos de cobre, surgem os 3 Guardiões de Pulso. Eles têm forma humanoide, mas são frios e assimétricos — criaturas construídas com cobre, vidro rúnico e engrenagens pulsantes. No lugar de olhos, um único visor circular, onde um ponteiro gira freneticamente, marcando o tempo entre seus ataques. Cada movimento deles causa reverberações no solo, como se fossem extensões conscientes da própria torre. Eles não falam. Não precisam. O som metálico de seus braços girando — cada um terminando em lâminas de força rotacional — é a única advertência. Eles não querem te testar. Eles querem te arrancar deste lugar como se você fosse uma peça fora do eixo.')
+    jogo1.digitar(texto10)
+
+    while True:
+        texto4 = '\n1. Iniciar combate direto.'
+        jogo1.digitar(texto4)
+
+        try:
+            time.sleep(1)
+            esc_3 = input("\nEscolha uma opção: ").strip()
+            if esc_3 not in ("1"):
+                raise ValueError("❗ Opção inválida.")
+            if esc_3 == "1":
+                #COMBATEEE
+                lore_recompensa002(personagem)
+                lore_pos_12andar(personagem)
+                break
+        except ValueError as e:
+            print(f"{e} Tente novamente.")
+
+def lore_recompensa002(personagem):
+    os.system('cls' if os.name == 'nt' else 'clear')
+    personagem.inventario[0].qtd += 3
+    personagem.inventario[1].qtd += 3
+
+    chance = random.random()
+    if chance < 0.4:
+        personagem.inventario.append(lista_itens[79])
+        print(f'[bold purple][Sistema] 🪙   RECOMPENSAS: \nXp: [480] \nPoção de cura [1]\nPoção de mana [1]\nItem: 📜 Fragmento de Lore — "Compasso da Máquina: Registro dos Guardiões de Pulso"[/bold purple]')
+        text_inf = ('\nPressione ENTER para prosseguir...')
+        jogo1.digitar(text_inf)
+        a = input('')
+    else:
+        print(f"[bold purple][Sistema] 🪙   RECOMPENSAS: \nXp: [480] \nPoção de cura [1]\nPoção de mana [1][/bold purple]")
+        text_inf = ('\nPressione ENTER para prosseguir...')
+        jogo1.digitar(text_inf)
+        a = input('')
+
+def lore_pos_12andar(personagem):
+    texto11 = ('Com um estrondo final, o último Guardião de Pulso colapsa sobre si mesmo. Suas engrenagens se partem em ângulos impossíveis, como se o tempo interno que o guiava tivesse finalmente parado. As luzes vermelhas de seus visores se apagam... uma por uma. Mas a torre não silencia. Ao contrário, agora ela desacelera. As engrenagens colossais que giravam ao seu redor começam a parar, como um coração mecânico que enfim se rendeu à exaustão. Trilhos estagnam no ar, plataformas param de girar, e a gravidade — pela primeira vez neste andar — estabiliza-se. Você respira, mesmo que o ar seja só um código simulando oxigênio.')
+    jogo1.digitar(texto11)
+
+    print('\n[bold purple][Sistema]Unidade sobrevivente. Ritmo da inércia neutralizado.][/bold purple]')
+    print('[bold purple][Sistema]Integração espacial do jogador reforçada. Resistência corporal aumentada temporariamente.[/bold purple]')
+    print('[bold purple][Sistema]Status desbloqueado.[/bold purple]\n')
+
+    texto12 = ('No centro da arena, onde antes uma engrenagem girava sem fim, surge uma luz vertical azul. Um feixe que escaneia seu corpo inteiro antes de projetar uma nova plataforma de elevação. No chão, um pequeno fragmento em forma de ponteiro de relógio permanece. Ao tocá-lo, você escuta uma frase repetida como uma falha no tempo')
+    jogo1.digitar(texto12)
+
+    print('\n[bold blue][italic]“Aqueles que param o movimento... veem além do instante.”[/italic][/bold blue]')
+    print('[bold blue][italic]"Você foi mais rápido do que o tempo."[/italic][/bold blue]')
+    print('[bold blue]"Mais forte que a força."[italic][/italic][/bold blue]')
+    print('[bold blue][italic]"E mais equilibrado que o próprio espaço."[/italic][/bold blue]')
+    print('[bold blue][italic]"Mas Etherion não para"[/italic][/bold blue]')
+    print('[bold blue][italic]"Ela apenas te dá tempo o suficiente... para respirar antes do próximo colapso."[/italic][/bold blue]')
+
+    while True:
+        texto4 = '\n1. Avançar para o próximo andar.\n2. Investigar 12° andar \n3. Investigar inventário\n4. Conferir Atributos'
+        jogo1.digitar(texto4)
+
+        try:
+            time.sleep(1)
+            esc_1 = input("\nEscolha uma opção: ").strip()
+            if esc_1 not in ("1","2","3","4"):
+                raise ValueError("❗ Opção inválida.")
+            if esc_1 == "1":
+                lore_13_andar(personagem)
+                break
+            elif esc_1 == "2":
+                chance = random.random()
+                if chance < 0.4:
+                    personagem.inventario.append(lista_itens[79])
+
+            elif esc_1 == "3":
+                inventario.interface_inv(personagem)
+            elif esc_1 == "4":
+                #ATRIBUTOSSSS
+                print()
+        except ValueError as e:
+            print(f"{e} Tente novamente.")
+
+
 
