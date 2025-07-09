@@ -30,8 +30,49 @@
             "hp": 135,
             "mana": 50
         },
+        "mana_max": 50,
         "vida_atual": 135,
         "equipamento": [],
+        "andar_esfinge_completado": false,
+        "andar_cupula_completado": false,
+        "checkpoint": 0
+    },
+    {
+        "nick": "Korg",
+        "raca": "humano",
+        "classe": "guerreiro",
+        "xp": 0,
+        "nivel": 1,
+        "xp_para_proximo_nivel": 100,
+        "atributos": {
+            "for\u00e7a": 15,
+            "destreza": 9,
+            "constituicao": 7,
+            "carisma": 7,
+            "inteligencia": 7
+        },
+        "pericias": {
+            "acrobacia": 9,
+            "blefar": 7,
+            "mira": 9,
+            "diplomacia": 7,
+            "furtividade": 7,
+            "percepcao": 7,
+            "maos rapidas": 9,
+            "mano a mano": 15,
+            "resistencia": 15
+        },
+        "inventario": [],
+        "fraquezas": [],
+        "status": {
+            "hp": 135,
+            "mana": 50
+        },
+        "mana_max": 50,
+        "vida_atual": 135,
+        "equipamento": {
+            "maos": null
+        },
         "andar_esfinge_completado": false,
         "andar_cupula_completado": false,
         "checkpoint": 0

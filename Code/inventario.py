@@ -160,7 +160,7 @@ def display(fonte):
     for item in fonte.split('.'):
         texto.append(item)
     console.print(texto)
-    input('Pressione enter para continuar')
+    input('Pressione enter para continuar...')
 
 def equipando(personagem, item, parte):
     for i in item.efeitos:
