@@ -1,15 +1,9 @@
-#Atribuir os personagens criados aos respectivos usuários
-#Fazer com que seja possivel visualizar apenas os personagens criados pelos usuários
-#Alteração de usuário no login
-#Não permitir nomes iguais em personagens
-
 import utills
 import users
 import os
 import InquirerPy
 import InquirerPy.inquirer
 import ficha
-import combate
 import jogo1
 from time import sleep
 
