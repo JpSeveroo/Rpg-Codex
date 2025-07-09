@@ -1,41 +1,5 @@
 [
     {
-        "nick": "Teste",
-        "raca": "humano",
-        "classe": "guerreiro",
-        "xp": 0,
-        "nivel": 1,
-        "xp_para_proximo_nivel": 100,
-        "atributos": {
-            "for\u00e7a": 15,
-            "destreza": 9,
-            "constituicao": 7,
-            "carisma": 7,
-            "inteligencia": 7
-        },
-        "pericias": {
-            "acrobacia": 9,
-            "blefar": 7,
-            "mira": 9,
-            "diplomacia": 7,
-            "furtividade": 7,
-            "percepcao": 7,
-            "maos rapidas": 9,
-            "mano a mano": 15,
-            "resistencia": 15
-        },
-        "inventario": [],
-        "fraquezas": [],
-        "status": {
-            "hp": 135,
-            "mana": 50
-        },
-        "vida_atual": 135,
-        "equipamento": [],
-        "andar_esfinge_completado": false,
-        "andar_cupula_completado": false
-    },
-    {
         "nick": "Teste1",
         "raca": "humano",
         "classe": "guerreiro",
@@ -66,81 +30,51 @@
             "hp": 135,
             "mana": 50
         },
+        "mana_max": 50,
         "vida_atual": 135,
         "equipamento": [],
         "andar_esfinge_completado": false,
-        "andar_cupula_completado": false
+        "andar_cupula_completado": false,
+        "checkpoint": 0
     },
     {
-        "nick": "Teste3",
+        "nick": "",
         "raca": "humano",
         "classe": "guerreiro",
         "xp": 0,
         "nivel": 1,
         "xp_para_proximo_nivel": 100,
         "atributos": {
-            "for\u00e7a": 15,
-            "destreza": 9,
-            "constituicao": 7,
-            "carisma": 7,
-            "inteligencia": 7
+            "for\u00e7a": 39,
+            "destreza": 3,
+            "constituicao": 1,
+            "carisma": 1,
+            "inteligencia": 1
         },
         "pericias": {
-            "acrobacia": 9,
-            "blefar": 7,
-            "mira": 9,
-            "diplomacia": 7,
-            "furtividade": 7,
-            "percepcao": 7,
-            "maos rapidas": 9,
-            "mano a mano": 15,
-            "resistencia": 15
+            "acrobacia": 3,
+            "blefar": 1,
+            "mira": 3,
+            "diplomacia": 1,
+            "furtividade": 1,
+            "percepcao": 1,
+            "maos rapidas": 3,
+            "mano a mano": 39,
+            "resistencia": 39
         },
         "inventario": [],
         "fraquezas": [],
         "status": {
-            "hp": 135,
+            "hp": 105,
             "mana": 50
         },
-        "vida_atual": 135,
-        "equipamento": [],
+        "mana_max": 50,
+        "vida_atual": 105,
+        "equipamento": {
+            "maos": null
+        },
         "andar_esfinge_completado": false,
-        "andar_cupula_completado": false
-    },
-    {
-        "nick": "Teste2",
-        "raca": "humano",
-        "classe": "guerreiro",
-        "xp": 0,
-        "nivel": 1,
-        "xp_para_proximo_nivel": 100,
-        "atributos": {
-            "for\u00e7a": 15,
-            "destreza": 9,
-            "constituicao": 7,
-            "carisma": 7,
-            "inteligencia": 7
-        },
-        "pericias": {
-            "acrobacia": 9,
-            "blefar": 7,
-            "mira": 9,
-            "diplomacia": 7,
-            "furtividade": 7,
-            "percepcao": 7,
-            "maos rapidas": 9,
-            "mano a mano": 15,
-            "resistencia": 15
-        },
-        "inventario": [],
-        "fraquezas": [],
-        "status": {
-            "hp": 135,
-            "mana": 50
-        },
-        "vida_atual": 135,
-        "equipamento": [],
-        "andar_esfinge_completado": false,
-        "andar_cupula_completado": false
+        "andar_cupula_completado": false,
+        "checkpoint": 0
     }
 ]
