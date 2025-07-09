@@ -27,15 +27,18 @@ def load_infos(path):
         except json.JSONDecodeError:
             print('Não foi possivel ler o arquivo')
 
-def digitar(texto, delay=0.05):
-    for caractere in texto:
+delay_digitar = 0.05
+
+def digitar(texto):
+    for caractere in str(texto):
         sys.stdout.write(caractere)
         sys.stdout.flush()
-        time.sleep(delay)
+        time.sleep(delay_digitar)
     print()
 
-def tempo_digitar():
-    ...
+def tempo_digitar(novo_delay):
+    global delay_digitar
+    delay_digitar = novo_delay
 
 if __name__ == '__main__':
     a = load_infos('usuarios')

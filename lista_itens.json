@@ -4,7 +4,7 @@
         "efeitos": [
             [
                 "vida_atual",
-                25
+                50
             ]
         ],
         "descricao": "Restaura 25 pontos de HP",
