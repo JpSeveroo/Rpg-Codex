@@ -547,10 +547,6 @@ def lore_pos_8andar(personagem):
             print(f"{e} Tente novamente.")
 
 def lore_9_andar(personagem):
-    
+    return
 
 #FUI COMPRAR PÃO
-
-
-
-
