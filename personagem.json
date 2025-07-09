@@ -7,22 +7,22 @@
         "nivel": 1,
         "xp_para_proximo_nivel": 100,
         "atributos": {
-            "for\u00e7a": 20,
+            "for\u00e7a": 30,
             "destreza": 9,
             "constituicao": 7,
             "carisma": 7,
-            "inteligencia": 7
+            "inteligencia": 15
         },
         "pericias": {
             "acrobacia": 9,
             "blefar": 7,
             "mira": 9,
             "diplomacia": 7,
-            "furtividade": 7,
-            "percepcao": 7,
+            "furtividade": 15,
+            "percepcao": 15,
             "maos rapidas": 9,
-            "mano a mano": 20,
-            "resistencia": 20
+            "mano a mano": 30,
+            "resistencia": 30
         },
         "inventario": [],
         "fraquezas": [],
