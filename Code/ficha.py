@@ -208,45 +208,52 @@ class Personagem:
         }
     
     def evoluir_nivel(self):
-        self.nivel += 1
-        self.xp = 0 # reseta XP ao subir de nível
+        while self.nivel < max(self.tabela_xp.keys()) and self.xp >= self.tabela_xp[self.nivel]:
+            xp_necessario = self.tabela_xp[self.nivel]
+            self.xp -= xp_necessario
+            self.nivel += 1
+            self.xp_para_proximo_nivel = self.tabela_xp.get(self.nivel, float('inf'))
 
-        # usa a tabela de XP para definir a xp necessária para o próximo nível
-        self.xp_para_proximo_nivel = self.tabela_xp.get(self.nivel, float('inf'))
-        utills.digitar(f"\n🎉 Parabéns, {self.nick}! Você alcançou o Nível {self.nivel}!")
+            utills.digitar(f"\n🎉 Parabéns, {self.nick}! Você alcançou o Nível {self.nivel}!")
 
-        # distribui 5 pontos de atributos
-        pontos_disponiveis = 5
-        utills.digitar(f"Você tem {pontos_disponiveis} pontos para distribuir entre seus atributos.")
-        atributos_lista = list(self.atributos.keys())
+            pontos_disponiveis = 5
+            utills.digitar(f"Você tem {pontos_disponiveis} pontos para distribuir entre seus atributos.")
+            atributos = list(self.atributos.keys())
+
         while pontos_disponiveis > 0:
             utills.digitar("\n✨ Atributos disponíveis:")
-            for i, atributo_nome in enumerate(atributos_lista):
-                print(f"  {i+1}. {atributo_nome.capitalize()}: {self.atributos[atributo_nome]}")
-            try:
-                escolha_numero = int(input(f"Escolha o número do atributo para adicionar pontos (pontos restantes: {pontos_disponiveis}): "))
-                if 1 <= escolha_numero <= len(atributos_lista):
-                    escolha_atributo_nome = atributos_lista[escolha_numero - 1]
+            for i, nome in enumerate(atributos, 1):
+                print(f"  {i}. {nome.capitalize()}: {self.atributos[nome]}")
 
-                    while True:
-                        try:
-                            qtd_pontos = int(input(f"Quantos pontos você quer adicionar a {escolha_atributo_nome.capitalize()}? "))
-                            if 0 < qtd_pontos <= pontos_disponiveis:
-                                self.atributos[escolha_atributo_nome] += qtd_pontos
-                                pontos_disponiveis -= qtd_pontos
-                                utills.digitar(f"✅ {qtd_pontos} pontos adicionados a {escolha_atributo_nome.capitalize()}.")
-                                break
-                            else:
-                                utills.digitar(f"❌ Quantidade inválida. Você pode adicionar entre 1 e {pontos_disponiveis} pontos.")
-                        except ValueError:
-                            utills.digitar("❌ Digite um número válido.")
-                else:   
-                    utills.digitar("❌ Número inválido. Tente novamente.")
+            try:
+                escolha = int(input(f"Escolha o número do atributo (pontos restantes: {pontos_disponiveis}): "))
+                if not 1 <= escolha <= len(atributos):
+                    utills.digitar("❌ Escolha inválida.")
+                    continue
+
+                atributo = atributos[escolha - 1]
+
+                qtd = int(input(f"Quantos pontos deseja adicionar a {atributo.capitalize()}? "))
+                if not 1 <= qtd <= pontos_disponiveis:
+                    utills.digitar(f"❌ Você pode adicionar entre 1 e {pontos_disponiveis} pontos.")
+                    continue
+
+                self.atributos[atributo] += qtd
+                pontos_disponiveis -= qtd
+                utills.digitar(f"✅ {qtd} pontos adicionados a {atributo.capitalize()}.")
+
             except ValueError:
                 utills.digitar("❌ Digite um número válido.")
-        self.calcular_pericias()  # recalcula as perícias com os novos atributos   
+
+        self.calcular_pericias()
         utills.digitar("\n✨ Atributos atualizados com sucesso!")
-        sleep(3) 
+        sleep(3)
+
+        if self.nivel >= max(self.tabela_xp.keys()):
+            self.xp_para_proximo_nivel = float('inf')
+            utills.digitar(f"🏆 {self.nick} atingiu o nível máximo!")
+        else:
+            self.xp_para_proximo_nivel = self.tabela_xp.get(self.nivel, float('inf'))
 
     def mostrar_status(self):
         print(f"\n🧾 Status de {self.nick}")

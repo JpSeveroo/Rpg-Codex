@@ -7,7 +7,7 @@
         "nivel": 1,
         "xp_para_proximo_nivel": 100,
         "atributos": {
-            "for\u00e7a": 15,
+            "for\u00e7a": 20,
             "destreza": 9,
             "constituicao": 7,
             "carisma": 7,
@@ -21,14 +21,14 @@
             "furtividade": 7,
             "percepcao": 7,
             "maos rapidas": 9,
-            "mano a mano": 15,
-            "resistencia": 15
+            "mano a mano": 20,
+            "resistencia": 20
         },
         "inventario": [],
         "fraquezas": [],
         "status": {
             "hp": 135,
-            "mana": 50
+            "mana": 100
         },
         "mana_max": 100,
         "vida_atual": 135,
