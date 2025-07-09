@@ -14,14 +14,6 @@ pocao_cura = item.lista_itens[0]
 pocao_mana = item.lista_itens[1]
 
 
-
-def digitar(texto, delay=0.03):
-    for c in texto:
-        sys.stdout.write(c)
-        sys.stdout.flush()
-        time.sleep(delay)
-    print()
-
 def rolar_dado():
     dado = random.randint(1, 6)
     condicao = random.randint(1, 6)
@@ -42,26 +34,26 @@ def calc_dano(personagem, pericia_principal, bonus_extra=False): #FUNÇÃO OK
             dano += dano_base//2
         if critico:
             dano += dano_base//2
-            digitar(f"🎲 {personagem.nick} rola 1d6: {dado}; dano = {dano} 🎉 QUE SORTE, DEU CRÍTICO!")
+            utills.digitar(f"🎲 {personagem.nick} rola 1d6: {dado}; dano = {dano} 🎉 QUE SORTE, DEU CRÍTICO!")
         else:
-            digitar(f"🎲 {personagem.nick} rola 1d6: {dado}; dano = {dano}")
+            utills.digitar(f"🎲 {personagem.nick} rola 1d6: {dado}; dano = {dano}")
         return dano
 
 def _executar_ataque(atacante, defensor, pericia_principal, custo_mana, bonus_extra=False, pericia_secundaria=None):
 
     if atacante.status['mana'] < custo_mana:
-        digitar('⚠️ Mana insuficiente! Tente outra ação.')
+        utills.digitar('⚠️ Mana insuficiente! Tente outra ação.')
         time.sleep(1.5)
         return False
     
     atacante.status['mana'] -= custo_mana
 
     if pericia_secundaria:
-        digitar(f'⚔️ {atacante.nick} usou a perícia {pericia_secundaria} no ataque especial!')
+        utills.digitar(f'⚔️ {atacante.nick} usou a perícia {pericia_secundaria} no ataque especial!')
         if bonus_extra:
-             digitar(f'🎯 A perícia escolhida ({pericia_secundaria}) é eficaz contra {defensor.nome}!')
+             utills.digitar(f'🎯 A perícia escolhida ({pericia_secundaria}) é eficaz contra {defensor.nome}!')
         else:
-             digitar(f'💨 A perícia escolhida ({pericia_secundaria}) não teve efeito')
+             utills.digitar(f'💨 A perícia escolhida ({pericia_secundaria}) não teve efeito')
 
     dano = calc_dano(atacante, pericia_principal, bonus_extra)
 
@@ -70,8 +62,8 @@ def _executar_ataque(atacante, defensor, pericia_principal, custo_mana, bonus_ex
         defensor.vida_atual = 0
 
     tipo_de_ataque = 'um ataque especial' if pericia_secundaria else 'ataca'
-    digitar(f'\n⚔️  {atacante.nick} {tipo_de_ataque} em {defensor.nick}! causando {dano} de dano!')
-    digitar(f'❤️  {defensor.nick} agora tem {defensor.vida_atual} HP.')
+    utills.digitar(f'\n⚔️  {atacante.nick} {tipo_de_ataque} em {defensor.nick}! causando {dano} de dano!')
+    utills.digitar(f'❤️  {defensor.nick} agora tem {defensor.vida_atual} HP.')
     time.sleep(2)
     return True
 
@@ -92,7 +84,7 @@ def esquivar(personagem, mana_max):
     acrobacia = personagem.pericias.get('acrobacia', 0)
     dado = random.randint(1, 20)
     total = dado + acrobacia
-    digitar(f"🤸 {personagem.nick} tenta se esquivar! Rolagem: {dado} + Acrobacia ({acrobacia}) = {total}")
+    utills.digitar(f"🤸 {personagem.nick} tenta se esquivar! Rolagem: {dado} + Acrobacia ({acrobacia}) = {total}")
     time.sleep(2)
     
     if total >= 15: # sucesso na esquiva
@@ -100,11 +92,11 @@ def esquivar(personagem, mana_max):
         personagem.status['mana'] += recuperado
         if personagem.status['mana'] > mana_max:
             personagem.status['mana'] = mana_max
-        digitar(f"✅ Esquiva bem-sucedida! Recuperou {recuperado} de mana.")
+        utills.digitar(f"✅ Esquiva bem-sucedida! Recuperou {recuperado} de mana.")
         time.sleep(2)
         return True
     else:
-        digitar("❌ Esquiva falhou! Você se desequilibrou e perdeu a chance de recuperar energia.")
+        utills.digitar("❌ Esquiva falhou! Você se desequilibrou e perdeu a chance de recuperar energia.")
         time.sleep(2)
         return False
 
@@ -175,14 +167,14 @@ def inv(personagem, mana_max):
                 for efeito in efeitos:
                     if efeito[0] == 'vida_atual':
                         personagem.vida_atual += efeito[1]
-                        digitar(f"💊 {personagem.nick} recuperou {efeito[1]} de HP!")
+                        utills.digitar(f"💊 {personagem.nick} recuperou {efeito[1]} de HP!")
                         if personagem.vida_atual > personagem.status['hp']:
                             personagem.vida_atual = personagem.status['hp']
-                        digitar(descricao)
+                        utills.digitar(descricao)
                         time.sleep(2)
                     else :
                         personagem.status[efeito[0]] += efeito[1]
-                        digitar(descricao)
+                        utills.digitar(descricao)
                         time.sleep(2)
                     if personagem.status['mana'] > mana_max:
                         personagem.status['mana'] = mana_max
@@ -242,11 +234,11 @@ def loop_principal(personagem, inimigo, mana_max):
         elif a == 'Esquivar':
             sucesso = esquivar(personagem, mana_max)
             if sucesso:
-                digitar("Você pode agir novamente após esquivar!")
+                utills.digitar("Você pode agir novamente após esquivar!")
                 time.sleep(2)
                 return # volta para escolha de ação
             else:
-                digitar("Você falhou na esquiva e perdeu seu turno!")
+                utills.digitar("Você falhou na esquiva e perdeu seu turno!")
                 time.sleep(2)
                 break #perdeu o turno
         
@@ -261,7 +253,7 @@ def loop_principal(personagem, inimigo, mana_max):
         if sucesso:
             break
         else:
-            digitar("⚠️ Ação inválida ou mana insuficiente. Escolha outra ação.")
+            utills.digitar("⚠️ Ação inválida ou mana insuficiente. Escolha outra ação.")
             time.sleep(2)
     
     if inimigo.vida_atual > 0: #turno da IA
@@ -283,12 +275,12 @@ def combate(personagem, inimigo):
         loop_principal(personagem, inimigo, personagem.status['mana'])
 
     if personagem.vida_atual > 0:
-        digitar(f"\n🏆 {personagem.nick} venceu o combate!")
+        utills.digitar(f"\n🏆 {personagem.nick} venceu o combate!")
         time.sleep(3)
         utills.limpar_tela()
         return personagem
     elif inimigo.vida_atual > 0:
-        digitar(f"\n💀 {personagem.nick} foi derrotado na torre...")
+        utills.digitar(f"\n💀 {personagem.nick} foi derrotado na torre...")
         time.sleep(3)
         utills.limpar_tela()
         return inimigo
@@ -361,7 +353,7 @@ if __name__ == '__main__':
     if vencedor == p1:
         xp_ganho = 100
         p1.xp += xp_ganho
-        digitar(f"\n🎉 {p1.nick} ganhou {xp_ganho} de XP!")
+        utills.digitar(f"\n🎉 {p1.nick} ganhou {xp_ganho} de XP!")
         if p1.xp >= p1.xp_para_proximo_nivel:
             p1.evoluir_nivel()
     p1.visualizar()
