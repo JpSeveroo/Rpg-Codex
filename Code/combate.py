@@ -8,6 +8,7 @@ import ficha
 import inimigos
 import inventario
 import interface
+from ficha import Personagem
 
 """=== FUNÇÕES UTILITARIAS ==="""
 
@@ -266,7 +267,6 @@ def loop_principal(personagem, inimigo, mana_max):
 
 
 def combate(personagem, inimigo):
-
     personagem.vida_atual = personagem.vida_atual if personagem.vida_atual > 0 else personagem.status.get('hp', 100)
     personagem.status['mana'] = personagem.status.get('mana', 100) if personagem.status.get('mana', None) is not None else 100
 
@@ -282,6 +282,7 @@ def combate(personagem, inimigo):
     if personagem.vida_atual > 0:
         utills.digitar(f"\n🏆 {personagem.nick} venceu o combate!")
         xp(personagem, inimigo)
+        personagem.evoluir_nivel()
         time.sleep(3)
         utills.limpar_tela()
         return personagem
@@ -330,11 +331,11 @@ if __name__ == '__main__':
     p1.atributos["força"] = 6
     p1.status["hp"] = 100
     p1.status["mana"] = 100
-    p1.pericias['mano a mano'] = 40
+    p1.pericias['mano a mano'] = 80
     p1.pericias['mira'] = 8   
     p1.pericias['acrobacia'] = 5 
     p1.vida_atual = 100
-    p1.xp = 0
+    p1.xp = 99
     p1.xp_para_proximo_nivel = 100
     p1.equipamento = {
         "maos": item.lista_itens[2],  # Arma corpo a corpo
