@@ -153,7 +153,7 @@ def utilizaveis(personagem, disponiveis):
         if 100 - personagem.status['mana'] >= 25:
             personagem.status['mana'] += disponiveis[nomes_itens.index(b)].efeitos[0][1]
         else:
-            personagem.vida_atual += 50 - personagem.status['mana']
+            personagem.status['mana'] += 50 - personagem.status['mana']
         personagem.inventario[personagem.inventario.index(disponiveis[nomes_itens.index(b)])].qtd -= 1
         if disponiveis[nomes_itens.index(b)].qtd == 0:
             personagem.inventario.remove(disponiveis[nomes_itens.index(b)])
