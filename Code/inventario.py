@@ -195,6 +195,7 @@ if __name__ == '__main__':
     p.inventario.append(item.lista_itens[8])
     p.inventario.append(item.lista_itens[9])
     p.inventario.append(item.lista_itens[24])
+    p.inventario.append(item.lista_itens[12])
     p.vida_atual = 50
     p.status['mana'] = 0
     interface_inv(p)
