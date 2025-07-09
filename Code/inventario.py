@@ -74,6 +74,7 @@ def interface_inv(personagem):
     escolhido = ''
     os.system('cls' if os.name == 'nt' else 'clear')
     equips(personagem)
+    print(personagem.inventario[0].nome)
     personagem.equipamento = equipamento
     disponiveis = []
     a = inquirer.select(message='Qual equipamento você deseja alterar ?', choices=['Cabeça', 'Corpo', 'Pés', 'Mãos', 'Utilizaveis', 'Sair']).execute()
@@ -140,7 +141,7 @@ def utilizaveis(personagem, disponiveis):
         return
     print(disponiveis[nomes_itens.index(b)].nome)
     if disponiveis[nomes_itens.index(b)].efeitos[0][0] == 'vida_atual':
-        if personagem.status['hp'] - personagem.vida_atual >= 25:
+        if personagem.status['hp'] - personagem.vida_atual >= 50:
             personagem.vida_atual += disponiveis[nomes_itens.index(b)].efeitos[0][1]
         else:
             personagem.vida_atual += personagem.status['hp'] - personagem.vida_atual
@@ -149,7 +150,7 @@ def utilizaveis(personagem, disponiveis):
             personagem.inventario.remove(disponiveis[nomes_itens.index(b)])
         interface_inv(personagem)
     elif disponiveis[nomes_itens.index(b)].efeitos[0][0] == 'mana':
-        if 50 - personagem.status['mana'] >= 25:
+        if 100 - personagem.status['mana'] >= 25:
             personagem.status['mana'] += disponiveis[nomes_itens.index(b)].efeitos[0][1]
         else:
             personagem.vida_atual += 50 - personagem.status['mana']
