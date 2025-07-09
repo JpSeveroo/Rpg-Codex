@@ -7,46 +7,6 @@
         "nivel": 1,
         "xp_para_proximo_nivel": 100,
         "atributos": {
-            "for\u00e7a": 20,
-            "destreza": 9,
-            "constituicao": 7,
-            "carisma": 7,
-            "inteligencia": 7
-        },
-        "pericias": {
-            "acrobacia": 9,
-            "blefar": 7,
-            "mira": 9,
-            "diplomacia": 7,
-            "furtividade": 7,
-            "percepcao": 7,
-            "maos rapidas": 9,
-            "mano a mano": 20,
-            "resistencia": 20
-        },
-        "inventario": [],
-        "fraquezas": [],
-        "status": {
-            "hp": 135,
-            "mana": 100
-        },
-        "mana_max": 100,
-        "vida_atual": 135,
-        "equipamento": {
-            "maos": null
-        },
-        "andar_esfinge_completado": false,
-        "andar_cupula_completado": false,
-        "checkpoint": 0
-    },
-    {
-        "nick": "Andr\u00e9",
-        "raca": "humano",
-        "classe": "guerreiro",
-        "xp": 0,
-        "nivel": 1,
-        "xp_para_proximo_nivel": 100,
-        "atributos": {
             "for\u00e7a": 15,
             "destreza": 9,
             "constituicao": 7,
@@ -80,78 +40,38 @@
         "checkpoint": 0
     },
     {
-        "nick": "carlos",
+        "nick": "Teste2",
         "raca": "humano",
-        "classe": "guerreiro",
+        "classe": "cl\u00e9rigo",
         "xp": 0,
         "nivel": 1,
         "xp_para_proximo_nivel": 100,
         "atributos": {
-            "for\u00e7a": 39,
-            "destreza": 3,
+            "for\u00e7a": 31,
+            "destreza": 6,
             "constituicao": 1,
-            "carisma": 1,
+            "carisma": 6,
             "inteligencia": 1
         },
         "pericias": {
-            "acrobacia": 3,
-            "blefar": 1,
-            "mira": 3,
-            "diplomacia": 1,
+            "acrobacia": 6,
+            "blefar": 6,
+            "mira": 6,
+            "diplomacia": 6,
             "furtividade": 1,
-            "percepcao": 1,
-            "maos rapidas": 3,
-            "mano a mano": 39,
-            "resistencia": 39
+            "percepcao": 20,
+            "maos rapidas": 6,
+            "mano a mano": 31,
+            "resistencia": 31
         },
         "inventario": [],
         "fraquezas": [],
         "status": {
-            "hp": 105,
+            "hp": 1050,
             "mana": 100
         },
         "mana_max": 100,
-        "vida_atual": 1,
-        "equipamento": {
-            "maos": null
-        },
-        "andar_esfinge_completado": false,
-        "andar_cupula_completado": false,
-        "checkpoint": 0
-    },
-    {
-        "nick": "Saitama",
-        "raca": "humano",
-        "classe": "guerreiro",
-        "xp": 0,
-        "nivel": 1,
-        "xp_para_proximo_nivel": 100,
-        "atributos": {
-            "for\u00e7a": 24,
-            "destreza": 3,
-            "constituicao": 16,
-            "carisma": 1,
-            "inteligencia": 1
-        },
-        "pericias": {
-            "acrobacia": 3,
-            "blefar": 1,
-            "mira": 3,
-            "diplomacia": 1,
-            "furtividade": 1,
-            "percepcao": 1,
-            "maos rapidas": 3,
-            "mano a mano": 1000,
-            "resistencia": 24
-        },
-        "inventario": [],
-        "fraquezas": [],
-        "status": {
-            "hp": 180,
-            "mana": 100
-        },
-        "mana_max": 100,
-        "vida_atual": 180,
+        "vida_atual": 105,
         "equipamento": {
             "maos": null
         },

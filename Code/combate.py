@@ -170,7 +170,10 @@ def inv(personagem, mana_max):
     
     print('-'*35)
     if len(lista_nome) != 0:
+        lista_nome.append('Sair')
         a = inquirer.select(message='Itens no inventário: ', choices=lista_nome).execute()
+        if a == 'Sair':
+            return
         b = inquirer.confirm(message='Você deseja usar o item ?').execute()
         if b == True :
             num = lista_nome.index(a)
