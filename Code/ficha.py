@@ -42,7 +42,7 @@ class Personagem:
         self.equipamento = []
         self.andar_esfinge_completado = False
         self.andar_cupula_completado = False
-        self.checkpoint = 1
+        self.checkpoint = 0
 
     def criar_ficha(self):
         print()

@@ -192,6 +192,7 @@ def load_caracter():
             b.equipamento = item['equipamento']
             b.andar_esfinge_completado = item['andar_esfinge_completado']
             b.andar_cupula_completado = item['andar_cupula_completado']
+            b.checkpoint = item['checkpoint']
             personagens.append(b)
     except TypeError:
         pass
