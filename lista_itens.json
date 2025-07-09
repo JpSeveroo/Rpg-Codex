@@ -282,10 +282,14 @@
     },
     {
         "nome": "Livro de pericias",
-        "efeitos": [],
+        "efeitos": [
+            [
+                "analise"
+            ]
+        ],
         "descricao": "Livro escrito por outros ecos que ajuda a entender as pericias. Cada pericia se relaciona com um atributo: Acrobacia (destreza); Blefar (carisma); Mira (destreza); Diplomacia (carisma); Furtividade (intelig\u00eancia); Percep\u00e7\u00e3o(intelig\u00eancia); M\u00e3os r\u00e1pidas(destreza); Mano a mano(for\u00e7a); Resist\u00eancia (for\u00e7a). O combate: As pericia de mano a mano e mira se relacionam diretamente com os ataques. Mano a mano \u00e9 diretamente relacionado com o ataque corpo a corpo e mira \u00e9 com ataque a distancia. O ataque especial gasta mais mana que o ataque simples, mas ele pode ser combado com outra pericia pra se aproveitar da fraqueza do boss e dar mais dano. A esquiva \u00e9 baseada na acrobacia e caso vc acerte recupera 5 de mana.",
         "qtd": 0,
-        "categoria": ""
+        "categoria": "Utilizaveis"
     },
     {
         "nome": "Manto do ca\u00eddo",

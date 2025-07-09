@@ -30,8 +30,11 @@
             "hp": 135,
             "mana": 50
         },
+        "mana_max": 50,
         "vida_atual": 135,
-        "equipamento": [],
+        "equipamento": {
+            "maos": null
+        },
         "andar_esfinge_completado": false,
         "andar_cupula_completado": false,
         "checkpoint": 0

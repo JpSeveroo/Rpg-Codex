@@ -1,4 +1,7 @@
 import item
+from utills import digitar
+from rich.text import Text
+from rich.console import Console
 from InquirerPy import inquirer
 from ficha import Personagem
 import os
@@ -127,24 +130,37 @@ def utilizaveis(personagem, disponiveis):
         interface_inv(personagem)
         return
     b = inquirer.select(message=f'Qual o item que você deseja utilizar: ', choices=nomes_itens).execute()
-    if personagem.inventario[nomes_itens.index(b)].efeitos[0][0] == 'vida_atual':
+    print(disponiveis[nomes_itens.index(b)].nome)
+    if disponiveis[nomes_itens.index(b)].efeitos[0][0] == 'vida_atual':
         if personagem.status['hp'] - personagem.vida_atual >= 25:
-            personagem.vida_atual += personagem.inventario[nomes_itens.index(b)].efeitos[0][1]
-            personagem.inventario[nomes_itens.index(b)].qtd -= 1
-            if personagem.inventario[nomes_itens.index(b)].qtd == 0:
-                personagem.inventario.remove(personagem.inventario[nomes_itens.index(b)])
+            personagem.vida_atual += disponiveis[nomes_itens.index(b)].efeitos[0][1]
         else:
             personagem.vida_atual += personagem.status['hp'] - personagem.vida_atual
+        personagem.inventario[personagem.inventario.index(disponiveis[nomes_itens.index(b)])].qtd -= 1
+        if disponiveis[nomes_itens.index(b)].qtd == 0:
+            personagem.inventario.remove(disponiveis[nomes_itens.index(b)])
         interface_inv(personagem)
-    elif personagem.inventario[nomes_itens.index(b)].efeitos[0][0] == 'mana':
+    elif disponiveis[nomes_itens.index(b)].efeitos[0][0] == 'mana':
         if 50 - personagem.status['mana'] >= 25:
-            personagem.status['mana'] += personagem.inventario[nomes_itens.index(b)].efeitos[0][1]
-            personagem.inventario[nomes_itens.index(b)].qtd -= 1
-            if personagem.inventario[nomes_itens.index(b)].qtd == 0:
-                personagem.inventario.remove(personagem.inventario[nomes_itens.index(b)])
+            personagem.status['mana'] += disponiveis[nomes_itens.index(b)].efeitos[0][1]
         else:
             personagem.vida_atual += 50 - personagem.status['mana']
+        personagem.inventario[personagem.inventario.index(disponiveis[nomes_itens.index(b)])].qtd -= 1
+        if disponiveis[nomes_itens.index(b)].qtd == 0:
+            personagem.inventario.remove(disponiveis[nomes_itens.index(b)])
         interface_inv(personagem)
+    elif disponiveis[nomes_itens.index(b)].efeitos[0][0] == 'analise':
+        print('teste')
+        display(disponiveis[nomes_itens.index(b)].descricao)
+        interface_inv(personagem)
+
+def display(fonte):
+    console = Console()
+    texto = Text()
+    for item in fonte.split('.'):
+        texto.append(item)
+    console.print(texto)
+    input('Pressione enter para continuar...')
 
 def equipando(personagem, item, parte):
     for i in item.efeitos:
@@ -169,6 +185,8 @@ if __name__ == '__main__':
     p.inventario.append(item.lista_itens[7])
     p.inventario.append(item.lista_itens[8])
     p.inventario.append(item.lista_itens[9])
+    p.inventario.append(item.lista_itens[24])
     p.vida_atual = 50
     p.status['mana'] = 0
     interface_inv(p)
+    

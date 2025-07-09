@@ -5,10 +5,13 @@ import os
 from rich import print
 from item import lista_itens
 import inventario
-from utills import digitar, limpar_tela
 from InquirerPy import inquirer
+from utills import digitar, tempo_digitar, limpar_tela
+from combate import combate
+import inimigos
 
 def lore_introducao(personagem):
+    personagem.equipamento = inventario.equipamento
     print()
     texto1 = (' No silêncio absoluto de uma existência que não é mais carne nem alma, você desperta. Oque vê não é um mundo, mas um vasto espaço digital — uma planície infinita e vazia, onde o horizonte se dissolve em pixels azuis e violetas, iluminados por uma aurora elétrica que pulsa com o ritmo de um código ancestral. Acima, o céu é uma tela viva, uma tapeçaria de fragmentos de memória, dados e histórias esquecidas. O ar, ou o que resta dele, vibra comum zumbido constante, uma sinfonia mecânica e etérea, como o respirar sutil de uma inteligência que observa cada movimento. À distância, recortando o infinito, ergue-se o Labirinto de Etherion — uma torre monumental e impossivelmente alta, feita de açotranslúcido, luz pulsante e padrões de circuitos que se entrelaçam como raízes de umaárvore cibernética. Cada andar brilha com um espectro de cores e ecos de vozes perdidas,um convite e um aviso ao mesmo tempo. Uma mensagem fria e impessoal se materializa diante de você, uma sentença gravada notecido da realidade:\n')
     digitar(texto1)
@@ -49,8 +52,9 @@ def lore_introducao(personagem):
             print()
 
 def lore_1_andar(personagem):
-    limpar_tela()
-
+    os.system('cls' if os.name == 'nt' else 'clear')
+    if personagem.checkpoint >= 1:
+        tempo_digitar(0)
     print()
     texto5 = 'Você atravessa o portal que o leva do vazio da planície para dentro do Labirinto. A luz muda, tornando-se mais fria e metálica. O chão abaixo é um mosaico de placas metálicas e circuitos pulsantes, estendendo-se até onde a vista alcança. O ar é pesado com uma energia estática, e a sensação de estar sendo observado é constante. À distância, silhuetas se movem entre os pilares de luz — 3 Gárgulas de Dados, sentinelas programadas para detectar e eliminar intrusos. Suas asas de metal rangem, e seus olhos brilham com uma luz vermelha ameaçadora. Uma voz sintética, reconhecida do terminal, ecoa no ambiente:\n'
     digitar(texto5)
@@ -88,6 +92,9 @@ def lore_1_andar(personagem):
 def lore_recompensa001(personagem):
     limpar_tela()
     item_escolhido001 = ''
+    if personagem.checkpoint >= 1:
+        tempo_digitar(0)
+    personagem.checkpoint += 1
 
     personagem.inventario.append(lista_itens[0])
     personagem.inventario[0].qtd = 1
@@ -273,6 +280,9 @@ def lore_recompensa002(personagem):
     limpar_tela()
     personagem.inventario[0].qtd = 1
     personagem.inventario[0].qtd = 1
+    if personagem.checkpoint >= 1:
+        tempo_digitar(0)
+    personagem.checkpoint += 1
 
     print(f"[bold purple][Sistema] 🪙   RECOMPENSAS: \nXp: [150] \nPoção de cura [1]\nPoção de mana [1]")
     text_inf = ('\nPressione ENTER para prosseguir...')
@@ -374,6 +384,8 @@ def lore_3_andar(personagem):
 #ADICIONAR POÇOES NO INV
 #FAZER O CHECKPOINT
 def lore_1_enigma(personagem):
+    if personagem.checkpoint >= 3:
+        tempo_digitar(0)
     time.sleep(1)
     limpar_tela()
     if personagem.andar_esfinge_completado:
@@ -526,7 +538,9 @@ def lore_recompensa003(personagem):
     limpar_tela()
     personagem.inventario[0].qtd = 2
     personagem.inventario[1].qtd = 2
-
+    if personagem.checkpoint >= 3:
+        tempo_digitar(0)
+    personagem.checkpoint+=1
     item_escolhido002 = ''
 
     if personagem.raca == 'elfo':
