@@ -39,7 +39,8 @@ def lore_11_andar(personagem):
                 lore_pos_11andar(personagem)
                 break
             elif esc_1 == "2":
-                if #PEGAR OS FRAGMENTOS ANTERIORES E VER SE O USUARIO TEM NO INVENTARIO
+#PEGAR OS FRAGMENTOS ANTERIORES E VER SE O USUARIO TEM NO INVENTARIO
+                print()
 
             elif esc_1 == "3":
                 inventario.interface_inv(personagem)
@@ -261,7 +262,7 @@ def lore_pos_12andar(personagem):
             if esc_1 not in ("1","2","3","4"):
                 raise ValueError("❗ Opção inválida.")
             if esc_1 == "1":
-                lore_13_andar(personagem)
+                #lore_13_andar(personagem)
                 break
             elif esc_1 == "2":
                 chance = random.random()
