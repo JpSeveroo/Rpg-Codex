@@ -97,8 +97,8 @@ class interface:
 
     def jogar():
         os.system('cls' if os.name == 'nt' else 'clear')
-        try:
-            pers = [i.nick for i in personagens_usuario]
+        pers = [i.nick for i in personagens_usuario]
+        if pers:
             pers.append('Sair')
             b = InquirerPy.inquirer.select(message='Qual o personagem desejado', choices= pers).execute()
             if b == 'Sair':
@@ -108,7 +108,7 @@ class interface:
             c = pers.index(b)
             global personagem_escolhido
             personagem_escolhido = personagens[c]
-        except:
+        else:
             print('Não há nenhum personagem criado!')
             input('Pressione qualquer tecla para voltar ao menu...')
             interface.interface_usuário(user.username)

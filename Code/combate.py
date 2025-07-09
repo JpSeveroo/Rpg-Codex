@@ -6,6 +6,7 @@ import item
 import utills
 import ficha
 import inimigos
+import inventario
 
 """=== FUNÇÕES UTILITARIAS ==="""
 
@@ -63,7 +64,7 @@ def _executar_ataque(atacante, defensor, pericia_principal, custo_mana, bonus_ex
 
     dano = calc_dano(atacante, pericia_principal, bonus_extra)
 
-    if atacante == inimigo:
+    if atacante == inimigos:
         dano-= (defensor.pericias.get('resistencia', 0))//4
 
     defensor.vida_atual -= dano
@@ -294,11 +295,11 @@ def equip(personagem, pericia_principal):
     if not hasattr(personagem, 'equipamento'):
         return 1
 
-    arma = personagem.equipamento.get("maos")
+    arma = inventario.equipamento.itens['Mãos']['equipado']
     pericias_que_exigem_arma = {'mano a mano', 'mira'}
     if pericia_principal not in pericias_que_exigem_arma:
         return 1
-    if arma is None:
+    if arma is False:
         return 0.5
     else:
         return 1
