@@ -37,7 +37,8 @@ def lore_11_andar(personagem):
                 #COMBATEEE
                 break
             elif esc_1 == "2":
-                if #PEGAR OS FRAGMENTOS ANTERIORES E VER SE O USUARIO TEM NO INVENTARIO
+                break
+                 #PEGAR OS FRAGMENTOS ANTERIORES E VER SE O USUARIO TEM NO INVENTARIO
 
             elif esc_1 == "3":
                 inventario.interface_inv(personagem)
