@@ -117,7 +117,7 @@
     },
     {
         "nome": "Mateus - O Condutor",
-        "dano": 5,
+        "dano": 50,
         "vida": 210,
         "fraquezas": [
             "mulher"
