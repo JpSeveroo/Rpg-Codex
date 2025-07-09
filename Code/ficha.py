@@ -220,34 +220,34 @@ class Personagem:
             utills.digitar(f"Você tem {pontos_disponiveis} pontos para distribuir entre seus atributos.")
             atributos = list(self.atributos.keys())
 
-        while pontos_disponiveis > 0:
-            utills.digitar("\n✨ Atributos disponíveis:")
-            for i, nome in enumerate(atributos, 1):
-                print(f"  {i}. {nome.capitalize()}: {self.atributos[nome]}")
+            while pontos_disponiveis > 0:
+                utills.digitar("\n✨ Atributos disponíveis:")
+                for i, nome in enumerate(atributos, 1):
+                    print(f"  {i}. {nome.capitalize()}: {self.atributos[nome]}")
 
-            try:
-                escolha = int(input(f"Escolha o número do atributo (pontos restantes: {pontos_disponiveis}): "))
-                if not 1 <= escolha <= len(atributos):
-                    utills.digitar("❌ Escolha inválida.")
-                    continue
+                try:
+                    escolha = int(input(f"Escolha o número do atributo (pontos restantes: {pontos_disponiveis}): "))
+                    if not 1 <= escolha <= len(atributos):
+                        utills.digitar("❌ Escolha inválida.")
+                        continue
 
-                atributo = atributos[escolha - 1]
+                    atributo = atributos[escolha - 1]
 
-                qtd = int(input(f"Quantos pontos deseja adicionar a {atributo.capitalize()}? "))
-                if not 1 <= qtd <= pontos_disponiveis:
-                    utills.digitar(f"❌ Você pode adicionar entre 1 e {pontos_disponiveis} pontos.")
-                    continue
+                    qtd = int(input(f"Quantos pontos deseja adicionar a {atributo.capitalize()}? "))
+                    if not 1 <= qtd <= pontos_disponiveis:
+                        utills.digitar(f"❌ Você pode adicionar entre 1 e {pontos_disponiveis} pontos.")
+                        continue
 
-                self.atributos[atributo] += qtd
-                pontos_disponiveis -= qtd
-                utills.digitar(f"✅ {qtd} pontos adicionados a {atributo.capitalize()}.")
+                    self.atributos[atributo] += qtd
+                    pontos_disponiveis -= qtd
+                    utills.digitar(f"✅ {qtd} pontos adicionados a {atributo.capitalize()}.")
 
-            except ValueError:
-                utills.digitar("❌ Digite um número válido.")
+                except ValueError:
+                    utills.digitar("❌ Digite um número válido.")
 
-        self.calcular_pericias()
-        utills.digitar("\n✨ Atributos atualizados com sucesso!")
-        sleep(3)
+                self.calcular_pericias()
+                utills.digitar("\n✨ Atributos atualizados com sucesso!")
+                sleep(3)
 
         if self.nivel >= max(self.tabela_xp.keys()):
             self.xp_para_proximo_nivel = float('inf')
