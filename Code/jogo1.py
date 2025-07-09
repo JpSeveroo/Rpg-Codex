@@ -436,7 +436,6 @@ def lore_1_enigma(personagem):
                     break
 
                 elif opcao == "Sua sombra 🌑":
-                    personagem.andar_esfinge_completado = True
                     texto23 = ('O silêncio na Cúpula da Percepção se quebra quando o Eco profere a resposta correta. Um zumbido suave preenche o ar, e a Esfinge Negra se inclina.')
                     digitar(texto23)
 
@@ -446,6 +445,8 @@ def lore_1_enigma(personagem):
                     digitar(texto24)
                     personagem.inventario.append(lista_itens[11])
                     personagem.xp += 300
+                    time.sleep(3)
+                    personagem.andar_esfinge_completado = True
                     lore_4_andar(personagem)
                     
                 elif opcao == "Um reflexo no espelho 🪞":
@@ -464,7 +465,6 @@ def lore_1_enigma(personagem):
                 ]
                 ).execute()
                 if opcao == "O fogo 🔥":
-                    personagem.andar_esfinge_completado = True
                     texto23 = ('O silêncio na Cúpula da Percepção se quebra quando o Eco profere a resposta correta. Um zumbido suave preenche o ar, e a Esfinge Negra se inclina.')
                     digitar(texto23)
 
@@ -474,6 +474,8 @@ def lore_1_enigma(personagem):
                     digitar(texto24)
                     personagem.inventario.append(lista_itens[11])
                     personagem.xp += 300
+                    time.sleep(3)
+                    personagem.andar_esfinge_completado = True
                     lore_4_andar(personagem)
 
                 elif opcao == "A sombra 🌑":
@@ -500,7 +502,6 @@ def lore_1_enigma(personagem):
                     break
 
                 elif opcao == "O sopro invisível do vento 🌬️":
-                    personagem.andar_esfinge_completado = True
                     texto23 = ('O silêncio na Cúpula da Percepção se quebra quando o Eco profere a resposta correta. Um zumbido suave preenche o ar, e a Esfinge Negra se inclina.')
                     digitar(texto23)
 
@@ -510,6 +511,8 @@ def lore_1_enigma(personagem):
                     digitar(texto24)
                     personagem.inventario.append(lista_itens[11])
                     personagem.xp += 300
+                    time.sleep(3)
+                    personagem.andar_esfinge_completado = True
                     lore_4_andar(personagem)
                     
                 elif opcao == "O pensamento eterno 🧠":
@@ -524,6 +527,7 @@ def morte_esfinge(personagem):
     print(f'\n[bold red]🩸 {personagem.nick} MORREU [/bold red]\n')
     text_inf = ('\nPressione ENTER para prosseguir...')
     digitar(text_inf)
+    time.sleep(3)
     personagem.andar_esfinge_completado = True
     a = input('')
     limpar_tela()
