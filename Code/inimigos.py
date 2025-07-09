@@ -120,7 +120,7 @@ def load_enemys():
             inimigo.vida_atual = inimigo.vida
             inimigo.status = {'hp': inimigo.vida, 'mana': 100}
             inimigo.pericias = {'mano a mano': inimigo.dano}
-            
+            inimigo.xp = item_data.get('xp', 0)
             lista_inimigos.append(inimigo)
     except Exception as e:
         print(f"Erro ao carregar inimigos: {e}")

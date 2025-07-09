@@ -279,6 +279,7 @@ def combate(personagem, inimigo):
 
     if personagem.vida_atual > 0:
         utills.digitar(f"\n🏆 {personagem.nick} venceu o combate!")
+        xp(personagem, inimigo)
         time.sleep(3)
         utills.limpar_tela()
         return personagem
@@ -304,6 +305,11 @@ def equip(personagem, pericia_principal):
     else:
         return 1
 
+def xp(personagem, inimigo):
+    xp_ganho = inimigo.xp
+    personagem.xp += xp_ganho
+    utills.digitar(f'Você ganhou {xp_ganho} de xp')
+
 def adv_IA(inimigo, jogador):
 
     ataque(inimigo, jogador, 'mano a mano')
@@ -321,7 +327,7 @@ if __name__ == '__main__':
     p1.atributos["força"] = 6
     p1.status["hp"] = 100
     p1.status["mana"] = 100
-    p1.pericias['mano a mano'] = 10
+    p1.pericias['mano a mano'] = 40
     p1.pericias['mira'] = 8   
     p1.pericias['acrobacia'] = 5 
     p1.vida_atual = 100
@@ -335,14 +341,6 @@ if __name__ == '__main__':
     p1.inventario.append(item.lista_itens[4])
     p1.is_player = True
 
-    inimigo = inimigos.lista_inimigos[15]
+    inimigo = inimigos.lista_inimigos[0]
 
     vencedor = combate(p1, inimigo)
-    
-    if vencedor == p1:
-        xp_ganho = 100
-        p1.xp += xp_ganho
-        utills.digitar(f"\n🎉 {p1.nick} ganhou {xp_ganho} de XP!")
-        if p1.xp >= p1.xp_para_proximo_nivel:
-            p1.evoluir_nivel()
-    p1.visualizar()
