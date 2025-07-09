@@ -118,7 +118,7 @@ def equip_itens(personagem, disponiveis):
             interface_inv(personagem)
 
 def sair(personagem, disponiveis):
-    return personagem, disponiveis
+    return disponiveis, personagem
 
 def utilizaveis(personagem, disponiveis):
     nomes_itens = []
@@ -189,4 +189,3 @@ if __name__ == '__main__':
     p.vida_atual = 50
     p.status['mana'] = 0
     interface_inv(p)
-    
