@@ -68,7 +68,6 @@ def lore_1_andar(personagem):
             if esc_1 == "1":
                 #❗❗❗❗❗❗❗FALTA O COMBATE
                 lore_recompensa001(personagem)
-                time.sleep(8)
                 lore_pos_1andar(personagem)
                 break
 
@@ -177,8 +176,9 @@ def lore_recompensa001(personagem):
                 print(f"{e} Tente novamente. Lembre-se de digitar apenas o dígito referente ao item.")
     
     print(f"[bold purple][Sistema] 🪙   RECOMPENSAS: \nXp: [225] \nPoção de cura [1]\nPoção de mana [1]\nItens: 📒 Livro de perícias, {item_escolhido001}[/bold purple]")
-    text_inf = ('\nItens sendo computados...')
+    text_inf = ('\nPressione ENTER para prosseguir...')
     digitar(text_inf)
+    a = input('')
 
 def lore_pos_1andar(personagem):
     os.system('cls' if os.name == 'nt' else 'clear')
@@ -242,7 +242,6 @@ def lore_2_andar(personagem):
             if esc_3 == "1":
                 #❗❗❗❗❗❗❗FALTA O COMBATE
                 lore_recompensa002(personagem)
-                time.sleep(8)
                 lore_pos_2andar(personagem)
                 print()
 
@@ -259,8 +258,9 @@ def lore_recompensa002(personagem):
     personagem.inventario[0].qtd = 1
 
     print(f"[bold purple][Sistema] 🪙   RECOMPENSAS: \nXp: [150] \nPoção de cura [1]\nPoção de mana [1]")
-    text_inf = ('\nItens sendo computados...')
+    text_inf = ('\nPressione ENTER para prosseguir...')
     digitar(text_inf)
+    a = input('')
 
 
 def lore_pos_2andar(personagem):
@@ -346,6 +346,8 @@ def lore_3_andar(personagem):
 #ADICIONAR POÇOES NO INV
 #FAZER O CHECKPOINT
 def lore_1_enigma(personagem):
+    time.sleep(1)
+    os.system('cls' if os.name == 'nt' else 'clear')
     if personagem.andar_esfinge_completado:
         print("[bold purple]⚠️ O Andar da Esfinge foi destruído por corrompimento dimensional. Você avança direto para o próximo andar...[/bold purple]")
         lore_4_andar(personagem)
@@ -465,6 +467,8 @@ def lore_1_enigma(personagem):
 
 
 def morte_esfinge(personagem):
+    os.system('cls' if os.name == 'nt' else 'clear')
+
     personagem.andar_esfinge_completado = True
     texto22 = ('O silêncio na Cúpula da Percepção a resposta é proferida. Um instante de suspense se estende, pesado com a expectativa da Esfinge Negra de Aethelgard. Mas a calma é logo rompida por um zumbido agudo, quase um chiado furioso. A Esfinge, antes imóvel, contorce sua forma etérea, e um brilho vermelho intenso pulsa em seus olhos. Não há mais perguntas. A indignação da entidade por ter recebido a alternativa incorreta é palpável, reverberando pelas paredes de cristal. Em um instante brutal, a cúpula se torna um vórtice de dados colapsados, e você é consumido pela fúria de uma verdade distorcida. A percepção falha selou seu destino: você se desintegra em um véu de ruído branco, e a escuridão o engole. Ao despertar, o Ponto de Início o aguarda, o vazio da planície se estendendo à sua frente, e a Torre de Etherion, indiferente, erguendo-se à distância. A lição é brutal: a falha na percepção não é um tropeço, é uma sentença de retorno forçado, uma repetição eterna até que a verdade seja finalmente alcançada.')
     digitar(texto22)
@@ -597,9 +601,9 @@ def lore_recompensa003(personagem):
                 print(f"{e} Tente novamente. Lembre-se de digitar apenas o dígito referente ao item.")
 
     print(f"[bold purple][Sistema] 🪙   RECOMPENSAS: \nXp: [280] \nPoção de cura [1]\nPoção de mana [1]\nItem: {item_escolhido002}[/bold purple]")
-    text_inf = ('\nItens sendo computados...')
+    text_inf = ('\nPressione ENTER para prosseguir...')
     digitar(text_inf)
-    time.sleep(8)
+    a = input('')
 
 def lore_pos_4andar(personagem):
     os.system('cls' if os.name == 'nt' else 'clear')
@@ -667,9 +671,9 @@ def lore_recompensa004(personagem):
         personagem.inventario.append(lista_itens[1])
 
     print(f"[bold purple][Sistema] 🪙   RECOMPENSAS: \nXp: [700] \nPoção de cura [5]\nPoção de mana [5]\nItem: {item_escolhido003}[/bold purple]")
-    text_inf = ('\nItens sendo computados...')
+    text_inf = ('\nPressione ENTER para prosseguir...')
     digitar(text_inf)
-    time.sleep(8)
+    a = input('')
 
 
 if __name__ == "__main__":

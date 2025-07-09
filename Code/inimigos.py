@@ -115,6 +115,7 @@ def load_enemys():
     except Exception as e:
         print(f"Erro ao carregar inimigos: {e}")
 
+load_enemys()
+
 if __name__ == '__main__':
-    load_enemys()
     interface()
