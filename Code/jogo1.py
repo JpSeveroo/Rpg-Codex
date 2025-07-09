@@ -409,7 +409,6 @@ def lore_3_andar(personagem):
 #ADICIONAR POÇOES NO INV
 #FAZER O CHECKPOINT
 def lore_1_enigma(personagem):
-    personagem.andar_esfinge_completado = True
 
     if personagem.checkpoint >= 3:
         tempo_digitar(0)
