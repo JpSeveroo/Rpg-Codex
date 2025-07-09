@@ -9,10 +9,13 @@ import inimigos
 
 """=== FUNÇÕES UTILITARIAS ==="""
 
+
 item.load_itens()
 pocao_cura = item.lista_itens[0]
 pocao_mana = item.lista_itens[1]
 
+def get_nome(personagem):
+    return getattr(personagem, 'nick', getattr(personagem, 'nome', 'Desconhecido'))
 
 def rolar_dado():
     dado = random.randint(1, 6)
@@ -147,7 +150,7 @@ def tabelas(personagem, inimigo):
         barra_b = barra(b)
         print('|'+ f"Vida : {barra_a}  {a.vida_atual}/{a.status['hp']}".center(33) + '|' + ' '*25 + '|'+ f"Vida : {barra_b}  {b.vida_atual}/{b.status['hp']}".center(33) + '|')
     print('-'*35 + ' '*25 + '-'*35)
-    write('Nome', personagem.nick, inimigo.nome)
+    write('Nome', get_nome(personagem), get_nome(inimigo))
     show_life(personagem, inimigo)
     write2('Mana', 'Dano', personagem.status['mana'], inimigo.dano)
     print('-'*35 + ' '*25 + '-'*35)
@@ -268,7 +271,7 @@ def combate(personagem, inimigo):
     inimigo.vida_atual = inimigo.vida
     inimigo.status['mana'] = inimigo.status.get('mana', 100) if inimigo.status.get('mana', None) is not None else 100
 
-    print(f"\n⚔️ Começando combate: {personagem.nick} VS {inimigo.nome}!\n")
+    print(f"\n⚔️ Começando combate: {get_nome(personagem)} VS {get_nome(inimigo)}!\n")
     time.sleep(2)
 
     while personagem.vida_atual > 0 and inimigo.vida_atual > 0:
