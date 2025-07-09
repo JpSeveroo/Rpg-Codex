@@ -7,6 +7,7 @@ import utills
 import ficha
 import inimigos
 import inventario
+import interface
 from ficha import Personagem
 
 """=== FUNÇÕES UTILITARIAS ==="""
@@ -244,8 +245,8 @@ def loop_principal(personagem, inimigo, mana_max):
             valor_acao = (a, a2, a3)
 
         elif a == 'Esquivar':
-            esquivar(personagem, mana_max)
-            continue
+            sucesso = esquivar(personagem, mana_max)
+            break
         
         elif a == 'Inventário':
             inv(personagem, mana_max)
@@ -287,6 +288,7 @@ def combate(personagem, inimigo):
         return personagem
     elif inimigo.vida_atual > 0:
         utills.digitar(f"\n💀 {personagem.nick} foi derrotado na torre...")
+        interface.interface.interface_principal()
         time.sleep(3)
         utills.limpar_tela()
         return inimigo

@@ -89,6 +89,8 @@ def lore_1_andar(personagem):
             if vencedor == personagem:
                 lore_recompensa001(personagem)
                 lore_pos_1andar(personagem)
+            else:
+                lore_introducao(personagem)
             break
 
         elif opcao == "🎒 Investigar Inventário":
@@ -278,6 +280,9 @@ def lore_2_andar(personagem):
                 lore_recompensa002(personagem)
                 lore_pos_2andar(personagem)
                 print()
+            else:
+                lore_introducao(personagem)
+
 
         elif opcao == "⚡ Tentar Estabilizar o ambiente — Usar parte da sua energia para reconfigurar o campo ao seu redor, reduzindo a agressividade do inimigo. [Pontos de diplomacia necessários: 12]" and personagem.pericias['diplomacia'] >= 12:
             #vantagem para o personagem
@@ -514,7 +519,7 @@ def morte_esfinge(personagem):
     texto22 = ('O silêncio na Cúpula da Percepção a resposta é proferida. Um instante de suspense se estende, pesado com a expectativa da Esfinge Negra de Aethelgard. Mas a calma é logo rompida por um zumbido agudo, quase um chiado furioso. A Esfinge, antes imóvel, contorce sua forma etérea, e um brilho vermelho intenso pulsa em seus olhos. Não há mais perguntas. A indignação da entidade por ter recebido a alternativa incorreta é palpável, reverberando pelas paredes de cristal. Em um instante brutal, a cúpula se torna um vórtice de dados colapsados, e você é consumido pela fúria de uma verdade distorcida. A percepção falha selou seu destino: você se desintegra em um véu de ruído branco, e a escuridão o engole. Ao despertar, o Ponto de Início o aguarda, o vazio da planície se estendendo à sua frente, e a Torre de Etherion, indiferente, erguendo-se à distância. A lição é brutal: a falha na percepção não é um tropeço, é uma sentença de retorno forçado, uma repetição eterna até que a verdade seja finalmente alcançada.')
     digitar(texto22)
     print(f'[bold red]🩸 {personagem.nick} MORREU [/bold red]')
-    lore_1_andar(personagem)
+    lore_introducao(personagem)
 
 
 def lore_4_andar(personagem):
@@ -547,6 +552,8 @@ def lore_4_andar(personagem):
                 lore_recompensa003(personagem)
                 lore_pos_4andar(personagem)
                 break
+            else:
+                lore_introducao(personagem)
 
         elif opcao == "🎒 Investigar Inventário":
             limpar_tela()
