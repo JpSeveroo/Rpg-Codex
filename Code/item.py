@@ -55,7 +55,7 @@ def load_itens():
 
 def edit_item():
     mostrar()
-    a = int(input('Qual item você deseja editar : ')) - 1
+    a = int(input('Qual item você deseja editar : '))
     lista_de_efeitos = []
     lista_itens[a].nome = input('Qual o novo nome : ')
     b = int(input('Numero de efeitos: '))
