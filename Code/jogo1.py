@@ -5,13 +5,7 @@ import os
 from rich import print
 from item import lista_itens
 import inventario
-
-def digitar(texto, delay=0.00):
-    for caractere in texto:
-        sys.stdout.write(caractere)
-        sys.stdout.flush()
-        time.sleep(delay)
-    print()
+from utills import digitar
 
 def lore_introducao(personagem):
     print()
@@ -77,7 +71,6 @@ def lore_1_andar(personagem):
             break 
         except ValueError as e:
             print(f"{e} Tente novamente.")
-
 
 def lore_recompensa001(personagem):
     os.system('cls' if os.name == 'nt' else 'clear')

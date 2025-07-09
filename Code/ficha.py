@@ -1,4 +1,6 @@
 from time import sleep
+import utills
+
 class Personagem:
 
     tabela_xp = {
@@ -211,14 +213,14 @@ class Personagem:
 
         # usa a tabela de XP para definir a xp necessária para o próximo nível
         self.xp_para_proximo_nivel = self.tabela_xp.get(self.nivel, float('inf'))
-        digitar(f"\n🎉 Parabéns, {self.nick}! Você alcançou o Nível {self.nivel}!")
+        utills.digitar(f"\n🎉 Parabéns, {self.nick}! Você alcançou o Nível {self.nivel}!")
 
         # distribui 5 pontos de atributos
         pontos_disponiveis = 5
-        digitar(f"Você tem {pontos_disponiveis} pontos para distribuir entre seus atributos.")
+        utills.digitar(f"Você tem {pontos_disponiveis} pontos para distribuir entre seus atributos.")
         atributos_lista = list(self.atributos.keys())
         while pontos_disponiveis > 0:
-            digitar("\n✨ Atributos disponíveis:")
+            utills.digitar("\n✨ Atributos disponíveis:")
             for i, atributo_nome in enumerate(atributos_lista):
                 print(f"  {i+1}. {atributo_nome.capitalize()}: {self.atributos[atributo_nome]}")
             try:
@@ -232,18 +234,18 @@ class Personagem:
                             if 0 < qtd_pontos <= pontos_disponiveis:
                                 self.atributos[escolha_atributo_nome] += qtd_pontos
                                 pontos_disponiveis -= qtd_pontos
-                                digitar(f"✅ {qtd_pontos} pontos adicionados a {escolha_atributo_nome.capitalize()}.")
+                                utills.digitar(f"✅ {qtd_pontos} pontos adicionados a {escolha_atributo_nome.capitalize()}.")
                                 break
                             else:
-                                digitar(f"❌ Quantidade inválida. Você pode adicionar entre 1 e {pontos_disponiveis} pontos.")
+                                utills.digitar(f"❌ Quantidade inválida. Você pode adicionar entre 1 e {pontos_disponiveis} pontos.")
                         except ValueError:
-                            digitar("❌ Digite um número válido.")
+                            utills.digitar("❌ Digite um número válido.")
                 else:   
-                    digitar("❌ Número inválido. Tente novamente.")
+                    utills.digitar("❌ Número inválido. Tente novamente.")
             except ValueError:
-                digitar("❌ Digite um número válido.")
+                utills.digitar("❌ Digite um número válido.")
         self.calcular_pericias()  # recalcula as perícias com os novos atributos   
-        digitar("\n✨ Atributos atualizados com sucesso!")
+        utills.digitar("\n✨ Atributos atualizados com sucesso!")
         sleep(3) 
 
     def visualizar(self):
@@ -266,14 +268,4 @@ if __name__ == "__main__":
     p.criar_ficha()
     p.visualizar()
 
-
-import time
-import sys
-
-def digitar(texto, delay=0.05):
-    for caractere in texto:
-        sys.stdout.write(caractere)
-        sys.stdout.flush()
-        time.sleep(delay)
-    print()
 #digitar("A ficha foi criada com sucesso!")

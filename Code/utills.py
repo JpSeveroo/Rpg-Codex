@@ -1,6 +1,8 @@
 import hashlib
 import json
 import os
+import sys
+import time
 
 def limpar_tela():
     os.system('cls' if os.name == 'nt' else 'clear')
@@ -24,6 +26,16 @@ def load_infos(path):
                 return json.load(arquivo)
         except json.JSONDecodeError:
             print('Não foi possivel ler o arquivo')
+
+def digitar(texto, delay=0.05):
+    for caractere in texto:
+        sys.stdout.write(caractere)
+        sys.stdout.flush()
+        time.sleep(delay)
+    print()
+
+def tempo_digitar():
+    ...
 
 if __name__ == '__main__':
     a = load_infos('usuarios')
