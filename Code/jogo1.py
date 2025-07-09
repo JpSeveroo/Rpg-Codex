@@ -7,6 +7,7 @@ from item import lista_itens
 import inventario
 from utills import digitar, limpar_tela
 from InquirerPy import inquirer
+import jogo2
 
 def lore_introducao(personagem):
     print()
@@ -129,24 +130,24 @@ def lore_recompensa001(personagem):
             message="Qual destes 3 itens você deseja levar consigo?\n",
             choices=[
                 "⚔️ Espada de combate simples: confiável e robusta, a clássica espada de aventureiro iniciante. (+1 mano a mano)",
-                "🍃 Broche da Folha: broche simples que pode ajudar em interações sociais. (+1 diplomacia)",
-                "🧤 Luvas Élficas surradas: leves e confortáveis, oferecem vantagem em tarefas delicadas. (+1 mãos rápidas)"
+                "🍀 Medalhão da Sorte: um amuleto simples que ajuda a encontrar respostas por pura sorte. (+1 percepção)",
+                "🥾 Botas de Couro: melhora a armadura e a resistência a terrenos difíceis (lama, neve, areia) fora de combate. (+1 resistência)"
             ]
             ).execute()
 
-            if opcao == "🏹 Arco Simples: Um arco leve, resistente, símbolo do treinamento élfico. Não mágico e um pouco velho, mas usável. (+1 mira)":
+            if opcao == "⚔️ Espada de combate simples: confiável e robusta, a clássica espada de aventureiro iniciante. (+1 mano a mano)":
                 personagem.inventario.append(lista_itens[5])
-                item_escolhido001 = '🏹 Arco Simples'
+                item_escolhido001 = '⚔️ Espada de combate simples'
                 print()
 
             elif opcao == "🍀 Medalhão da Sorte: um amuleto simples que ajuda a encontrar respostas por pura sorte. (+1 percepção)":
                 personagem.inventario.append(lista_itens[6])
-                item_escolhido001 = '🍃 Broche da Folha'
+                item_escolhido001 = '🍀 Medalhão da Sorte'
                 print()
 
             elif opcao == "🥾 Botas de Couro: melhora a armadura e a resistência a terrenos difíceis (lama, neve, areia) fora de combate. (+1 resistência)":
                 personagem.inventario.append(lista_itens[7])
-                item_escolhido001 = '🧤 Luvas Élficas surradas'
+                item_escolhido001 = '🥾 Botas de Couro'
                 print()
             break
 
@@ -164,17 +165,17 @@ def lore_recompensa001(personagem):
 
             if opcao == "🗡️ Adaga de Escamas: pequena adaga com símbolos dracônicos entalhados, item comum entre guerreiros draconianos inexperientes. (+1 mano a mano)":
                 personagem.inventario.append(lista_itens[8])
-                item_escolhido001 = '🏹 Arco Simples'
+                item_escolhido001 = '🗡️ Adaga de Escamas'
                 print()
 
             elif opcao == "🧿 Talismã do caçador: alimenta o instinto de caça dos draconianos, os deixando mais ágeis. (+1 acrobacia)":
                 personagem.inventario.append(lista_itens[9])
-                item_escolhido001 = '🍃 Broche da Folha'
+                item_escolhido001 = '🧿 Talismã do caçador'
                 print()
 
             elif opcao == "🪨 Colar quebrado de Pedra Dracônica: pequeno pingente com uma pedra rachada da cor do dragão ancestral do personagem; Acalma o coração dos draconianos e os deixam mais sociáveis. (+1 diplomacia)":
                 personagem.inventario.append(lista_itens[10])
-                item_escolhido001 = '🧤 Luvas Élficas surradas'
+                item_escolhido001 = '🪨 Colar quebrado de Pedra Dracônica'
                 print()
             break
 
@@ -420,9 +421,9 @@ def lore_1_enigma(personagem):
                 opcao = inquirer.select(
                 message="Qual a sua resposta?\n",
                 choices=[
-                    "Um animal domesticado 🐕",
-                    "Sua sombra 🌑",
-                    "Um reflexo no espelho 🪞"
+                    "O fogo 🔥",
+                    "A sombra 🌑",
+                    "O tempo ⏳"
                 ]
                 ).execute()
                 if opcao == "O fogo 🔥":
@@ -662,6 +663,7 @@ def lore_5_andar(personagem):
             #❗❗❗❗❗❗❗FALTA O COMBATE
             #checkpoint
             lore_recompensa004(personagem)
+            jogo2.lore_pos_5andar(personagem)
             break
 
 def lore_recompensa004(personagem):
