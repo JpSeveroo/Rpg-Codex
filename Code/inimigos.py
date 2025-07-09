@@ -11,6 +11,7 @@ class Inimigo:
         self.status = {'hp': self.vida, 'mana': 100}
         self.vida_atual = self.vida
         self.pericias = {'mano a mano': self.dano}
+        self.nick = self.nome
 
 def add_ene():
     utills.limpar_tela()
@@ -114,6 +115,11 @@ def load_enemys():
             inimigo.dano = item_data.get('dano', 0)
             inimigo.vida = item_data.get('vida', 0)
             inimigo.fraquezas = item_data.get('fraquezas', [])
+
+            inimigo.vida_atual = inimigo.vida
+            inimigo.status = {'hp': inimigo.vida, 'mana': 100}
+            inimigo.pericias = {'mano a mano': inimigo.dano}
+            
             lista_inimigos.append(inimigo)
     except Exception as e:
         print(f"Erro ao carregar inimigos: {e}")
