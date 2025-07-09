@@ -36,7 +36,6 @@ def mostrar():
     utills.limpar_tela()
     for i in range(len(lista_itens)):
         print(f'{i}-{lista_itens[i].nome}')
-    input()
 
 def load_itens():
     try:

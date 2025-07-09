@@ -137,14 +137,16 @@ class interface:
         global user
         global personagens_usuario
         global name_list
+        global personagem_escolhido
         if a == True:
             user = ''
             personagens_usuario = []
+            personagem_escolhido = ''
             name_list = []
             interface.interface_principal()
             sleep(0.5)
         else :
-            interface.interface_usuário(user)
+            interface.interface_usuário(user.username)
             sleep(0.5)
 
     def interface_usuário(user):
@@ -192,6 +194,7 @@ def load_caracter():
         pass
 
 def load_pers_users(lista_pers):
+    personagens_usuario.clear()
     for i in personagens:
         if utills.cripto(i.nick) in lista_pers:
             personagens_usuario.append(i)

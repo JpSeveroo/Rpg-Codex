@@ -80,38 +80,78 @@
         "checkpoint": 0
     },
     {
-        "nick": "carlos",
+        "nick": "Teste2",
         "raca": "humano",
+        "classe": "cl\u00e9rigo",
+        "xp": 0,
+        "nivel": 1,
+        "xp_para_proximo_nivel": 100,
+        "atributos": {
+            "for\u00e7a": 31,
+            "destreza": 6,
+            "constituicao": 1,
+            "carisma": 6,
+            "inteligencia": 1
+        },
+        "pericias": {
+            "acrobacia": 6,
+            "blefar": 6,
+            "mira": 6,
+            "diplomacia": 6,
+            "furtividade": 1,
+            "percepcao": 20,
+            "maos rapidas": 6,
+            "mano a mano": 31,
+            "resistencia": 31
+        },
+        "inventario": [],
+        "fraquezas": [],
+        "status": {
+            "hp": 1050,
+            "mana": 100
+        },
+        "mana_max": 100,
+        "vida_atual": 105,
+        "equipamento": {
+            "maos": null
+        },
+        "andar_esfinge_completado": false,
+        "andar_cupula_completado": false,
+        "checkpoint": 0
+    },
+    {
+        "nick": "Saitama",
+        "raca": "draconiano",
         "classe": "guerreiro",
         "xp": 0,
         "nivel": 1,
         "xp_para_proximo_nivel": 100,
         "atributos": {
-            "for\u00e7a": 39,
-            "destreza": 3,
-            "constituicao": 1,
-            "carisma": 1,
-            "inteligencia": 1
+            "for\u00e7a": 19,
+            "destreza": 8,
+            "constituicao": 6,
+            "carisma": 3,
+            "inteligencia": 6
         },
         "pericias": {
-            "acrobacia": 3,
-            "blefar": 1,
-            "mira": 3,
-            "diplomacia": 1,
-            "furtividade": 1,
-            "percepcao": 1,
-            "maos rapidas": 3,
-            "mano a mano": 39,
-            "resistencia": 39
+            "acrobacia": 8,
+            "blefar": 3,
+            "mira": 8,
+            "diplomacia": 3,
+            "furtividade": 6,
+            "percepcao": 6,
+            "maos rapidas": 8,
+            "mano a mano": 19,
+            "resistencia": 19
         },
         "inventario": [],
         "fraquezas": [],
         "status": {
-            "hp": 105,
+            "hp": 130,
             "mana": 100
         },
         "mana_max": 100,
-        "vida_atual": 1,
+        "vida_atual": 130,
         "equipamento": {
             "maos": null
         },
@@ -152,6 +192,126 @@
         },
         "mana_max": 100,
         "vida_atual": 145,
+        "equipamento": {
+            "maos": null
+        },
+        "andar_esfinge_completado": false,
+        "andar_cupula_completado": false,
+        "checkpoint": 0
+    },
+    {
+        "nick": "Legolas",
+        "raca": "elfo",
+        "classe": "ladino",
+        "xp": 0,
+        "nivel": 1,
+        "xp_para_proximo_nivel": 100,
+        "atributos": {
+            "for\u00e7a": 6,
+            "destreza": 14,
+            "constituicao": 4,
+            "carisma": 6,
+            "inteligencia": 13
+        },
+        "pericias": {
+            "acrobacia": 14,
+            "blefar": 6,
+            "mira": 14,
+            "diplomacia": 6,
+            "furtividade": 13,
+            "percepcao": 13,
+            "maos rapidas": 14,
+            "mano a mano": 6,
+            "resistencia": 6
+        },
+        "inventario": [],
+        "fraquezas": [],
+        "status": {
+            "hp": 120,
+            "mana": 100
+        },
+        "mana_max": 100,
+        "vida_atual": 120,
+        "equipamento": {
+            "maos": null
+        },
+        "andar_esfinge_completado": false,
+        "andar_cupula_completado": false,
+        "checkpoint": 0
+    },
+    {
+        "nick": "AHHHHH",
+        "raca": "humano",
+        "classe": "guerreiro",
+        "xp": 0,
+        "nivel": 1,
+        "xp_para_proximo_nivel": 100,
+        "atributos": {
+            "for\u00e7a": 15,
+            "destreza": 9,
+            "constituicao": 7,
+            "carisma": 7,
+            "inteligencia": 7
+        },
+        "pericias": {
+            "acrobacia": 9,
+            "blefar": 7,
+            "mira": 9,
+            "diplomacia": 7,
+            "furtividade": 7,
+            "percepcao": 7,
+            "maos rapidas": 9,
+            "mano a mano": 15,
+            "resistencia": 15
+        },
+        "inventario": [],
+        "fraquezas": [],
+        "status": {
+            "hp": 135,
+            "mana": 100
+        },
+        "mana_max": 100,
+        "vida_atual": 135,
+        "equipamento": {
+            "maos": null
+        },
+        "andar_esfinge_completado": false,
+        "andar_cupula_completado": false,
+        "checkpoint": 0
+    },
+    {
+        "nick": "jp_dev",
+        "raca": "humano",
+        "classe": "guerreiro",
+        "xp": 0,
+        "nivel": 1,
+        "xp_para_proximo_nivel": 100,
+        "atributos": {
+            "for\u00e7a": 15,
+            "destreza": 9,
+            "constituicao": 7,
+            "carisma": 7,
+            "inteligencia": 7
+        },
+        "pericias": {
+            "acrobacia": 9,
+            "blefar": 7,
+            "mira": 9,
+            "diplomacia": 7,
+            "furtividade": 7,
+            "percepcao": 7,
+            "maos rapidas": 9,
+            "mano a mano": 15,
+            "resistencia": 15
+        },
+        "inventario": [],
+        "fraquezas": [],
+        "status": {
+            "hp": 135,
+            "mana": 100
+        },
+        "mana_max": 100,
+        "vida_atual": 135,
         "equipamento": {
             "maos": null
         },

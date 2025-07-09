@@ -570,8 +570,8 @@ def lore_4_andar(personagem):
 
 def lore_recompensa003(personagem):
     limpar_tela()
-    personagem.inventario[0].qtd = 2
-    personagem.inventario[1].qtd = 2
+    personagem.inventario[0].qtd += 2
+    personagem.inventario[1].qtd += 2
     if personagem.checkpoint >= 3:
         tempo_digitar(0)
     personagem.checkpoint+=1
@@ -729,8 +729,8 @@ def lore_recompensa004(personagem):
     if personagem.checkpoint >= 5:
         tempo_digitar(0)
     personagem.checkpoint+=1
-    personagem.inventario[0].qtd = 5
-    personagem.inventario[1].qtd = 5
+    personagem.inventario[0].qtd += 5
+    personagem.inventario[1].qtd += 5
 
     item_escolhido003 = ''
     

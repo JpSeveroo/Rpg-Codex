@@ -33,7 +33,7 @@
         ],
         "descricao": "Leve, resistente, s\u00edmbolo do treinamento \u00e9lfico. N\u00e3o m\u00e1gico e um pouco velho, mas us\u00e1vel. (mira)",
         "qtd": 0,
-        "categoria": ""
+        "categoria": "M\u00e3os"
     },
     {
         "nome": "Broche da Folha",
@@ -45,7 +45,7 @@
         ],
         "descricao": "Um broche simples que pode ajudar em intera\u00e7\u00f5es sociais. (diplomacia)",
         "qtd": 0,
-        "categoria": ""
+        "categoria": "Corpo"
     },
     {
         "nome": "Luvas \u00c9lficas Surradas",
@@ -129,7 +129,7 @@
         ],
         "descricao": "Pequeno pingente com uma pedra da cor do drag\u00e3o ancestral do personagem; Acalma o cora\u00e7\u00e3o dos draconianos e os deixam mais soci\u00e1veis. (diplomacia)",
         "qtd": 0,
-        "categoria": ""
+        "categoria": "Corpo"
     },
     {
         "nome": "Mascara da Inverdade",
@@ -141,7 +141,7 @@
         ],
         "descricao": "Mascara magica que muda a express\u00e3o facial do personagem conforme a necessidade da conversa. Melhora a capacidade de mentir. (blefe)",
         "qtd": 0,
-        "categoria": ""
+        "categoria": "Cabe\u00e7a"
     },
     {
         "nome": "Arco Longo \u00c9lfico",
@@ -153,7 +153,7 @@
         ],
         "descricao": "Um arco elegante feito de madeira de alt\u00edssima qualidade, imbu\u00eddo com encantamentos que melhoram a precis\u00e3o da flechada. (mira)",
         "qtd": 0,
-        "categoria": ""
+        "categoria": "M\u00e3os"
     },
     {
         "nome": "Espada Fio da Lua",
@@ -165,7 +165,7 @@
         ],
         "descricao": "Espada forjada sob um eclipse lunar. Tem um corte preciso e feita com detalhes em prata.(mano a mano)",
         "qtd": 0,
-        "categoria": ""
+        "categoria": "M\u00e3os"
     },
     {
         "nome": "Besta",
@@ -177,7 +177,7 @@
         ],
         "descricao": "Ferramenta engenhosa forjada pelas maos humanas, unindo precisao e letalidade em um so disparo. (mira)",
         "qtd": 0,
-        "categoria": ""
+        "categoria": "M\u00e3os"
     },
     {
         "nome": "Tiara da Sabedoria",
@@ -189,7 +189,7 @@
         ],
         "descricao": "Tiara perdida de antigos fil\u00f3sofos e pensadores elfos. Garante um aumento do racioc\u00ednio do usu\u00e1rio. (percep\u00e7\u00e3o)",
         "qtd": 0,
-        "categoria": ""
+        "categoria": "Cabe\u00e7a"
     },
     {
         "nome": "Sand\u00e1lias de Hermes",
@@ -201,7 +201,7 @@
         ],
         "descricao": "Sand\u00e1lias que dizem ser do pr\u00f3prio deus grego, mas na verdade s\u00c3\u00a3o apenas sand\u00e1lias boa para se movimentar. (acrobacia)",
         "qtd": 0,
-        "categoria": ""
+        "categoria": "P\u00e9s"
     },
     {
         "nome": "Capa de Ladr\u00e3o",
@@ -213,7 +213,7 @@
         ],
         "descricao": "Capa que ajuda o personagem a passar despercebido e a executar acoes sem ser notado. (furtividade)",
         "qtd": 0,
-        "categoria": ""
+        "categoria": "Corpo"
     },
     {
         "nome": "Lan\u00e7a de Ca\u00e7a",
@@ -225,7 +225,7 @@
         ],
         "descricao": "Lan\u00e7a simples, feita pelos draconianos para iniciantes nas artes da ca\u00e7a e da guerra. Leve, pratica e feita para ser arremessada. (mira)",
         "qtd": 0,
-        "categoria": ""
+        "categoria": "M\u00e3os"
     },
     {
         "nome": "Talism\u00e3 da F\u00faria",
@@ -245,7 +245,7 @@
         ],
         "descricao": "Um talism\u00e3 que deixa o personagem extremamente suscet\u00edvel a raiva. Aumenta a for\u00e7a mas diminui a raz\u00e3o. (mano a mano) (resist\u00eancia) -(percep\u00e7\u00e3o)",
         "qtd": 0,
-        "categoria": ""
+        "categoria": "Corpo"
     },
     {
         "nome": "Anel da Mentira",
@@ -257,7 +257,7 @@
         ],
         "descricao": "Usa da maldade no cora\u00e7\u00e3o do usu\u00e1rio para ajuda-lo a manipular os outros. (blefe)",
         "qtd": 0,
-        "categoria": ""
+        "categoria": "Corpo"
     },
     {
         "nome": "Adaga Quebrada",
@@ -330,7 +330,7 @@
         ],
         "descricao": "Colar simples com um pingente negro em forma de adaga. A lenda ao redor desse anel \u00e9 que ele foi criado por entidades antigas com o objetivo de enganar os tolos.",
         "qtd": 0,
-        "categoria": "Acess\u00f3rio"
+        "categoria": "Corpo"
     },
     {
         "nome": "Armadura Negra Abissal",
@@ -418,7 +418,7 @@
         ],
         "descricao": "Rara pena negra com brilho dourado nas pontas. Dizem que quem a carrega ganha olhos atentos e m\u00e3os \u00e1geis.",
         "qtd": 0,
-        "categoria": "Acess\u00f3rio"
+        "categoria": "Corpo"
     },
     {
         "nome": "Escama de Drag\u00e3o Anci\u00e3o",
@@ -442,7 +442,7 @@
         ],
         "descricao": "S\u00edmbolo da linhagem draconiana. Melhora a presen\u00e7a social, mas sua energia imponente facilita negociacoes.",
         "qtd": 0,
-        "categoria": "Acess\u00f3rio"
+        "categoria": "Corpo"
     },
     {
         "nome": "Maca de Escamas",
@@ -466,7 +466,7 @@
         ],
         "descricao": "S\u00edmbolo da linhagem draconiana. Melhora a presen\u00e7a social, mas sua energia imponente facilita negocia\u00e7\u00f5es.",
         "qtd": 0,
-        "categoria": "Acess\u00f3rio"
+        "categoria": "Corpo"
     },
     {
         "nome": "Cetro da Pertuba\u00e7\u00e3o",
@@ -810,7 +810,7 @@
         ],
         "descricao": "Elmo de metal com uma viseira m\u00f3vel que amplia a vis\u00e3o do portador, destacando movimentos e detalhes distantes. Aumenta significativamente a percep\u00e7\u00e3o.",
         "qtd": 0,
-        "categoria": "Elmo"
+        "categoria": "Cabe\u00e7a"
     },
     {
         "nome": "Pingente da Ampulheta",

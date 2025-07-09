@@ -167,9 +167,13 @@ def tabelas(personagem, inimigo):
 
 def inv(personagem, mana_max):
     lista_nome = [item.nome for item in personagem.inventario]
+    
     print('-'*35)
     if len(lista_nome) != 0:
+        lista_nome.append('Sair')
         a = inquirer.select(message='Itens no inventário: ', choices=lista_nome).execute()
+        if a == 'Sair':
+            return
         b = inquirer.confirm(message='Você deseja usar o item ?').execute()
         if b == True :
             num = lista_nome.index(a)
@@ -277,7 +281,7 @@ def combate(personagem, inimigo):
     time.sleep(2)
 
     while personagem.vida_atual > 0 and inimigo.vida_atual > 0:
-        loop_principal(personagem, inimigo, personagem.status['mana'])
+        loop_principal(personagem, inimigo, 100)
 
     if personagem.vida_atual > 0:
         utills.digitar(f"\n🏆 {personagem.nick} venceu o combate!")
