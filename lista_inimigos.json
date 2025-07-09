@@ -1,132 +1,300 @@
 [
     {
-        "nome": "Gargula de dados",
+        "nome": "Gargula de Dados",
         "dano": 5,
         "vida": 40,
+        "xp": 75,
         "fraquezas": [
             "acrobacia",
             "mira"
-        ]
+        ],
+        "status": {
+            "hp": 40,
+            "mana": 100
+        },
+        "vida_atual": 40,
+        "pericias": {
+            "mano a mano": 5
+        },
+        "nick": ""
     },
     {
         "nome": "Anomalian",
-        "dano": 15,
+        "dano": 10,
         "vida": 100,
+        "xp": 150,
         "fraquezas": [
             "mano a mano"
-        ]
+        ],
+        "status": {
+            "hp": 100,
+            "mana": 100
+        },
+        "vida_atual": 100,
+        "pericias": {
+            "mano a mano": 10
+        },
+        "nick": ""
     },
     {
-        "nome": "Juizes da Ilus\u00e3o",
-        "dano": 10,
-        "vida": 55,
+        "nome": "Ju\u00edz da Ilus\u00e3o",
+        "dano": 8,
+        "vida": 50,
+        "xp": 90,
         "fraquezas": [
             "blefar"
-        ]
+        ],
+        "status": {
+            "hp": 50,
+            "mana": 100
+        },
+        "vida_atual": 50,
+        "pericias": {
+            "mano a mano": 8
+        },
+        "nick": ""
     },
     {
         "nome": "Kairon",
-        "dano": 20,
+        "dano": 15,
         "vida": 120,
+        "xp": 700,
         "fraquezas": [
             "acrobacia"
-        ]
+        ],
+        "status": {
+            "hp": 120,
+            "mana": 100
+        },
+        "vida_atual": 120,
+        "pericias": {
+            "mano a mano": 15
+        },
+        "nick": ""
     },
     {
-        "nome": "Sentinelas Silenciadas",
-        "dano": 8,
-        "vida": 50,
+        "nome": "Sentinela Silenciada",
+        "dano": 10,
+        "vida": 65,
+        "xp": 100,
         "fraquezas": [
             "mira"
-        ]
+        ],
+        "status": {
+            "hp": 65,
+            "mana": 100
+        },
+        "vida_atual": 65,
+        "pericias": {
+            "mano a mano": 10
+        },
+        "nick": ""
     },
     {
         "nome": "Flor-C\u00f3digo Cadav\u00e9rica",
-        "dano": 15,
-        "vida": 110,
+        "dano": 12,
+        "vida": 120,
+        "xp": 320,
         "fraquezas": [
             "mano a mano"
-        ]
+        ],
+        "status": {
+            "hp": 120,
+            "mana": 100
+        },
+        "vida_atual": 120,
+        "pericias": {
+            "mano a mano": 12
+        },
+        "nick": "Flor-C\u00f3digo Cadav\u00e9rica"
     },
     {
         "nome": "Anomalian do V\u00f3rtice",
-        "dano": 10,
+        "dano": 15,
         "vida": 60,
+        "xp": 135,
         "fraquezas": [
             "mano a mano"
-        ]
+        ],
+        "status": {
+            "hp": 60,
+            "mana": 100
+        },
+        "vida_atual": 60,
+        "pericias": {
+            "mano a mano": 15
+        },
+        "nick": "Anomalian do V\u00f3rtice"
     },
     {
         "nome": "G\u00e1rgula Carcinizada",
-        "dano": 11,
-        "vida": 45,
+        "dano": 17,
+        "vida": 50,
+        "xp": 135,
         "fraquezas": [
             "acrobacia"
-        ]
+        ],
+        "status": {
+            "hp": 50,
+            "mana": 100
+        },
+        "vida_atual": 50,
+        "pericias": {
+            "mano a mano": 17
+        },
+        "nick": "G\u00e1rgula Carcinizada"
     },
     {
         "nome": "Juiz Fragmentado",
-        "dano": 8,
+        "dano": 10,
         "vida": 70,
+        "xp": 135,
         "fraquezas": [
             "blefar"
-        ]
+        ],
+        "status": {
+            "hp": 70,
+            "mana": 100
+        },
+        "vida_atual": 70,
+        "pericias": {
+            "mano a mano": 10
+        },
+        "nick": "Juiz Fragmentado"
     },
     {
         "nome": "Eco Corrompido",
-        "dano": 25,
-        "vida": 130,
+        "dano": 20,
+        "vida": 150,
+        "xp": 900,
         "fraquezas": [
             "percepcao"
-        ]
+        ],
+        "status": {
+            "hp": 150,
+            "mana": 100
+        },
+        "vida_atual": 150,
+        "pericias": {
+            "mano a mano": 20
+        },
+        "nick": "Eco Corrompido"
     },
     {
         "nome": "Lamentadores",
-        "dano": 12,
-        "vida": 105,
+        "dano": 15,
+        "vida": 80,
+        "xp": 150,
         "fraquezas": [
             "diplomacia",
             "resistencia"
-        ]
+        ],
+        "status": {
+            "hp": 80,
+            "mana": 100
+        },
+        "vida_atual": 80,
+        "pericias": {
+            "mano a mano": 15
+        },
+        "nick": "Lamentadores"
     },
     {
-        "nome": "Guardi\u00f5es de Pulso",
-        "dano": 13,
-        "vida": 120,
-        "fraquezas": [
-            "acrobacia"
-        ]
+        "nome": "Guardi\u00e3o de Pulso",
+        "dano": 18,
+        "vida": 100,
+        "xp": 160,
+        "fraquezas": [],
+        "status": {
+            "hp": 100,
+            "mana": 100
+        },
+        "vida_atual": 100,
+        "pericias": {
+            "mano a mano": 18
+        },
+        "nick": "Guardi\u00e3o de Pulso"
     },
     {
-        "nome": "KOR\u2019NAH",
-        "dano": 30,
-        "vida": 150,
-        "fraquezas": []
+        "nome": "KOR'NAH",
+        "dano": 22,
+        "vida": 180,
+        "xp": 500,
+        "fraquezas": [],
+        "status": {
+            "hp": 180,
+            "mana": 100
+        },
+        "vida_atual": 180,
+        "pericias": {
+            "mano a mano": 22
+        },
+        "nick": "KOR'NAH"
     },
     {
-        "nome": "Jo\u00e3o Pedro - O tecel\u00e3o",
-        "dano": 50,
-        "vida": 200,
-        "fraquezas": []
+        "nome": "Jo\u00e3o Pedro - o Tecel\u00e3o",
+        "dano": 25,
+        "vida": 250,
+        "xp": 0,
+        "fraquezas": [],
+        "status": {
+            "hp": 250,
+            "mana": 100
+        },
+        "vida_atual": 250,
+        "pericias": {
+            "mano a mano": 25
+        },
+        "nick": "Jo\u00e3o Pedro - o Tecel\u00e3o"
     },
     {
         "nome": "Andr\u00e9 - O Guardi\u00e3o",
-        "dano": 50,
-        "vida": 200,
-        "fraquezas": []
+        "dano": 25,
+        "vida": 250,
+        "xp": 0,
+        "fraquezas": [],
+        "status": {
+            "hp": 250,
+            "mana": 100
+        },
+        "vida_atual": 250,
+        "pericias": {
+            "mano a mano": 25
+        },
+        "nick": "Andr\u00e9 - O Guardi\u00e3o"
     },
     {
         "nome": "Mateus - O Condutor",
-        "dano": 50,
-        "vida": 210,
+        "dano": 30,
+        "vida": 225,
+        "xp": 0,
         "fraquezas": [
-            "mulher"
-        ]
+            "Mulher"
+        ],
+        "status": {
+            "hp": 225,
+            "mana": 100
+        },
+        "vida_atual": 225,
+        "pericias": {
+            "mano a mano": 30
+        },
+        "nick": "Mateus - O Condutor"
     },
     {
         "nome": "Carlos - O Escultor",
-        "dano": 50,
-        "vida": 200,
-        "fraquezas": []
+        "dano": 20,
+        "vida": 300,
+        "xp": 0,
+        "fraquezas": [],
+        "status": {
+            "hp": 300,
+            "mana": 100
+        },
+        "vida_atual": 300,
+        "pericias": {
+            "mano a mano": 20
+        },
+        "nick": "Carlos - O Escultor"
     }
 ]
