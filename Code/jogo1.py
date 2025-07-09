@@ -13,6 +13,11 @@ import inimigos
 
 def lore_introducao(personagem):
     print()
+    personagem.inventario.append(lista_itens[0])
+    personagem.inventario[0].qtd = 5
+    personagem.inventario.append(lista_itens[1])
+    personagem.inventario[1].qtd = 5
+
     texto1 = (' No silêncio absoluto de uma existência que não é mais carne nem alma, você desperta. Oque vê não é um mundo, mas um vasto espaço digital — uma planície infinita e vazia, onde o horizonte se dissolve em pixels azuis e violetas, iluminados por uma aurora elétrica que pulsa com o ritmo de um código ancestral. Acima, o céu é uma tela viva, uma tapeçaria de fragmentos de memória, dados e histórias esquecidas. O ar, ou o que resta dele, vibra comum zumbido constante, uma sinfonia mecânica e etérea, como o respirar sutil de uma inteligência que observa cada movimento. À distância, recortando o infinito, ergue-se o Labirinto de Etherion — uma torre monumental e impossivelmente alta, feita de açotranslúcido, luz pulsante e padrões de circuitos que se entrelaçam como raízes de umaárvore cibernética. Cada andar brilha com um espectro de cores e ecos de vozes perdidas,um convite e um aviso ao mesmo tempo. Uma mensagem fria e impessoal se materializa diante de você, uma sentença gravada notecido da realidade:\n')
     digitar(texto1)
 
@@ -106,10 +111,8 @@ def lore_recompensa001(personagem):
         tempo_digitar(0)
     personagem.checkpoint += 1
 
-    personagem.inventario.append(lista_itens[0])
-    personagem.inventario[0].qtd = 5
-    personagem.inventario.append(lista_itens[1])
-    personagem.inventario[1].qtd = 5#Alterar a quantidade com extend dps
+    personagem.inventario[0].qtd += 1
+    personagem.inventario[1].qtd += 1
     personagem.inventario.append(lista_itens[24])
 
     if personagem.raca == 'elfo':
@@ -518,7 +521,11 @@ def morte_esfinge(personagem):
     personagem.andar_esfinge_completado = True
     texto22 = ('O silêncio na Cúpula da Percepção a resposta é proferida. Um instante de suspense se estende, pesado com a expectativa da Esfinge Negra de Aethelgard. Mas a calma é logo rompida por um zumbido agudo, quase um chiado furioso. A Esfinge, antes imóvel, contorce sua forma etérea, e um brilho vermelho intenso pulsa em seus olhos. Não há mais perguntas. A indignação da entidade por ter recebido a alternativa incorreta é palpável, reverberando pelas paredes de cristal. Em um instante brutal, a cúpula se torna um vórtice de dados colapsados, e você é consumido pela fúria de uma verdade distorcida. A percepção falha selou seu destino: você se desintegra em um véu de ruído branco, e a escuridão o engole. Ao despertar, o Ponto de Início o aguarda, o vazio da planície se estendendo à sua frente, e a Torre de Etherion, indiferente, erguendo-se à distância. A lição é brutal: a falha na percepção não é um tropeço, é uma sentença de retorno forçado, uma repetição eterna até que a verdade seja finalmente alcançada.')
     digitar(texto22)
-    print(f'[bold red]🩸 {personagem.nick} MORREU [/bold red]')
+    print(f'\n[bold red]🩸 {personagem.nick} MORREU [/bold red]\n')
+    text_inf = ('\nPressione ENTER para prosseguir...')
+    digitar(text_inf)
+    a = input('')
+    limpar_tela()
     lore_introducao(personagem)
 
 
