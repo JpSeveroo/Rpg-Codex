@@ -805,5 +805,3 @@ def lore_pos_10andar(personagem):
                 inventario.interface_inv(personagem)
         except ValueError as e:
             print(f"{e} Tente novamente.")
-
-
