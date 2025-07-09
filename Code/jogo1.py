@@ -186,7 +186,7 @@ def lore_recompensa001(personagem):
             break
 
     
-    print(f"[bold purple][Sistema] 🪙   RECOMPENSAS: \nXp: [225] \nPoção de cura [1]\nPoção de mana [1]\nItens: 📒 Livro de perícias, {item_escolhido001}[/bold purple]")
+    print(f"[bold purple][Sistema] 🪙   RECOMPENSAS: \nXp: [225] \nPoção de cura [1]\nPoção de mana [1]\nItens: 📒 Grimorio de Etherion, {item_escolhido001}[/bold purple]")
     text_inf = ('\nPressione ENTER para prosseguir...')
     digitar(text_inf)
     a = input('')
