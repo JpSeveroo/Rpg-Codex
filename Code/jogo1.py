@@ -410,7 +410,7 @@ def lore_3_andar(personagem):
 #FAZER O CHECKPOINT
 def lore_1_enigma(personagem):
     personagem.andar_esfinge_completado = True
-    
+
     if personagem.checkpoint >= 3:
         tempo_digitar(0)
     time.sleep(1)
@@ -525,6 +525,7 @@ def morte_esfinge(personagem):
     print(f'\n[bold red]🩸 {personagem.nick} MORREU [/bold red]\n')
     text_inf = ('\nPressione ENTER para prosseguir...')
     digitar(text_inf)
+    personagem.andar_esfinge_completado = True
     a = input('')
     limpar_tela()
     lore_introducao(personagem)
