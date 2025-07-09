@@ -1,41 +1,5 @@
 [
     {
-        "nick": "Teste",
-        "raca": "humano",
-        "classe": "guerreiro",
-        "xp": 0,
-        "nivel": 1,
-        "xp_para_proximo_nivel": 100,
-        "atributos": {
-            "for\u00e7a": 15,
-            "destreza": 9,
-            "constituicao": 7,
-            "carisma": 7,
-            "inteligencia": 7
-        },
-        "pericias": {
-            "acrobacia": 9,
-            "blefar": 7,
-            "mira": 9,
-            "diplomacia": 7,
-            "furtividade": 7,
-            "percepcao": 7,
-            "maos rapidas": 9,
-            "mano a mano": 15,
-            "resistencia": 15
-        },
-        "inventario": [],
-        "fraquezas": [],
-        "status": {
-            "hp": 135,
-            "mana": 50
-        },
-        "vida_atual": 135,
-        "equipamento": [],
-        "andar_esfinge_completado": false,
-        "andar_cupula_completado": false
-    },
-    {
         "nick": "Teste1",
         "raca": "humano",
         "classe": "guerreiro",
@@ -66,13 +30,17 @@
             "hp": 135,
             "mana": 50
         },
+        "mana_max": 100,
         "vida_atual": 135,
-        "equipamento": [],
+        "equipamento": {
+            "maos": null
+        },
         "andar_esfinge_completado": false,
-        "andar_cupula_completado": false
+        "andar_cupula_completado": false,
+        "checkpoint": 0
     },
     {
-        "nick": "Teste3",
+        "nick": "Andr\u00e9",
         "raca": "humano",
         "classe": "guerreiro",
         "xp": 0,
@@ -100,47 +68,15 @@
         "fraquezas": [],
         "status": {
             "hp": 135,
-            "mana": 50
+            "mana": 100
         },
+        "mana_max": 100,
         "vida_atual": 135,
-        "equipamento": [],
+        "equipamento": {
+            "maos": null
+        },
         "andar_esfinge_completado": false,
-        "andar_cupula_completado": false
-    },
-    {
-        "nick": "Teste2",
-        "raca": "humano",
-        "classe": "guerreiro",
-        "xp": 0,
-        "nivel": 1,
-        "xp_para_proximo_nivel": 100,
-        "atributos": {
-            "for\u00e7a": 15,
-            "destreza": 9,
-            "constituicao": 7,
-            "carisma": 7,
-            "inteligencia": 7
-        },
-        "pericias": {
-            "acrobacia": 9,
-            "blefar": 7,
-            "mira": 9,
-            "diplomacia": 7,
-            "furtividade": 7,
-            "percepcao": 7,
-            "maos rapidas": 9,
-            "mano a mano": 15,
-            "resistencia": 15
-        },
-        "inventario": [],
-        "fraquezas": [],
-        "status": {
-            "hp": 135,
-            "mana": 50
-        },
-        "vida_atual": 135,
-        "equipamento": [],
-        "andar_esfinge_completado": false,
-        "andar_cupula_completado": false
+        "andar_cupula_completado": false,
+        "checkpoint": 0
     }
 ]

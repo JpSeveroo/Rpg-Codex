@@ -39,7 +39,7 @@ class Personagem:
         }
         self.inventario = []
         self.fraquezas = []
-        self.status = {"hp": 100, "mana": 50}
+        self.status = {"hp": 100, "mana": 100}
         self.mana_max = self.status['mana']
         self.vida_atual = self.status["hp"]
         self.equipamento = {
@@ -47,6 +47,7 @@ class Personagem:
 }
         self.andar_esfinge_completado = False
         self.andar_cupula_completado = False
+        self.checkpoint = 0
 
     def criar_ficha(self):
         print()

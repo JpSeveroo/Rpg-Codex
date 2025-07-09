@@ -3,10 +3,11 @@ import utills
 lista_inimigos = []
 
 class Inimigo:
-    def __init__(self, nome='', dano=0, vida=0, fraquezas=None):
+    def __init__(self, nome='', dano=0, vida=0, xp=0, fraquezas=None):
         self.nome = nome
         self.dano = dano
         self.vida = vida
+        self.xp = xp
         self.fraquezas = fraquezas if fraquezas is not None else []
         self.status = {'hp': self.vida, 'mana': 100}
         self.vida_atual = self.vida
@@ -119,7 +120,7 @@ def load_enemys():
             inimigo.vida_atual = inimigo.vida
             inimigo.status = {'hp': inimigo.vida, 'mana': 100}
             inimigo.pericias = {'mano a mano': inimigo.dano}
-            
+            inimigo.xp = item_data.get('xp', 0)
             lista_inimigos.append(inimigo)
     except Exception as e:
         print(f"Erro ao carregar inimigos: {e}")

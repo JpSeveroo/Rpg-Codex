@@ -6,6 +6,7 @@ import item
 import utills
 import ficha
 import inimigos
+import inventario
 
 """=== FUNÇÕES UTILITARIAS ==="""
 
@@ -14,7 +15,10 @@ pocao_cura = item.lista_itens[0]
 pocao_mana = item.lista_itens[1]
 
 def get_nome(personagem):
-    return getattr(personagem, 'nick', getattr(personagem, 'nome', 'Desconhecido'))
+    if type(personagem) == ficha.Personagem:
+        return personagem.nick
+    elif type(personagem) == inimigos.Inimigo:
+        return personagem.nome
 
 def rolar_dado():
     dado = random.randint(1, 6)
@@ -48,6 +52,7 @@ def _executar_ataque(atacante, defensor, pericia_principal, custo_mana, bonus_ex
         time.sleep(1.5)
         return False
     
+
     atacante.status['mana'] -= custo_mana
 
     if pericia_secundaria:
@@ -59,19 +64,23 @@ def _executar_ataque(atacante, defensor, pericia_principal, custo_mana, bonus_ex
 
     dano = calc_dano(atacante, pericia_principal, bonus_extra)
 
+    if atacante == inimigos:
+        dano-= (defensor.pericias.get('resistencia', 0))//4
+
     defensor.vida_atual -= dano
     if defensor.vida_atual < 0:
         defensor.vida_atual = 0
 
     tipo_de_ataque = 'um ataque especial' if pericia_secundaria else 'ataca'
-    utills.digitar(f'\n⚔️  {atacante.nick} {tipo_de_ataque} em {defensor.nick}! causando {dano} de dano!')
-    utills.digitar(f'❤️  {defensor.nick} agora tem {defensor.vida_atual} HP.')
+    utills.digitar(f'\n⚔️  {get_nome(atacante)} fez um {tipo_de_ataque} em {get_nome(defensor)}! causando {dano} de dano!')
+    utills.digitar(f'❤️  {get_nome(defensor)} agora tem {defensor.vida_atual} HP.')
     time.sleep(2)
     return True
 
 def ataque(atacante, defensor, pericia_principal):
     custo_mana = 5
     return _executar_ataque(atacante, defensor, pericia_principal, custo_mana)
+
 
 def ataque_especial(atacante, defensor, pericia_principal, pericia_secundaria):
     custo_especial = 10
@@ -86,19 +95,19 @@ def esquivar(personagem, mana_max):
     acrobacia = personagem.pericias.get('acrobacia', 0)
     dado = random.randint(1, 20)
     total = dado + acrobacia
-    utills.digitar(f"🤸 {personagem.nick} tenta se esquivar! Rolagem: {dado} + Acrobacia ({acrobacia}) = {total}")
+    utills.digitar(f"🤸 {personagem.nick} tenta se esquivar! Rolagem: {dado} + Acrobacia: ({acrobacia}) = {total}")
     time.sleep(2)
     
     if total >= 15: # sucesso na esquiva
-        recuperado = 3
+        recuperado = 5
         personagem.status['mana'] += recuperado
         if personagem.status['mana'] > mana_max:
             personagem.status['mana'] = mana_max
-        utills.digitar(f"✅ Esquiva bem-sucedida! Recuperou {recuperado} de mana.")
+        utills.digitar(f"✅ Esquiva bem-sucedida! você recuperou {recuperado} de mana.")
         time.sleep(2)
         return True
     else:
-        utills.digitar("❌ Esquiva falhou! Você se desequilibrou e perdeu a chance de recuperar energia.")
+        utills.digitar("❌ Esquiva falhou! Você não foi agil o suficiente e nem conseguiu recuperar mana.")
         time.sleep(2)
         return False
 
@@ -151,7 +160,7 @@ def tabelas(personagem, inimigo):
     print('-'*35 + ' '*25 + '-'*35)
     write('Nome', get_nome(personagem), get_nome(inimigo))
     show_life(personagem, inimigo)
-    write2('Mana', 'Dano', personagem.status['mana'], inimigo.dano)
+    write2('Mana', 'Poder', personagem.status['mana'], inimigo.dano)
     print('-'*35 + ' '*25 + '-'*35)
 
 def inv(personagem, mana_max):
@@ -235,14 +244,6 @@ def loop_principal(personagem, inimigo, mana_max):
 
         elif a == 'Esquivar':
             sucesso = esquivar(personagem, mana_max)
-            if sucesso:
-                utills.digitar("Você pode agir novamente após esquivar!")
-                time.sleep(2)
-                return # volta para escolha de ação
-            else:
-                utills.digitar("Você falhou na esquiva e perdeu seu turno!")
-                time.sleep(2)
-                break #perdeu o turno
         
         elif a == 'Inventário':
             inv(personagem, mana_max)
@@ -278,6 +279,7 @@ def combate(personagem, inimigo):
 
     if personagem.vida_atual > 0:
         utills.digitar(f"\n🏆 {personagem.nick} venceu o combate!")
+        xp(personagem, inimigo)
         time.sleep(3)
         utills.limpar_tela()
         return personagem
@@ -289,31 +291,24 @@ def combate(personagem, inimigo):
 
 '''===FUNÇÕES INTERATIVAS DO COMBATE==='''
 
-
-#função de caso o jogador não tenha uma arma de corpo a corpo e ou longa distancia
-
-#função de puxar os inimigos da lista 
-
-#função que relaciona os atributos da lista com as funções que gerenciam o "p2"
-
-#ver como a gente vai relacionar os itens
-
 def equip(personagem, pericia_principal):
-    # Se o personagem não tem equipamento (ex: é um inimigo), assume multiplicador 1
+
     if not hasattr(personagem, 'equipamento'):
         return 1
 
-    arma = personagem.equipamento.get("maos")
+    arma = inventario.equipamento.itens['Mãos']['equipado']
     pericias_que_exigem_arma = {'mano a mano', 'mira'}
     if pericia_principal not in pericias_que_exigem_arma:
         return 1
-    if arma is None:
+    if arma is False:
         return 0.5
     else:
         return 1
 
-def ene():
-    ...
+def xp(personagem, inimigo):
+    xp_ganho = inimigo.xp
+    personagem.xp += xp_ganho
+    utills.digitar(f'Você ganhou {xp_ganho} de xp')
 
 def adv_IA(inimigo, jogador):
 
@@ -324,8 +319,6 @@ def adv_IA(inimigo, jogador):
 if __name__ == '__main__':
     from ficha import Personagem
 
-    inimigos.load_enemys()
-
     pocao_cura.qtd = 2
     pocao_mana.qtd = 2
 
@@ -334,7 +327,7 @@ if __name__ == '__main__':
     p1.atributos["força"] = 6
     p1.status["hp"] = 100
     p1.status["mana"] = 100
-    p1.pericias['mano a mano'] = 12
+    p1.pericias['mano a mano'] = 40
     p1.pericias['mira'] = 8   
     p1.pericias['acrobacia'] = 5 
     p1.vida_atual = 100
@@ -351,11 +344,3 @@ if __name__ == '__main__':
     inimigo = inimigos.lista_inimigos[0]
 
     vencedor = combate(p1, inimigo)
-
-    if vencedor == p1:
-        xp_ganho = 100
-        p1.xp += xp_ganho
-        utills.digitar(f"\n🎉 {p1.nick} ganhou {xp_ganho} de XP!")
-        if p1.xp >= p1.xp_para_proximo_nivel:
-            p1.evoluir_nivel()
-    p1.visualizar()

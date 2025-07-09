@@ -1,16 +1,9 @@
-#Atribuir os personagens criados aos respectivos usuários
-#Fazer com que seja possivel visualizar apenas os personagens criados pelos usuários
-#Alteração de usuário no login
-#Não permitir nomes iguais em personagens
-
 import utills
 import users
 import os
 import InquirerPy
 import InquirerPy.inquirer
 import ficha
-import combate
-#import jogo
 import jogo1
 from time import sleep
 
@@ -103,19 +96,24 @@ class interface:
         interface.interface_usuário(user.username)
 
     def jogar():
-        os.system('clear')
-        try:
-            pers = [i.nick for i in personagens_usuario]
+        os.system('cls' if os.name == 'nt' else 'clear')
+        pers = [i.nick for i in personagens_usuario]
+        if pers:
+            pers.append('Sair')
             b = InquirerPy.inquirer.select(message='Qual o personagem desejado', choices= pers).execute()
+            if b == 'Sair':
+                sleep(0.5)
+                interface.interface_usuário(user.username)
+                return
             c = pers.index(b)
             global personagem_escolhido
-            personagem_escolhido = personagens[c]
-        except:
+            personagem_escolhido = personagens_usuario[c]
+        else:
             print('Não há nenhum personagem criado!')
             input('Pressione qualquer tecla para voltar ao menu...')
             interface.interface_usuário(user.username)
             return
-        jogo1.lore_1_andar(personagem_escolhido)
+        jogo1.lore_introducao(personagem_escolhido)
     
     def visualizar_ficha():
         a = []
@@ -150,7 +148,7 @@ class interface:
             sleep(0.5)
 
     def interface_usuário(user):
-        os.system('clear')
+        os.system('cls' if os.name == 'nt' else 'clear')
         print(f'Seja bem vindo {user}')
         print()
         opcoes = {
@@ -188,6 +186,7 @@ def load_caracter():
             b.equipamento = item['equipamento']
             b.andar_esfinge_completado = item['andar_esfinge_completado']
             b.andar_cupula_completado = item['andar_cupula_completado']
+            b.checkpoint = item['checkpoint']
             personagens.append(b)
     except TypeError:
         pass

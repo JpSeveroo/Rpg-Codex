@@ -37,7 +37,6 @@ def mostrar():
     for i in range(len(lista_itens)):
         print(f'{i}-{lista_itens[i].nome}')
     input()
-    interface()
 
 def load_itens():
     try:
@@ -55,7 +54,7 @@ def load_itens():
 
 def edit_item():
     mostrar()
-    a = int(input('Qual item você deseja editar : ')) - 1
+    a = int(input('Qual item você deseja editar : '))
     lista_de_efeitos = []
     lista_itens[a].nome = input('Qual o novo nome : ')
     b = int(input('Numero de efeitos: '))
@@ -68,7 +67,7 @@ def edit_item():
         lista_de_efeitos.append(lista)
     lista_itens[a].efeitos = lista_de_efeitos
     lista_itens[a].descricao = input('Nova descrição: ')
-    lista_itens[a].categoria = input('Qual a categoria do item : (cabeca, corpo, pes, maos)')
+    lista_itens[a].categoria = input('Qual a categoria do item : (Cabeça, Corpo, Pés, Mãos, Utilizaveis)')
     write()
 
 def excluir_item():

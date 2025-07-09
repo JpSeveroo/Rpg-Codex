@@ -3,9 +3,8 @@
         "_username": "Deco",
         "_password": "827ccb0eea8a706c4c34a16891f84e7b",
         "personagens": [
-            "8e6f6f815b50f474cf0dc22d4f400725",
             "5d44d60379779d3cd66380eb45f5af27",
-            "26cf11725691fdee58e34ab7e95d96ee"
+            "45f1deffb45a5f6c2380a4cee9b3e452"
         ]
     },
     {
@@ -16,6 +15,21 @@
             "5d44d60379779d3cd66380eb45f5af27",
             "26cf11725691fdee58e34ab7e95d96ee",
             "07cd109ac902429f267f8279f2a0041c"
+        ]
+    },
+    {
+        "_username": "Andr\u00e9",
+        "_password": "827ccb0eea8a706c4c34a16891f84e7b",
+        "personagens": [
+            "72d098a0ae5d578161e81edaac1de3fb"
+        ]
+    },
+    {
+        "_username": "Mateus",
+        "_password": "827ccb0eea8a706c4c34a16891f84e7b",
+        "personagens": [
+            "5d44d60379779d3cd66380eb45f5af27",
+            "d41d8cd98f00b204e9800998ecf8427e"
         ]
     }
 ]
