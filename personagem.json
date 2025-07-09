@@ -111,7 +111,7 @@
             "mana": 100
         },
         "mana_max": 100,
-        "vida_atual": 105,
+        "vida_atual": 1,
         "equipamento": {
             "maos": null
         },
