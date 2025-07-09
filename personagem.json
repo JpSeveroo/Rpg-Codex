@@ -118,5 +118,45 @@
         "andar_esfinge_completado": false,
         "andar_cupula_completado": false,
         "checkpoint": 0
+    },
+    {
+        "nick": "Saitama",
+        "raca": "humano",
+        "classe": "guerreiro",
+        "xp": 0,
+        "nivel": 1,
+        "xp_para_proximo_nivel": 100,
+        "atributos": {
+            "for\u00e7a": 24,
+            "destreza": 3,
+            "constituicao": 16,
+            "carisma": 1,
+            "inteligencia": 1
+        },
+        "pericias": {
+            "acrobacia": 3,
+            "blefar": 1,
+            "mira": 3,
+            "diplomacia": 1,
+            "furtividade": 1,
+            "percepcao": 1,
+            "maos rapidas": 3,
+            "mano a mano": 1000,
+            "resistencia": 24
+        },
+        "inventario": [],
+        "fraquezas": [],
+        "status": {
+            "hp": 180,
+            "mana": 100
+        },
+        "mana_max": 100,
+        "vida_atual": 180,
+        "equipamento": {
+            "maos": null
+        },
+        "andar_esfinge_completado": false,
+        "andar_cupula_completado": false,
+        "checkpoint": 0
     }
 ]

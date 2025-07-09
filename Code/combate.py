@@ -165,6 +165,7 @@ def tabelas(personagem, inimigo):
 
 def inv(personagem, mana_max):
     lista_nome = [item.nome for item in personagem.inventario]
+    
     print('-'*35)
     if len(lista_nome) != 0:
         a = inquirer.select(message='Itens no inventário: ', choices=lista_nome).execute()
