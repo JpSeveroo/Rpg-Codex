@@ -307,6 +307,7 @@ def lore_pos_2andar(personagem):
 def lore_3_andar(personagem):
     if personagem.checkpoint >= 3:
         tempo_digitar(0)
+    personagem.checkpoint +=1
     os.system('cls' if os.name == 'nt' else 'clear')
     
     texto16 = ('\nVocê atravessa o portal do Andar 3 e se encontra em uma cúpula colossal. As paredes circulares são revestidas por inúmeros cristais de dados, cada um pulsando com uma luz tênue em diferentes frequências, como batimentos digitais. O chão, liso e polido, reflete sua imagem como um espelho de mercúrio, distorcendo levemente a realidade. Não há sinal de inimigos, nem som que quebre o silêncio, exceto por um sutil zumbido de ruído branco. Contudo, uma sensação incômoda de que algo está fundamentalmente errado paira no ar. No centro da cúpula, uma estrutura imponente se ergue: uma esfinge negra, etérea e flutuante, sua forma absorvendo a pouca luz do ambiente.Uma mensagem espectral se materializa à sua frente: ')
@@ -516,7 +517,9 @@ def lore_recompensa003(personagem):
     os.system('cls' if os.name == 'nt' else 'clear')
     personagem.inventario[0].qtd = 2
     personagem.inventario[1].qtd = 2
-
+    if personagem.checkpoint >= 3:
+        tempo_digitar(0)
+    personagem.checkpoint+=1
     item_escolhido002 = ''
 
     if personagem.raca == 'elfo':
@@ -663,6 +666,7 @@ def lore_recompensa004(personagem):
     os.system('cls' if os.name == 'nt' else 'clear')
     if personagem.checkpoint >= 5:
         tempo_digitar(0)
+    personagem.checkpoint+=1
     personagem.inventario[0].qtd = 5
     personagem.inventario[1].qtd = 5
 
