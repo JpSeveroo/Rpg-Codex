@@ -11,7 +11,6 @@ from combate import combate
 import inimigos
 
 def lore_introducao(personagem):
-    personagem.equipamento = inventario.equipamento
     print()
     texto1 = (' No silêncio absoluto de uma existência que não é mais carne nem alma, você desperta. Oque vê não é um mundo, mas um vasto espaço digital — uma planície infinita e vazia, onde o horizonte se dissolve em pixels azuis e violetas, iluminados por uma aurora elétrica que pulsa com o ritmo de um código ancestral. Acima, o céu é uma tela viva, uma tapeçaria de fragmentos de memória, dados e histórias esquecidas. O ar, ou o que resta dele, vibra comum zumbido constante, uma sinfonia mecânica e etérea, como o respirar sutil de uma inteligência que observa cada movimento. À distância, recortando o infinito, ergue-se o Labirinto de Etherion — uma torre monumental e impossivelmente alta, feita de açotranslúcido, luz pulsante e padrões de circuitos que se entrelaçam como raízes de umaárvore cibernética. Cada andar brilha com um espectro de cores e ecos de vozes perdidas,um convite e um aviso ao mesmo tempo. Uma mensagem fria e impessoal se materializa diante de você, uma sentença gravada notecido da realidade:\n')
     digitar(texto1)
@@ -24,6 +23,13 @@ def lore_introducao(personagem):
     print()
     texto3 = (' Você não é um ser físico, mas um Eco — uma consciência fragmentada, arrancada do mundo original pela Queda do Éter, um cataclismo que destruiu a linha entre a matéria e a energia, a vida e o código. Etherion é um santuário e uma prisão: aqui, a essência das raças ancestrais — humanos, elfos, draconianos — se fundiu e se perdeu, reciclada em uma tapeçaria digital onde magia e tecnologia são indistintas. Este não é um mundo de certezas, mas de possibilidades codificadas. Cada passo é um teste, cada sombra uma lembrança, cada inimigo um fragmento do passado e um desafio do presente. À sua frente, o Labirinto se estende como um abismo infinito, pulsando com segredos e armadilhas, guardando a verdade que pode libertá-lo — ou destruí-lo.')
     digitar(texto3)
+    
+    if personagem.raca == 'elfo':
+        personagem.inventario.append(lista_itens[21])
+    elif personagem.raca == 'humano':
+        personagem.inventario.append(lista_itens[22])
+    elif personagem.raca == 'draconiano':
+        personagem.inventario.append(lista_itens[23])
 
     while True:
         print()
@@ -98,9 +104,10 @@ def lore_recompensa001(personagem):
     personagem.checkpoint += 1
 
     personagem.inventario.append(lista_itens[0])
-    personagem.inventario[0].qtd = 1
+    personagem.inventario[0].qtd = 5
     personagem.inventario.append(lista_itens[1])
-    personagem.inventario[1].qtd = 1#Alterar a quantidade com extend dps
+    personagem.inventario[1].qtd = 5#Alterar a quantidade com extend dps
+    personagem.inventario.append(lista_itens[24])
 
     if personagem.raca == 'elfo':
         while True:
@@ -282,8 +289,8 @@ def lore_2_andar(personagem):
 
 def lore_recompensa002(personagem):
     limpar_tela()
-    personagem.inventario[0].qtd = 1
-    personagem.inventario[0].qtd = 1
+    personagem.inventario[0].qtd += 1
+    personagem.inventario[1].qtd += 1
     if personagem.checkpoint >= 1:
         tempo_digitar(0)
     personagem.checkpoint += 1
