@@ -38,8 +38,11 @@ class Personagem:
         self.inventario = []
         self.fraquezas = []
         self.status = {"hp": 100, "mana": 50}
+        self.mana_max = self.status['mana']
         self.vida_atual = self.status["hp"]
-        self.equipamento = []
+        self.equipamento = {
+            "maos": None,
+}
         self.andar_esfinge_completado = False
         self.andar_cupula_completado = False
         self.checkpoint = 0
