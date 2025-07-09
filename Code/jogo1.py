@@ -694,24 +694,27 @@ def lore_5_andar(personagem):
     while True:
         print()
         opcao = inquirer.select(
-        message="⚠️  Você não tem escolha a não ser o combate\n",
-        choices=[
-            "⚔️  Iniciar combate com Kairon, o Guardião do Abismo — Enfrentar a entidade que controla o Abismo de Kairon, onde sua força e resistência serão testadas em um terreno instável e traiçoeiro."   
-        ]
+            message="O que deseja fazer?\n",
+            choices=[
+                "🔍 Conferir status do personagem",
+                "⚔️ Iniciar combate - Enfrentar Kairon, o Guardião do Abismo, na arena digital.",
+                "🎒 Investigar Inventário"
+            ]
         ).execute()
-        if opcao == "⚔️  Iniciar combate com Kairon, o Guardião do Abismo — Enfrentar a entidade que controla o Abismo de Kairon, onde sua força e resistência serão testadas em um terreno instável e traiçoeiro.":
+        if opcao == "🔍 Conferir status do personagem":
             limpar_tela()
-            vencedor = combate(personagem, inimigos.lista_inimigos[3])
+            personagem.mostrar_status()
+            input("\nPressione ENTER para voltar...")
+        elif opcao == "⚔️ Iniciar combate - Enfrentar Kairon, o Guardião do Abismo, na arena digital.":
+            vencedor = combate(personagem, inimigos.lista_inimigos[3]) 
             if vencedor == personagem:
-                lore_recompensa002(personagem)
-                lore_pos_1andar(personagem)
+                lore_recompensa004(personagem) 
                 break
-            else:
-                print('jogador morreu')
-            break
-            lore_recompensa004(personagem)
-            jogo2.lore_pos_5andar(personagem)
-            break
+
+        elif opcao == "🎒 Investigar Inventário":
+            limpar_tela()
+            inventario.interface_inv(personagem)
+            print()
 
 def lore_recompensa004(personagem):
     limpar_tela()
@@ -740,6 +743,12 @@ def lore_recompensa004(personagem):
     text_inf = ('\nPressione ENTER para prosseguir...')
     digitar(text_inf)
     a = input('')
+    lore_F_andar(personagem)
+
+def lore_F_andar(personagem):
+    limpar_tela()
+    print('[bold red]ATO 1 FINALIZADO - PARA SER UM DOS PRIMEIROS A TER ACESSO AO JOGO ENVIE UM PIX DE R$50 PARA ESTE NÚMERO:[/bold red]')
+    print('[bold purple]87981726381[/bold purple]')
 
 
 if __name__ == "__main__":
