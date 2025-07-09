@@ -22,13 +22,13 @@ def lore_introducao(personagem):
     digitar(texto3)
 
     while True:
-        texto4 = ('\n1. Avançar para o primeiro andar do Labirinto, iniciando sua ascensão rumo à liberdade. \n2. Investigar inventário')
+        texto4 = ('\n1. Avançar para o primeiro andar do Labirinto, iniciando sua ascensão rumo à liberdade. \n2. Investigar inventário. \n3. Conferir Atributos')
         digitar(texto4)
 
         try:
             time.sleep(1)
-            esc_1 = input("\nEscolha uma opção (1 ou 2): ").strip()
-            if esc_1 not in ("1", "2"):
+            esc_1 = input("\nEscolha uma opção (1, 2 ou 3): ").strip()
+            if esc_1 not in ("1", "2", "3"):
                 raise ValueError("❗ Opção inválida.")
 
             if esc_1 == "1":
@@ -37,8 +37,13 @@ def lore_introducao(personagem):
 
             elif esc_1 == "2":
                 inventario.interface_inv(personagem)
-                lore_introducao(personagem)
                 print()
+            elif esc_1 == "3":
+                # Atributos
+                personagem.mostrar_status()
+                print()
+                time.sleep(1)
+                continue
         except ValueError as e:
             print(f"{e} Tente novamente.")
 
