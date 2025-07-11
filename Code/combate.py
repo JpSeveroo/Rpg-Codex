@@ -12,7 +12,6 @@ from ficha import Personagem
 
 """=== FUNÇÕES UTILITARIAS ==="""
 
-
 pocao_cura = item.lista_itens[0]
 pocao_mana = item.lista_itens[1]
 
