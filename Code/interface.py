@@ -4,8 +4,8 @@ import os
 import InquirerPy
 import InquirerPy.inquirer
 import ficha
-import jogo1
 from time import sleep
+from jogo1 import lore_introducao
 
 usuarios = []
 personagens = []
@@ -14,12 +14,12 @@ name_list = []
 user = ''
 personagem_escolhido = ''
 
-class interface:
+class Interface:
 
     def interface_principal():
         opcoes = {
-            'Criar usuário': interface.interface_criacao,
-            'Login' : interface.interface_login
+            'Criar usuário': Interface.interface_criacao,
+            'Login' : Interface.interface_login
         }
         os.system('cls' if os.name == 'nt' else 'clear')
         print(' Olá, seja bem vindo!')
@@ -50,9 +50,9 @@ class interface:
         b = InquirerPy.inquirer.text(message='Digite a senha do usuário', validate= lambda x: x != '', invalid_message='O campo não pode estar vazio', is_password=True).execute()
         user.criar_user(str(a), utills.cripto(str(b)))
         usuarios.append(user)
-        interface.save(usuarios, 'usuarios')
+        Interface.save(usuarios, 'usuarios')
         sleep(1.0)
-        interface.interface_principal()
+        Interface.interface_principal()
     
     def interface_login():
         lista_username = []
@@ -67,11 +67,11 @@ class interface:
             user = usuarios[c]
             load_pers_users(user.personagens)
             input('Pressione enter para seguir...')
-            interface.interface_usuário(user.username)
+            Interface.interface_usuário(user.username)
         else:
             print('Acesso negado!')
             input('Pressione enter para voltar...')
-            interface.interface_principal()
+            Interface.interface_principal()
 
     def verify(personagem):
         c = False
@@ -86,14 +86,14 @@ class interface:
     def criar_ficha():
         personagem = ficha.Personagem()
         personagem.criar_ficha()
-        interface.verify(personagem)
+        Interface.verify(personagem)
         personagens.append(personagem)
         personagens_usuario.append(personagem)
         name_list.append(utills.cripto(personagem.nick))
         user.personagens = name_list
-        interface.save(usuarios, 'usuarios')
-        interface.save(personagens, 'personagem')
-        interface.interface_usuário(user.username)
+        Interface.save(usuarios, 'usuarios')
+        Interface.save(personagens, 'personagem')
+        Interface.interface_usuário(user.username)
 
     def jogar():
         os.system('cls' if os.name == 'nt' else 'clear')
@@ -103,7 +103,7 @@ class interface:
             b = InquirerPy.inquirer.select(message='Qual o personagem desejado', choices= pers).execute()
             if b == 'Sair':
                 sleep(0.5)
-                interface.interface_usuário(user.username)
+                Interface.interface_usuário(user.username)
                 return
             c = pers.index(b)
             global personagem_escolhido
@@ -111,9 +111,9 @@ class interface:
         else:
             print('Não há nenhum personagem criado!')
             input('Pressione qualquer tecla para voltar ao menu...')
-            interface.interface_usuário(user.username)
+            Interface.interface_usuário(user.username)
             return
-        jogo1.lore_introducao(personagem_escolhido)
+        lore_introducao(personagem_escolhido)
     
     def visualizar_ficha():
         a = []
@@ -123,14 +123,14 @@ class interface:
         if len(a) > 1 :
             b = InquirerPy.inquirer.select(message='Qual o personagem desejado', choices= a).execute()
             if b == 'Sair':
-                interface.interface_usuário(user.username)
+                Interface.interface_usuário(user.username)
                 return
             c = a.index(b)
             personagens_usuario[c].visualizar()
         else :
             print(f'Não há personagens criados no usuário {user.username} \n')
         input('Pressione qualquer tecla para voltar...')
-        interface.interface_usuário(user.username)
+        Interface.interface_usuário(user.username)
     
     def logout():
         a = InquirerPy.inquirer.confirm(message='Você deseja deslogar desse usuário ?').execute()
@@ -143,10 +143,10 @@ class interface:
             personagens_usuario = []
             personagem_escolhido = ''
             name_list = []
-            interface.interface_principal()
+            Interface.interface_principal()
             sleep(0.5)
         else :
-            interface.interface_usuário(user.username)
+            Interface.interface_usuário(user.username)
             sleep(0.5)
 
     def interface_usuário(user):
@@ -154,10 +154,10 @@ class interface:
         print(f'Seja bem vindo {user}')
         print()
         opcoes = {
-            'Jogar': interface.jogar,
-            'Criar Ficha': interface.criar_ficha,
-            'Visualizar fichas': interface.visualizar_ficha,
-            'Logout': interface.logout
+            'Jogar': Interface.jogar,
+            'Criar Ficha': Interface.criar_ficha,
+            'Visualizar fichas': Interface.visualizar_ficha,
+            'Logout': Interface.logout
         }
         a = InquirerPy.inquirer.select(
             message='Qual das opções você deseja ?',

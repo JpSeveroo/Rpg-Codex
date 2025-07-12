@@ -1,7 +1,5 @@
 import time
 from ficha import Personagem
-import sys
-import os
 from rich import print
 from item import lista_itens
 import inventario
@@ -10,6 +8,8 @@ import jogo3
 import random
 from utills import limpar_tela, digitar
 from InquirerPy import inquirer
+from combate import combate
+from inimigos import lista_inimigos
 
 def lore_pos_5andar(personagem):
     limpar_tela()
@@ -64,10 +64,11 @@ def lore_6_andar(personagem):
         ).execute()
 
         if opcao == "⚔️ Iniciar combate direto":
-            # COMBATEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
-            lore_recompensa001(personagem)
-            lore_pos_6andar(personagem)
-            break
+            vencedor = combate(personagem, lista_inimigos[4]) 
+            if vencedor == personagem:
+                lore_recompensa001(personagem)
+                lore_pos_6andar(personagem)
+                break
 
         elif opcao == "👣 Tentar se esgueirar pelas sombras (requer furtividade)":
             if personagem.pericias.get('furtividade', 0) >= 20:
@@ -77,11 +78,11 @@ def lore_6_andar(personagem):
                 break
             else:
                 digitar("Um ruído leve alerta as sentinelas. Combate é iniciado com desvantagem.")
-                # COMBATEEEEEEEEEEEEEEEEEEEEEEE
-                #DEPOIS DO COMBATE TEM COITO😈😈😈😈😈😈
-                lore_recompensa001(personagem)
-                lore_pos_6andar(personagem)
-                break
+                vencedor = combate(personagem, lista_inimigos[4]) 
+                if vencedor == personagem:
+                    lore_recompensa001(personagem)
+                    lore_pos_6andar(personagem)
+                    break
 
         elif opcao == "🎒 Investigar Inventário":
             inventario.interface_inv(personagem)
@@ -175,11 +176,17 @@ def lore_7_andar(personagem):
 
             else:
                 #VANTAGEM PRO INIMIGO
-                #COMBATEEEEEEEEEEEEEEEE
-                print()
+                vencedor = combate(personagem, lista_inimigos[5]) 
+                if vencedor == personagem:
+                    lore_recompensa002(personagem)
+                    lore_pos_7andar(personagem)
 
         elif opcao == "⚔️ Iniciar combate direto":
-            #COMBATEEEEEEEEEEEEEEEE
+            vencedor = combate(personagem, lista_inimigos[4]) 
+            if vencedor == personagem:
+                lore_recompensa002(personagem)
+                lore_pos_7andar(personagem)
+                break
             print()
 
         elif opcao == "🎒 Investigar Inventário":
@@ -565,17 +572,24 @@ def lore_9_andar(personagem):
         ).execute()
 
         if opcao == "⚔️ Iniciar combate direto":
-            #COMBATEEEEEE
+            vencedor = combate(personagem, lista_inimigos[4]) 
+            if vencedor == personagem:
+                lore_recompensa004(personagem)
+                break
                 print()
 
         elif opcao == "👣 Tentar derrotar algum inimigo de surpresa enquanto você tenta blefar sobre sua existência (Requer perícia de blefe)":
             if personagem.pericias['blefe'] > 20:
-                    #-1 inimigo
-                    #combate iniciado
+                #-1 inimigo
+                vencedor = combate(personagem, lista_inimigos[5]) 
+                if vencedor == personagem:
+                    lore_recompensa004(personagem)
                     print()
             else:
-                    #Tenta blefar com os inimigos e toma no cu
-                    #combate com - 50 de hp
+                #Tenta blefar com os inimigos e toma no cu
+                vencedor = combate(personagem, lista_inimigos[5]) 
+                if vencedor == personagem:
+                    lore_recompensa004(personagem)
                     print()
 
         elif opcao == "🎒 Investigar Inventário":
@@ -726,10 +740,10 @@ def lore_10_andar(personagem):
             if esc_8 not in ("1"):
                 raise ValueError("❗ Opção inválida.")
             if esc_8 == "1":
-                #❗❗❗❗❗❗❗FALTA O COMBATE
-                lore_recompensa005(personagem)
-                lore_pos_10andar(personagem)
-                break
+                
+                    lore_recompensa005(personagem)
+                    lore_pos_10andar(personagem)
+                    break
 
         except ValueError as e:
             print(f"{e} Tente novamente.")
@@ -760,7 +774,7 @@ def lore_recompensa005(personagem):
     a = input('')
 
 def lore_pos_10andar(personagem):
-    texto36 = (' O golpe final atravessa o peito do Echo Corrompido. Mas ele não sangra. Ele desfaz-se em luz — não como um inimigo derrotado, mas como uma parte de você sendo libertada. O trono estilhaça. Os espelhos explodem para dentro, não para fora, e todos os reflexos se alinham. Por um instante, todas as versões de você o encaram… e sorriem, em uníssono, antes de desaparecerem.\n\O silêncio é restaurado. Mas ele agora é seu aliado, não seu inimigo.\n')
+    texto36 = ('O golpe final atravessa o peito do Echo Corrompido. Mas ele não sangra. Ele desfaz-se em luz — não como um inimigo derrotado, mas como uma parte de você sendo libertada. O trono estilhaça. Os espelhos explodem para dentro, não para fora, e todos os reflexos se alinham. Por um instante, todas as versões de você o encaram… e sorriem, em uníssono, antes de desaparecerem.\n O silêncio é restaurado. Mas ele agora é seu aliado, não seu inimigo.\n')
     jogo1.digitar(texto36)
 
     print('[bold purple][Sistema] Combate sistêmico encerrado. Integridade emocional assimilada. Nova funcionalidade desbloqueada.][/bold purple]')

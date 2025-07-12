@@ -7,7 +7,6 @@ from item import lista_itens
 import inventario
 from utills import digitar, limpar_tela, tempo_digitar
 from InquirerPy import inquirer
-import jogo2
 from combate import combate
 import inimigos
 
