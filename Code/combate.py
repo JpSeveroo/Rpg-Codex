@@ -1,14 +1,15 @@
+import interface
 import item
 import inventario
 from random import randint
 from time import sleep
 from InquirerPy import inquirer
-from utills import digitar, limpar_tela
+from utills import digitar, limpar_tela, tempo_digitar
 from inimigos import Inimigo, lista_inimigos
-import interface
 from ficha import Personagem
 
-"""=== FUNÇÕES UTILITARIAS ==="""
+"""=== UTILITARIOS ==="""
+tempo_digitar(0.02)
 
 pocao_cura = item.lista_itens[0]
 pocao_mana = item.lista_itens[1]
@@ -22,13 +23,12 @@ def get_nome(personagem):
 def rolar_dado():
     dado = randint(1, 6)
     condicao = randint(1, 6)
-    critico = False
-    if condicao==dado: critico = True
+    critico = True if condicao==dado else False
     return dado, critico
 
 """ === DANO E AÇÕES === """
 
-def calc_dano(personagem, pericia_principal, bonus_extra=False): #FUNÇÃO OK    
+def calc_dano(personagem, pericia_principal, bonus_extra=False):   
         multiplicador = equip(personagem, pericia_principal)
         base = int((personagem.pericias.get(pericia_principal, 0)) * 2 * multiplicador)
         dado, critico = rolar_dado()
@@ -43,8 +43,7 @@ def calc_dano(personagem, pericia_principal, bonus_extra=False): #FUNÇÃO OK
             digitar(f"🎲 {personagem.nick} rola 1d6: {dado}; dano = {dano}")
         return dano
 
-def _executar_ataque(atacante, defensor, pericia_principal, custo_mana, bonus_extra=False, pericia_secundaria=None):
-
+def executar_ataque(atacante, defensor, pericia_principal, custo_mana, bonus_extra=False, pericia_secundaria=None):
     if atacante.status['mana'] < custo_mana:
         digitar('⚠️ Mana insuficiente! Tente outra ação.')
         sleep(1.5)
@@ -61,30 +60,32 @@ def _executar_ataque(atacante, defensor, pericia_principal, custo_mana, bonus_ex
 
     dano = calc_dano(atacante, pericia_principal, bonus_extra)
 
-    if atacante is Inimigo:
-        dano-= (defensor.pericias.get('resistencia', 0))//4
+    if isinstance(atacante, Inimigo):
+        dano-= (defensor.pericias.get('resistencia', 0))//3
+        if dano<1: dano = 1
+        digitar(f'🛡️ Dano reduzido pela sua resistencia para {dano}!')
 
     defensor.vida_atual -= dano
     if defensor.vida_atual < 0:
         defensor.vida_atual = 0
 
-    tipo_de_ataque = 'um ataque especial' if pericia_secundaria else 'ataca'
+    tipo_de_ataque = 'ataque especial' if pericia_secundaria else 'ataque'
     digitar(f'\n⚔️  {get_nome(atacante)} fez um {tipo_de_ataque} em {get_nome(defensor)}! causando {dano} de dano!')
     digitar(f'❤️  {get_nome(defensor)} agora tem {defensor.vida_atual} HP.')
+    print()
     sleep(2)
     return True
 
 def ataque(atacante, defensor, pericia_principal):
     custo_mana = 5
-    return _executar_ataque(atacante, defensor, pericia_principal, custo_mana)
-
+    return executar_ataque(atacante, defensor, pericia_principal, custo_mana)
 
 def ataque_especial(atacante, defensor, pericia_principal, pericia_secundaria):
     custo_especial = 10
     
     acertou_fraqueza = pericia_secundaria in getattr(defensor, 'fraquezas', [])
     
-    return _executar_ataque(atacante, defensor, pericia_principal, custo_especial, bonus_extra=acertou_fraqueza, pericia_secundaria=pericia_secundaria)
+    return executar_ataque(atacante, defensor, pericia_principal, custo_especial, bonus_extra=acertou_fraqueza, pericia_secundaria=pericia_secundaria)
 
 def esquivar(personagem, mana_max):
     acrobacia = personagem.pericias.get('acrobacia', 0)
@@ -181,13 +182,20 @@ def equip(personagem, pericia_principal):
         return 1
 
     arma = inventario.equipamento.itens['Mãos']['equipado']
-    pericias_que_exigem_arma = {'mano a mano', 'mira'}
-    if pericia_principal not in pericias_que_exigem_arma:
-        return 1
-    if arma is False:
+    if not arma:
+        if pericia_principal=='mano a mano':
+            digitar('❌Você não tinha uma arma adequada pra esse tipo de ataque equipada e teve que dar um soco, dano reduzido')
+        if pericia_principal=='mano a mano':
+            digitar('❌Você não tinha uma arma adequada pra esse tipo de ataque equipada ent pegou uma pedra no chão e jogou, dano reduzido')
         return 0.5
-    else:
+
+    efeitos = getattr(arma, 'efeitos', [])
+    pericias_arma = [efeito[0] for efeito in efeitos]
+
+    if pericia_principal in pericias_arma:
         return 1
+    else:
+        return 0.5
 
 def xp(personagem, inimigo):
     xp_ganho = inimigo.xp
@@ -197,7 +205,7 @@ def xp(personagem, inimigo):
 def adv_IA(inimigo, jogador):
     ataque(inimigo, jogador, 'mano a mano')
 
-'''===INTERAÇÃO COM O JOGADOR==='''
+'''=== INTERAÇÃO COM O JOGADOR ==='''
 
 def acoes(valor, personagem, inimigo, mana_max):
     if isinstance(valor, tuple):
@@ -211,7 +219,6 @@ def acoes(valor, personagem, inimigo, mana_max):
             else:
                 return False
     else:
-        # valor é string simples
         if valor == 'Corpo a Corpo':
             return ataque(personagem, inimigo, 'mano a mano')
         elif valor == 'Longo Alcance':
@@ -232,18 +239,16 @@ def loop_principal(personagem, inimigo, mana_max):
     while True:
         a = inquirer.select(
             message='Qual a sua próxima ação:',
-
             choices=['Ataque', 'Ataque Especial', 'Inventário', 'Esquivar']
         ).execute()
 
         if personagem.vida_atual <= 0:
-            print('Seu personagem foi reduzido a um amontoado de código.')
-            return #personagem morreu
+            digitar('Seu personagem foi reduzido a um amontoado de código.')
+            return 
         
         if a == 'Ataque':
             a2 = inquirer.select(
                 message='Qual a sua próxima ação:',
-
                 choices=['Corpo a Corpo', 'Longo Alcance', 'Voltar']
             ).execute()
             if a2 == 'Voltar':
@@ -283,10 +288,10 @@ def loop_principal(personagem, inimigo, mana_max):
             digitar("⚠️ Ação inválida ou mana insuficiente. Escolha outra ação.")
             sleep(2)
     
-    if inimigo.vida_atual > 0: #turno da IA
+    if inimigo.vida_atual > 0:
         adv_IA(inimigo, personagem)
 
-'''===FUNÇÃO DO COMBATE==='''
+'''=== FUNÇÃO DO COMBATE ==='''
 
 def combate(personagem, inimigo):
     personagem.vida_atual = personagem.vida_atual if personagem.vida_atual > 0 else personagem.status.get('hp', 100)
@@ -331,12 +336,11 @@ if __name__ == '__main__':
     p1.pericias['mano a mano'] = 20
     p1.pericias['mira'] = 8   
     p1.pericias['acrobacia'] = 5 
+    p1.pericias['resistencia'] = 8
     p1.vida_atual = 100
     p1.xp = 99
     p1.xp_para_proximo_nivel = 100
-    p1.equipamento = {
-        "maos": item.lista_itens[2],  # Arma corpo a corpo
-    }
+    
     p1.inventario.append(pocao_cura)
     p1.inventario.append(pocao_mana)
     p1.inventario.append(item.lista_itens[4])

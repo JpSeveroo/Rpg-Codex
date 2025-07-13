@@ -1,4 +1,4 @@
-import utills
+from utills import limpar_tela, salvar_infos, load_infos
 
 lista_inimigos = []
 
@@ -9,13 +9,14 @@ class Inimigo:
         self.vida = vida
         self.xp = xp
         self.fraquezas = fraquezas if fraquezas is not None else []
+        #ajustes para encaixar no combate
         self.status = {'hp': self.vida, 'mana': 100}
         self.vida_atual = self.vida
         self.pericias = {'mano a mano': self.dano}
         self.nick = self.nome
 
 def add_ene():
-    utills.limpar_tela()
+    limpar_tela()
     name = input('Nome: ')
     dmg = int(input('Dano: '))
     health = int(input('Vida: '))
@@ -59,7 +60,7 @@ def excluir_ene():
         print("Índice inválido.")
 
 def mostrar_ene():
-    utills.limpar_tela
+    limpar_tela()
 
     if not lista_inimigos:
         print('Não tem inimigo ainda')
@@ -75,7 +76,7 @@ def write():
     for i in lista_inimigos:
         a = i.__dict__
         lista.append(a)
-    utills.salvar_infos('lista_inimigos', lista)
+    salvar_infos('lista_inimigos', lista)
 
 def interface():
     while True:
@@ -109,7 +110,7 @@ def interface():
 def load_enemys():
     global lista_inimigos
     try:
-        dados = utills.load_infos('lista_inimigos')
+        dados = load_infos('lista_inimigos')
         for item_data in dados:
             inimigo = Inimigo()
             inimigo.nome = item_data.get('nome', '')
