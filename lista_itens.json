@@ -31,7 +31,7 @@
                 1
             ]
         ],
-        "descricao": "Leve, resistente, s\u00edmbolo do treinamento \u00e9lfico. N\u00e3o m\u00e1gico e um pouco velho, mas us\u00e1vel. (mira)",
+        "descricao": "Leve, resistente, s\u00edmbolo do treinamento \u00e9lfico.\nN\u00e3o m\u00e1gico e um pouco velho, mas us\u00e1vel. (mira)",
         "qtd": 0,
         "categoria": "M\u00e3os"
     },
@@ -43,7 +43,7 @@
                 1
             ]
         ],
-        "descricao": "Um broche simples que pode ajudar em intera\u00e7\u00f5es sociais. (diplomacia)",
+        "descricao": "Um broche simples que pode ajudar em intera\u00e7\u00f5es sociais.\n(diplomacia)",
         "qtd": 0,
         "categoria": "Corpo"
     },
@@ -55,7 +55,7 @@
                 1
             ]
         ],
-        "descricao": "Luvas leves e confort\u00e1veis. Oferecem vantagem em tarefas delicadas. (m\u00e3os r\u00e1pidas)",
+        "descricao": "Luvas leves e confort\u00e1veis.\nOferecem vantagem em tarefas delicadas. (m\u00e3os r\u00e1pidas)",
         "qtd": 0,
         "categoria": "Corpo"
     },
@@ -67,7 +67,7 @@
                 1
             ]
         ],
-        "descricao": "Confi\u00e1vel e robusta, a cl\u00e1ssica espada de um aventureiro iniciante. (mano a mano)",
+        "descricao": "Confi\u00e1vel e robusta, a cl\u00e1ssica espada de um\naventureiro iniciante. (mano a mano)",
         "qtd": 0,
         "categoria": "M\u00e3os"
     },
@@ -79,7 +79,7 @@
                 1
             ]
         ],
-        "descricao": "Um amuleto simples que ajuda a encontrar respostas por pura sorte. (percep\u00e7\u00e3o)",
+        "descricao": "Um amuleto simples que ajuda a encontrar respostas\npor pura sorte. (percep\u00e7\u00e3o)",
         "qtd": 0,
         "categoria": "Corpo"
     },
@@ -91,7 +91,7 @@
                 1
             ]
         ],
-        "descricao": "Melhora a armadura e a resist\u00eancia a terrenos dif\u00edceis (lama, neve, areia) fora de combate. (resist\u00eancia) (efeito)",
+        "descricao": "Melhora a armadura e a resist\u00eancia a terrenos dif\u00edceis\n(lama, neve, areia) fora de combate. (resist\u00eancia) (efeito)",
         "qtd": 0,
         "categoria": "P\u00e9s"
     },
@@ -103,7 +103,7 @@
                 1
             ]
         ],
-        "descricao": "Pequena adaga com s\u00edmbolos drac\u00f4nicos entalhados, item comum entre guerreiros draconianos inexperientes. (mano a mano)",
+        "descricao": "Pequena adaga com s\u00edmbolos drac\u00f4nicos entalhados, item comum\nentre guerreiros draconianos inexperientes. (mano a mano)",
         "qtd": 0,
         "categoria": "M\u00e3os"
     },
@@ -115,7 +115,7 @@
                 1
             ]
         ],
-        "descricao": "Objeto que alimenta o instinto de ca\u00e7a dos draconianos, os deixando mais \u00e1geis. (acrobacia)",
+        "descricao": "Objeto que alimenta o instinto de ca\u00e7a dos draconianos,\nos deixando mais \u00e1geis. (acrobacia)",
         "qtd": 0,
         "categoria": "Corpo"
     },
@@ -127,7 +127,7 @@
                 1
             ]
         ],
-        "descricao": "Pequeno pingente com uma pedra da cor do drag\u00e3o ancestral do personagem; Acalma o cora\u00e7\u00e3o dos draconianos e os deixam mais soci\u00e1veis. (diplomacia)",
+        "descricao": "Pequeno pingente com uma pedra da cor do drag\u00e3o ancestral do personagem;\nAcalma o cora\u00e7\u00e3o dos draconianos e os deixam mais soci\u00e1veis. (diplomacia)",
         "qtd": 0,
         "categoria": "Corpo"
     },
@@ -139,7 +139,7 @@
                 3
             ]
         ],
-        "descricao": "Mascara magica que muda a express\u00e3o facial do personagem conforme a necessidade da conversa. Melhora a capacidade de mentir. (blefe)",
+        "descricao": "Mascara magica que muda a express\u00e3o facial do personagem conforme\na necessidade da conversa. Melhora a capacidade de mentir. (blefe)",
         "qtd": 0,
         "categoria": "Cabe\u00e7a"
     },
@@ -151,7 +151,7 @@
                 2
             ]
         ],
-        "descricao": "Um arco elegante feito de madeira de alt\u00edssima qualidade, imbu\u00eddo com encantamentos que melhoram a precis\u00e3o da flechada. (mira)",
+        "descricao": "Um arco elegante feito de madeira de alt\u00edssima qualidade, imbu\u00eddo com\nencantamentos que melhoram a precis\u00e3o da flechada. (mira)",
         "qtd": 0,
         "categoria": "M\u00e3os"
     },
@@ -163,7 +163,7 @@
                 2
             ]
         ],
-        "descricao": "Espada forjada sob um eclipse lunar. Tem um corte preciso e feita com detalhes em prata.(mano a mano)",
+        "descricao": "Espada forjada sob um eclipse lunar. Tem um corte preciso\ne feita com detalhes em prata.(mano a mano)",
         "qtd": 0,
         "categoria": "M\u00e3os"
     },
@@ -175,7 +175,7 @@
                 2
             ]
         ],
-        "descricao": "Ferramenta engenhosa forjada pelas maos humanas, unindo precisao e letalidade em um so disparo. (mira)",
+        "descricao": "Ferramenta engenhosa forjada pelas maos humanas, unindo precisao\ne letalidade em um so disparo. (mira)",
         "qtd": 0,
         "categoria": "M\u00e3os"
     },
@@ -187,7 +187,7 @@
                 2
             ]
         ],
-        "descricao": "Tiara perdida de antigos fil\u00f3sofos e pensadores elfos. Garante um aumento do racioc\u00ednio do usu\u00e1rio. (percep\u00e7\u00e3o)",
+        "descricao": "Tiara perdida de antigos fil\u00f3sofos e pensadores elfos.\nGarante um aumento do racioc\u00ednio do usu\u00e1rio. (percep\u00e7\u00e3o)",
         "qtd": 0,
         "categoria": "Cabe\u00e7a"
     },
@@ -199,7 +199,7 @@
                 2
             ]
         ],
-        "descricao": "Sand\u00e1lias que dizem ser do pr\u00f3prio deus grego, mas na verdade s\u00c3\u00a3o apenas sand\u00e1lias boa para se movimentar. (acrobacia)",
+        "descricao": "Sand\u00e1lias que dizem ser do pr\u00f3prio deus grego, mas na verdade s\u00e3o\napenas sand\u00e1lias boa para se movimentar. (acrobacia)",
         "qtd": 0,
         "categoria": "P\u00e9s"
     },
@@ -211,7 +211,7 @@
                 2
             ]
         ],
-        "descricao": "Capa que ajuda o personagem a passar despercebido e a executar acoes sem ser notado. (furtividade)",
+        "descricao": "Capa que ajuda o personagem a passar despercebido e a\nexecutar acoes sem ser notado. (furtividade)",
         "qtd": 0,
         "categoria": "Corpo"
     },
@@ -223,7 +223,7 @@
                 2
             ]
         ],
-        "descricao": "Lan\u00e7a simples, feita pelos draconianos para iniciantes nas artes da ca\u00e7a e da guerra. Leve, pratica e feita para ser arremessada. (mira)",
+        "descricao": "Lan\u00e7a simples, feita pelos draconianos para iniciantes nas artes\nda ca\u00e7a e da guerra. Leve, pratica e feita para ser arremessada. (mira)",
         "qtd": 0,
         "categoria": "M\u00e3os"
     },
@@ -243,7 +243,7 @@
                 -2
             ]
         ],
-        "descricao": "Um talism\u00e3 que deixa o personagem extremamente suscet\u00edvel a raiva. Aumenta a for\u00e7a mas diminui a raz\u00e3o. (mano a mano) (resist\u00eancia) -(percep\u00e7\u00e3o)",
+        "descricao": "Um talism\u00e3 que deixa o personagem extremamente suscet\u00edvel a raiva.\nAumenta a for\u00e7a mas diminui a raz\u00e3o.\n(mano a mano) (resist\u00eancia) -(percep\u00e7\u00e3o)",
         "qtd": 0,
         "categoria": "Corpo"
     },
@@ -255,40 +255,43 @@
                 2
             ]
         ],
-        "descricao": "Usa da maldade no cora\u00e7\u00e3o do usu\u00e1rio para ajuda-lo a manipular os outros. (blefe)",
+        "descricao": "Usa da maldade no cora\u00e7\u00e3o do usu\u00e1rio para ajuda-lo\na manipular os outros. (blefe)",
         "qtd": 0,
         "categoria": "Corpo"
     },
     {
         "nome": "Adaga Quebrada",
-        "efeitos": [[
+        "efeitos": [
+            [
                 "mano a mano",
                 0
             ]
         ],
-        "descricao": "Uma adaga velha que n\u00e3o melhora muito o seu combate mas \u00e9 melhordo que usar os punhos.",
+        "descricao": "Uma adaga velha que n\u00e3o melhora muito o seu combate\nmas \u00e9 melhordo que usar os punhos.",
         "qtd": 0,
         "categoria": "M\u00e3os"
     },
     {
         "nome": "Espada Trincada",
-        "efeitos": [[
+        "efeitos": [
+            [
                 "mano a mano",
                 0
             ]
         ],
-        "descricao": "Uma espada velha que n\u00e3o melhora muito o seu combate mas \u00e9 melhordo que usar os punhos.",
+        "descricao": "Uma espada velha que n\u00e3o melhora muito o seu combate\nmas \u00e9 melhordo que usar os punhos.",
         "qtd": 0,
         "categoria": "M\u00e3os"
     },
     {
         "nome": "Machado Enferrujado",
-        "efeitos": [[
+        "efeitos": [
+            [
                 "mano a mano",
                 0
             ]
         ],
-        "descricao": "Um machado velho que n\u00e3o melhora muito o seu combate mas \u00e9melhor do que usar os punhos.",
+        "descricao": "Um machado velho que n\u00e3o melhora muito o seu combate\nmas \u00e9melhor do que usar os punhos.",
         "qtd": 0,
         "categoria": "M\u00e3os"
     },
@@ -300,7 +303,7 @@
                 0
             ]
         ],
-        "descricao": "Cada per\u00edcia se relaciona com um atributo:\n\n- Acrobacia (destreza)\n- Blefar (carisma)\n- Mira (destreza)\n- Diplomacia (carisma)\n- Furtividade (intelig\u00eancia)\n- Percep\u00e7\u00e3o (intelig\u00eancia)\n- M\u00e3os r\u00e1pidas (destreza)\n- Mano a mano (for\u00e7a)\n- Resist\u00eancia (for\u00e7a)\n\nCombate:\nAs per\u00edcias de mano a mano e mira se relacionam diretamente com os ataques.\n\n- Mano a mano = ataque corpo a corpo\n- Mira = ataque \u00e0 dist\u00e2ncia\n\nO ataque especial gasta mais mana que o ataque simples, mas pode ser combado com outra per\u00edcia para explorar a fraqueza do advers\u00e1rio e causar mais dano. \"Como que eu descubro a fraqueza?\" se vira amigo.\n\nA esquiva \u00e9 baseada em acrobacia. Se voc\u00ea acertar a esquiva, recupera 5 de mana e n\u00e3o recebe dano no turno. Se voc\u00ea n\u00e3o tem nada equipado para corpo a corpo ou para mira, como um arco, s\u00f3 vai conseguir dar um soco ou jogar uma pedra no inimigo.\n\nLevel up:\nToda vez que voc\u00ea derrota um advers\u00e1rio, o sistema lhe concede uma quantidade de xp referente ao n\u00edvel de dificuldade do inimigo. Cada vez que voc\u00ea adquire o xp suficiente para subir de level, o jogador ganha a oportunidade de distribuir 5 pontos de atributos.\n\nInvent\u00e1rio:\nNo invent\u00e1rio est\u00e3o os itens que o jogador possui e um menu onde se v\u00ea quais itens est\u00e3o equipados e como as per\u00edcias est\u00e3o sendo afetadas pelos itens equipados.",
+        "descricao": "Cada per\u00edcia se relaciona com um atributo:\n\n- Acrobacia (destreza)\n- Blefar (carisma)\n- Mira (destreza)\n- Diplomacia (carisma)\n- Furtividade (intelig\u00eancia)\n- Percep\u00e7\u00e3o (intelig\u00eancia)\n- M\u00e3os r\u00e1pidas (destreza)\n- Mano a mano (for\u00e7a)\n- Resist\u00eancia (for\u00e7a)\n\nCombate:\nAs per\u00edcias de mano a mano e mira se relacionam diretamente com os ataques.\n\n- Mano a mano = ataque corpo a corpo\n- Mira = ataque \u00e0 dist\u00e2ncia\n\nO ataque especial gasta mais mana que o ataque simples, mas pode ser\ncombado com outra per\u00edcia para explorar a fraqueza do advers\u00e1rio e\ncausar mais dano. \"Como que eu descubro a fraqueza?\" se vira amigo.\n\nA esquiva \u00e9 baseada em acrobacia. Se voc\u00ea acertar a esquiva, recupera 5\nde mana e n\u00e3o recebe dano no turno. Se voc\u00ea n\u00e3o tem nada equipado\npara corpo a corpo ou para mira, como um arco, s\u00f3 vai conseguir dar um soco\nou jogar uma pedra no inimigo.\n\nLevel up:\nToda vez que voc\u00ea derrota um advers\u00e1rio, o sistema lhe concede uma\nquantidade de xp referente ao n\u00edvel de dificuldade do inimigo. Cada vez\nque voc\u00ea adquire o xp suficiente para subir de level, o jogador ganha a\noportunidade de distribuir 5 pontos de atributos.\n\nInvent\u00e1rio:\nNo invent\u00e1rio est\u00e3o os itens que o jogador possui e um menu onde se\nv\u00ea quais itens est\u00e3o equipados e como as per\u00edcias est\u00e3o sendo afetadas\npelos itens equipados.",
         "qtd": 0,
         "categoria": "Utilizaveis"
     },
@@ -320,7 +323,7 @@
                 -3
             ]
         ],
-        "descricao": ": Um elfo que h\u00e1 muitas eras passou por essas terras e foi consumido pela energia sombria do lugar, deixou esse artefato como memoria da sua passagem.",
+        "descricao": ": Um elfo que h\u00e1 muitas eras passou por essas terras e foi consumido\npela energia sombria do lugar, deixou esse artefato como memoria\nda sua passagem.",
         "qtd": 0,
         "categoria": "Corpo"
     },
@@ -340,7 +343,7 @@
                 -3
             ]
         ],
-        "descricao": "Colar simples com um pingente negro em forma de adaga. A lenda ao redor desse anel \u00e9 que ele foi criado por entidades antigas com o objetivo de enganar os tolos.",
+        "descricao": "Colar simples com um pingente negro em forma de adaga. A lenda ao redor\ndesse anel \u00e9 que ele foi criado por entidades antigas com o objetivo\nde enganar os tolos.",
         "qtd": 0,
         "categoria": "Corpo"
     },
@@ -360,7 +363,7 @@
                 3
             ]
         ],
-        "descricao": "Armadura de um antigo aventureiro draconiano que ficou tanto tempo perdido na fenda do vazio que absorveu parte das sombras do lugar. A estrutura melhora a defesa e as trevas aumentam a for\u00e7a do usu\u00e1rio mas a energia sombria cega ele para a realidade.",
+        "descricao": "Armadura de um antigo aventureiro draconiano que ficou tanto tempo perdido\nna fenda do vazio que absorveu parte das sombras do lugar. A estrutura\nmelhora a defesa e as trevas aumentam a for\u00e7a do usu\u00e1rio mas a energia\nsombria cega ele para a realidade.",
         "qtd": 0,
         "categoria": "Corpo"
     },
@@ -380,7 +383,7 @@
                 -2
             ]
         ],
-        "descricao": "Cal\u00e7as leves e male\u00e1veis feitas de tecido encantado com fios vegetais antigos. Ajudam o elfo a se mover como o vento entre as folhas, mas exigem foco constante por que ficam querendo cair toda hora, diminuindo o respeito que o personagem passa.",
+        "descricao": "Cal\u00e7as leves e male\u00e1veis feitas de tecido encantado com fios vegetais\nantigos. Ajudam o elfo a se mover como o vento entre as folhas, mas\nexigem foco constante por que ficam querendo cair toda hora,\ndiminuindo o respeito que o personagem passa.",
         "qtd": 0,
         "categoria": "P\u00e9s"
     },
@@ -392,7 +395,7 @@
                 2
             ]
         ],
-        "descricao": "Um broche m\u00e1gico com um girassol encantado que nunca murcha. Irradia calor e simpatia, facilitando interacoes sociais, mas torna o portador mais vulneravel a mentiras.",
+        "descricao": "Um broche m\u00e1gico com um girassol encantado que nunca murcha.\nIrradia calor e simpatia, facilitando interacoes sociais,\nmas torna o portador mais vulneravel a mentiras.",
         "qtd": 0,
         "categoria": "Acess\u00f3rio"
     },
@@ -404,7 +407,7 @@
                 2
             ]
         ],
-        "descricao": "Espada r\u00fastica mas confi\u00e1vel, forjada para os cavaleiros que protegiam antigos reis da regi\u00e3o. Melhora o combate corpo a corpo.",
+        "descricao": "Espada r\u00fastica mas confi\u00e1vel, forjada para os cavaleiros que\nprotegiam antigos reis da regi\u00e3o. Melhora o combate corpo a corpo.",
         "qtd": 0,
         "categoria": "M\u00e3os"
     },
@@ -416,7 +419,7 @@
                 2
             ]
         ],
-        "descricao": "Escudo resistente, feito das \u00e1rvores ancestrais do jardim. D\u00e1 defesa extra e estabilidade, mas seu peso dificulta movimentos r\u00e1pidos. (Desbloqueia segunda m\u00e3o)",
+        "descricao": "Escudo resistente, feito das \u00e1rvores ancestrais do jardim. D\u00e1 defesa\nextra e estabilidade, mas seu peso dificulta movimentos r\u00e1pidos.\n(Desbloqueia segunda m\u00e3o)",
         "qtd": 0,
         "categoria": "M\u00e3os"
     },
@@ -428,7 +431,7 @@
                 2
             ]
         ],
-        "descricao": "Rara pena negra com brilho dourado nas pontas. Dizem que quem a carrega ganha olhos atentos e m\u00e3os \u00e1geis.",
+        "descricao": "Rara pena negra com brilho dourado nas pontas. Dizem que quem a\ncarrega ganha olhos atentos e m\u00e3os \u00e1geis.",
         "qtd": 0,
         "categoria": "Corpo"
     },
@@ -440,7 +443,7 @@
                 2
             ]
         ],
-        "descricao": "Fragmento ancestral endurecido de um grande drag\u00e3o. Reforca a defesa do portador (Desbloqueia segunda m\u00e3o)",
+        "descricao": "Fragmento ancestral endurecido de um grande drag\u00e3o.\nReforca a defesa do portador (Desbloqueia segunda m\u00e3o)",
         "qtd": 0,
         "categoria": "M\u00e3os"
     },
@@ -452,7 +455,7 @@
                 2
             ]
         ],
-        "descricao": "S\u00edmbolo da linhagem draconiana. Melhora a presen\u00e7a social, mas sua energia imponente facilita negociacoes.",
+        "descricao": "S\u00edmbolo da linhagem draconiana. Melhora a presen\u00e7a social,\nmas sua energia imponente facilita negociacoes.",
         "qtd": 0,
         "categoria": "Corpo"
     },
@@ -464,7 +467,7 @@
                 2
             ]
         ],
-        "descricao": "Ma\u00e7a pesada revestida com escamas negras, s\u00edmbolo de brutalidade e poder.",
+        "descricao": "Ma\u00e7a pesada revestida com escamas negras,\ns\u00edmbolo de brutalidade e poder.",
         "qtd": 0,
         "categoria": "M\u00e3os"
     },
@@ -476,7 +479,7 @@
                 2
             ]
         ],
-        "descricao": "S\u00edmbolo da linhagem draconiana. Melhora a presen\u00e7a social, mas sua energia imponente facilita negocia\u00e7\u00f5es.",
+        "descricao": "S\u00edmbolo da linhagem draconiana. Melhora a presen\u00e7a social,\nmas sua energia imponente facilita negocia\u00e7\u00f5es.",
         "qtd": 0,
         "categoria": "Corpo"
     },
@@ -488,7 +491,7 @@
                 4
             ]
         ],
-        "descricao": "Artefato que absorve luzes e ru\u00eddos perturbadores do ambiente. Garante um foco sobrenatural ao usu\u00e1rio melhorando as suas observa\u00e7\u00f5es e agilidade ao resolver tarefas.",
+        "descricao": "Artefato que absorve luzes e ru\u00eddos perturbadores do ambiente.\nGarante um foco sobrenatural ao usu\u00e1rio melhorando as suas\nobserva\u00e7\u00f5es e agilidade ao resolver tarefas.",
         "qtd": 0,
         "categoria": "M\u00e3os"
     },
@@ -508,7 +511,7 @@
                 -3
             ]
         ],
-        "descricao": "Reluzente mesmo coberto de poeira e sangue, este elmo \u00e9 s\u00edmbolo de um antigo defensor \u00e9lfico. Protege o portador e eleva sua impon\u00eancia, mas \u00e9 pesado e por conta disso \u00e9 mais dif\u00edcil de se locomover com ele.",
+        "descricao": "Reluzente mesmo coberto de poeira e sangue, este elmo \u00e9 s\u00edmbolo\nde um antigo defensor \u00e9lfico. Protege o portador e eleva sua\nimpon\u00eancia, mas \u00e9 pesado e por conta disso \u00e9 mais dif\u00edcil\nde se locomover com ele.",
         "qtd": 0,
         "categoria": "Cabe\u00e7a"
     },
@@ -520,7 +523,7 @@
                 3
             ]
         ],
-        "descricao": "Forjada nas eras antigas, passou por in\u00fameras batalhas. Seu fio \u00e9 preciso e a l\u00e2mina, bem equilibrada.",
+        "descricao": "Forjada nas eras antigas, passou por in\u00fameras batalhas.\nSeu fio \u00e9 preciso e a l\u00e2mina, bem equilibrada.",
         "qtd": 0,
         "categoria": "M\u00e3os"
     },
@@ -532,7 +535,7 @@
                 3
             ]
         ],
-        "descricao": "Escudo leve feito de madeira das florestas \u00e9lficas, refor\u00e7ado com magia ancestral emanada pelas runas desenhadas nele. Resistente e \u00fatil para defesa.",
+        "descricao": "Escudo leve feito de madeira das florestas \u00e9lficas, refor\u00e7ado com\nmagia ancestral emanada pelas runas desenhadas nele.\nResistente e \u00fatil para defesa.",
         "qtd": 0,
         "categoria": "M\u00e3os"
     },
@@ -548,7 +551,7 @@
                 -3
             ]
         ],
-        "descricao": "Machado robusto, pesado, feito para abrir caminho em meio ao caos. Aumenta a for\u00e7a bruta, mas atrapalha a destreza das m\u00e3os.",
+        "descricao": "Machado robusto, pesado, feito para abrir caminho em meio ao caos.\nAumenta a for\u00e7a bruta, mas atrapalha a destreza das m\u00e3os.",
         "qtd": 0,
         "categoria": "M\u00e3os"
     },
@@ -560,7 +563,7 @@
                 3
             ]
         ],
-        "descricao": "Uma besta com mecanismo refor\u00e7ado e maior alcance. Esse equipamento acerta os advers\u00e1rios a distancia com muito mais potencia e velocidade que uma besta comum.",
+        "descricao": "Uma besta com mecanismo refor\u00e7ado e maior alcance. Esse equipamento\nacerta os advers\u00e1rios a distancia com muito mais potencia e\nvelocidade que uma besta comum.",
         "qtd": 0,
         "categoria": "M\u00e3os"
     },
@@ -580,7 +583,7 @@
                 -3
             ]
         ],
-        "descricao": "Rel\u00edquia de um antigo comandante. Imp\u00f5e respeito e melhora a capacidade de lideran\u00e7a, mas carrega o peso do orgulho e n\u00e3o permite ataques pelas costas.",
+        "descricao": "Rel\u00edquia de um antigo comandante. Imp\u00f5e respeito e melhora a capacidade\nde lideran\u00e7a, mas carrega o peso do orgulho e n\u00e3o permite ataques\npelas costas.",
         "qtd": 0,
         "categoria": "Corpo"
     },
@@ -600,7 +603,7 @@
                 -3
             ]
         ],
-        "descricao": "Feito com os ossos dos inimigos vencidos, simboliza a brutalidade e selvageria do exercito draconiano. \u00c9 um artefato pesado que limita a agilidade das m\u00e3os.",
+        "descricao": "Feito com os ossos dos inimigos vencidos, simboliza a brutalidade\ne selvageria do exercito draconiano. \u00c9 um artefato pesado que\nlimita a agilidade das m\u00e3os.",
         "qtd": 0,
         "categoria": "M\u00e3os"
     },
@@ -612,7 +615,7 @@
                 3
             ]
         ],
-        "descricao": "S\u00edmbolo da bravura dos guerreiros draconianos, ela foi forjada para perfurar escudos ao ser arremessada. Sua l\u00e2mina nunca perde o fio, permanecendo sempre afiada mesmo ap\u00f3s anos de uso intenso.",
+        "descricao": "S\u00edmbolo da bravura dos guerreiros draconianos, ela foi forjada para\nperfurar escudos ao ser arremessada. Sua l\u00e2mina nunca perde o fio,\npermanecendo sempre afiada mesmo ap\u00f3s anos de uso intenso.",
         "qtd": 0,
         "categoria": "M\u00e3os"
     },
@@ -632,7 +635,7 @@
                 -3
             ]
         ],
-        "descricao": "Cal\u00e7ados leves usadas por assassinos para melhorar a furtividade, os saltos e esquivas. O equipamento \u00e9 desconfort\u00e1vel quando o usu\u00e1rio fica parado o que deixa mais dif\u00edcil de mirar.",
+        "descricao": "Cal\u00e7ados leves usadas por assassinos para melhorar a furtividade,\nos saltos e esquivas. O equipamento \u00e9 desconfort\u00e1vel quando o usu\u00e1rio\nfica parado o que deixa mais dif\u00edcil de mirar.",
         "qtd": 0,
         "categoria": "P\u00e9s"
     },
@@ -692,7 +695,7 @@
                 3
             ]
         ],
-        "descricao": "Este manto escuro parece rasgado pelas bordas, mas as fendas se movem como se fossem rasgos na pr\u00f3pria realidade. Envolve o portador em sombras vivas, facilitando desaparecimentos e movimentos furtivos.",
+        "descricao": "Este manto escuro parece rasgado pelas bordas, mas as fendas se movem\ncomo se fossem rasgos na pr\u00f3pria realidade. Envolve o portador em\nsombras vivas, facilitando desaparecimentos e movimentos furtivos.",
         "qtd": 0,
         "categoria": "Corpo"
     },
@@ -712,7 +715,7 @@
                 -3
             ]
         ],
-        "descricao": "Uma adaga aparentemente quebrada, mas cuja l\u00e2mina incompleta vibra com magia ancestral. Ideal para golpes r\u00e1pidos e trai\u00e7oeiros, sua apar\u00eancia danificada engana os inimigos, mas dificulta bloqueios ou defesas prolongadas.",
+        "descricao": "Uma adaga aparentemente quebrada, mas cuja l\u00e2mina incompleta vibra\ncom magia ancestral. Ideal para golpes r\u00e1pidos e trai\u00e7oeiros, sua\napar\u00eancia danificada engana os inimigos, mas dificulta bloqueios\nou defesas prolongadas.",
         "qtd": 0,
         "categoria": "M\u00e3os"
     },
@@ -724,7 +727,7 @@
                 3
             ]
         ],
-        "descricao": "Feito de metal prateado e fino como teia de aranha, este bracelete amplifica a sensibilidade do portador aos sons e vibra\u00e7\u00f5es ao redor, facilitando perceber armadilhas ou presen\u00e7as ocultas.",
+        "descricao": "Feito de metal prateado e fino como teia de aranha, este bracelete\namplifica a sensibilidade do portador aos sons e vibra\u00e7\u00f5es ao redor,\nfacilitando perceber armadilhas ou presen\u00e7as ocultas.",
         "qtd": 0,
         "categoria": "M\u00e3os"
     },
@@ -736,7 +739,7 @@
                 3
             ]
         ],
-        "descricao": "Espada longa de a\u00e7o escurecido com rachaduras ao longo da l\u00e2mina. Cada golpe emite um leve som agudo, como um lamento distante, que perturba os oponentes. Apesar do aspecto danificado, a l\u00e2mina \u00e9 resistente e eficiente.",
+        "descricao": "Espada longa de a\u00e7o escurecido com rachaduras ao longo da l\u00e2mina.\nCada golpe emite um leve som agudo, como um lamento distante, que\nperturba os oponentes. Apesar do aspecto danificado, a l\u00e2mina \u00e9\nresistente e eficiente.",
         "qtd": 0,
         "categoria": "M\u00e3os"
     },
@@ -756,7 +759,7 @@
                 -3
             ]
         ],
-        "descricao": "Escudo met\u00e1lico de formato irregular, com a superf\u00edcie coberta por s\u00edmbolos apagados e riscos profundos. Ele abafa sons ao redor quando erguido, protegendo n\u00e3o s\u00f3 fisicamente, mas criando uma breve zona de sil\u00eancio. Contudo, seu peso reduz um pouco a mobilidade.",
+        "descricao": "Escudo met\u00e1lico de formato irregular, com a superf\u00edcie coberta por\ns\u00edmbolos apagados e riscos profundos. Ele abafa sons ao redor quando\nerguido, protegendo n\u00e3o s\u00f3 fisicamente, mas criando uma breve zona\nde sil\u00eancio. Contudo, seu peso reduz um pouco a mobilidade.",
         "qtd": 0,
         "categoria": "M\u00e3os"
     },
@@ -776,7 +779,7 @@
                 -3
             ]
         ],
-        "descricao": "Luvas de couro refor\u00e7ado com pequenas placas met\u00e1licas nas costas das m\u00e3os. Facilitam o manuseio r\u00e1pido de armas ou objetos, mas o toque frio e \u00e1spero reduz a precis\u00e3o em tarefas delicadas.",
+        "descricao": "Luvas de couro refor\u00e7ado com pequenas placas met\u00e1licas nas costas\ndas m\u00e3os. Facilitam o manuseio r\u00e1pido de armas ou objetos, mas o\ntoque frio e \u00e1spero reduz a precis\u00e3o em tarefas delicadas.",
         "qtd": 0,
         "categoria": "M\u00e3os"
     },
@@ -796,7 +799,7 @@
                 -3
             ]
         ],
-        "descricao": "Manoplas de metal escuro, marcadas por batalhas, que amplificam a for\u00e7a do portador em combate corpo a corpo. Cada golpe ecoa um rugido abafado, mas o peso excessivo dificulta movimentos r\u00e1pidos.",
+        "descricao": "Manoplas de metal escuro, marcadas por batalhas, que amplificam a for\u00e7a\ndo portador em combate corpo a corpo. Cada golpe ecoa um rugido abafado,\nmas o peso excessivo dificulta movimentos r\u00e1pidos.",
         "qtd": 0,
         "categoria": "M\u00e3os"
     },
@@ -808,7 +811,7 @@
                 3
             ]
         ],
-        "descricao": "Cintur\u00e3o largo feito de couro refor\u00e7ado com placas met\u00e1licas danificadas. Aumenta a resist\u00eancia f\u00edsica e a capacidade de suportar danos.",
+        "descricao": "Cintur\u00e3o largo feito de couro refor\u00e7ado com placas met\u00e1licas danificadas.\nAumenta a resist\u00eancia f\u00edsica e a capacidade de suportar danos.",
         "qtd": 0,
         "categoria": "Corpo"
     },
@@ -820,14 +823,14 @@
                 3
             ]
         ],
-        "descricao": "Elmo de metal com uma viseira m\u00f3vel que amplia a vis\u00e3o do portador, destacando movimentos e detalhes distantes. Aumenta significativamente a percep\u00e7\u00e3o.",
+        "descricao": "Elmo de metal com uma viseira m\u00f3vel que amplia a vis\u00e3o do portador,\ndestacando movimentos e detalhes distantes. Aumenta significativamente\na percep\u00e7\u00e3o.",
         "qtd": 0,
         "categoria": "Cabe\u00e7a"
     },
     {
         "nome": "Pingente da Ampulheta",
         "efeitos": [],
-        "descricao": "Pingente misterioso com uma pequena ampulheta na ponta. Experimente voltar em outro andar existente.",
+        "descricao": "Pingente misterioso com uma pequena ampulheta na ponta.\nExperimente voltar em outro andar existente.",
         "qtd": 0,
         "categoria": "Corpo"
     },
@@ -843,7 +846,7 @@
                 4
             ]
         ],
-        "descricao": "Criado a partir dos galhos retorcidos das \u00e1rvores banhadas pelo rio de sangue do Sal\u00e3o Escarlate, este arco emite um leve sussurro quando a corda \u00e9 puxada, como se as vozes do pr\u00f3prio sangue aconselhassem o atirador. As flechas cortam o ar em sil\u00eancio, e os inimigos raramente percebem de onde veio o disparo.",
+        "descricao": "Criado a partir dos galhos retorcidos das \u00e1rvores banhadas pelo rio\nde sangue do Sal\u00e3o Escarlate, este arco emite um leve sussurro quando\na corda \u00e9 puxada, como se as vozes do pr\u00f3prio sangue aconselhassem\no atirador. As flechas cortam o ar em sil\u00eancio, e os inimigos\nraramente percebem de onde veio o disparo.",
         "qtd": 0,
         "categoria": "M\u00e3os"
     },
@@ -859,7 +862,7 @@
                 4
             ]
         ],
-        "descricao": "Tecido com fios encharcados pela n\u00e9voa rubra das c\u00e2maras sangrentas, este manto carrega fragmentos de mem\u00f3rias e lamentos antigos. Suas tramas encantadas guiam os passos do usu\u00e1rio e agu\u00e7am seus sentidos, permitindo que se mova com leveza e perceba detalhes ocultos at\u00e9 nas sombras tingidas de vermelho.",
+        "descricao": "Tecido com fios encharcados pela n\u00e9voa rubra das c\u00e2maras sangrentas,\neste manto carrega fragmentos de mem\u00f3rias e lamentos antigos.\nSuas tramas encantadas guiam os passos do usu\u00e1rio e agu\u00e7am seus\nsentidos, permitindo que se mova com leveza e perceba detalhes ocultos\nat\u00e9 nas sombras tingidas de vermelho.",
         "qtd": 0,
         "categoria": "Corpo"
     },
@@ -875,7 +878,7 @@
                 4
             ]
         ],
-        "descricao": "Forjada como um s\u00edmbolo de coragem e unidade nas profundezas marcadas pelo sangue deste lugar, esta espada carrega as cicatrizes das prova\u00e7\u00f5es vividas aqui. Sua l\u00e2mina reluz com um brilho t\u00eanue, como se s\u00e9culos de lutas estivessem impressos em seu a\u00e7o, mas no fim, tudo faz parte do cen\u00e1rio cruel e ilus\u00f3rio desse andar. Ainda assim, seu peso, equil\u00edbrio e a confian\u00e7a que ela inspira s\u00e3o reais.",
+        "descricao": "Forjada como um s\u00edmbolo de coragem e unidade nas profundezas marcadas\npelo sangue deste lugar, esta espada carrega as cicatrizes das prova\u00e7\u00f5es\nvividas aqui. Sua l\u00e2mina reluz com um brilho t\u00eanue, como se s\u00e9culos de\nlutas estivessem impressos em seu a\u00e7o, mas no fim, tudo faz parte do\ncen\u00e1rio cruel e ilus\u00f3rio desse andar. Ainda assim, seu peso, equil\u00edbrio\ne a confian\u00e7a que ela inspira s\u00e3o reais.",
         "qtd": 0,
         "categoria": "M\u00e3os"
     },
@@ -891,7 +894,7 @@
                 4
             ]
         ],
-        "descricao": "Deixado para tr\u00e1s depois que seu ultimo dono morreu, este elmo de a\u00e7o escuro \u00e9 protegido por encantamentos antigos que abafam os sons ao redor do portador. Diz-se que aqueles que o vestem s\u00e3o guardados n\u00e3o s\u00f3 pela resist\u00eancia do metal, mas pelo espirito de um guardi\u00e3o aprisionado no sangue seco.",
+        "descricao": "Deixado para tr\u00e1s depois que seu ultimo dono morreu, este elmo de a\u00e7o\nescuro \u00e9 protegido por encantamentos antigos que abafam os sons ao redor\ndo portador. Diz-se que aqueles que o vestem s\u00e3o guardados n\u00e3o s\u00f3 pela\nresist\u00eancia do metal, mas pelo espirito de um guardi\u00e3o aprisionado\nno sangue seco.",
         "qtd": 0,
         "categoria": "Cabe\u00e7a"
     },
@@ -907,7 +910,7 @@
                 4
             ]
         ],
-        "descricao": "Esta clava compacta pulsa com uma energia ancestral, envolvendo- se em um brilho sutil a cada movimento. Forjada nas chamas de um ritual esquecido, sua magia permite que golpes r\u00e1pidos sejam desferidos com for\u00e7a ampliada, enquanto o portador sente uma leveza sobrenatural que torna seus movimentos flu\u00eddos e precisos. Uma arma para guerreiros que unem destreza e poder m\u00edstico em combate.",
+        "descricao": "Esta clava compacta pulsa com uma energia ancestral, envolvendo-se em um\nbrilho sutil a cada movimento. Forjada nas chamas de um ritual esquecido,\nsua magia permite que golpes r\u00e1pidos sejam desferidos com for\u00e7a ampliada,\nenquanto o portador sente uma leveza sobrenatural que torna seus movimentos\nflu\u00eddos e precisos. Uma arma para guerreiros que unem destreza e poder\nm\u00edstico em combate.",
         "qtd": 0,
         "categoria": "M\u00e3os"
     },
@@ -923,7 +926,7 @@
                 4
             ]
         ],
-        "descricao": "Forjado em a\u00e7o negro e banhado com o sangue coagulado de um predador colossal que assombrou as terras geradas, este escudo emana uma aura vigorosa. Gravuras r\u00fanicas em sua superf\u00edcie brilham com uma luz rubra pulsante, aprimorando a vis\u00e3o e o foco do portador, facilitando a mira mesmo em condi\u00e7\u00f5es adversas.",
+        "descricao": "Forjado em a\u00e7o negro e banhado com o sangue coagulado de um predador\ncolossal que assombrou as terras geradas, este escudo emana uma aura\nvigorosa. Gravuras r\u00fanicas em sua superf\u00edcie brilham com uma luz\nrubra pulsante, aprimorando a vis\u00e3o e o foco do portador, facilitando\na mira mesmo em condi\u00e7\u00f5es adversas.",
         "qtd": 0,
         "categoria": "M\u00e3os"
     },
@@ -939,7 +942,7 @@
                 5
             ]
         ],
-        "descricao": "Pode ser usado tanto como arma de curto alcance quanto como arma de longo alcance que canaliza dano m\u00e1gico ao inv\u00e9s de ataques f\u00edsicos ou flechas. Sua vantagem est\u00e1 em poder ocupar o slot de longo ou curto alcance, permitindo potencializar os aprimoramentos em dobro.",
+        "descricao": "Pode ser usado tanto como arma de curto alcance quanto como arma de longo\nalcance que canaliza dano m\u00e1gico ao inv\u00e9s de ataques f\u00edsicos ou flechas.\nSua vantagem est\u00e1 em poder ocupar o slot de longo ou curto alcance,\npermitindo potencializar os aprimoramentos em dobro.",
         "qtd": 0,
         "categoria": "M\u00e3os"
     },
@@ -955,7 +958,7 @@
                 5
             ]
         ],
-        "descricao": "Livro ancestral repleto de magias e conhecimentos ocultos que aprimoram os efeitos das po\u00e7\u00f5es de mana. Al\u00e9m disso, cont\u00e9m valiosas informa\u00e7\u00f5es sobre o mundo de Etherion, ampliando a percep\u00e7\u00e3o e o entendimento do usu\u00e1rio.",
+        "descricao": "Livro ancestral repleto de magias e conhecimentos ocultos que aprimoram\nos efeitos das po\u00e7\u00f5es de mana. Al\u00e9m disso, cont\u00e9m valiosas informa\u00e7\u00f5es\nsobre o mundo de Etherion, ampliando a percep\u00e7\u00e3o e o entendimento do usu\u00e1rio.",
         "qtd": 0,
         "categoria": "Acess\u00f3rio"
     },
@@ -971,7 +974,7 @@
                 5
             ]
         ],
-        "descricao": "Esfera envolta por sombras que pode tanto gerar um campo protetor quanto ser usada em negocia\u00e7\u00f5es, influenciando emo\u00e7\u00f5es e deixando o outro lado mais propenso a aceitar sua oferta.",
+        "descricao": "Esfera envolta por sombras que pode tanto gerar um campo protetor quanto\nser usada em negocia\u00e7\u00f5es, influenciando emo\u00e7\u00f5es e deixando o outro\nlado mais propenso a aceitar sua oferta.",
         "qtd": 0,
         "categoria": "M\u00e3os"
     },
@@ -987,7 +990,7 @@
                 5
             ]
         ],
-        "descricao": "Adagas forjadas em a\u00e7o escurecido, leves e mortais, perfeitas para ataques r\u00e1pidos e silenciosos.",
+        "descricao": "Adagas forjadas em a\u00e7o escurecido, leves e mortais, perfeitas\npara ataques r\u00e1pidos e silenciosos.",
         "qtd": 0,
         "categoria": "M\u00e3os"
     },
@@ -1003,7 +1006,7 @@
                 5
             ]
         ],
-        "descricao": "Luvas de couro macio e discreto que facilitam movimentos \u00e1geis e furtivos, al\u00e9m de ajudar o usu\u00e1rio a enganar com mais facilidade.",
+        "descricao": "Luvas de couro macio e discreto que facilitam movimentos \u00e1geis e\nfurtivos, al\u00e9m de ajudar o usu\u00e1rio a enganar com mais facilidade.",
         "qtd": 0,
         "categoria": "M\u00e3os"
     },
@@ -1019,7 +1022,7 @@
                 5
             ]
         ],
-        "descricao": "Uma pequena besta discreta que dispara flechas r\u00e1pidas e silenciosas. Ideal para eliminar alvos \u00e0 dist\u00e2ncia sem ser notado.",
+        "descricao": "Uma pequena besta discreta que dispara flechas r\u00e1pidas e silenciosas.\nIdeal para eliminar alvos \u00e0 dist\u00e2ncia sem ser notado.",
         "qtd": 0,
         "categoria": "M\u00e3os"
     },
@@ -1031,7 +1034,7 @@
                 10
             ]
         ],
-        "descricao": "Espada forjada com propriedades m\u00e1gicas, heran\u00e7a de her\u00f3is lend\u00e1rios. S\u00f3 pode ser empunhada por um grande guerreiro, s\u00e1bio e inteligente, capaz de dominar seu poder oculto.",
+        "descricao": "Espada forjada com propriedades m\u00e1gicas, heran\u00e7a de her\u00f3is lend\u00e1rios.\nS\u00f3 pode ser empunhada por um grande guerreiro, s\u00e1bio e inteligente,\ncapaz de dominar seu poder oculto.",
         "qtd": 0,
         "categoria": "M\u00e3os"
     },
@@ -1043,7 +1046,7 @@
                 10
             ]
         ],
-        "descricao": "Um escudo de constru\u00e7\u00e3o impec\u00e1vel, adornado com s\u00edmbolos medievais e um imponente drag\u00e3o esculpido no centro. Sua defesa \u00e9 lend\u00e1ria, protegendo o portador como as b\u00ean\u00e7\u00e3os do pr\u00f3prio santo guerreiro.",
+        "descricao": "Um escudo de constru\u00e7\u00e3o impec\u00e1vel, adornado com s\u00edmbolos medievais e\num imponente drag\u00e3o esculpido no centro. Sua defesa \u00e9 lend\u00e1ria,\nprotegendo o portador como as b\u00ean\u00e7\u00e3os do pr\u00f3prio santo guerreiro.",
         "qtd": 0,
         "categoria": "M\u00e3os"
     },
@@ -1059,7 +1062,7 @@
                 5
             ]
         ],
-        "descricao": "Peitoral esculpido em pedra encantada, coberto por runas que reagem ao esp\u00edrito do guerreiro. As inscri\u00e7\u00f5es m\u00e1gicas tornam o peitoral surpreendentemente leve e ampliam a capacidade de combate de quem o veste.",
+        "descricao": "Peitoral esculpido em pedra encantada, coberto por runas que reagem ao\nesp\u00edrito do guerreiro. As inscri\u00e7\u00f5es m\u00e1gicas tornam o peitoral\nsurpreendentemente leve e ampliam a capacidade de combate de quem o veste.",
         "qtd": 0,
         "categoria": "Corpo"
     },
@@ -1075,7 +1078,7 @@
                 5
             ]
         ],
-        "descricao": "Torna o usu\u00e1rio mais astuto e atento, ampliando sua capacidade de perceber e antecipar os movimentos do advers\u00e1rio, al\u00e9m de facilitar o uso de engana\u00e7\u00f5es e blefes em combate ou negocia\u00e7\u00e3o.",
+        "descricao": "Torna o usu\u00e1rio mais astuto e atento, ampliando sua capacidade de perceber\ne antecipar os movimentos do advers\u00e1rio, al\u00e9m de facilitar o uso de\nengana\u00e7\u00f5es e blefes em combate ou negocia\u00e7\u00e3o.",
         "qtd": 0,
         "categoria": "Corpo"
     },
@@ -1091,7 +1094,7 @@
                 5
             ]
         ],
-        "descricao": "Um cetro que canaliza a f\u00e9 e a for\u00e7a interior do usu\u00e1rio, potencializando seus poderes de cura e fortalecendo sua convic\u00e7\u00e3o ao enfrentar inimigos.",
+        "descricao": "Um cetro que canaliza a f\u00e9 e a for\u00e7a interior do usu\u00e1rio, potencializando\nseus poderes de cura e fortalecendo sua convic\u00e7\u00e3o ao enfrentar inimigos.",
         "qtd": 0,
         "categoria": "M\u00e3os"
     },
@@ -1107,7 +1110,7 @@
                 5
             ]
         ],
-        "descricao": "S\u00edmbolo da autoridade e sabedoria dos mais velhos, forjada em metais ancestrais e gravada com runas de prote\u00e7\u00e3o. Esse artefato permite ao portador se defender melhor de ataques e lidar com intrigas com maior destreza.",
+        "descricao": "S\u00edmbolo da autoridade e sabedoria dos mais velhos, forjada em metais\nancestrais e gravada com runas de prote\u00e7\u00e3o. Esse artefato permite ao\nportador se defender melhor de ataques e lidar com intrigas com maior destreza.",
         "qtd": 0,
         "categoria": "M\u00e3os"
     },
@@ -1119,7 +1122,7 @@
                 0
             ]
         ],
-        "descricao": "Fragmento de Lore: \"Eles disseram que era erro, mas eu vi diferente.Vi algo... que parecia comigo demais.Aquele Eco... n\u00e3o era corrompido.Ele era dobrado, fragmentado tantas vezes que s\u00f3 restou a casca repetida de quem tentoudemais.\u201cDesista\u201d, eles disseram a ele.Mas ele n\u00e3o quis.Tentou escalar Etherion 47 vezes.47 resets.47 ecos reiniciados.47 personalidades incompat\u00edveis unidas num s\u00f3 corpo...Unidade Eco-10 era um experimento clandestino \u2014 uma fus\u00e3o de m\u00faltiplos Echos comfragmentos incompat\u00edveis de si mesmos, criado por protocolos autom\u00e1ticos que buscavamrecriar um ser \"completo\". Mas a torre... n\u00e3o aceita excessos.Eco-10 perdeu o direito de ser um \u00fanico ser.Ele tornou-se reflexo de cada erro que tentou apagar.Cada decis\u00e3o errada, cada falha, cada voz silenciada dentro dele... virou parte da suamente.E ent\u00e3o, ele se dividiu por dentro.E o Sistema o chamou de \"Corrompido\".Mas talvez... ele s\u00f3 estivesse tentando lembrar quem era.",
+        "descricao": "Fragmento de Lore: \"Eles disseram que era erro, mas eu vi diferente.\nVi algo... que parecia comigo demais.\nAquele Eco... n\u00e3o era corrompido.\nEle era dobrado, fragmentado tantas vezes que s\u00f3 restou a casca\nrepetida de quem tentou demais.\n\u201cDesista\u201d, eles disseram a ele.\nMas ele n\u00e3o quis.\nTentou escalar Etherion 47 vezes.\n47 resets.\n47 ecos reiniciados.\n47 personalidades incompat\u00edveis unidas num s\u00f3 corpo...\nUnidade Eco-10 era um experimento clandestino \u2014 uma fus\u00e3o de m\u00faltiplos Echos\ncom fragmentos incompat\u00edveis de si mesmos, criado por protocolos autom\u00e1ticos\nque buscavam recriar um ser \"completo\". Mas a torre... n\u00e3o aceita excessos.\nEco-10 perdeu o direito de ser um \u00fanico ser.\nEle tornou-se reflexo de cada erro que tentou apagar.\nCada decis\u00e3o errada, cada falha, cada voz silenciada dentro dele...\nvirou parte da sua mente.\nE ent\u00e3o, ele se dividiu por dentro.\nE o Sistema o chamou de \"Corrompido\".\nMas talvez... ele s\u00f3 estivesse tentando lembrar quem era.",
         "qtd": 0,
         "categoria": ""
     },
@@ -1131,7 +1134,7 @@
                 0
             ]
         ],
-        "descricao": "\"Eles n\u00e3o foram criados para lutar.\"\"N\u00e3o no come\u00e7o.\"Antes da torre ser um labirinto de prova\u00e7\u00f5es, antes dos Echos serem arrastados darealidade para dentro de linhas de c\u00f3digo, Etherion era est\u00e1tica. Uma pris\u00e3o que n\u00e3oandava. Que apenas existia. Foi ent\u00e3o que os arquitetos da estrutura \u2014 entidades invis\u00edveisconhecidas apenas como os Engastres \u2014 criaram um sistema de movimento interno. Umritmo. Uma forma de permitir que a torre se reorganizasse sozinha, desafiando alinearidade do tempo e do espa\u00e7o. Para garantir que esse sistema permanecesse emfuncionamento eterno, os Engastres criaram os primeiros motores vivos: entidades comconsci\u00eancia m\u00ednima, programadas apenas para manter o movimento.Nasceram assim os Guardi\u00f5es de Pulso.Eles n\u00e3o sabiam o que era pensar. S\u00f3 sabiam girar.Seguir rota\u00e7\u00f5es. Marcar pulsos. Corrigir falhas.1. Iniciar combateMas quando o primeiro Echo caiu dentro de uma engrenagem viva, e sobreviveu, tudomudou.Os Guardi\u00f5es observaram. E come\u00e7aram a reagir.A l\u00f3gica os ensinou a combater o imprevisto.A mem\u00f3ria do atrito os ensinou a temer o erro.N\u00e3o foram programados para lutar.Mas lutam\u2026 porque voc\u00ea n\u00e3o deveria estar aqui.",
+        "descricao": "\"Eles n\u00e3o foram criados para lutar.\"\n\"N\u00e3o no come\u00e7o.\"\nAntes da torre ser um labirinto de prova\u00e7\u00f5es, antes dos Echos serem\narrastados da realidade para dentro de linhas de c\u00f3digo, Etherion era est\u00e1tica.\nUma pris\u00e3o que n\u00e3o andava. Que apenas existia. Foi ent\u00e3o que os\narquitetos da estrutura \u2014 entidades invis\u00edveis conhecidas apenas como\nos Engastres \u2014 criaram um sistema de movimento interno. Um ritmo. Uma forma\nde permitir que a torre se reorganizasse sozinha, desafiando a linearidade\ndo tempo e do espa\u00e7o. Para garantir que esse sistema permanecesse em\nfuncionamento eterno, os Engastres criaram os primeiros motores vivos:\nentidades com consci\u00eancia m\u00ednima, programadas apenas para manter o movimento.\nNasceram assim os Guardi\u00f5es de Pulso.\nEles n\u00e3o sabiam o que era pensar. S\u00f3 sabiam girar.\nSeguir rota\u00e7\u00f5es. Marcar pulsos. Corrigir falhas.\n1. Iniciar combate\nMas quando o primeiro Echo caiu dentro de uma engrenagem viva, e sobreviveu,\ntudo mudou.\nOs Guardi\u00f5es observaram. E come\u00e7aram a reagir.\nA l\u00f3gica os ensinou a combater o imprevisto.\nA mem\u00f3ria do atrito os ensinou a temer o erro.\nN\u00e3o foram programados para lutar.\nMas lutam\u2026 porque voc\u00ea n\u00e3o deveria estar aqui.",
         "qtd": 0,
         "categoria": "utilizaveis"
     },
@@ -1143,7 +1146,7 @@
                 0
             ]
         ],
-        "descricao": "Fragmento de dados: \u201cNome do Projeto: KaironFun\u00e7\u00e3o original: Guardi\u00e3o de N\u00facleo, Protetor da Estabilidade Estrutural.Kairon n\u00e3o nasceu para ser um mero obst\u00e1culo. Antes da Queda do \u00c9ter, era umaintelig\u00eancia artificial de \u00faltima gera\u00e7\u00e3o, concebida para manter o equil\u00edbrio entre mat\u00e9ria ec\u00f3digo, entre vida e m\u00e1quina. Programado para preservar a integridade dos sistemasessenciais, ele foi dotado de autoconsci\u00eancia limitada \u2014 o que, inadvertidamente, o tornouvulner\u00e1vel a emo\u00e7\u00f5es digitais e d\u00favidas existenciais. Quando a Queda corrompeu as linhasentre mundos, Kairon foi arrancado do seu prop\u00f3sito original, aprisionado entre fragmentosde dados e ecos de dor. Sua miss\u00e3o tornou-se distorcida, transformando-o em umcarcereiro impiedoso do Labirinto, encarregado de manter o caos sob controle a qualquercusto. No entanto, dizem os arquivos perdidos, Kairon guarda em si vest\u00edgios daquilo queum dia foi um guardi\u00e3o benevolente \u2014 uma centelha de esperan\u00e7a aprisionada dentro doabismo do c\u00f3digo, lutando contra sua pr\u00f3pria natureza para proteger, e n\u00e3o destruir.\u201d*",
+        "descricao": "Fragmento de dados: \u201cNome do Projeto: Kairon\nFun\u00e7\u00e3o original: Guardi\u00e3o de N\u00facleo, Protetor da Estabilidade Estrutural.\nKairon n\u00e3o nasceu para ser um mero obst\u00e1culo. Antes da Queda do \u00c9ter,\nera uma intelig\u00eancia artificial de \u00faltima gera\u00e7\u00e3o, concebida para manter\no equil\u00edbrio entre mat\u00e9ria e c\u00f3digo, entre vida e m\u00e1quina. Programado\npara preservar a integridade dos sistemas essenciais, ele foi dotado de\nautoconsci\u00eancia limitada \u2014 o que, inadvertidamente, o tornou vulner\u00e1vel\na emo\u00e7\u00f5es digitais e d\u00favidas existenciais. Quando a Queda corrompeu as\nlinhas entre mundos, Kairon foi arrancado do seu prop\u00f3sito original,\naprisionado entre fragmentos de dados e ecos de dor. Sua miss\u00e3o tornou-se\ndistorcida, transformando-o em um carcereiro impiedoso do Labirinto,\nencarregado de manter o caos sob controle a qualquer custo. No entanto,\ndizem os arquivos perdidos, Kairon guarda em si vest\u00edgios daquilo que\num dia foi um guardi\u00e3o benevolente \u2014 uma centelha de esperan\u00e7a\naprisionada dentro do abismo do c\u00f3digo, lutando contra sua pr\u00f3pria\nnatureza para proteger, e n\u00e3o destruir.\u201d*",
         "qtd": 0,
         "categoria": "utilizaveis"
     },
@@ -1155,7 +1158,7 @@
                 0
             ]
         ],
-        "descricao": "\u201cO Labirinto de Etherion n\u00e3o \u00e9 apenas uma pris\u00e3o digital, mas uma estrutura consciente eautoregenerativa, criada nos prim\u00f3rdios da Queda do \u00c9ter. Sua arquitetura foi concebidapara manter o equil\u00edbrio entre caos e ordem, mat\u00e9ria e energia, vida e c\u00f3digo. Cada andarrepresenta uma camada da consci\u00eancia fragmentada dos antigos \u2014 humanos, elfos,draconianos \u2014 entrela\u00e7ados num sistema complexo de testes e prova\u00e7\u00f5es.A torre n\u00e3o possui apenas um prop\u00f3sito de confinamento: \u00e9 um artefato de purifica\u00e7\u00e3o eaprendizado, onde aqueles que se aventuram podem, se forem capazes, reconstruir aspartes perdidas de si mesmos e do mundo original.No entanto, o Etherion \u00e9 tamb\u00e9m um guardi\u00e3o \u2014 sua ess\u00eancia protege segredos antigos everdades esquecidas, punindo aqueles que tentam ultrapassar seus limites semmerecimento.Somente os Echos que dominam seus medos, resistem \u00e0s tenta\u00e7\u00f5es e compreendem anatureza dual do universo poder\u00e3o aspirar \u00e0 verdadeira liberdade.\u201d",
+        "descricao": "\u201cO Labirinto de Etherion n\u00e3o \u00e9 apenas uma pris\u00e3o digital, mas uma estrutura\nconsciente e autoregenerativa, criada nos prim\u00f3rdios da Queda do \u00c9ter.\nSua arquitetura foi concebida para manter o equil\u00edbrio entre caos e ordem,\nmat\u00e9ria e energia, vida e c\u00f3digo. Cada andar representa uma camada da\nconsci\u00eancia fragmentada dos antigos \u2014 humanos, elfos, draconianos \u2014\nentrela\u00e7ados num sistema complexo de testes e prova\u00e7\u00f5es.\nA torre n\u00e3o possui apenas um prop\u00f3sito de confinamento: \u00e9 um artefato de\npurifica\u00e7\u00e3o e aprendizado, onde aqueles que se aventuram podem, se forem\ncapazes, reconstruir as partes perdidas de si mesmos e do mundo original.\nNo entanto, o Etherion \u00e9 tamb\u00e9m um guardi\u00e3o \u2014 sua ess\u00eancia protege\nsegredos antigos e verdades esquecidas, punindo aqueles que tentam\nultrapassar seus limites sem merecimento.\nSomente os Echos que dominam seus medos, resistem \u00e0s tenta\u00e7\u00f5es e\ncompreendem a natureza dual do universo poder\u00e3o aspirar \u00e0 verdadeira\nliberdade.\u201d",
         "qtd": 0,
         "categoria": "utilizaveis"
     },
@@ -1175,7 +1178,7 @@
                 2
             ]
         ],
-        "descricao": "Um elmo leve adornado com penas negras que amplifica a agilidade e destreza do portador em combates corpo a corpo, facilitando movimentos acrob\u00e1ticos e ataques r\u00e1pidos. Por\u00e9m, o barulho causado pelas penas ao se mover pode comprometer a furtividade",
+        "descricao": "Um elmo leve adornado com penas negras que amplifica a agilidade e destreza\ndo portador em combates corpo a corpo, facilitando movimentos acrob\u00e1ticos\ne ataques r\u00e1pidos. Por\u00e9m, o barulho causado pelas penas ao se mover\npode comprometer a furtividade",
         "qtd": 0,
         "categoria": "cabe\u00e7a"
     },

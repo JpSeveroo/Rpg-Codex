@@ -61,7 +61,7 @@ def executar_ataque(atacante, defensor, pericia_principal, custo_mana, bonus_ext
     dano = calc_dano(atacante, pericia_principal, bonus_extra)
 
     if isinstance(atacante, Inimigo):
-        dano-= (defensor.pericias.get('resistencia', 0))//3
+        dano-= (defensor.pericias.get('resistencia', 0))//4
         if dano<1: dano = 1
         digitar(f'🛡️ Dano reduzido pela sua resistencia para {dano}!')
 
