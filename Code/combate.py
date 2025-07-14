@@ -33,7 +33,7 @@ def calc_dano(personagem, pericia_principal, bonus_extra=False):
         base = int((personagem.pericias.get(pericia_principal, 0)) * 2 * multiplicador)
         dado, critico = rolar_dado()
         dano_base = base - ((base//(dado+1))+2)
-        dano = dano_base
+        dano = dano_base if dano_base>0 else 1
         if bonus_extra:
             dano += dano_base//2
         if critico:
