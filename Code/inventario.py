@@ -174,7 +174,7 @@ def display(fonte):
 def equipando(personagem, item, parte):
     for i in item.efeitos:
         personagem.pericias[i[0]] += i[1]
-        equipamento.itens[parte]['equipado'] = True
+    equipamento.itens[parte]['equipado'] = True
 
 def desequipando(personagem, item, parte):
     for i in item.efeitos:

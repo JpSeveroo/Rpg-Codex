@@ -89,7 +89,9 @@ def lore_1_andar(personagem):
 
         elif opcao == "⚔️ Iniciar o Combate - Enfrentar as Gárgulas de Dados com as habilidades que possui, aprendendo a dominar o sistema de turnos e a usar sua força para progredir.":
             limpar_tela()
-            vencedor = combate(personagem, inimigos.lista_inimigos[0])
+            for ini in range(3):
+                digitar(f'🦇Gargula {ini+1} apareceu, enfrente!')
+                vencedor = combate(personagem, inimigos.lista_inimigos[0])
             if vencedor == personagem:
                 lore_recompensa001(personagem)
                 lore_pos_1andar(personagem)

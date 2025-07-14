@@ -185,7 +185,7 @@ def equip(personagem, pericia_principal):
     if not arma:
         if pericia_principal=='mano a mano':
             digitar('❌Você não tinha uma arma adequada pra esse tipo de ataque equipada e teve que dar um soco, dano reduzido')
-        if pericia_principal=='mano a mano':
+        if pericia_principal=='mira':
             digitar('❌Você não tinha uma arma adequada pra esse tipo de ataque equipada ent pegou uma pedra no chão e jogou, dano reduzido')
         return 0.5
 
@@ -343,8 +343,11 @@ if __name__ == '__main__':
     
     p1.inventario.append(pocao_cura)
     p1.inventario.append(pocao_mana)
-    p1.inventario.append(item.lista_itens[4])
+    p1.inventario.append(item.lista_itens[5])
     p1.is_player = True
+
+    item_para_maos = item.lista_itens[5]
+    inventario.equipando(p1, item.lista_itens[5], 'Mãos')
 
     inimigo = lista_inimigos[0]
 

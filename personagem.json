@@ -358,5 +358,45 @@
         "andar_esfinge_completado": false,
         "andar_cupula_completado": false,
         "checkpoint": 0
+    },
+    {
+        "nick": "Nether",
+        "raca": "draconiano",
+        "classe": "guerreiro",
+        "xp": 0,
+        "nivel": 1,
+        "xp_para_proximo_nivel": 100,
+        "atributos": {
+            "for\u00e7a": 23,
+            "destreza": 6,
+            "constituicao": 0,
+            "carisma": 3,
+            "inteligencia": 10
+        },
+        "pericias": {
+            "acrobacia": 6,
+            "blefar": 3,
+            "mira": 6,
+            "diplomacia": 3,
+            "furtividade": 10,
+            "percepcao": 10,
+            "maos rapidas": 6,
+            "mano a mano": 23,
+            "resistencia": 23
+        },
+        "inventario": [],
+        "fraquezas": [],
+        "status": {
+            "hp": 100,
+            "mana": 100
+        },
+        "mana_max": 100,
+        "vida_atual": 100,
+        "equipamento": {
+            "maos": null
+        },
+        "andar_esfinge_completado": false,
+        "andar_cupula_completado": false,
+        "checkpoint": 0
     }
 ]
