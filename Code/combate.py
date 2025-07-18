@@ -28,14 +28,14 @@ def rolar_dado():
 
 """ === DANO E AÇÕES === """
 
-def calc_dano(personagem, pericia_principal, bonus_extra=False):   
+def calc_dano(personagem, pericia_principal, bonus_extra=False, pericia_secundaria=None):   
         multiplicador = equip(personagem, pericia_principal)
         base = int((personagem.pericias.get(pericia_principal, 0)) * 2 * multiplicador)
         dado, critico = rolar_dado()
         dano_base = base - ((base//(dado+1))+2)
         dano = dano_base if dano_base>0 else 1
         if bonus_extra:
-            dano += dano_base//2
+            dano += personagem.pericias.get(pericia_secundaria, 0)
         if critico:
             dano += dano_base//2
             digitar(f"🎲 {personagem.nick} rola 1d6: {dado}; dano = {dano} 🎉 QUE SORTE, DEU CRÍTICO!")
@@ -58,7 +58,7 @@ def executar_ataque(atacante, defensor, pericia_principal, custo_mana, bonus_ext
         else:
             digitar(f'💨 A perícia escolhida ({pericia_secundaria}) não teve efeito')
 
-    dano = calc_dano(atacante, pericia_principal, bonus_extra)
+    dano = calc_dano(atacante, pericia_principal, bonus_extra, pericia_secundaria)
 
     if isinstance(atacante, Inimigo):
         dano-= (defensor.pericias.get('resistencia', 0))//4
