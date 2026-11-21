@@ -284,5 +284,3 @@ if __name__ == "__main__":
     p = Personagem()
     p.criar_ficha()
     p.visualizar()
-
-#digitar("A ficha foi criada com sucesso!")

@@ -3,9 +3,17 @@ import json
 import os
 import sys
 import time
+from pathlib import Path
+import subprocess
+
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+DATA_DIR = BASE_DIR / "data"
+
 
 def limpar_tela():
-    os.system('cls' if os.name == 'nt' else 'clear')
+    comando = "cls" if os.name == "nt" else "clear"
+    subprocess.run(comando, shell=True, check=False)
     
 def salvar_infos(path, data):
     a = str(path) + '.json'
