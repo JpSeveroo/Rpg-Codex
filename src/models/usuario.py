@@ -1,25 +1,17 @@
-class users:
-    def __init__(self):
-        self._username = ''
-        self._password = ''
-        self.personagens = []
-    
-    @property
-    def username(self):
-        return self._username
+from dataclasses import dataclass, field
 
-    @username.setter
-    def username(self, dado):
-        self._username = dado
 
-    @property
-    def password(self):
-        return self._password
-    
-    @password.setter
-    def password(self, dado):
-        self._password = dado
+@dataclass(eq=False)
+class Usuario:
+    username: str
+    senha_hash: str = field(repr=False)
+    personagens: list[str] = field(default_factory=list)
 
-    def criar_user(self, a, b):
-        self._username = a
-        self._password = b
+    def __post_init__(self) -> None:
+        self.username = self.username.strip()
+
+        if not self.username:
+            raise ValueError("O nome de usuário não pode estar vazio.")
+
+        if not self.senha_hash:
+            raise ValueError("O hash da senha não pode estar vazio.")
