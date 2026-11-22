@@ -22,7 +22,7 @@
         ]
     },
     {
-        "_username": "André",
+        "_username": "Andr\u00e9",
         "_password": "827ccb0eea8a706c4c34a16891f84e7b",
         "personagens": [
             "72d098a0ae5d578161e81edaac1de3fb"
@@ -103,10 +103,5 @@
             "01f6fd38cf9dabab0bd3b83bd69f0b55",
             "38851536d87701d2191990e24a7f8d4e"
         ]
-    },
-    {
-        "_username": "mateus",
-        "_password": "d2c030f05acd15449a8205b6edd85cf0",
-        "personagens": []
     }
 ]

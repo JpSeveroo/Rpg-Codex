@@ -1,17 +1,5 @@
-
-# Bytecode e arquivos temporários
+venv
 __pycache__/
-*.py[cod]
-*$py.class
-
-# Ambientes virtuais
-.venv/
-
-# Ferramentas de análise e testes
-.ruff_cache/
-.pytest_cache/
-
-# Sistema operacional
-.DS_Store
-Thumbs.db
-desktop.ini
+*.pyc
+*.pyd
+*.pyo
