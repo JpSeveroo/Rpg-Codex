@@ -1,15 +1,18 @@
-import time
-from ficha import Personagem
-from rich import print
-from item import lista_itens
-import inventario
-import jogo1
-import jogo3
+
 import random
-from utills import limpar_tela, digitar
+import time
+
 from InquirerPy import inquirer
-from combate import combate
-from inimigos import lista_inimigos
+from rich import print
+
+import gameplay.inventario as inventario
+import story.jogo1 as jogo1
+import story.jogo3 as jogo3
+from catalogos import lista_inimigos, lista_itens
+from gameplay.combate import combate
+from ui.ficha import mostrar_status
+from utills import digitar, limpar_tela
+
 
 def lore_pos_5andar(personagem):
     limpar_tela()
@@ -36,7 +39,7 @@ def lore_pos_5andar(personagem):
             inventario.interface_inv(personagem)
         elif opcao == "🔍 Conferir status do personagem":
             limpar_tela()
-            personagem.mostrar_status()
+            mostrar_status(personagem)
             input("\nPressione ENTER para voltar...")
 
 def lore_6_andar(personagem):
@@ -89,13 +92,13 @@ def lore_6_andar(personagem):
 
         elif opcao == "🔍 Conferir status do personagem":
             limpar_tela()
-            personagem.mostrar_status()
+            mostrar_status(personagem)
             input("\nPressione ENTER para voltar...")
 
 
 def lore_recompensa001(personagem):
     limpar_tela()
-    print(f"[bold purple][Sistema] 🪙   RECOMPENSAS: \nXp: [300] \nPoção de cura [2]\nPoção de mana [2][/bold purple]")
+    print("[bold purple][Sistema] 🪙   RECOMPENSAS: \nXp: [300] \nPoção de cura [2]\nPoção de mana [2][/bold purple]")
     digitar('\nPressione ENTER para prosseguir...')
     input()
     personagem.inventario[0].qtd = 2
@@ -104,8 +107,9 @@ def lore_recompensa001(personagem):
 def lore_pos_6andar(personagem):
     limpar_tela()
 
+
     print('[bold purple][Sistema]Protocolo de silêncio restaurado. Fluxo de dados liberado. Acesso ao Andar 7 desbloqueado. [Sistema]Recomenda-se verificar estado do inventário antes de prosseguir.[/bold purple]')
-    explore1 = False
+    explorado = False
     while True:
         opcao = inquirer.select(
             message="O que deseja fazer?\n",
@@ -126,7 +130,7 @@ def lore_pos_6andar(personagem):
 
         elif opcao == "🔍 Conferir status do personagem":
             limpar_tela()
-            personagem.mostrar_status()
+            mostrar_status(personagem)
             input("\nPressione ENTER para voltar...")
 
         elif opcao == "📂 Examinar terminais em busca de dados (Requer mãos rápidas)":
@@ -194,7 +198,7 @@ def lore_7_andar(personagem):
 
         elif opcao == "🔍 Conferir status do personagem":
             limpar_tela()
-            personagem.mostrar_status()
+            mostrar_status(personagem)
             input("\nPressione ENTER para voltar...")
 
 def lore_recompensa002(personagem):
@@ -294,7 +298,7 @@ def lore_recompensa002(personagem):
     print(f"[bold purple][Sistema] 🪙   RECOMPENSAS: \nXp: [320] \nPoção de cura [2]\nPoção de mana [2]\nItem: {item_escolhido001}[/bold purple]")
     text_inf = ('\nPressione ENTER para prosseguir...')
     digitar(text_inf)
-    a = input('')
+    input('')
 
 def lore_pos_7andar(personagem):
     limpar_tela()
@@ -318,7 +322,7 @@ def lore_pos_7andar(personagem):
             inventario.interface_inv(personagem)
         elif opcao == "🔍 Conferir status do personagem":
             limpar_tela()
-            personagem.mostrar_status()
+            mostrar_status(personagem)
             input("\nPressione ENTER para voltar...")
 
 def lore_8_andar(personagem):
@@ -356,7 +360,7 @@ def lore_8_andar(personagem):
             inventario.interface_inv(personagem)
         elif opcao == "🔍 Conferir status do personagem":
             limpar_tela()
-            personagem.mostrar_status()
+            mostrar_status(personagem)
             input("\nPressione ENTER para voltar...")
 
 def lore_2_enigma(personagem):
@@ -484,10 +488,10 @@ def lore_recompensa003(personagem):
     print('[bold blue]“Você entendeu. Não basta sobreviver à torre... é preciso compreendê-la.”[/bold blue]')
     time.sleep(1)
 
-    print(f"[bold purple][Sistema] 🪙   RECOMPENSAS: \nXp: [350] \nItem: Cetro da Perturbação[/bold purple]")
+    print("[bold purple][Sistema] 🪙   RECOMPENSAS: \nXp: [350] \nItem: Cetro da Perturbação[/bold purple]")
     text_inf = ('\nPressione ENTER para prosseguir...')
     jogo1.digitar(text_inf)
-    a = input('')
+    input('')
 
     lore_pos_8andar(personagem)
 
@@ -508,7 +512,7 @@ def lore_pos_8andar(personagem):
         ).execute()
 
         if opcao == "🧩 Explorar a cúpula em busca de itens.":
-            if explore2 == False:
+            if not explore2:
                     explore2 = True
                     if personagem.atributos['maos rapidas'] >= 20:
                         personagem.inventario.append(lista_itens[82])
@@ -529,7 +533,7 @@ def lore_pos_8andar(personagem):
             inventario.interface_inv(personagem)
         elif opcao == "🔍 Conferir status do personagem":
             limpar_tela()
-            personagem.mostrar_status()
+            mostrar_status(personagem)
             input("\nPressione ENTER para voltar...")
 
 def lore_9_andar(personagem):
@@ -554,8 +558,8 @@ def lore_9_andar(personagem):
     texto28 = ('Sua aparência lembra uma máscara quebrada de si mesmo, com sua voz oscilando entre julgamento e loucura\n')
     jogo1.digitar(texto28)
 
-    print(f'[bold purple][Sistema]Entidades reconhecidas em estado de mutação crítica. Recompensas elevadas. Letalidade: EXTREMA.[/bold purple]')
-    print(f'[bold purple][Sistema]Dados sugerem correlação com os fragmentos instáveis colhidos anteriormente. Recomenda-se cautela e foco.[/bold purple]')
+    print('[bold purple][Sistema]Entidades reconhecidas em estado de mutação crítica. Recompensas elevadas. Letalidade: EXTREMA.[/bold purple]')
+    print('[bold purple][Sistema]Dados sugerem correlação com os fragmentos instáveis colhidos anteriormente. Recomenda-se cautela e foco.[/bold purple]')
 
     texto29 = ('\nEsses mutantes são o reflexo de quanto mais você avança, mais o Labirinto lembra de você — e tenta usar sua própria jornada contra você. Não são apenas inimigos: são provas de que o sistema está reagindo. Adaptando-se.')
     jogo1.digitar(texto29)
@@ -597,7 +601,7 @@ def lore_9_andar(personagem):
 
         elif opcao == "🔍 Conferir status do personagem":
             limpar_tela()
-            personagem.mostrar_status()
+            mostrar_status(personagem)
             input("\nPressione ENTER para voltar...")
 
 def lore_recompensa004(personagem):
@@ -692,13 +696,13 @@ def lore_recompensa004(personagem):
             elif opcao == "🥾 Botas de assassinos Dracônicos: Calçados leves usadas por assassinos para melhorar a furtividade, os saltos e esquivas. O equipamento é desconfortável quando o usuário fica parado o que deixa mais difícil de mirar. (+3 acrobacia), (+3 furtividade), (-3 mira)":
                 personagem.inventario.append(lista_itens[47])
                 item_escolhido001 = '🥾 Botas de assassinos Dracônicos'
-                print()
+                print(item_escolhido001)
             break
     
     print(f"[bold purple][Sistema] 🪙   RECOMPENSAS: \nXp: [400] \nPoção de cura [3]\nPoção de mana [3]\nItem: {item_escolhido002}[/bold purple]")
     text_inf = ('\nPressione ENTER para prosseguir...')
     digitar(text_inf)
-    a = input('')
+    input('')
 
 def lore_10_andar(personagem):
     limpar_tela()
@@ -771,7 +775,7 @@ def lore_recompensa005(personagem):
     print(f"[bold purple][Sistema] 🪙   RECOMPENSAS: \nXp: [900] \nPoção de cura [5]\nPoção de mana [5]\nItem: {item_escolhido003}[/bold purple]")
     text_inf = ('\nPressione ENTER para prosseguir...')
     jogo1.digitar(text_inf)
-    a = input('')
+    input('')
 
 def lore_pos_10andar(personagem):
     texto36 = ('O golpe final atravessa o peito do Echo Corrompido. Mas ele não sangra. Ele desfaz-se em luz — não como um inimigo derrotado, mas como uma parte de você sendo libertada. O trono estilhaça. Os espelhos explodem para dentro, não para fora, e todos os reflexos se alinham. Por um instante, todas as versões de você o encaram… e sorriem, em uníssono, antes de desaparecerem.\n O silêncio é restaurado. Mas ele agora é seu aliado, não seu inimigo.\n')
@@ -801,7 +805,7 @@ def lore_pos_10andar(personagem):
             inventario.interface_inv(personagem)
         elif opcao == "🔍 Conferir status do personagem":
             limpar_tela()
-            personagem.mostrar_status()
+            mostrar_status(personagem)
             input("\nPressione ENTER para voltar...")
     
 
