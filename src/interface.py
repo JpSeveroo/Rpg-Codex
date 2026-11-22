@@ -1,215 +1,265 @@
-import os
+
 from time import sleep
 
-import InquirerPy
-import InquirerPy.inquirer
+from InquirerPy import inquirer
 
-import models.ficha as ficha
-import models.usuario as usuario
-import utills
-from story.jogo1 import lore_introducao
+from models.personagem import Personagem
+from models.usuario import Usuario
+from persistencia import (
+    carregar_personagens,
+    carregar_usuarios,
+    salvar_personagens,
+    salvar_usuarios,
+)
+from ui.autenticacao import solicitar_cadastro, solicitar_login
+from ui.ficha import criar_personagem, mostrar_ficha
+from utills import cripto, limpar_tela
 
-usuarios = []
-personagens = []
-personagens_usuario = []
-name_list = []
-usuario_logado = None
-personagem_escolhido = ''
+
+usuarios: list[Usuario] = []
+personagens: list[Personagem] = []
+personagens_usuario: list[Personagem] = []
+
+usuario_logado: Usuario | None = None
+personagem_escolhido: Personagem | None = None
+
+
+def load() -> None:
+    usuarios[:] = carregar_usuarios()
+    personagens[:] = carregar_personagens()
+    personagens_usuario.clear()
+
+
+def load_pers_users(lista_pers: list[str]) -> None:
+    personagens_usuario[:] = [
+        personagem
+        for personagem in personagens
+        if cripto(personagem.nick) in lista_pers
+    ]
+
+
+def _usuario_autenticado() -> Usuario:
+    if usuario_logado is None:
+        raise RuntimeError("Nenhum usuário está autenticado.")
+
+    return usuario_logado
+
 
 class Interface:
+    @staticmethod
+    def interface_principal() -> None:
+        while True:
+            limpar_tela()
+            print(" Olá, seja bem vindo!")
 
-    def interface_principal():
-        opcoes = {
-            'Criar usuário': Interface.interface_criacao,
-            'Login' : Interface.interface_login
+            escolha = inquirer.select(
+                message="Escolha uma opção",
+                choices=["Criar usuário", "Login", "Finalizar"],
+            ).execute()
+
+            if escolha == "Finalizar":
+                print("Encerrando o programa")
+                return
+
+            if escolha == "Criar usuário":
+                Interface.interface_criacao()
+
+            elif escolha == "Login":
+                finalizar = Interface.interface_login()
+
+                if finalizar:
+                    return
+
+    @staticmethod
+    def interface_criacao() -> None:
+        nomes_existentes = {
+            usuario.username for usuario in usuarios
         }
-        os.system('cls' if os.name == 'nt' else 'clear')
-        print(' Olá, seja bem vindo!')
 
-        a = InquirerPy.inquirer.select(
-            message='Escolha uma opção',
-            choices=['Criar usuário', 'Login', 'Finalizar' ]
-        ).execute()
+        username, senha = solicitar_cadastro(nomes_existentes)
 
-        if a == 'Finalizar':
-            print('Encerrando o programa')
-            return
-        
-        opcao = opcoes.get(a)
-        if opcao:
-            opcao()
- 
-    def save(info, path):
-        lista = []
-        for user in info:
-            lista.append(user.__dict__)
-        utills.salvar_infos(path, lista)
+        novo_usuario = Usuario(
+            username=username,
+            senha_hash=cripto(senha),
+        )
 
-    def interface_criacao():
-        user = usuario.users()
-        nomes_existentes = [u.username for u in usuarios]
-        a = InquirerPy.inquirer.text(message='Digite o nome de usuário', validate= lambda x: x != '' and x not in nomes_existentes, invalid_message='O campo não pode estar vazio ou o nome já existir').execute()    
-        b = InquirerPy.inquirer.text(message='Digite a senha do usuário', validate= lambda x: x != '', invalid_message='O campo não pode estar vazio', is_password=True).execute()
-        user.criar_user(str(a), utills.cripto(str(b)))
-        usuarios.append(user)
-        Interface.save(usuarios, 'usuarios')
-        sleep(1.0)
-        Interface.interface_principal()
-    
-    def interface_login():
-        lista_username = []
-        for i in usuarios:
-            lista_username.append(i.username)
-        a = InquirerPy.inquirer.text(message='Digite o nome de usuário:', validate= lambda x: x in lista_username, invalid_message='Usuário não encontrado').execute()
-        b = InquirerPy.inquirer.text(message='Digite a senha do usuário:', validate= lambda x: x != '', invalid_message='O campo senha não pode estar vazio', is_password=True).execute()
-        c = lista_username.index(a)
-        if usuarios[c].password == utills.cripto(str(b)):
-            print('Acesso liberado!')
-            global usuario_logado
-            usuario_logado = usuarios[c]
-            load_pers_users(usuario_logado.personagens)
-            input('Pressione enter para seguir...')
-            Interface.interface_usuário(usuario_logado.username)
-        else:
-            print('Acesso negado!')
-            input('Pressione enter para voltar...')
-            Interface.interface_principal()
+        usuarios.append(novo_usuario)
+        salvar_usuarios(usuarios)
 
-    def verify(personagem):
-        c = False
-        nomes = [item.nick for item in personagens]
-        while not c:
-            if personagem.nick in nomes:
-                print('O nome escolhido para o personagem não está disponível')
-                personagem.nick = input('Digite outro nome: ')
-            else:
-                c = True
+        sleep(1)
 
-    def criar_ficha():
-        personagem = ficha.Personagem()
-        personagem.criar_ficha()
-        Interface.verify(personagem)
+    @staticmethod
+    def interface_login() -> bool:
+        if not usuarios:
+            print("Não há usuários cadastrados.")
+            input("Pressione Enter para voltar...")
+            return False
+
+        nomes_existentes = {
+            usuario.username for usuario in usuarios
+        }
+
+        username, senha = solicitar_login(nomes_existentes)
+
+        usuario = next(
+            (
+                usuario
+                for usuario in usuarios
+                if usuario.username == username
+            ),
+            None,
+        )
+
+        if usuario is None or usuario.senha_hash != cripto(senha):
+            print("Acesso negado!")
+            input("Pressione Enter para voltar...")
+            return False
+
+        global usuario_logado
+        usuario_logado = usuario
+
+        load_pers_users(usuario.personagens)
+
+        print("Acesso liberado!")
+        input("Pressione Enter para seguir...")
+
+        return Interface.interface_usuario(usuario.username)
+
+    @staticmethod
+    def criar_ficha() -> None:
+        usuario = _usuario_autenticado()
+
+        nomes_existentes = {
+            personagem.nick for personagem in personagens
+        }
+
+        personagem = criar_personagem(nomes_existentes)
+
         personagens.append(personagem)
         personagens_usuario.append(personagem)
-        name_list.append(utills.cripto(personagem.nick))
-        usuario_logado.personagens = name_list
-        Interface.save(usuarios, 'usuarios')
-        Interface.save(personagens, 'personagem')
-        Interface.interface_usuário(usuario_logado.username)
 
-    def jogar():
-        os.system('cls' if os.name == 'nt' else 'clear')
-        pers = [i.nick for i in personagens_usuario]
-        if pers:
-            pers.append('Sair')
-            b = InquirerPy.inquirer.select(message='Qual o personagem desejado', choices= pers).execute()
-            if b == 'Sair':
-                sleep(0.5)
-                Interface.interface_usuário(usuario_logado.username)
-                return
-            c = pers.index(b)
-            global personagem_escolhido
-            personagem_escolhido = personagens_usuario[c]
-        else:
-            print('Não há nenhum personagem criado!')
-            input('Pressione qualquer tecla para voltar ao menu...')
-            Interface.interface_usuário(usuario_logado.username)
+        usuario.personagens.append(cripto(personagem.nick))
+
+        salvar_personagens(personagens)
+        salvar_usuarios(usuarios)
+
+    @staticmethod
+    def jogar() -> None:
+        if not personagens_usuario:
+            print("Não há nenhum personagem criado!")
+            input("Pressione Enter para voltar ao menu...")
             return
-        lore_introducao(personagem_escolhido)
-    
-    def visualizar_ficha():
-        a = []
-        for i in personagens_usuario:
-            a.append(i.nick)
-        a.append('Sair')
-        if len(a) > 1 :
-            b = InquirerPy.inquirer.select(message='Qual o personagem desejado', choices= a).execute()
-            if b == 'Sair':
-                Interface.interface_usuário(usuario_logado.username)
-                return
-            c = a.index(b)
-            personagens_usuario[c].visualizar()
-        else :
-            print(f'Não há personagens criados no usuário {usuario_logado.username} \n')
-        input('Pressione qualquer tecla para voltar...')
-        Interface.interface_usuário(usuario_logado.username)
-    
-    def logout():
-        a = InquirerPy.inquirer.confirm(message='Você deseja deslogar desse usuário ?').execute()
-        global usuario_logado
-        global personagens_usuario
-        global name_list
-        global personagem_escolhido
-        if a:
-            usuario_logado = None
-            personagens_usuario = []
-            personagem_escolhido = ''
-            name_list = []
-            Interface.interface_principal()
-            sleep(0.5)
-        else :
-            Interface.interface_usuário(usuario_logado.username)
-            sleep(0.5)
 
-    def interface_usuário(user):
-        os.system('cls' if os.name == 'nt' else 'clear')
-        print(f'Seja bem vindo {user}')
-        print()
-        opcoes = {
-            'Jogar': Interface.jogar,
-            'Criar Ficha': Interface.criar_ficha,
-            'Visualizar fichas': Interface.visualizar_ficha,
-            'Logout': Interface.logout
-        }
-        a = InquirerPy.inquirer.select(
-            message='Qual das opções você deseja ?',
-            choices= ['Jogar', 'Criar Ficha', 'Visualizar fichas', 'Logout', 'Finalizar']
+        limpar_tela()
+
+        nomes = [
+            personagem.nick
+            for personagem in personagens_usuario
+        ]
+
+        escolha = inquirer.select(
+            message="Qual o personagem desejado",
+            choices=[*nomes, "Sair"],
         ).execute()
-        b = opcoes.get(a)
-        if b:
-            b()
 
-def load_caracter():
-    try:
-        a = utills.load_infos('personagem')
-        for item in a:
-            name_list.append(utills.cripto(item['nick']))
-            b = ficha.Personagem()
-            b.nick = item['nick']
-            b.raca = item['raca']
-            b.classe = item['classe']
-            b.xp = item['xp']
-            b.nivel = item['nivel']
-            b.xp_para_proximo_nivel = item['xp_para_proximo_nivel']
-            b.atributos = item['atributos']
-            b.pericias = item['pericias']
-            b.inventario = item['inventario']
-            b.fraquezas = item['fraquezas']
-            b.status = item['status']
-            b.vida_atual = item['vida_atual']
-            b.equipamento = item['equipamento']
-            b.andar_esfinge_completado = item['andar_esfinge_completado']
-            b.andar_cupula_completado = item['andar_cupula_completado']
-            b.checkpoint = item['checkpoint']
-            personagens.append(b)
-    except TypeError:
-        pass
+        if escolha == "Sair":
+            sleep(0.5)
+            return
 
-def load_pers_users(lista_pers):
-    personagens_usuario.clear()
-    for i in personagens:
-        if utills.cripto(i.nick) in lista_pers:
-            personagens_usuario.append(i)
+        global personagem_escolhido
+        personagem_escolhido = next(
+            personagem
+            for personagem in personagens_usuario
+            if personagem.nick == escolha
+        )
 
-def load():
-    try:
-        a = utills.load_infos('usuarios')
-        for item in a:
-            b = usuario.users()
-            b.criar_user(item['_username'], item['_password'])
-            b.personagens = item['personagens']
-            usuarios.append(b)
-    except TypeError:
-        pass
+        # Importação adiada para evitar dependências circulares.
+        from story.jogo1 import lore_introducao
 
-load_caracter()
+        lore_introducao(personagem_escolhido)
+
+    @staticmethod
+    def visualizar_ficha() -> None:
+        if not personagens_usuario:
+            usuario = _usuario_autenticado()
+            print(
+                f"Não há personagens criados "
+                f"no usuário {usuario.username}\n"
+            )
+            input("Pressione Enter para voltar...")
+            return
+
+        nomes = [
+            personagem.nick
+            for personagem in personagens_usuario
+        ]
+
+        escolha = inquirer.select(
+            message="Qual o personagem desejado",
+            choices=[*nomes, "Sair"],
+        ).execute()
+
+        if escolha == "Sair":
+            return
+
+        personagem = next(
+            personagem
+            for personagem in personagens_usuario
+            if personagem.nick == escolha
+        )
+
+        mostrar_ficha(personagem)
+
+        input("Pressione Enter para voltar...")
+
+    @staticmethod
+    def logout() -> bool:
+        confirmar = inquirer.confirm(
+            message="Você deseja deslogar desse usuário?"
+        ).execute()
+
+        if not confirmar:
+            return False
+
+        global usuario_logado, personagem_escolhido
+
+        usuario_logado = None
+        personagem_escolhido = None
+        personagens_usuario.clear()
+
+        sleep(0.5)
+        return True
+
+    @staticmethod
+    def interface_usuario(username: str) -> bool:
+        while True:
+            limpar_tela()
+            print(f"Seja bem vindo {username}")
+            print()
+
+            escolha = inquirer.select(
+                message="Qual das opções você deseja?",
+                choices=[
+                    "Jogar",
+                    "Criar Ficha",
+                    "Visualizar fichas",
+                    "Logout",
+                    "Finalizar",
+                ],
+            ).execute()
+
+            if escolha == "Finalizar":
+                return True
+
+            if escolha == "Jogar":
+                Interface.jogar()
+
+            elif escolha == "Criar Ficha":
+                Interface.criar_ficha()
+
+            elif escolha == "Visualizar fichas":
+                Interface.visualizar_ficha()
+
+            elif escolha == "Logout":
+                if Interface.logout():
+                    return False
