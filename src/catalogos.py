@@ -6,7 +6,6 @@ from models.inimigo import Inimigo
 from models.item import Item
 from utills import load_infos, salvar_infos
 
-
 lista_itens: list[Item] = []
 lista_inimigos: list[Inimigo] = []
 

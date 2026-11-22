@@ -5,7 +5,6 @@ from time import sleep
 from models.personagem import Personagem
 from utills import digitar
 
-
 _ATRIBUTOS = (
     "força",
     "destreza",

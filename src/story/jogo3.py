@@ -6,7 +6,7 @@ from rich import print
 
 import gameplay.inventario as inventario
 import story.jogo1 as jogo1
-from models.item import lista_itens
+from catalogos import lista_itens
 
 
 def lore_11_andar(personagem):

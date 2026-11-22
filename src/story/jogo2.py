@@ -1,3 +1,4 @@
+
 import random
 import time
 
@@ -7,9 +8,9 @@ from rich import print
 import gameplay.inventario as inventario
 import story.jogo1 as jogo1
 import story.jogo3 as jogo3
+from catalogos import lista_inimigos, lista_itens
 from gameplay.combate import combate
-from models.inimigo import lista_inimigos
-from models.item import lista_itens
+from ui.ficha import mostrar_status
 from utills import digitar, limpar_tela
 
 
@@ -38,7 +39,7 @@ def lore_pos_5andar(personagem):
             inventario.interface_inv(personagem)
         elif opcao == "🔍 Conferir status do personagem":
             limpar_tela()
-            personagem.mostrar_status()
+            mostrar_status(personagem)
             input("\nPressione ENTER para voltar...")
 
 def lore_6_andar(personagem):
@@ -91,7 +92,7 @@ def lore_6_andar(personagem):
 
         elif opcao == "🔍 Conferir status do personagem":
             limpar_tela()
-            personagem.mostrar_status()
+            mostrar_status(personagem)
             input("\nPressione ENTER para voltar...")
 
 
@@ -129,7 +130,7 @@ def lore_pos_6andar(personagem):
 
         elif opcao == "🔍 Conferir status do personagem":
             limpar_tela()
-            personagem.mostrar_status()
+            mostrar_status(personagem)
             input("\nPressione ENTER para voltar...")
 
         elif opcao == "📂 Examinar terminais em busca de dados (Requer mãos rápidas)":
@@ -197,7 +198,7 @@ def lore_7_andar(personagem):
 
         elif opcao == "🔍 Conferir status do personagem":
             limpar_tela()
-            personagem.mostrar_status()
+            mostrar_status(personagem)
             input("\nPressione ENTER para voltar...")
 
 def lore_recompensa002(personagem):
@@ -321,7 +322,7 @@ def lore_pos_7andar(personagem):
             inventario.interface_inv(personagem)
         elif opcao == "🔍 Conferir status do personagem":
             limpar_tela()
-            personagem.mostrar_status()
+            mostrar_status(personagem)
             input("\nPressione ENTER para voltar...")
 
 def lore_8_andar(personagem):
@@ -359,7 +360,7 @@ def lore_8_andar(personagem):
             inventario.interface_inv(personagem)
         elif opcao == "🔍 Conferir status do personagem":
             limpar_tela()
-            personagem.mostrar_status()
+            mostrar_status(personagem)
             input("\nPressione ENTER para voltar...")
 
 def lore_2_enigma(personagem):
@@ -532,7 +533,7 @@ def lore_pos_8andar(personagem):
             inventario.interface_inv(personagem)
         elif opcao == "🔍 Conferir status do personagem":
             limpar_tela()
-            personagem.mostrar_status()
+            mostrar_status(personagem)
             input("\nPressione ENTER para voltar...")
 
 def lore_9_andar(personagem):
@@ -600,7 +601,7 @@ def lore_9_andar(personagem):
 
         elif opcao == "🔍 Conferir status do personagem":
             limpar_tela()
-            personagem.mostrar_status()
+            mostrar_status(personagem)
             input("\nPressione ENTER para voltar...")
 
 def lore_recompensa004(personagem):
@@ -804,7 +805,7 @@ def lore_pos_10andar(personagem):
             inventario.interface_inv(personagem)
         elif opcao == "🔍 Conferir status do personagem":
             limpar_tela()
-            personagem.mostrar_status()
+            mostrar_status(personagem)
             input("\nPressione ENTER para voltar...")
     
 

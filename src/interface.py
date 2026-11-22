@@ -15,7 +15,6 @@ from ui.autenticacao import solicitar_cadastro, solicitar_login
 from ui.ficha import criar_personagem, mostrar_ficha
 from utills import cripto, limpar_tela
 
-
 usuarios: list[Usuario] = []
 personagens: list[Personagem] = []
 personagens_usuario: list[Personagem] = []

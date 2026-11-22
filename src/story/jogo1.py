@@ -1,13 +1,14 @@
+
 import time
 
 from InquirerPy import inquirer
 from rich import print
 
-import models.inimigo as inimigo
 import gameplay.inventario as inventario
+from catalogos import lista_inimigos, lista_itens
 from gameplay.combate import combate
-from models.ficha import Personagem
-from models.item import lista_itens
+from models.personagem import Personagem
+from ui.ficha import mostrar_status
 from utills import digitar, limpar_tela, tempo_digitar
 
 
@@ -50,7 +51,7 @@ def lore_introducao(personagem):
 
         if opcao == "🔍 Conferir status do personagem":
             limpar_tela()
-            personagem.mostrar_status()
+            mostrar_status(personagem)
             input("\nPressione ENTER para voltar...")
 
         elif opcao == "📖 Avançar para o primeiro andar do Labirinto, iniciando sua ascensão rumo à liberdade.":
@@ -85,14 +86,14 @@ def lore_1_andar(personagem):
         ).execute()
         if opcao == "🔍 Conferir status do personagem":
             limpar_tela()
-            personagem.mostrar_status()
+            mostrar_status(personagem)
             input("\nPressione ENTER para voltar...")
 
         elif opcao == "⚔️ Iniciar o Combate - Enfrentar as Gárgulas de Dados com as habilidades que possui, aprendendo a dominar o sistema de turnos e a usar sua força para progredir.":
             limpar_tela()
             for ini in range(3):
                 digitar(f'🦇Gargula {ini+1} apareceu, enfrente!')
-                vencedor = combate(personagem, inimigo.lista_inimigos[0])
+                vencedor = combate(personagem, lista_inimigos[0])
             if vencedor == personagem:
                 lore_recompensa001(personagem)
                 lore_pos_1andar(personagem)
@@ -231,7 +232,7 @@ def lore_pos_1andar(personagem):
         ).execute()
         if opcao == "🔍 Conferir status do personagem":
             limpar_tela()
-            personagem.mostrar_status()
+            mostrar_status(personagem)
             input("\nPressione ENTER para voltar...")
 
         elif opcao == "⬆️ Avançar para o Andar 2":
@@ -275,12 +276,12 @@ def lore_2_andar(personagem):
         ).execute()
         if opcao == "🔍 Conferir status do personagem":
             limpar_tela()
-            personagem.mostrar_status()
+            mostrar_status(personagem)
             input("\nPressione ENTER para voltar...")
 
         elif opcao == "⚔️ Enfrentar o Anomalian — Confrontar a distorção com foco e resistência, dominando o combate contra uma entidade instável.":
             limpar_tela()
-            vencedor = combate(personagem, inimigo.lista_inimigos[1])
+            vencedor = combate(personagem, lista_inimigos[1])
             if vencedor == personagem:
                 lore_recompensa002(personagem)
                 lore_pos_2andar(personagem)
@@ -333,7 +334,7 @@ def lore_pos_2andar(personagem):
         ).execute()
         if opcao == "🔍 Conferir status do personagem":
             limpar_tela()
-            personagem.mostrar_status()
+            mostrar_status(personagem)
             input("\nPressione ENTER para voltar...")
 
         elif opcao == "⬆️ Avançar para o Andar 3":
@@ -390,7 +391,7 @@ def lore_3_andar(personagem):
         ).execute()
         if opcao == "🔍 Conferir status do personagem":
             limpar_tela()
-            personagem.mostrar_status()
+            mostrar_status(personagem)
             input("\nPressione ENTER para voltar...")
 
         elif opcao == "🧩 Enfrentar o Enigma, no qual sua capacidade de percepção determinará a dificuldade do desafio. Quanto mais aguçada sua percepção, mais claro será o caminho para a solução.":
@@ -558,10 +559,10 @@ def lore_4_andar(personagem):
         ).execute()
         if opcao == "🔍 Conferir status do personagem":
             limpar_tela()
-            personagem.mostrar_status()
+            mostrar_status(personagem)
             input("\nPressione ENTER para voltar...")
         elif opcao == "⚔️ Iniciar combate - Enfrentar os Três Ceifadores da Ilusão, onde sua perícia de blefar será crucial para desmascarar as ilusões e vencer as entidades.":
-            vencedor = combate(personagem, inimigo.lista_inimigos[2])
+            vencedor = combate(personagem, lista_inimigos[2])
             if vencedor == personagem:
                 lore_recompensa003(personagem)
                 lore_pos_4andar(personagem)
@@ -717,10 +718,10 @@ def lore_5_andar(personagem):
         ).execute()
         if opcao == "🔍 Conferir status do personagem":
             limpar_tela()
-            personagem.mostrar_status()
+            mostrar_status(personagem)
             input("\nPressione ENTER para voltar...")
         elif opcao == "⚔️ Iniciar combate - Enfrentar Kairon, o Guardião do Abismo, na arena digital.":
-            vencedor = combate(personagem, inimigo.lista_inimigos[3]) 
+            vencedor = combate(personagem, lista_inimigos[3]) 
             if vencedor == personagem:
                 lore_recompensa004(personagem) 
                 break
