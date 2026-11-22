@@ -1,14 +1,15 @@
 import time
-from ficha import Personagem
-import sys
-import os
-from rich import print
-from item import lista_itens
-import inventario
-from utills import digitar, limpar_tela, tempo_digitar
+
 from InquirerPy import inquirer
-from combate import combate
+from rich import print
+
 import inimigos
+import inventario
+from combate import combate
+from ficha import Personagem
+from item import lista_itens
+from utills import digitar, limpar_tela, tempo_digitar
+
 
 def lore_introducao(personagem):
     print()
@@ -204,7 +205,7 @@ def lore_recompensa001(personagem):
     print(f"[bold purple][Sistema] 🪙   RECOMPENSAS: \nXp: [225] \nPoção de cura [1]\nPoção de mana [1]\nItens: 📒 Grimorio de Etherion, {item_escolhido001}[/bold purple]")
     text_inf = ('\nPressione ENTER para prosseguir...')
     digitar(text_inf)
-    a = input('')
+    input('')
 
 def lore_pos_1andar(personagem):
     limpar_tela()
@@ -305,10 +306,10 @@ def lore_recompensa002(personagem):
         tempo_digitar(0)
     personagem.checkpoint += 1
 
-    print(f"[bold purple][Sistema] 🪙   RECOMPENSAS: \nXp: [150] \nPoção de cura [1]\nPoção de mana [1]")
+    print("[bold purple][Sistema] 🪙   RECOMPENSAS: \nXp: [150] \nPoção de cura [1]\nPoção de mana [1]")
     text_inf = ('\nPressione ENTER para prosseguir...')
     digitar(text_inf)
-    a = input('')
+    input('')
 
 
 def lore_pos_2andar(personagem):
@@ -530,7 +531,7 @@ def morte_esfinge(personagem):
     digitar(text_inf)
     time.sleep(3)
     personagem.andar_esfinge_completado = True
-    a = input('')
+    input('')
     limpar_tela()
     lore_introducao(personagem)
 
@@ -670,7 +671,7 @@ def lore_recompensa003(personagem):
     print(f"[bold purple][Sistema] 🪙   RECOMPENSAS: \nXp: [280] \nPoção de cura [1]\nPoção de mana [1]\nItem: {item_escolhido002}[/bold purple]")
     text_inf = ('\nPressione ENTER para prosseguir...')
     digitar(text_inf)
-    a = input('')
+    input('')
 
 def lore_pos_4andar(personagem):
     limpar_tela()
@@ -755,7 +756,7 @@ def lore_recompensa004(personagem):
     print(f"[bold purple][Sistema] 🪙   RECOMPENSAS: \nXp: [700] \nPoção de cura [5]\nPoção de mana [5]\nItem: {item_escolhido003}[/bold purple]")
     text_inf = ('\nPressione ENTER para prosseguir...')
     digitar(text_inf)
-    a = input('')
+    input('')
     lore_F_andar(personagem)
 
 def lore_F_andar(personagem):

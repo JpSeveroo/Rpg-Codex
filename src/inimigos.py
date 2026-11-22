@@ -1,4 +1,4 @@
-from utills import limpar_tela, salvar_infos, load_infos
+from utills import limpar_tela, load_infos, salvar_infos
 
 lista_inimigos = []
 

@@ -1,5 +1,5 @@
+
 import utills
-from os import system
 
 lista_itens = []
 

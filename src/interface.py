@@ -1,10 +1,12 @@
-import utills
-import users
 import os
+from time import sleep
+
 import InquirerPy
 import InquirerPy.inquirer
+
 import ficha
-from time import sleep
+import users
+import utills
 from jogo1 import lore_introducao
 
 usuarios = []
@@ -76,7 +78,7 @@ class Interface:
     def verify(personagem):
         c = False
         nomes = [item.nick for item in personagens]
-        while c == False:
+        while not c:
             if personagem.nick in nomes:
                 print('O nome escolhido para o personagem não está disponível')
                 personagem.nick = input('Digite outro nome: ')
@@ -138,7 +140,7 @@ class Interface:
         global personagens_usuario
         global name_list
         global personagem_escolhido
-        if a == True:
+        if a:
             user = ''
             personagens_usuario = []
             personagem_escolhido = ''

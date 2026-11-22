@@ -1,12 +1,14 @@
-import interface
-import item
-import inventario
 from random import randint
 from time import sleep
+
 from InquirerPy import inquirer
-from utills import digitar, limpar_tela, tempo_digitar
-from inimigos import Inimigo, lista_inimigos
+
+import interface
+import inventario
+import item
 from ficha import Personagem
+from inimigos import Inimigo, lista_inimigos
+from utills import digitar, limpar_tela, tempo_digitar
 
 """=== UTILITARIOS ==="""
 tempo_digitar(0.02)
@@ -15,9 +17,9 @@ pocao_cura = item.lista_itens[0]
 pocao_mana = item.lista_itens[1]
 
 def get_nome(personagem):
-    if type(personagem) == Personagem:
+    if personagem.isinstance(Personagem):
         return personagem.nick
-    elif type(personagem) == Inimigo:
+    elif personagem.isinstance(Inimigo):
         return personagem.nome
 
 def rolar_dado():
@@ -62,7 +64,8 @@ def executar_ataque(atacante, defensor, pericia_principal, custo_mana, bonus_ext
 
     if isinstance(atacante, Inimigo):
         dano-= (defensor.pericias.get('resistencia', 0))//4
-        if dano<1: dano = 1
+        if dano<1: 
+            dano = 1
         digitar(f'🛡️ Dano reduzido pela sua resistencia para {dano}!')
 
     defensor.vida_atual -= dano
@@ -144,7 +147,7 @@ def inv(personagem, mana_max):
         if a == 'Sair':
             return
         b = inquirer.confirm(message='Você deseja usar o item ?').execute()
-        if b == True :
+        if b:
             num = lista_nome.index(a)
             if personagem.inventario[num].categoria == 'Utilizaveis':
                 personagem.inventario[num].qtd -= 1

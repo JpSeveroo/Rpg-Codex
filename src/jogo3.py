@@ -1,13 +1,13 @@
-import time
-from ficha import Personagem
-import sys
 import os
+import random
+import time
+
 from rich import print
-from item import lista_itens
+
 import inventario
 import jogo1
-import jogo3
-import random
+from item import lista_itens
+
 
 def lore_11_andar(personagem):
     os.system('cls' if os.name == 'nt' else 'clear')
@@ -149,7 +149,7 @@ def lore_recompensa001(personagem):
     print(f'[bold purple][Sistema] 🪙   RECOMPENSAS: \nXp: [450] \nPoção de cura [3]\nPoção de mana [3]\nItem: {item_escolhido001}, 📜 Fragmento de Lore — "Registro Refletido" Unidade Eco-10[/bold purple]')
     text_inf = ('\nPressione ENTER para prosseguir...')
     jogo1.digitar(text_inf)
-    a = input('')
+    input('')
 
 def lore_pos_11andar(personagem):
     texto5 = ('Os últimos Lamentadores se dissolvem lentamente, não em fragmentos de código como os inimigos anteriores, mas em luz suave, como se tivessem sido libertos de uma dor ancestral. Aqueles que você enfrentou ruíram em silêncio, mas os que você purificou… sorriram antes de partir — ou ao menos, você acha que sorriram.\nO Velório das Vozes silencia de vez.\nO chão, antes repleto de inscrições trêmulas, agora está limpo. Onde antes estavam nomes incompletos, surge apenas uma única inscrição:')
@@ -224,15 +224,15 @@ def lore_recompensa002(personagem):
     chance = random.random()
     if chance < 0.4:
         personagem.inventario.append(lista_itens[79])
-        print(f'[bold purple][Sistema] 🪙   RECOMPENSAS: \nXp: [480] \nPoção de cura [1]\nPoção de mana [1]\nItem: 📜 Fragmento de Lore — "Compasso da Máquina: Registro dos Guardiões de Pulso"[/bold purple]')
+        print('[bold purple][Sistema] 🪙   RECOMPENSAS: \nXp: [480] \nPoção de cura [1]\nPoção de mana [1]\nItem: 📜 Fragmento de Lore — "Compasso da Máquina: Registro dos Guardiões de Pulso"[/bold purple]')
         text_inf = ('\nPressione ENTER para prosseguir...')
         jogo1.digitar(text_inf)
-        a = input('')
+        input('')
     else:
-        print(f"[bold purple][Sistema] 🪙   RECOMPENSAS: \nXp: [480] \nPoção de cura [1]\nPoção de mana [1][/bold purple]")
+        print("[bold purple][Sistema] 🪙   RECOMPENSAS: \nXp: [480] \nPoção de cura [1]\nPoção de mana [1][/bold purple]")
         text_inf = ('\nPressione ENTER para prosseguir...')
         jogo1.digitar(text_inf)
-        a = input('')
+        input('')
 
 def lore_pos_12andar(personagem):
     texto11 = ('Com um estrondo final, o último Guardião de Pulso colapsa sobre si mesmo. Suas engrenagens se partem em ângulos impossíveis, como se o tempo interno que o guiava tivesse finalmente parado. As luzes vermelhas de seus visores se apagam... uma por uma. Mas a torre não silencia. Ao contrário, agora ela desacelera. As engrenagens colossais que giravam ao seu redor começam a parar, como um coração mecânico que enfim se rendeu à exaustão. Trilhos estagnam no ar, plataformas param de girar, e a gravidade — pela primeira vez neste andar — estabiliza-se. Você respira, mesmo que o ar seja só um código simulando oxigênio.')

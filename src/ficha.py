@@ -1,5 +1,7 @@
 from time import sleep
+
 import utills
+
 
 class Personagem:
 

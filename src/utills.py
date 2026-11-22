@@ -1,11 +1,10 @@
 import hashlib
 import json
 import os
+import subprocess
 import sys
 import time
 from pathlib import Path
-import subprocess
-
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 DATA_DIR = BASE_DIR / "data"
@@ -16,9 +15,9 @@ def limpar_tela():
     subprocess.run(comando, shell=True, check=False)
     
 def salvar_infos(path, data):
-    a = str(path) + '.json'
+    a = Path(str(path) + '.json')
     try:
-        with open(a, 'w') as arquivo:
+        with a.open("w") as arquivo:
             json.dump(data, arquivo, indent=4)
     except json.JSONDecodeError:
         print('Não foi possivel salvar as infos')
@@ -27,10 +26,10 @@ def cripto(texto):
     return hashlib.md5(texto.encode()).hexdigest()
 
 def load_infos(path):
-    a = str(path) + '.json'
-    if os.path.exists(a):
+    a = Path(str(path) + '.json')
+    if a.exists:
         try:
-            with open(a, 'r') as arquivo:
+            with a.open("r") as arquivo:
                 return json.load(arquivo)
         except json.JSONDecodeError:
             print('Não foi possivel ler o arquivo')

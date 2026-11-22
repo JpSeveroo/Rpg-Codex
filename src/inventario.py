@@ -1,10 +1,11 @@
-import item
-from utills import digitar
-from rich.text import Text
-from rich.console import Console
-from InquirerPy import inquirer
-from ficha import Personagem
 import os
+
+from InquirerPy import inquirer
+from rich.console import Console
+from rich.text import Text
+
+import item
+from ficha import Personagem
 
 lista_de_nomes_de_itens = [i.nome for i in item.lista_itens]
 
@@ -37,28 +38,28 @@ def equips(personagem):
 
     try:
         print('|' + f'Cabeça: {personagem.equipamento.itens['Cabeça']['item'].nome}'.ljust(33) + '|' + ' '*10 + '|' + f'Acrobacia: {personagem.pericias['acrobacia']}'.center(33) + '|')
-    except:
+    except AttributeError:
         print('|' + 'Cabeça: '.ljust(33) + '|'+ ' '*10 + '|' + f'Acrobacia: {personagem.pericias['acrobacia']}'.center(33) + '|')
 
     print('|' + '-'*33 + '|'+ ' '*10 + '|' + f'Blefar: {personagem.pericias['blefar']}'.center(33) + '|')
 
     try:
         print('|' + f'Corpo: {personagem.equipamento.itens['Corpo']['item'].nome}'.ljust(33) + '|'+ ' '*10 + '|' + f'Mira: {personagem.pericias['mira']}'.center(33) + '|')
-    except:
+    except AttributeError:
         print('|' + 'Corpo: '.ljust(33) + '|'+ ' '*10 + '|' + f'Mira: {personagem.pericias['mira']}'.center(33) + '|')
 
     print('|' + '-'*33 + '|'+ ' '*10 + '|' + f'Diplomacia: {personagem.pericias['diplomacia']}'.center(33) + '|')
 
     try:
         print('|' + f'Pés: {personagem.equipamento.itens['Pés']['item'].nome}'.ljust(33) + '|'+ ' '*10 + '|' + f'Furtividade: {personagem.pericias['furtividade']}'.center(33) + '|')
-    except:
+    except AttributeError:
         print('|' + 'Pés: '.ljust(33) + '|'+ ' '*10 + '|' + f'Furtividade: {personagem.pericias['furtividade']}'.center(33) + '|')
 
     print('|' + '-'*33 + '|'+ ' '*10 + '|' + f'Percepção: {personagem.pericias['percepcao']}'.center(33) + '|')
 
     try:
         print('|' + f'Mãos: {personagem.equipamento.itens['Mãos']['item'].nome}'.ljust(33) + '|'+ ' '*10 + '|' + f'Mãos Rápidas: {personagem.pericias['maos rapidas']}'.center(33) + '|')
-    except:
+    except AttributeError:
         print('|' + 'Mãos: '.ljust(33) + '|'+ ' '*10 + '|' + f'Mãos Rápidas: {personagem.pericias['maos rapidas']}'.center(33) + '|')
 
     print('|' + '-'*33 + '|'+ ' '*10 + '|' + f'Mano a Mano: {personagem.pericias['mano a mano']}'.center(33) + '|')
@@ -96,7 +97,7 @@ def interface_inv(personagem):
 
 def equip_itens(personagem, disponiveis):
     global escolhido
-    if equipamento.itens[escolhido]['equipado'] == False:
+    if not equipamento.itens[escolhido]['equipado']:
         if len(disponiveis) == 0 :
             print('Não há nenhum equipamento disponivel para essa parte')
             input('Pressione enter para voltar...')
@@ -116,10 +117,10 @@ def equip_itens(personagem, disponiveis):
     else:
         print(f'Não é possivel equipar um item na(o) {escolhido}')
         c = inquirer.confirm(message='Você deseja desequipar ?').execute()
-        if c == True:
+        if c:
             desequipando(personagem, equipamento.itens[escolhido]['item'], escolhido)
             interface_inv(personagem)
-        if c == False:
+        if c:
             interface_inv(personagem)
 
 def sair(personagem, disponiveis):
@@ -135,7 +136,7 @@ def utilizaveis(personagem, disponiveis):
         input('Pressione enter para voltar...')
         interface_inv(personagem)
         return
-    b = inquirer.select(message=f'Qual o item que você deseja utilizar: ', choices=nomes_itens).execute()
+    b = inquirer.select(message='Qual o item que você deseja utilizar: ', choices=nomes_itens).execute()
     if b == 'Sair':
         interface_inv(personagem)
         return
@@ -166,8 +167,8 @@ def utilizaveis(personagem, disponiveis):
 def display(fonte):
     console = Console()
     texto = Text()
-    for item in fonte.split('.'):
-        texto.append(item)
+    for inv_item in fonte.split('.'):
+        texto.append(inv_item)
     console.print(texto)
     input('Pressione enter para continuar...')
 
