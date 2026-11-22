@@ -5,54 +5,6 @@ from typing import ClassVar
 from models.item import Item
 
 
-_ATRIBUTOS = (
-    "força",
-    "destreza",
-    "constituicao",
-    "carisma",
-    "inteligencia",
-)
-
-_PERICIAS = {
-    "acrobacia": "destreza",
-    "blefar": "carisma",
-    "mira": "destreza",
-    "diplomacia": "carisma",
-    "furtividade": "inteligencia",
-    "percepcao": "inteligencia",
-    "maos rapidas": "destreza",
-    "mano a mano": "força",
-    "resistencia": "força",
-}
-
-_BONUS_RACA = {
-    "humano": {atributo: 1 for atributo in _ATRIBUTOS},
-    "elfo": {
-        "destreza": 3,
-        "inteligencia": 2,
-        "constituicao": -2,
-    },
-    "draconiano": {
-        "força": 5,
-        "carisma": -3,
-    },
-}
-
-_BONUS_CLASSE = {
-    "guerreiro": {"força": 8, "destreza": 2},
-    "ladino": {"destreza": 5, "inteligencia": 5},
-    "mago": {"inteligencia": 7, "carisma": 3},
-    "clérigo": {"carisma": 5, "destreza": 5},
-}
-
-_PENALIDADES_CLASSE = {
-    "guerreiro": {"diplomacia": -3},
-    "ladino": {"resistencia": -3},
-    "mago": {"mano a mano": -3},
-    "clérigo": {"furtividade": -3},
-}
-
-
 @dataclass(eq=False)
 class Personagem:
     nick: str
@@ -72,9 +24,6 @@ class Personagem:
     andar_cupula_completado: bool = False
     checkpoint: int = 0
 
-    modificadores_pericias: dict[str, int] = field(
-        default_factory=dict
-    )
     aplicar_bonus: InitVar[bool] = True
 
     pericias: dict[str, int] = field(init=False)
@@ -94,109 +43,87 @@ class Personagem:
     }
 
     def __post_init__(self, aplicar_bonus: bool) -> None:
-        self.nick = self.nick.strip()
-        self.raca = self.raca.strip().lower()
-        self.classe = self.classe.strip().lower()
-
-        if not self.nick:
-            raise ValueError("O nome do personagem não pode estar vazio.")
-
-        if self.raca not in _BONUS_RACA:
-            raise ValueError(f"Raça inválida: {self.raca}")
-
-        if self.classe not in _BONUS_CLASSE:
-            raise ValueError(f"Classe inválida: {self.classe}")
-
-        if set(self.atributos) != set(_ATRIBUTOS):
-            raise ValueError("Os atributos informados são inválidos.")
-
-        if any(
-            type(valor) is not int
-            for valor in self.atributos.values()
-        ):
-            raise ValueError("Os atributos devem conter valores inteiros.")
-
-        if aplicar_bonus and (
-            any(valor < 0 for valor in self.atributos.values())
-            or sum(self.atributos.values()) != 30
-        ):
-            raise ValueError(
-                "Distribua exatamente 30 pontos não negativos."
-            )
-
-        if type(self.nivel) is not int or self.nivel not in self.tabela_xp:
-            raise ValueError("Nível inválido.")
-
-        if type(self.xp) is not int or self.xp < 0:
-            raise ValueError("A experiência deve ser não negativa.")
-
         self.atributos = self.atributos.copy()
         self.inventario = self.inventario.copy()
         self.fraquezas = self.fraquezas.copy()
         self.equipamento = self.equipamento.copy()
-        self.modificadores_pericias = (
-            self.modificadores_pericias.copy()
+
+        self.pericias = {
+            "acrobacia": 0,
+            "blefar": 0,
+            "mira": 0,
+            "diplomacia": 0,
+            "furtividade": 0,
+            "percepcao": 0,
+            "maos rapidas": 0,
+            "mano a mano": 0,
+            "resistencia": 0,
+        }
+
+        self.status = {"hp": 100, "mana": 100}
+        self.mana_max = self.status["mana"]
+        self.vida_atual = self.status["hp"]
+
+        self.xp_para_proximo_nivel = self.tabela_xp.get(
+            self.nivel, 100
         )
 
         if aplicar_bonus:
             self._aplicar_bonus_iniciais()
 
-        self.calcular_pericias()
-
-        self.mana_max = 100
-        self.status = {
-            "hp": 100 + self.atributos["constituicao"] * 5,
-            "mana": self.mana_max,
-        }
+        self.status["hp"] = (
+            100 + self.atributos["constituicao"] * 5
+        )
         self.vida_atual = self.status["hp"]
-        self.xp_para_proximo_nivel = self.tabela_xp[self.nivel]
+
+        self.calcular_pericias()
 
     def _aplicar_bonus_iniciais(self) -> None:
-        bonus = (
-            _BONUS_RACA[self.raca],
-            _BONUS_CLASSE[self.classe],
-        )
+        if self.raca == "humano":
+            for atributo in self.atributos:
+                self.atributos[atributo] += 1
 
-        for modificadores in bonus:
-            for atributo, pontos in modificadores.items():
-                self.atributos[atributo] += pontos
+        elif self.raca == "elfo":
+            self.atributos["destreza"] += 3
+            self.atributos["inteligencia"] += 2
+            self.atributos["constituicao"] -= 2
+
+        elif self.raca == "draconiano":
+            self.atributos["força"] += 5
+            self.atributos["carisma"] -= 3
+
+        if self.classe == "guerreiro":
+            self.atributos["força"] += 8
+            self.atributos["destreza"] += 2
+            self.pericias["diplomacia"] -= 3
+
+        elif self.classe == "ladino":
+            self.atributos["destreza"] += 5
+            self.atributos["inteligencia"] += 5
+            self.pericias["resistencia"] -= 3
+
+        elif self.classe == "mago":
+            self.atributos["inteligencia"] += 7
+            self.atributos["carisma"] += 3
+            self.pericias["mano a mano"] -= 3
+
+        elif self.classe == "clérigo":
+            self.atributos["carisma"] += 5
+            self.atributos["destreza"] += 5
+            self.pericias["furtividade"] -= 3
 
     def calcular_pericias(self) -> None:
-        penalidades = _PENALIDADES_CLASSE[self.classe]
-
         self.pericias = {
-            pericia: (
-                self.atributos[atributo]
-                + penalidades.get(pericia, 0)
-                + self.modificadores_pericias.get(pericia, 0)
-            )
-            for pericia, atributo in _PERICIAS.items()
+            "acrobacia": self.atributos["destreza"],
+            "blefar": self.atributos["carisma"],
+            "mira": self.atributos["destreza"],
+            "diplomacia": self.atributos["carisma"],
+            "furtividade": self.atributos["inteligencia"],
+            "percepcao": self.atributos["inteligencia"],
+            "maos rapidas": self.atributos["destreza"],
+            "mano a mano": self.atributos["força"],
+            "resistencia": self.atributos["força"],
         }
-
-    def alterar_modificador_pericia(
-        self,
-        pericia: str,
-        pontos: int,
-    ) -> None:
-        if pericia not in _PERICIAS:
-            raise ValueError(f"Perícia inválida: {pericia}")
-
-        if type(pontos) is not int:
-            raise ValueError("O modificador deve ser inteiro.")
-
-        self.modificadores_pericias[pericia] = (
-            self.modificadores_pericias.get(pericia, 0) + pontos
-        )
-
-        self.calcular_pericias()
-
-    def adicionar_experiencia(self, quantidade: int) -> None:
-        if type(quantidade) is not int or quantidade < 0:
-            raise ValueError(
-                "A experiência recebida deve ser um inteiro não negativo."
-            )
-
-        self.xp += quantidade
 
     def pode_evoluir(self) -> bool:
         return (
@@ -223,27 +150,28 @@ class Personagem:
             or sum(distribuicao.values()) != 5
         ):
             raise ValueError(
-                "Distribua exatamente 5 pontos entre os atributos válidos."
+                "Distribua exatamente 5 pontos entre os atributos."
             )
 
-        vida_maxima_anterior = self.status["hp"]
+        xp_necessario = self.tabela_xp[self.nivel]
 
-        self.xp -= int(self.tabela_xp[self.nivel])
+        self.xp -= int(xp_necessario)
         self.nivel += 1
+
+        self.xp_para_proximo_nivel = self.tabela_xp.get(
+            self.nivel, float("inf")
+        )
 
         for atributo, pontos in distribuicao.items():
             self.atributos[atributo] += pontos
 
-        self.xp_para_proximo_nivel = self.tabela_xp[self.nivel]
         self.calcular_pericias()
 
-        nova_vida_maxima = (
-            100 + self.atributos["constituicao"] * 5
-        )
-        self.status["hp"] = nova_vida_maxima
-        self.vida_atual = min(
-            self.vida_atual + nova_vida_maxima - vida_maxima_anterior,
-            nova_vida_maxima,
-        )
+        if self.nivel >= max(self.tabela_xp):
+            self.xp_para_proximo_nivel = float("inf")
+        else:
+            self.xp_para_proximo_nivel = self.tabela_xp.get(
+                self.nivel, float("inf")
+            )
 
         return True

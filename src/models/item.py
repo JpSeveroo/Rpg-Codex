@@ -2,7 +2,7 @@
 from dataclasses import dataclass
 
 
-@dataclass
+@dataclass(eq=False)
 class Item:
     nome: str
     efeitos: list[list[str | int]]
