@@ -4,9 +4,9 @@ import time
 
 from rich import print
 
-import inventario
-import jogo1
-from item import lista_itens
+import gameplay.inventario as inventario
+import story.jogo1 as jogo1
+from models.item import lista_itens
 
 
 def lore_11_andar(personagem):

@@ -4,12 +4,12 @@ import time
 from InquirerPy import inquirer
 from rich import print
 
-import inventario
-import jogo1
-import jogo3
-from combate import combate
-from inimigos import lista_inimigos
-from item import lista_itens
+import gameplay.inventario as inventario
+import story.jogo1 as jogo1
+import story.jogo3 as jogo3
+from gameplay.combate import combate
+from models.inimigo import lista_inimigos
+from models.item import lista_itens
 from utills import digitar, limpar_tela
 
 

@@ -4,10 +4,10 @@ from time import sleep
 from InquirerPy import inquirer
 
 import interface
-import inventario
-import item
-from ficha import Personagem
-from inimigos import Inimigo, lista_inimigos
+import gameplay.inventario as inventario
+import models.item as item
+from models.ficha import Personagem
+from models.inimigo import Inimigo, lista_inimigos
 from utills import digitar, limpar_tela, tempo_digitar
 
 """=== UTILITARIOS ==="""
@@ -326,7 +326,7 @@ def combate(personagem, inimigo):
 """=== EXEMPLO DE EXECUÇÃO ==="""
 
 if __name__ == '__main__':
-    from ficha import Personagem
+    from models.ficha import Personagem
 
     pocao_cura.qtd = 2
     pocao_mana.qtd = 2

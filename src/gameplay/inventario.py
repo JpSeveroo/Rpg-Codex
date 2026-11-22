@@ -4,8 +4,8 @@ from InquirerPy import inquirer
 from rich.console import Console
 from rich.text import Text
 
-import item
-from ficha import Personagem
+import models.item as item
+from models.ficha import Personagem
 
 lista_de_nomes_de_itens = [i.nome for i in item.lista_itens]
 

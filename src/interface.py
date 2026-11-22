@@ -4,16 +4,16 @@ from time import sleep
 import InquirerPy
 import InquirerPy.inquirer
 
-import ficha
-import users
+import models.ficha as ficha
+import models.usuario as usuario
 import utills
-from jogo1 import lore_introducao
+from story.jogo1 import lore_introducao
 
 usuarios = []
 personagens = []
 personagens_usuario = []
 name_list = []
-user = ''
+usuario = ''
 personagem_escolhido = ''
 
 class Interface:
@@ -46,7 +46,7 @@ class Interface:
         utills.salvar_infos(path, lista)
 
     def interface_criacao():
-        user = users.users()
+        user = user.users()
         nomes_existentes = [u.username for u in usuarios]
         a = InquirerPy.inquirer.text(message='Digite o nome de usuário', validate= lambda x: x != '' and x not in nomes_existentes, invalid_message='O campo não pode estar vazio ou o nome já existir').execute()    
         b = InquirerPy.inquirer.text(message='Digite a senha do usuário', validate= lambda x: x != '', invalid_message='O campo não pode estar vazio', is_password=True).execute()
@@ -65,11 +65,11 @@ class Interface:
         c = lista_username.index(a)
         if usuarios[c].password == utills.cripto(str(b)):
             print('Acesso liberado!')
-            global user
-            user = usuarios[c]
-            load_pers_users(user.personagens)
+            global usuario
+            usuario = usuarios[c]
+            load_pers_users(usuario.personagens)
             input('Pressione enter para seguir...')
-            Interface.interface_usuário(user.username)
+            Interface.interface_usuário(usuario.username)
         else:
             print('Acesso negado!')
             input('Pressione enter para voltar...')
@@ -92,10 +92,10 @@ class Interface:
         personagens.append(personagem)
         personagens_usuario.append(personagem)
         name_list.append(utills.cripto(personagem.nick))
-        user.personagens = name_list
+        usuario.personagens = name_list
         Interface.save(usuarios, 'usuarios')
         Interface.save(personagens, 'personagem')
-        Interface.interface_usuário(user.username)
+        Interface.interface_usuário(usuario.username)
 
     def jogar():
         os.system('cls' if os.name == 'nt' else 'clear')
@@ -105,7 +105,7 @@ class Interface:
             b = InquirerPy.inquirer.select(message='Qual o personagem desejado', choices= pers).execute()
             if b == 'Sair':
                 sleep(0.5)
-                Interface.interface_usuário(user.username)
+                Interface.interface_usuário(usuario.username)
                 return
             c = pers.index(b)
             global personagem_escolhido
@@ -113,7 +113,7 @@ class Interface:
         else:
             print('Não há nenhum personagem criado!')
             input('Pressione qualquer tecla para voltar ao menu...')
-            Interface.interface_usuário(user.username)
+            Interface.interface_usuário(usuario.username)
             return
         lore_introducao(personagem_escolhido)
     
@@ -125,30 +125,30 @@ class Interface:
         if len(a) > 1 :
             b = InquirerPy.inquirer.select(message='Qual o personagem desejado', choices= a).execute()
             if b == 'Sair':
-                Interface.interface_usuário(user.username)
+                Interface.interface_usuário(usuario.username)
                 return
             c = a.index(b)
             personagens_usuario[c].visualizar()
         else :
-            print(f'Não há personagens criados no usuário {user.username} \n')
+            print(f'Não há personagens criados no usuário {usuario.username} \n')
         input('Pressione qualquer tecla para voltar...')
-        Interface.interface_usuário(user.username)
+        Interface.interface_usuário(usuario.username)
     
     def logout():
         a = InquirerPy.inquirer.confirm(message='Você deseja deslogar desse usuário ?').execute()
-        global user
+        global usuario
         global personagens_usuario
         global name_list
         global personagem_escolhido
         if a:
-            user = ''
+            usuario = ''
             personagens_usuario = []
             personagem_escolhido = ''
             name_list = []
             Interface.interface_principal()
             sleep(0.5)
         else :
-            Interface.interface_usuário(user.username)
+            Interface.interface_usuário(usuario.username)
             sleep(0.5)
 
     def interface_usuário(user):
@@ -205,7 +205,7 @@ def load():
     try:
         a = utills.load_infos('usuarios')
         for item in a:
-            b = users.users()
+            b = usuario.users()
             b.criar_user(item['_username'], item['_password'])
             b.personagens = item['personagens']
             usuarios.append(b)
